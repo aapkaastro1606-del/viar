@@ -1224,6 +1224,26 @@ As required by the security and data segregation architecture, **Viar.in runs on
      2. Open application `app_3JoGbVxdSJXtTwELzFuSwXpw6Rf`.
      3. Navigate to **Configure > Domains**. Ensure the Primary domain is set to `aapkaastro.com`.
      4. Click **Add Satellite Domain** and add `viar.in` (and `viar-two.vercel.app` for preview testing).
+
+   - **TEMPORARY CLERK TEST KEYS CONFIGURATION (FLAGGED FOR PREVIEW & DNS PROPAGATION)**:
+     > **NOTICE**: Temporarily switched this project's Clerk environment variables back to the test keys (`pk_test_...` / `sk_test_...`) so authentication and login work immediately on `viar-two.vercel.app` while DNS propagates.
+     >
+     > **TODO: SWITCH BACK TO LIVE CLERK KEYS ONCE viar.in DNS IS VERIFIED.**
+     > Once `viar.in` DNS records have propagated and Clerk domain verification is complete, switch Vercel environment variables to the production live keys (`pk_live_...` / `sk_live_...`).
+
+   - **REQUIRED DNS RECORDS FOR VIAR.IN PRODUCTION SETUP (Cloudflare / DNS Provider)**:
+     To complete Clerk domain configuration for `viar.in` (and satellite proxying / email delivery):
+     | Record Type | Host / Name | Target / Value | Purpose |
+     | :--- | :--- | :--- | :--- |
+     | **CNAME** | `frontend-api` (or `clerk.viar.in`) | `frontend-api.clerk.services` | Clerk Frontend API & Session Proxy |
+     | **CNAME** | `accounts` (or `accounts.viar.in`) | `accounts.clerk.services` | Clerk Hosted Account & Auth Pages |
+     | **CNAME** | `clerk._domainkey` | `dkim1.clerk.services` | Clerk Email DKIM Authentication (Key 1) |
+     | **CNAME** | `clerk2._domainkey` | `dkim2.clerk.services` | Clerk Email DKIM Authentication (Key 2) |
+     | **TXT** | `clerk` (or `clerk.viar.in`) | `v=spf1 include:clerk.services ~all` | Clerk Email Delivery SPF Verification |
+     | **CNAME** | `mail` (or `clerk-mail.viar.in`) | `mail.clerk.services` | Clerk Custom Return-Path / Mail Routing |
+
+     *(Note: If using Cloudflare DNS, set these CNAME records to **DNS Only** / Gray Cloud to avoid double-proxy TLS handshake mismatches).*
+
    - **Vercel Production Environment Variables**:
      In the Vercel project settings for `viar`, ensure the following are set:
      - `DATABASE_URL`: `postgresql://neondb_owner:***@ep-orange-poetry-b4cupwem-pooler.c-6.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require`

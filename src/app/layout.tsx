@@ -5,6 +5,7 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { ThemeProvider } from '@/components/ThemeProvider';
+import WelcomeCohortModal from '@/components/WelcomeCohortModal';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -70,18 +71,28 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased cosmic-bg flex flex-col min-h-screen selection:bg-amber-500 selection:text-black`}
       >
-        <ClerkProvider
-          publishableKey={
-            process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY ||
-            'pk_test_cHJvZm91bmQtY2ljYWRhLTk2OTQuY2xlcmsuYWNjb3VudHMuZGV2JA'
-          }
-        >
+        {/* // TODO: SWITCH BACK TO LIVE CLERK KEYS ONCE viar.in DNS IS VERIFIED */}
+        {/* Keys must be supplied via Vercel / environment variables (NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY). Zero code fallbacks. */}
+        {process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY ? (
+          <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
+            <ThemeProvider>
+              <Navbar />
+              <main className="flex-grow">{children}</main>
+              <Footer />
+              <WelcomeCohortModal />
+            </ThemeProvider>
+          </ClerkProvider>
+        ) : (
           <ThemeProvider>
-          <Navbar />
-          <main className="flex-grow">{children}</main>
-          <Footer />
+            <div className="bg-amber-500/10 border-b border-amber-500/30 px-4 py-2 text-center text-xs font-mono text-amber-300">
+              ⚠️ <strong>Authentication Misconfigured:</strong> <code>NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY</code> is missing from environment variables.
+            </div>
+            <Navbar />
+            <main className="flex-grow">{children}</main>
+            <Footer />
+            <WelcomeCohortModal />
           </ThemeProvider>
-        </ClerkProvider>
+        )}
       </body>
     </html>
   );

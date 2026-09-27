@@ -13,34 +13,53 @@ export async function POST(req: NextRequest) {
   try {
     const rawBody = await req.text();
     const signatureHeader = req.headers.get('stripe-signature');
-    const webhookSecret = env.payments.stripe.webhookSecret;
+    const webhookSecret = env.payments.stripe.webhookSecret || process.env.STRIPE_WEBHOOK_SECRET;
 
-    // Verify Stripe signature if secret configured
-    if (signatureHeader && webhookSecret) {
-      const parts = signatureHeader.split(',').reduce((acc, part) => {
-        const [k, v] = part.split('=');
-        acc[k.trim()] = v?.trim();
-        return acc;
-      }, {} as Record<string, string>);
+    if (!webhookSecret) {
+      logger.error('Stripe webhook secret is not configured on server', new Error('Missing STRIPE_WEBHOOK_SECRET'), {
+        service: 'payments',
+        endpoint: '/api/payments/webhook/stripe',
+      });
+      return NextResponse.json({ error: 'Webhook secret not configured on server' }, { status: 500 });
+    }
 
-      const timestamp = parts['t'];
-      const signature = parts['v1'];
+    if (!signatureHeader) {
+      logger.securityAlert('Missing Stripe signature header', {
+        event: 'invalid_signature',
+        endpoint: '/api/payments/webhook/stripe',
+      });
+      return NextResponse.json({ error: 'Missing stripe-signature header' }, { status: 400 });
+    }
 
-      if (timestamp && signature) {
-        const signedPayload = `${timestamp}.${rawBody}`;
-        const expectedSignature = crypto
-          .createHmac('sha256', webhookSecret)
-          .update(signedPayload)
-          .digest('hex');
+    const parts = signatureHeader.split(',').reduce((acc, part) => {
+      const [k, v] = part.split('=');
+      acc[k.trim()] = v?.trim();
+      return acc;
+    }, {} as Record<string, string>);
 
-        if (expectedSignature !== signature) {
-          logger.securityAlert('Invalid Stripe webhook signature', {
-            event: 'invalid_signature',
-            endpoint: '/api/payments/webhook/stripe',
-          });
-          return NextResponse.json({ error: 'Invalid signature' }, { status: 400 });
-        }
-      }
+    const timestamp = parts['t'];
+    const signature = parts['v1'];
+
+    if (!timestamp || !signature) {
+      logger.securityAlert('Malformed Stripe signature header', {
+        event: 'invalid_signature',
+        endpoint: '/api/payments/webhook/stripe',
+      });
+      return NextResponse.json({ error: 'Malformed stripe-signature header' }, { status: 400 });
+    }
+
+    const signedPayload = `${timestamp}.${rawBody}`;
+    const expectedSignature = crypto
+      .createHmac('sha256', webhookSecret)
+      .update(signedPayload)
+      .digest('hex');
+
+    if (expectedSignature !== signature) {
+      logger.securityAlert('Invalid Stripe webhook signature', {
+        event: 'invalid_signature',
+        endpoint: '/api/payments/webhook/stripe',
+      });
+      return NextResponse.json({ error: 'Invalid signature' }, { status: 400 });
     }
 
     const payload = JSON.parse(rawBody || '{}');

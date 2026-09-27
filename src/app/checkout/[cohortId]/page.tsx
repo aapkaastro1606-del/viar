@@ -15,7 +15,7 @@ import {
 import { ViarStore } from '@/lib/store';
 import { Course, Cohort } from '@/lib/types';
 import { formatInTimezone, getUserLocalTimezone } from '@/lib/timezones';
-import { isStripeEnabled, getPaymentProvider } from '@/lib/payments';
+import { isStripeEnabled, isRazorpayEnabled, getPaymentProvider } from '@/lib/payments';
 
 function CheckoutContent() {
   const params = useParams();
@@ -23,6 +23,7 @@ function CheckoutContent() {
   const router = useRouter();
   const cohortId = params?.cohortId as string;
   const stripeActive = isStripeEnabled();
+  const razorpayActive = isRazorpayEnabled();
   
   // If Stripe is not enabled, default strictly to INR & Razorpay
   const initialCurrency = stripeActive ? ((searchParams?.get('currency') as 'INR' | 'USD') || 'INR') : 'INR';
@@ -135,6 +136,15 @@ function CheckoutContent() {
             One-time tuition for lifetime access to the 18 live classes, HD recordings, materials, and final certification.
           </p>
         </div>
+
+        {!razorpayActive && !stripeActive && (
+          <div className="mb-6 p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs flex items-center gap-2 max-w-2xl mx-auto">
+            <AlertCircle className="w-5 h-5 shrink-0 text-amber-400" />
+            <div>
+              <strong>Payment Gateways Misconfigured:</strong> Neither Razorpay nor Stripe credentials are set in environment variables. Payments are currently paused in this environment until <code>NEXT_PUBLIC_RAZORPAY_KEY_ID</code> and <code>RAZORPAY_KEY_SECRET</code> are configured.
+            </div>
+          </div>
+        )}
 
         {errorMsg && (
           <div className="mb-6 p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-300 text-xs flex items-center gap-2 max-w-2xl mx-auto">

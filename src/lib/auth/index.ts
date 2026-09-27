@@ -21,8 +21,11 @@ import { assignRoleForUser } from './permissions';
  *    - SATELLITE DOMAIN 2: `dowconsulting.in`
  * 
  * 2. Environment Variables (.env / Vercel):
- *    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_live_...
- *    CLERK_SECRET_KEY=sk_live_...
+ *    // TODO: SWITCH BACK TO LIVE CLERK KEYS ONCE viar.in DNS IS VERIFIED
+ *    // Keys must be provided via environment variables (NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY & CLERK_SECRET_KEY).
+ *    // Zero fallback default keys are hardcoded in application code.
+ *    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_... (or pk_live_...)
+ *    CLERK_SECRET_KEY=sk_test_... (or sk_live_...)
  *    NEXT_PUBLIC_CLERK_DOMAIN="viar.in"
  *    NEXT_PUBLIC_CLERK_IS_SATELLITE="true"
  *    NEXT_PUBLIC_CLERK_SIGN_IN_URL="https://aapkaastro.com/sign-in"

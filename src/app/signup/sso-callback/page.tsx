@@ -32,12 +32,18 @@ export default function ViarSignupSSOCallbackPage() {
         </div>
 
         {/* Clerk OAuth Redirect Handshake Processor */}
-        <AuthenticateWithRedirectCallback
-          signInForceRedirectUrl="/dashboard"
-          signUpForceRedirectUrl="/dashboard"
-          signInFallbackRedirectUrl="/dashboard"
-          signUpFallbackRedirectUrl="/dashboard"
-        />
+        {process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY ? (
+          <AuthenticateWithRedirectCallback
+            signInForceRedirectUrl="/dashboard"
+            signUpForceRedirectUrl="/dashboard"
+            signInFallbackRedirectUrl="/dashboard"
+            signUpFallbackRedirectUrl="/dashboard"
+          />
+        ) : (
+          <div className="mt-4 p-3 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs">
+            ⚠️ Authentication Misconfigured: Missing <code>NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY</code> in environment variables.
+          </div>
+        )}
       </div>
     </div>
   );

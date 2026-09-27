@@ -91,15 +91,18 @@ export const env: AppEnvConfig = {
   appUrl: getEnvVar('NEXT_PUBLIC_APP_URL', 'http://localhost:3000'),
 
   database: {
-    url: getEnvVar('DATABASE_URL', 'postgresql://postgres:postgres@localhost:5432/viar_db?schema=public'),
+    url: getEnvVar('DATABASE_URL', ''),
     directUrl: getEnvVar('DIRECT_URL', ''),
   },
 
   redis: {
-    url: getEnvVar('REDIS_URL', 'redis://localhost:6379'),
+    url: getEnvVar('REDIS_URL', ''),
   },
 
   auth: {
+    // // TODO: SWITCH BACK TO LIVE CLERK KEYS ONCE viar.in DNS IS VERIFIED
+    // Must be set via environment variable (NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY and CLERK_SECRET_KEY)
+    // No fallback default keys allowed in code.
     clerkPublishableKey: getEnvVar('NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY', ''),
     clerkSecretKey: getEnvVar('CLERK_SECRET_KEY', ''),
     clerkWebhookSecret: getEnvVar('CLERK_WEBHOOK_SECRET', ''),
@@ -136,8 +139,8 @@ export const env: AppEnvConfig = {
       Boolean(getEnvVar('NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY', '')),
 
     razorpay: {
-      keyId: getEnvVar('NEXT_PUBLIC_RAZORPAY_KEY_ID', getEnvVar('RAZORPAY_KEY_ID', 'rzp_test_placeholder_key')),
-      keySecret: getEnvVar('RAZORPAY_KEY_SECRET', 'rzp_test_secret_placeholder'),
+      keyId: getEnvVar('NEXT_PUBLIC_RAZORPAY_KEY_ID', getEnvVar('RAZORPAY_KEY_ID', '')),
+      keySecret: getEnvVar('RAZORPAY_KEY_SECRET', ''),
     },
 
     stripe: {

@@ -15,6 +15,12 @@ export class StripePaymentProvider implements PaymentProvider {
   }
 
   async createOrder(params: CreateOrderParams): Promise<PaymentOrderResult> {
+    if (!this.isConfigured()) {
+      throw new Error(
+        'Stripe payment gateway is not configured. Missing STRIPE_SECRET_KEY or NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY in environment variables.'
+      );
+    }
+
     const orderId = `cs_stripe_${Date.now()}_${Math.floor(Math.random() * 1000)}`;
 
     return {

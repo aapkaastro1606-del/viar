@@ -59,6 +59,12 @@ describe('Payment Webhook Verification Logic', () => {
       const isVerified = verifyRazorpaySignature(payload, validSignature, 'wrong_secret');
       assert.strictEqual(isVerified, false, 'Signature with wrong secret must fail');
     });
+
+    it('should fail closed when secret or signature is missing or empty', () => {
+      const payload = JSON.stringify({ event: 'payment.captured' });
+      assert.strictEqual(verifyRazorpaySignature(payload, '', razorpaySecret), false);
+      assert.strictEqual(verifyRazorpaySignature(payload, 'sig_abc', ''), false);
+    });
   });
 
   describe('Stripe Webhook Signatures', () => {
@@ -98,6 +104,12 @@ describe('Payment Webhook Verification Logic', () => {
       const rawBody = '{"type":"checkout.session.completed"}';
       const isValid = verifyStripeSignature(rawBody, 'invalid_header_format', stripeSecret);
       assert.strictEqual(isValid, false, 'Malformed header must fail verification');
+    });
+
+    it('should fail closed when Stripe secret or signature header is empty', () => {
+      const rawBody = '{"type":"payment_intent.succeeded"}';
+      assert.strictEqual(verifyStripeSignature(rawBody, '', stripeSecret), false);
+      assert.strictEqual(verifyStripeSignature(rawBody, 't=123,v1=sig', ''), false);
     });
   });
 

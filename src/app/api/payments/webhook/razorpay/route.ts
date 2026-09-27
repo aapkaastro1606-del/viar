@@ -13,23 +13,35 @@ export async function POST(req: NextRequest) {
   try {
     const rawBody = await req.text();
     const signature = req.headers.get('x-razorpay-signature');
+    const webhookSecret = process.env.RAZORPAY_WEBHOOK_SECRET || env.payments.razorpay.keySecret;
 
-    // Secret is either specific webhook secret or razorpay key secret
-    const webhookSecret = process.env.RAZORPAY_WEBHOOK_SECRET || env.payments.razorpay.keySecret || 'rzp_test_secret_placeholder';
+    if (!webhookSecret) {
+      logger.error('Razorpay webhook secret is not configured on server', new Error('Missing RAZORPAY_WEBHOOK_SECRET'), {
+        service: 'payments',
+        endpoint: '/api/payments/webhook/razorpay',
+      });
+      return NextResponse.json({ error: 'Webhook secret not configured on server' }, { status: 500 });
+    }
 
-    if (signature && webhookSecret && webhookSecret !== 'rzp_test_secret_placeholder') {
-      const expectedSignature = crypto
-        .createHmac('sha256', webhookSecret)
-        .update(rawBody)
-        .digest('hex');
+    if (!signature) {
+      logger.securityAlert('Missing Razorpay webhook signature header', {
+        event: 'invalid_signature',
+        endpoint: '/api/payments/webhook/razorpay',
+      });
+      return NextResponse.json({ error: 'Missing signature header' }, { status: 400 });
+    }
 
-      if (expectedSignature !== signature) {
-        logger.securityAlert('Invalid Razorpay webhook signature', {
-          event: 'invalid_signature',
-          endpoint: '/api/payments/webhook/razorpay',
-        });
-        return NextResponse.json({ error: 'Invalid signature' }, { status: 400 });
-      }
+    const expectedSignature = crypto
+      .createHmac('sha256', webhookSecret)
+      .update(rawBody)
+      .digest('hex');
+
+    if (expectedSignature !== signature) {
+      logger.securityAlert('Invalid Razorpay webhook signature', {
+        event: 'invalid_signature',
+        endpoint: '/api/payments/webhook/razorpay',
+      });
+      return NextResponse.json({ error: 'Invalid signature' }, { status: 400 });
     }
 
     const payload = JSON.parse(rawBody || '{}');

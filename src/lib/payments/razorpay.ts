@@ -11,6 +11,12 @@ export class RazorpayPaymentProvider implements PaymentProvider {
   }
 
   async createOrder(params: CreateOrderParams): Promise<PaymentOrderResult> {
+    if (!this.isConfigured()) {
+      throw new Error(
+        'Razorpay payment gateway is not configured. Missing NEXT_PUBLIC_RAZORPAY_KEY_ID or RAZORPAY_KEY_SECRET in environment variables.'
+      );
+    }
+
     const orderId = `order_rzp_${Date.now()}_${Math.floor(Math.random() * 1000)}`;
 
     return {

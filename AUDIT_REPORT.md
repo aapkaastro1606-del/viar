@@ -1346,3 +1346,21 @@ As required by the security and data segregation architecture, **Viar.in runs on
 pm test).
 - **Production Build**: 0 errors, 44 routes compiled (
 pm run build).
+
+---
+
+## 26. Single-Viewport Popup Restraint Redesign — Before/After & Viewport Height Measurements (September 2026)
+
+### 26.1 Before vs. After Compression (src/components/WelcomeCohortModal.tsx)
+- **Before**: Stacked dual header pills, a multi-sentence academy overview, a boxed course & instructor card with original/discounted price badges, a 4-item feature grid (18 Live Classes, Recordings Count Identically, Starts Oct 3, Verifiable Certificate), a boxed 100% Risk-Free callout, primary CTA, syllabus link + dismiss row, and Aapka Astro cross-link (~680px+ tall with max-h-[90vh] overflow-y-auto).
+- **After**: Compressed to a clean, single-viewport 6-element hierarchy with zero internal scrolling required while retaining the warm brand identity (#7B2D26, #E8A33D, #FBF3E7, #3B2A1E) and all session/route/enrollment suppression rules:
+  1. Small brand mark (<Sparkles /> + VIAR.IN ACADEMY)
+  2. Headline naming course & live price: "Enroll in ‘What is Astrology’ — ₹4,999"
+  3. One-sentence subtext with live remaining seat count: "Only 12 seats remaining in Batch 1 for our live 9-week Vedic Jyotish cohort with Acharya Niraj Kumar."
+  4. One primary CTA button: "Claim Your Seat"
+  5. One small dismiss link: "No thanks, continue browsing"
+  6. Final subdued cross-link: "Want a personal consultation instead? Visit Aapka Astro →"
+
+### 26.2 Measured Rendered Heights (Headless Chrome CDP)
+- **Desktop (1280×800 viewport)**: **448px × 310px** (scrollHeight: 306px, clientHeight: 306px, equiresInternalScroll: false, itsSingleViewport: true — occupies **38.8%** of viewport height).
+- **Mobile (375×667 viewport)**: **335px × 334px** (scrollHeight: 330px, clientHeight: 330px, equiresInternalScroll: false, itsSingleViewport: true — occupies **50.1%** of viewport height).

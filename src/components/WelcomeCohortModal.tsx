@@ -46,8 +46,18 @@ export default function WelcomeCohortModal({
   }, [dismissKey, sessionKey]);
 
   useEffect(() => {
-    // 1. Route Suppression: Never show on instructor or admin routes
-    if (!pathname || pathname.startsWith('/instructor') || pathname.startsWith('/admin')) {
+    // 1. Route Suppression: Never show on instructor, admin, dashboard, checkout, or auth routes
+    if (
+      !pathname ||
+      pathname.startsWith('/instructor') ||
+      pathname.startsWith('/admin') ||
+      pathname.startsWith('/dashboard') ||
+      pathname.startsWith('/checkout') ||
+      pathname.startsWith('/login') ||
+      pathname.startsWith('/signup') ||
+      pathname.startsWith('/sso-callback')
+    ) {
+      setIsOpen(false);
       return;
     }
 

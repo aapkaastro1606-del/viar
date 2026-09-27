@@ -12,7 +12,8 @@ import {
   Video,
   ArrowRight,
   BookOpen,
-  Users
+  Users,
+  Compass
 } from 'lucide-react';
 import { ViarStore } from '@/lib/store';
 import { Course, Cohort } from '@/lib/types';
@@ -46,10 +47,28 @@ export default function WelcomeCohortModal({
     }
 
     const flagship = ViarStore.getCourseBySlug('what-is-astrology');
-    if (flagship) setCourse(flagship);
+    if (flagship) {
+      setCourse(flagship);
+      const cohorts = ViarStore.getCohorts(flagship.id);
+      if (cohorts.length > 0) {
+        setCohort(cohorts[0]);
+      }
+    }
 
-    const cohorts = ViarStore.getCohorts('course-what-is-astrology');
-    if (cohorts.length > 0) setCohort(cohorts[0]);
+    // Also attempt to sync live cohort/course data from the API endpoint to ensure latest DB values
+    fetch('/api/courses?slug=what-is-astrology')
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (data?.course) {
+          setCourse(data.course);
+          if (data.course.cohorts && data.course.cohorts.length > 0) {
+            setCohort(data.course.cohorts[0]);
+          }
+        }
+      })
+      .catch(() => {
+        // Fall back to ViarStore values already loaded
+      });
 
     const tz = ViarStore.getTimezone() || getUserLocalTimezone();
     setUserTz(tz);
@@ -77,13 +96,25 @@ export default function WelcomeCohortModal({
   if (!isOpen || !course) return null;
 
   const targetCohort = cohort || ViarStore.getCohorts()[0];
-  const seatsRemaining = targetCohort ? Math.max(0, targetCohort.maxSeats - targetCohort.enrolledCount) : 12;
+  
+  // Real remaining seats calculated directly from capacity / enrolledCount
+  const cohortCapacity = targetCohort?.capacity || targetCohort?.maxSeats || 50;
+  const cohortEnrolled = targetCohort?.enrolledCount ?? 0;
+  const seatsRemaining = Math.max(0, cohortCapacity - cohortEnrolled);
+
   const formattedClassTime = targetCohort
     ? formatInTimezone(targetCohort.startDate, userTz, 'timeOnly')
     : '8:00 PM IST';
   const formattedDate = targetCohort
     ? formatInTimezone(targetCohort.startDate, userTz, 'dateOnly')
     : 'October 3, 2026';
+
+  // Dynamic pricing and discount pulled directly from course data
+  const currentPriceFormatted = `₹${course.priceInr.toLocaleString('en-IN')}`;
+  const originalPriceFormatted = `₹${course.originalPriceInr.toLocaleString('en-IN')}`;
+  const discountPercentage = course.originalPriceInr > course.priceInr
+    ? Math.round(((course.originalPriceInr - course.priceInr) / course.originalPriceInr) * 100)
+    : null;
 
   return (
     <div
@@ -112,31 +143,31 @@ export default function WelcomeCohortModal({
 
         <div className="p-5 sm:p-7 max-h-[90vh] overflow-y-auto">
           
-          {/* Badge & Urgency Pill */}
+          {/* Badge & Real Remaining Seats Urgency Pill */}
           <div className="flex items-center gap-2 flex-wrap mb-3.5">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/15 text-amber-300 border border-amber-500/30">
               <Sparkles className="w-3.5 h-3.5 text-amber-400" />
               <span>{targetCohort?.batchName || 'Batch 1 — Enrolling Now'}</span>
             </span>
-            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
-              <Users className="w-3 h-3 text-emerald-400" />
-              <span>Only {seatsRemaining} of {targetCohort?.maxSeats || 50} Seats Open</span>
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+              <Users className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Only {seatsRemaining} {seatsRemaining === 1 ? 'seat' : 'seats'} left in {targetCohort?.batchName ? targetCohort.batchName.split('—')[0].trim() : 'Batch 1'}</span>
             </span>
           </div>
 
-          {/* Headline */}
+          {/* Dynamic Headline synced with Course Data */}
           <h2
             id="welcome-modal-title"
             className="text-xl sm:text-2xl font-black text-white leading-snug"
           >
-            Master Sacred Vedic Jyotish from First Principles
+            Enroll in &lsquo;{course.title.split('—')[0].trim()}&rsquo; — Launch Price {currentPriceFormatted}
           </h2>
 
           <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-            Welcome to <strong className="text-amber-300">Viar.in</strong> — the live academic academy by <strong className="text-white">Acharya Niraj Kumar</strong>. We do not provide quick automated horoscopes or per-minute chat. We teach authentic, rigorous chart analysis through an interactive 9-week live cohort.
+            Welcome to <strong className="text-amber-300">Viar.in</strong> — the live academic academy by <strong className="text-white">Acharya Niraj Kumar</strong>. Master authentic Vedic Jyotish through an interactive 9-week live cohort with fellow seekers.
           </p>
 
-          {/* Flagship Course Box */}
+          {/* Flagship Course Box with Live Pricing & Differentiators */}
           <div className="mt-4 p-4 rounded-xl bg-white/[0.03] border border-white/10">
             <div className="flex items-start gap-3">
               <div className="relative w-12 h-12 rounded-xl overflow-hidden shrink-0 border border-amber-500/30">
@@ -154,11 +185,18 @@ export default function WelcomeCohortModal({
                   </h3>
                   <div className="text-right shrink-0">
                     <span className="text-base font-black text-amber-400">
-                      ₹{course.priceInr.toLocaleString()}
+                      {currentPriceFormatted}
                     </span>
-                    <span className="text-[11px] text-slate-500 line-through ml-1.5">
-                      ₹{course.originalPriceInr.toLocaleString()}
-                    </span>
+                    {course.originalPriceInr > course.priceInr && (
+                      <span className="text-[11px] text-slate-500 line-through ml-1.5">
+                        {originalPriceFormatted}
+                      </span>
+                    )}
+                    {discountPercentage && (
+                      <span className="ml-1.5 text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                        {discountPercentage}% OFF
+                      </span>
+                    )}
                   </div>
                 </div>
                 <p className="text-xs text-slate-400 mt-0.5">
@@ -167,23 +205,23 @@ export default function WelcomeCohortModal({
               </div>
             </div>
 
-            {/* Core Value Pillars of Viar */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-3 mt-3 border-t border-white/10 text-xs text-slate-300">
-              <div className="flex items-center gap-2">
-                <Video className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                <span>18 Live Zoom Classes (2 / week)</span>
+            {/* Confirmed Real Course Structure Differentiators */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-3 mt-3 border-t border-white/10 text-xs text-slate-300">
+              <div className="flex items-start gap-2">
+                <Video className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+                <span><strong>18 Live Classes over 9 Weeks</strong> (interactive on Zoom)</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+              <div className="flex items-start gap-2">
+                <BookOpen className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                <span><strong>Recordings Count Identically</strong> to live attendance</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
                 <span>Starts {formattedDate} ({formattedClassTime})</span>
               </div>
-              <div className="flex items-center gap-2">
-                <BookOpen className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                <span>HD Recordings & Full Study Handouts</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Award className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                <span>Verifiable Academy Certification</span>
+              <div className="flex items-start gap-2">
+                <Award className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+                <span><strong>Verifiable Certificate</strong> on passing final exam</span>
               </div>
             </div>
           </div>
@@ -201,9 +239,9 @@ export default function WelcomeCohortModal({
             <Link
               href={`/checkout/${targetCohort?.id || 'cohort-wia-batch-1'}`}
               onClick={handleClose}
-              className="gold-button w-full py-3.5 rounded-xl font-bold text-sm shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2 text-slate-950 transition"
+              className="gold-button w-full py-3.5 rounded-xl font-bold text-sm shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2 text-slate-950 transition hover:brightness-110"
             >
-              <span>Enroll in Batch 1 Now (One-Time Tuition)</span>
+              <span>Enroll Now — Claim Your Seat</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
 
@@ -223,6 +261,20 @@ export default function WelcomeCohortModal({
               >
                 Don&apos;t show again
               </button>
+            </div>
+
+            {/* Subordinate Secondary Line for 1-on-1 Consultation */}
+            <div className="pt-2 text-center border-t border-white/5">
+              <a
+                href="https://aapkaastro.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleClose}
+                className="inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-amber-300 transition group"
+              >
+                <Compass className="w-3.5 h-3.5 text-slate-500 group-hover:text-amber-400 transition" />
+                <span>Want a personal consultation instead? <span className="underline underline-offset-2">Visit Aapka Astro &rarr;</span></span>
+              </a>
             </div>
           </div>
 

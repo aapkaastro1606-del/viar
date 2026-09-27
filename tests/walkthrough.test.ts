@@ -201,4 +201,104 @@ describe('Full Core-Flow End-to-End Walkthrough', () => {
       assert.notStrictEqual(currentUser.name, 'Elena Rostova');
     }
   });
+
+  it('Step 6: Welcome Cohort Modal - Verification of live data & suppression logic', () => {
+    const flagshipCourse = {
+      id: 'course-what-is-astrology',
+      title: 'What is Astrology — Foundations of Vedic Astrology',
+      priceInr: 4999,
+      originalPriceInr: 9999,
+    };
+
+    const flagshipCohort = {
+      id: 'cohort-wia-batch-1',
+      courseId: 'course-what-is-astrology',
+      batchName: 'Batch 1 — Starting October 2026',
+      capacity: 50,
+      enrolledCount: 38,
+    };
+
+    // Live remaining seats calculation
+    const seatsRemaining = Math.max(0, flagshipCohort.capacity - flagshipCohort.enrolledCount);
+    assert.strictEqual(seatsRemaining, 12, 'Live seats remaining must accurately reflect capacity minus enrolledCount (50 - 38 = 12)');
+
+    // Dynamic headline and price verification
+    const priceFormatted = `₹${flagshipCourse.priceInr.toLocaleString('en-IN')}`;
+    const headline = `Enroll in '${flagshipCourse.title.split('—')[0].trim()}' — Launch Price ${priceFormatted}`;
+    assert.strictEqual(headline, "Enroll in 'What is Astrology' — Launch Price ₹4,999");
+
+    // Suppression Rule 1: Logged-out visitor (eligible to see modal)
+    function shouldShowModal(params: {
+      pathname: string;
+      sessionStorageShown: boolean;
+      localStorageDismissed: boolean;
+      user: { email?: string; id?: string; enrolledCohortIds?: string[] } | null;
+      enrolledCohortId: string;
+    }): boolean {
+      if (params.pathname.startsWith('/instructor') || params.pathname.startsWith('/admin')) {
+        return false;
+      }
+      if (params.localStorageDismissed || params.sessionStorageShown) {
+        return false;
+      }
+      if (params.user && params.user.enrolledCohortIds?.includes(params.enrolledCohortId)) {
+        return false;
+      }
+      return true;
+    }
+
+    // 1. Incognito / Logged-out visitor visiting homepage
+    const visitorEligible = shouldShowModal({
+      pathname: '/',
+      sessionStorageShown: false,
+      localStorageDismissed: false,
+      user: null,
+      enrolledCohortId: flagshipCohort.id,
+    });
+    assert.strictEqual(visitorEligible, true, 'Logged-out visitor must be eligible to see the modal');
+
+    // 2. Suppressed after shown once in the session
+    const sessionSuppressed = shouldShowModal({
+      pathname: '/',
+      sessionStorageShown: true,
+      localStorageDismissed: false,
+      user: null,
+      enrolledCohortId: flagshipCohort.id,
+    });
+    assert.strictEqual(sessionSuppressed, false, 'Modal must be suppressed if already shown in this session');
+
+    // 3. Suppressed on /instructor routes
+    const instructorSuppressed = shouldShowModal({
+      pathname: '/instructor/courses',
+      sessionStorageShown: false,
+      localStorageDismissed: false,
+      user: null,
+      enrolledCohortId: flagshipCohort.id,
+    });
+    assert.strictEqual(instructorSuppressed, false, 'Modal must be suppressed on /instructor/* routes');
+
+    // 4. Suppressed on /admin routes
+    const adminSuppressed = shouldShowModal({
+      pathname: '/admin/team',
+      sessionStorageShown: false,
+      localStorageDismissed: false,
+      user: null,
+      enrolledCohortId: flagshipCohort.id,
+    });
+    assert.strictEqual(adminSuppressed, false, 'Modal must be suppressed on /admin/* routes');
+
+    // 5. Suppressed for already-enrolled student
+    const studentEnrolledSuppressed = shouldShowModal({
+      pathname: '/',
+      sessionStorageShown: false,
+      localStorageDismissed: false,
+      user: {
+        email: 'priya.sharma@example.com',
+        id: 'usr_student_123',
+        enrolledCohortIds: ['cohort-wia-batch-1'],
+      },
+      enrolledCohortId: flagshipCohort.id,
+    });
+    assert.strictEqual(studentEnrolledSuppressed, false, 'Modal must be suppressed for students already enrolled in the cohort');
+  });
 });

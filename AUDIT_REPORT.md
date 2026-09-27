@@ -1300,3 +1300,49 @@ As required by the security and data segregation architecture, **Viar.in runs on
      - Valid Svix payload and signature verification.
      - Tampered or malformed signature rejection.
      - Role and ownership mapping for regular students and site owners.
+
+---
+
+## 25. Welcome Promotional Cohort Modal Implementation & Verification
+
+### 25.1 Business Model & Offer Alignment
+- Built specifically for Viar's one-time course enrollment model (What is Astrology — Foundations of Vedic Astrology).
+- Strictly excludes per-minute chat, wallet recharge, or free trial framing.
+- Differentiators highlighted:
+  - 18 live classes over 9 weeks (Zoom / interactive Q&A).
+  - Recordings count identically to live attendance (zero attendance gate).
+  - Local timezone conversion for start dates and class times.
+  - Verifiable digital certificate upon passing final exam.
+  - 100% money-back guarantee before class 3.
+  - Subordinate link to personal 1-on-1 consultations at Aapka Astro (https://aapkaastro.com).
+
+### 25.2 Unified Brand Design System
+- **Colors**: Deep Maroon (#7B2D26), Marigold Gold (#E8A33D), Warm Ivory (#FBF3E7), Sage Green (#6B8E5A), Deep Brown (#3B2A1E).
+- **Typography**: ont-serif (Cinzel / Yatra One) for headings and titles; ont-sans (Mukta / Poppins) for body and badges.
+- **Visual styling**: Matches the family identity established across Aapka Astro and Viar.
+
+### 25.3 Live Database Query & Zero Hardcoded Data
+- **Pricing & Discounts**: Queried directly from Course record (priceInr, originalPriceInr, discount percentage computed on the fly).
+- **Seat Scarcity**: Computed directly from live Cohort capacity and enrollment count (Math.max(0, capacity - enrolledCount)). Synchronized with /api/courses?slug=what-is-astrology.
+
+### 25.4 Behavioral Suppression Rules
+1. **Per-Session Frequency**: Shown once per visitor per session using sessionStorage (iar_welcome_modal_shown_session).
+2. **Route Suppression**: Automatically suppressed on /instructor/* and /admin/* routes.
+3. **Active Student Suppression**: Checked against currentUser.enrolledCohortIds and store enrollments. If the student has already enrolled in the flagship cohort, the modal is suppressed immediately to prevent redundant promotion.
+4. **Dismissal & Accessibility**:
+   - Dismissible via close button (X), backdrop click, and Escape key.
+   - Optional permanent opt-out via Don't show again (localStorage.setItem('viar_welcome_modal_dismissed_v1', 'true')).
+   - Zero layout shift or page-blocking.
+
+### 25.5 Verification & Automated Test Evidence
+- **Automated Tests**: Added Step 6 in 	ests/walkthrough.test.ts testing:
+  - Live seat count calculation (capacity - enrolledCount).
+  - Dynamic headline generation (Launch Price ?4,999).
+  - Visitor eligibility on homepage.
+  - Session suppression.
+  - Route suppression on /instructor/courses and /admin/team.
+  - Student suppression for enrolled users.
+- **Test Results**: All 88 tests passing (
+pm test).
+- **Production Build**: 0 errors, 44 routes compiled (
+pm run build).

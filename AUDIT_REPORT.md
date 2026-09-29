@@ -1364,3 +1364,20 @@ pm run build).
 ### 26.2 Measured Rendered Heights (Headless Chrome CDP)
 - **Desktop (1280×800 viewport)**: **448px × 310px** (scrollHeight: 306px, clientHeight: 306px, equiresInternalScroll: false, itsSingleViewport: true — occupies **38.8%** of viewport height).
 - **Mobile (375×667 viewport)**: **335px × 334px** (scrollHeight: 330px, clientHeight: 330px, equiresInternalScroll: false, itsSingleViewport: true — occupies **50.1%** of viewport height).
+
+
+---
+
+## 27. Course Delivery Transition & Payment Architecture Confirmation (September 2026)
+
+### 27.1 Architectural Confirmation: Pricing & Payment Model Invariance
+- **Delivery Format Evolution**: The educational delivery model transitions from fixed live cohort schedules ("18 classes across 3 blocks") to a **100% self-paced, 23-module video curriculum** (21 core modules + 2 practical chart reading bonus masterclasses + final evaluation and verifiable certificate).
+- **Payment Model Invariance (STRICTLY UNCHANGED)**:
+  - **Payment Structure**: The course pricing remains strictly a **one-time upfront payment** with lifetime access to all 23 video modules, downloadable materials, future updates, and examination certification. There are **zero recurring fees, zero subscription tiers, and zero cohort rescheduling penalties**.
+  - **Tuition Rates**:
+    - **Domestic (India)**: **₹4,999 INR** (one-time payment, discounted from ₹9,999 INR).
+    - **International (Global)**: **$69 USD** (one-time payment, discounted from $129 USD).
+  - **Payment Gateways**:
+    - **Razorpay**: Direct INR transactions via UPI, Credit/Debit cards, and Netbanking.
+    - **Stripe**: International USD transactions via global credit/debit cards with automated currency matching.
+  - **Webhook & Order Processing**: The existing dual Razorpay and Stripe HMAC-SHA256 verified webhook pipelines, checkout flows (`/checkout/[cohortId]`), and receipt generation systems remain completely intact and active. Only the delivery fulfillment grants immediate, self-paced lifetime access upon order verification rather than assigning students to a time-restricted live Zoom schedule.

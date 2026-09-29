@@ -133,7 +133,7 @@ export default function AboutPage() {
             <span>Master Lineage, Science & Corporate Leadership</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
-            The Mind Behind <span className="gold-gradient-text">Aapka Astro & VIAR</span>
+            The Mind Behind <span className="gold-gradient-text">Aapaka Astro & VIAR</span>
           </h2>
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed mt-2">
             Where traditional Vedic lineage meets corporate executive insight and empirical mathematical rigor.
@@ -158,7 +158,7 @@ export default function AboutPage() {
                 </div>
                 <div className="absolute -bottom-4 right-0 bg-[#0f172a] border border-amber-400/40 px-4 py-2 rounded-xl shadow-xl text-left">
                   <p className="text-xs font-bold text-amber-300">Acharya Niraj Kumar</p>
-                  <p className="text-[10px] text-slate-400">Founder, Aapka Astro & Lead Instructor, VIAR</p>
+                  <p className="text-[10px] text-slate-400">Founder, Aapaka Astro & Lead Instructor, VIAR</p>
                 </div>
               </div>
 
@@ -225,7 +225,7 @@ export default function AboutPage() {
               </div>
 
               <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-200 text-sm font-medium italic">
-                &ldquo;Aapka Astro and Vihangam Institute of Astrology and Research (VIAR) are led by Acharya Niraj Kumar, a practitioner who brings together deep traditional learning and rare real-world corporate leadership.&rdquo;
+                &ldquo;Aapaka Astro and Vihangam Institute of Astrology and Research (VIAR) are led by Acharya Niraj Kumar, a practitioner who brings together deep traditional learning and rare real-world corporate leadership.&rdquo;
               </div>
 
               <p>
@@ -397,7 +397,7 @@ export default function AboutPage() {
             <h2 className="text-xs font-bold uppercase tracking-widest text-amber-400 mb-2">Verified Visual Proof</h2>
             <h3 className="text-3xl font-extrabold text-white">Credentials & Recognition Gallery</h3>
             <p className="text-slate-400 text-sm mt-2">
-              Official certificates, awards, and lineage documentation from Aapka Astro archives.
+              Official certificates, awards, and lineage documentation from Aapaka Astro archives.
             </p>
           </div>
 
@@ -512,7 +512,7 @@ export default function AboutPage() {
             <div className="w-16 h-16 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center shrink-0">
               <Image
                 src="/images/aapkaastro-logo.png"
-                alt="Aapka Astro"
+                alt="Aapaka Astro"
                 width={48}
                 height={48}
                 className="h-10 w-auto object-contain brightness-110"
@@ -521,7 +521,7 @@ export default function AboutPage() {
             <div>
               <h3 className="text-xl font-bold text-white mb-1">Looking for 1-on-1 Consultation Instead?</h3>
               <p className="text-sm text-slate-300 max-w-2xl">
-                If you seek personal horoscope readings, marriage matching, or corporate advisory with Acharya Niraj Kumar, explore sister platforms Aapka Astro (+91 93112 15564) or DOW Consulting.
+                If you seek personal horoscope readings, marriage matching, or corporate advisory with Acharya Niraj Kumar, explore sister platforms Aapaka Astro (+91 93112 15564) or DOW Consulting.
               </p>
             </div>
           </div>

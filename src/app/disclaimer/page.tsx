@@ -118,7 +118,7 @@ export default function DisclaimerPage() {
           <section className="space-y-3">
             <h2 className="text-lg font-bold text-white flex items-center gap-2">
               <span className="w-6 h-6 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center text-xs">5</span>
-              Distinction from Personal Consultations (Aapka Astro)
+              Distinction from Personal Consultations (Aapaka Astro)
             </h2>
             <p>
               Enrolling in Vihangam Institute of Astrology and Research courses grants access to group educational instruction, structured syllabus modules, and academic Q&amp;A. It <strong>does not include private, confidential personal chart consultations</strong>.

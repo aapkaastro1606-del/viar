@@ -38,7 +38,7 @@ export default function Footer() {
               >
                 <Image
                   src="/images/aapkaastro-logo.png"
-                  alt="Aapka Astro"
+                  alt="Aapaka Astro"
                   width={60}
                   height={18}
                   className="h-4 w-auto object-contain brightness-110"
@@ -102,7 +102,7 @@ export default function Footer() {
               <ShieldCheck className="w-5 h-5 text-amber-400" />
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-white">Aapka Astro Pedigree</h4>
+              <h4 className="text-sm font-semibold text-white">Aapaka Astro Pedigree</h4>
               <p className="text-xs text-slate-400 mt-0.5">
                 Taught directly by Acharya Niraj Kumar, founder of aapkaastro.com.
               </p>
@@ -341,7 +341,7 @@ export default function Footer() {
         <div className="pt-6 border-t border-white/5 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 gap-4">
           <p>© {new Date().getFullYear()} Viar.in (Vihangam Institute of Astrology and Research). All rights reserved.</p>
           <div className="flex items-center space-x-6">
-            <span>Powered by Aapka Astro Network</span>
+            <span>Powered by Aapaka Astro Network</span>
             <span>Secure 256-Bit SSL Encrypted</span>
             <span>100% Self-Paced Video Learning</span>
           </div>

@@ -1,6 +1,6 @@
 /**
  * Sister Ecosystem Services Configuration
- * Centralized configuration for cross-promotion across Viar.in, Aapka Astro, and DOW Consulting.
+ * Centralized configuration for cross-promotion across Viar.in, Aapaka Astro, and DOW Consulting.
  * Update URLs and descriptions here to reflect across the entire platform.
  */
 
@@ -20,7 +20,7 @@ export interface SisterService {
 
 export const SISTER_SERVICES: Record<'aapkaAstro' | 'dowConsulting', SisterService> = {
   aapkaAstro: {
-    name: 'Aapka Astro',
+    name: 'Aapaka Astro',
     domain: 'aapkaastro.com',
     url: 'https://aapkaastro.com',
     tagline: '1-on-1 Personal Astrology & Vastu Consultations',

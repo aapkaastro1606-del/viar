@@ -12,7 +12,7 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        // Aapka Astro Brand Identity Palette
+        // Aapaka Astro Brand Identity Palette
         maroon: {
           DEFAULT: "#7B2D26",
           50: "#fdf4f3",

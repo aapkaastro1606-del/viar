@@ -1381,3 +1381,39 @@ pm run build).
     - **Razorpay**: Direct INR transactions via UPI, Credit/Debit cards, and Netbanking.
     - **Stripe**: International USD transactions via global credit/debit cards with automated currency matching.
   - **Webhook & Order Processing**: The existing dual Razorpay and Stripe HMAC-SHA256 verified webhook pipelines, checkout flows (`/checkout/[cohortId]`), and receipt generation systems remain completely intact and active. Only the delivery fulfillment grants immediate, self-paced lifetime access upon order verification rather than assigning students to a time-restricted live Zoom schedule.
+
+---
+
+## 28. Sister Site Brand Name Standardization: "Aapaka Astro" (September 2026)
+
+### 28.1 Architectural Scope & Brand Alignment
+Per confirmed client decision, all brand references to the companion consultation practice are standardized to **"Aapaka Astro"** across the site, matching the correction implemented in that repository.
+
+### 28.2 Functional Preservation Matrix
+- **Brand Display Name**: Updated from Aapka Astro to Aapaka Astro across all user-facing interfaces, credentials, navigation headers, footers, instructor bios, testimonials, certificates, legal agreements, and cross-promotion cards.
+- **Preserved Technical Infrastructure**:
+  - **Domains & URLs**: Strictly preserved as apkaastro.com (e.g., https://aapkaastro.com).
+  - **Email Addresses**: Strictly preserved as sk@aapkaastro.com.
+  - **Social Media Handles**: Strictly preserved as https://www.youtube.com/@aapkaastro7900 and https://www.facebook.com/aapkaastro.
+  - **Git Remotes**: Strictly preserved as https://github.com/aapkaastro1606-del/viar.git.
+  - **Database & Secrets**: Retain independent Neon PostgreSQL instance connection strings (DATABASE_URL, DIRECT_URL) and Clerk keys.
+
+### 28.3 Verified Files Updated
+1. src/config/services.ts (SISTER_SERVICES central definition)
+2. src/components/Footer.tsx (Logo alt, pedigree banner, powered-by badge)
+3. src/components/Navbar.tsx (Top bar link & institution lineage)
+4. src/app/page.tsx (Hero subtitle, instructor biography, sister platform card)
+5. src/app/about/page.tsx (Mind Behind section, instructor title, quote, visual credentials note, 1:1 cross-sell)
+6. src/app/courses/page.tsx (Consultation link)
+7. src/app/admin/page.tsx & src/app/admin/team/page.tsx (Instructor title & RBAC per-site isolation note)
+8. src/app/api/certificates/[code]/download/route.ts & src/app/api/courses/[slug]/syllabus/download/route.ts (Certificate & syllabus HTML templates)
+9. src/app/api/courses/route.ts & src/app/instructor/courses/page.tsx (Course creation instructor metadata)
+10. src/app/dashboard/certificates/page.tsx, src/app/dashboard/courses/[cohortId]/quiz/page.tsx, src/app/dashboard/page.tsx (Certificate previews & alumni cross-sell cards)
+11. src/app/disclaimer/page.tsx, src/app/refund-policy/page.tsx, src/app/terms/page.tsx (Legal definitions & affiliated network notices)
+12. src/app/verify/[code]/page.tsx & src/app/verify/page.tsx (Issuing authority, verification seals, lineage badges)
+13. src/components/CourseDetailClient.tsx & src/components/WelcomeCohortModal.tsx (Course instructor title & consultation cross-link)
+14. src/lib/data.ts (Testimonials, instructor credentials, FAQs, demo certificates)
+15. src/lib/store.ts (Certificate issuance store)
+16. src/lib/timezones.ts (Google Calendar export template)
+17. src/app/globals.css & 	ailwind.config.ts (Design system palette comments)
+18. ARCHITECTURE_NOTES.md (Per-site permission isolation description)

@@ -27,7 +27,7 @@ export const PLACEHOLDER_TESTIMONIALS: Testimonial[] = [
     role: 'Entrepreneur',
     rating: 5,
     highlight: 'Accurate readings & life-shifting Vastu guidance',
-    content: 'I was going through a very tough phase in my career and personal life. The Kundli reading and Vastu suggestions from Acharya Niraj Kumar at Aapka Astro were incredibly accurate. Within a few months of following his remedies, I saw a massive positive shift. Highly recommended!',
+    content: 'I was going through a very tough phase in my career and personal life. The Kundli reading and Vastu suggestions from Acharya Niraj Kumar at Aapaka Astro were incredibly accurate. Within a few months of following his remedies, I saw a massive positive shift. Highly recommended!',
   },
   {
     id: 'test-1',
@@ -337,7 +337,7 @@ export const INITIAL_COURSES: Course[] = [
     badge: 'Self-Paced Masterclass',
     instructor: {
       name: 'Acharya Niraj Kumar',
-      title: 'Jyotish Acharya (Bharatiya Vidya Bhavan) | Founder, Aapka Astro & VIAR',
+      title: 'Jyotish Acharya (Bharatiya Vidya Bhavan) | Founder, Aapaka Astro & VIAR',
       bio: 'Acharya Niraj Kumar brings together authentic traditional Vedic learning rooted in Baidyanath Dham (Deoghar) and prestigious academic credentials as a certified Jyotish Acharya from the legendary Bharatiya Vidya Bhavan - Institute of Astrology, Kasturba Gandhi Marg, New Delhi (under renowned advisor K.N. Rao), alongside certified qualifications as a Logical Vastu Expert and Astro Vastu specialist. Blending 20+ years of senior executive leadership (former Vice President at Reliance Retail, Metro Cash & Carry, and NIF Food) with 20+ years of astrological practice, he is trusted by over 5,200 students and consultation clients across India and globally, backed by an active community of 26,000+ followers.',
       experienceYears: 20,
       studentsTaught: 5200,
@@ -347,7 +347,7 @@ export const INITIAL_COURSES: Course[] = [
         'Jyotish Acharya — Bharatiya Vidya Bhavan (under Advisor K.N. Rao)',
         'Logical Vastu Expert — ISO 9001:2015 Certified',
         'Certified Astro Vastu Specialist (Jyotishvedanghub)',
-        'Founder of Aapka Astro (26k+ Community & 5,200+ Consultations)',
+        'Founder of Aapaka Astro (26k+ Community & 5,200+ Consultations)',
       ],
     },
     highlights: [
@@ -383,11 +383,11 @@ export const INITIAL_COURSES: Course[] = [
       },
       {
         question: 'Who is the instructor?',
-        answer: 'The course is created and taught exclusively by Acharya Niraj Kumar, a certified Jyotish Acharya from the prestigious Bharatiya Vidya Bhavan - Institute of Astrology, New Delhi (under guru K.N. Rao), Logical Vastu Expert, and founder of Aapka Astro (26k+ followers, 5,200+ clients).',
+        answer: 'The course is created and taught exclusively by Acharya Niraj Kumar, a certified Jyotish Acharya from the prestigious Bharatiya Vidya Bhavan - Institute of Astrology, New Delhi (under guru K.N. Rao), Logical Vastu Expert, and founder of Aapaka Astro (26k+ followers, 5,200+ clients).',
       },
       {
-        question: 'What is the relationship between VIAR and Aapka Astro?',
-        answer: 'Vihangam Institute of Astrology and Research (VIAR, viar.in) is the educational academy founded by Acharya Niraj Kumar to train students in authentic Vedic sciences. Aapka Astro (aapkaastro.com) is his personal consultation practice.',
+        question: 'What is the relationship between VIAR and Aapaka Astro?',
+        answer: 'Vihangam Institute of Astrology and Research (VIAR, viar.in) is the educational academy founded by Acharya Niraj Kumar to train students in authentic Vedic sciences. Aapaka Astro (aapkaastro.com) is his personal consultation practice.',
       },
       {
         question: 'Is the tuition a one-time payment?',
@@ -418,7 +418,7 @@ export const INITIAL_COURSES: Course[] = [
     badge: 'Coming Soon',
     instructor: {
       name: 'Acharya Niraj Kumar',
-      title: 'Founder, Aapka Astro & Master Astrologer | AstroVastu Expert',
+      title: 'Founder, Aapaka Astro & Master Astrologer | AstroVastu Expert',
       /* PLACEHOLDER: Replace with verified chart analysis count once confirmed across both sites */
       bio: 'Acharya Niraj Kumar brings together deep traditional Vedic learning rooted in Baidyanath Dham (Deoghar) and corporate leadership experience. Over 20 years of practice, trusted by students and clients across India and abroad for chart analyses and extensive Vastu audits.',
       experienceYears: 20,
@@ -461,7 +461,7 @@ export const INITIAL_COURSES: Course[] = [
     badge: 'Coming Soon',
     instructor: {
       name: 'Acharya Niraj Kumar',
-      title: 'Founder, Aapka Astro & Master Astrologer | AstroVastu Expert',
+      title: 'Founder, Aapaka Astro & Master Astrologer | AstroVastu Expert',
       /* PLACEHOLDER: Replace with verified chart analysis count once confirmed across both sites */
       bio: 'Acharya Niraj Kumar brings together deep traditional Vedic learning rooted in Baidyanath Dham (Deoghar) and corporate leadership experience. Over 20 years of practice, trusted by students and clients across India and abroad for chart analyses and extensive Vastu audits.',
       experienceYears: 20,
@@ -503,7 +503,7 @@ export const INITIAL_COURSES: Course[] = [
     badge: 'Coming Soon',
     instructor: {
       name: 'Acharya Niraj Kumar',
-      title: 'Founder, Aapka Astro & Master Astrologer | AstroVastu Expert',
+      title: 'Founder, Aapaka Astro & Master Astrologer | AstroVastu Expert',
       /* PLACEHOLDER: Replace with verified chart analysis count once confirmed across both sites */
       bio: 'Acharya Niraj Kumar brings together deep traditional Vedic learning rooted in Baidyanath Dham (Deoghar) and corporate leadership experience. Over 20 years of practice, trusted by students and clients across India and abroad for chart analyses and extensive Vastu audits.',
       experienceYears: 20,
@@ -930,7 +930,7 @@ export const DEMO_CERTIFICATES: Certificate[] = [
     scorePercentage: 90,
     grade: 'Distinction',
     instructorName: 'Acharya Niraj Kumar',
-    instructorTitle: 'Jyotish Acharya (Bharatiya Vidya Bhavan) | Founder, VIAR & Aapka Astro',
+    instructorTitle: 'Jyotish Acharya (Bharatiya Vidya Bhavan) | Founder, VIAR & Aapaka Astro',
     verificationUrl: 'https://viar.in/verify/VIAR-2026-WIA-9842',
   },
 ];

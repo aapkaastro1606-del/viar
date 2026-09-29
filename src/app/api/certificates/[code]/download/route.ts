@@ -236,7 +236,7 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
       <div>
         <div class="header-tag">Vihangam Institute of Astrology and Research (VIAR)</div>
         <h1 class="title">Certificate of Completion</h1>
-        <div class="subtitle">In Academic Lineage with Aapka Astro • Founded by Acharya Niraj Kumar</div>
+        <div class="subtitle">In Academic Lineage with Aapaka Astro • Founded by Acharya Niraj Kumar</div>
       </div>
 
       <div>
@@ -263,7 +263,7 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
 
         <div class="sig-block">
           <div class="sig-line">Acharya Niraj Kumar</div>
-          <div class="sig-title">Master Astrologer & Founder, Aapka Astro</div>
+          <div class="sig-title">Master Astrologer & Founder, Aapaka Astro</div>
         </div>
       </div>
     </div>

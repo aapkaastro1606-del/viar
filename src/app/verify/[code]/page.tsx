@@ -82,7 +82,7 @@ export default function PublicVerifyCertificatePage() {
                 Authentic & Officially Verified Credential
               </p>
               <p className="text-xs text-slate-300 mt-0.5">
-                Issued by Viar.in Academy in partnership with Aapka Astro (aapkaastro.com).
+                Issued by Viar.in Academy in partnership with Aapaka Astro (aapkaastro.com).
               </p>
             </div>
           </div>
@@ -122,7 +122,7 @@ export default function PublicVerifyCertificatePage() {
               VIAR<span className="text-amber-400">.IN</span> ACADEMY
             </span>
             <p className="text-xs uppercase tracking-widest text-amber-300 font-semibold mt-1">
-              Vihangam Institute of Astrology and Research • By Aapka Astro
+              Vihangam Institute of Astrology and Research • By Aapaka Astro
             </p>
           </div>
 
@@ -186,7 +186,7 @@ export default function PublicVerifyCertificatePage() {
             </div>
             <div>
               <span className="text-slate-400 block">Issuing Authority:</span>
-              <span className="font-bold text-white">Viar.in Academy / Aapka Astro</span>
+              <span className="font-bold text-white">Viar.in Academy / Aapaka Astro</span>
             </div>
             <div>
               <span className="text-slate-400 block">Examination Result:</span>

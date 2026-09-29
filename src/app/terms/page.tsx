@@ -34,7 +34,7 @@ export default function TermsPage() {
             Please read these terms carefully before enrolling in any course or using the Vihangam Institute of Astrology and Research platform.
           </p>
           <div className="mt-4 text-xs text-slate-400">
-            <span>Last Updated: September 2026</span> • <span>Governed by Vihangam Institute of Astrology and Research & Aapka Astro Network</span>
+            <span>Last Updated: September 2026</span> • <span>Governed by Vihangam Institute of Astrology and Research & Aapaka Astro Network</span>
           </div>
         </div>
 
@@ -172,7 +172,7 @@ export default function TermsPage() {
             <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 text-xs text-slate-300">
               <div className="font-semibold text-white">Vihangam Institute of Astrology and Research Legal & Academic Desk</div>
               <div>Email: <a href="mailto:ask@aapkaastro.com" className="text-amber-400 underline">ask@aapkaastro.com</a></div>
-              <div>Affiliated Network: Aapka Astro & DOW Consulting</div>
+              <div>Affiliated Network: Aapaka Astro & DOW Consulting</div>
             </div>
           </section>
 

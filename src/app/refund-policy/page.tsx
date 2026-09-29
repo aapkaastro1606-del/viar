@@ -170,7 +170,7 @@ export default function RefundPolicyPage() {
           <section className="p-4 rounded-2xl bg-amber-500/5 border border-amber-500/20 text-xs text-slate-300 space-y-1">
             <div className="font-bold text-amber-300">Note on Sister Platform Services:</div>
             <p>
-              This policy strictly applies to educational courses on <strong>viar.in</strong>. Private 1-on-1 consultations and kundli chart services booked through our sister portal <strong>aapkaastro.com</strong> are governed separately by Aapka Astro consultation terms.
+              This policy strictly applies to educational courses on <strong>viar.in</strong>. Private 1-on-1 consultations and kundli chart services booked through our sister portal <strong>aapkaastro.com</strong> are governed separately by Aapaka Astro consultation terms.
             </p>
           </section>
 

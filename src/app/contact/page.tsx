@@ -97,7 +97,7 @@ export default function ContactPage() {
                 <div className="flex items-center gap-2">
                   <Image
                     src="/images/aapkaastro-logo.png"
-                    alt="Aapka Astro"
+                    alt="Aapaka Astro"
                     width={90}
                     height={24}
                     className="h-6 w-auto object-contain brightness-110"

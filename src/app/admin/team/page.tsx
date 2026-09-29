@@ -313,7 +313,7 @@ export default function TeamManagementPage() {
               <ShieldCheck className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" />
               <div>
                 <strong className="text-slate-200">Per-Site Isolation:</strong>
-                <p>Permissions granted here only apply to Viar.in. Staff have zero access to Aapka Astro or DOW Consulting.</p>
+                <p>Permissions granted here only apply to Viar.in. Staff have zero access to Aapaka Astro or DOW Consulting.</p>
               </div>
             </div>
             <div className="flex items-start gap-2">

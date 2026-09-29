@@ -222,7 +222,7 @@ export const ViarStore = {
         scorePercentage,
         grade,
         instructorName: 'Acharya Niraj Kumar',
-        instructorTitle: 'Jyotish Acharya (Bharatiya Vidya Bhavan) | Founder, VIAR & Aapka Astro',
+        instructorTitle: 'Jyotish Acharya (Bharatiya Vidya Bhavan) | Founder, VIAR & Aapaka Astro',
         verificationUrl: `${typeof window !== 'undefined' ? window.location.origin : 'https://viar.in'}/verify/${verificationCode}`,
       };
 

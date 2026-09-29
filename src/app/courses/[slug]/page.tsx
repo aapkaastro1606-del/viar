@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       'vedic astrology course',
       'learn astrology online',
       'jyotish masterclass',
+      'aapaka astro',
       'aapka astro',
       'acharya',
       'astrology certification',

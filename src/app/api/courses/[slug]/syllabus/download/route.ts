@@ -212,7 +212,7 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
   <div class="header">
     <div>
       <div class="academy-brand">VIHANGAM INSTITUTE OF ASTROLOGY AND RESEARCH</div>
-      <div class="academy-sub">VIAR.IN • In Academic Lineage with Aapka Astro</div>
+      <div class="academy-sub">VIAR.IN • In Academic Lineage with Aapaka Astro</div>
     </div>
     <div class="course-meta">
       <div>Accredited Course Syllabus</div>
@@ -245,7 +245,7 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
   <div class="instructor-card">
     <div class="instructor-name">Master Instructor: Acharya Niraj Kumar</div>
     <div class="instructor-bio">
-      Founder, Aapka Astro • Jyotish Acharya (Bharatiya Vidya Bhavan, New Delhi) • Certified Logical Vastu Expert • Astro Vastu Specialist
+      Founder, Aapaka Astro • Jyotish Acharya (Bharatiya Vidya Bhavan, New Delhi) • Certified Logical Vastu Expert • Astro Vastu Specialist
     </div>
   </div>
 

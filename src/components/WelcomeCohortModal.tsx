@@ -172,7 +172,7 @@ export default function WelcomeCohortModal({
       {/* Click-outside backdrop */}
       <div className="absolute inset-0 cursor-pointer" onClick={handleClose} />
 
-      {/* Compact Single-Screen Modal Card in Viar & Aapka Astro Brand Design System */}
+      {/* Compact Single-Screen Modal Card in Viar & Aapaka Astro Brand Design System */}
       <div
         data-testid="viar-welcome-modal-card"
         className="relative w-full max-w-md rounded-2xl bg-[#FBF3E7] text-[#3B2A1E] border-2 border-[#E8A33D]/60 shadow-2xl shadow-[#7B2D26]/30 overflow-hidden z-10 animate-in zoom-in-95 duration-200 font-sans"
@@ -240,7 +240,7 @@ export default function WelcomeCohortModal({
             </button>
           </div>
 
-          {/* 6. Small Cross-Link to Aapka Astro as the Very Last Line in Small Subdued Text */}
+          {/* 6. Small Cross-Link to Aapaka Astro as the Very Last Line in Small Subdued Text */}
           <p
             data-testid="viar-welcome-modal-astro-link"
             className="pt-1 text-[11px] text-[#3B2A1E]/70"
@@ -253,7 +253,7 @@ export default function WelcomeCohortModal({
               onClick={handleClose}
               className="font-semibold text-[#7B2D26] hover:text-[#521d18] underline decoration-[#E8A33D] underline-offset-2 transition"
             >
-              Visit Aapka Astro &rarr;
+              Visit Aapaka Astro &rarr;
             </a>
           </p>
         </div>

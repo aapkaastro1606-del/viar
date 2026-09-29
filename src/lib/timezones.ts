@@ -188,7 +188,7 @@ export function generateGoogleCalendarUrl(
     const params = new URLSearchParams({
       action: 'TEMPLATE',
       text: title,
-      details: `${description}\n\nJoin URL: ${location}\n\nPlatform: Viar.in (Aapka Astro Academy)`,
+      details: `${description}\n\nJoin URL: ${location}\n\nPlatform: Viar.in (Aapaka Astro Academy)`,
       location: location,
       dates: dates,
     });

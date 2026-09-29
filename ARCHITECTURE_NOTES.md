@@ -53,7 +53,7 @@ flowchart LR
 
 ### Cost & Isolation Rationale
 - **Zero Ongoing Fees:** Clerk's custom Organizations and permissions feature costs an expensive monthly base fee plus per-seat add-ons. By storing granular staff permissions in our own free Neon Postgres table (`StaffPermission`) and validating them in server-side application code, we achieve equivalent enterprise-grade security at **\$0 additional cost**.
-- **Strict Per-Site Isolation:** Granting a staff member access to a section on Viar.in (e.g. `courses:MANAGE`) does **not** give them access to Aapka Astro or DOW Consulting. Each platform maintains its own isolated database permission table.
+- **Strict Per-Site Isolation:** Granting a staff member access to a section on Viar.in (e.g. `courses:MANAGE`) does **not** give them access to Aapaka Astro or DOW Consulting. Each platform maintains its own isolated database permission table.
 
 ### Section Identifiers for Viar.in
 The platform uses 6 standardized section identifiers:

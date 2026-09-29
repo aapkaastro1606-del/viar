@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   ShieldCheck,
   CheckCircle2,
@@ -107,16 +108,21 @@ export default function PublicVerifyCertificatePage() {
           <div className="absolute bottom-4 right-4 w-12 h-12 border-b-2 border-r-2 border-amber-400/60"></div>
 
           {/* Seal / Emblem */}
-          <div className="mb-6">
-            <div className="inline-flex items-center justify-center gap-2 mb-2">
-              <Sparkles className="w-6 h-6 text-amber-400" />
-              <span className="text-3xl font-black tracking-widest text-white">
-                VIAR<span className="text-amber-400">.IN</span> ACADEMY
-              </span>
-              <Sparkles className="w-6 h-6 text-amber-400" />
+          <div className="mb-6 flex flex-col items-center">
+            <div className="w-20 h-20 rounded-full bg-white/5 border border-amber-500/40 p-1.5 flex items-center justify-center shadow-xl shadow-amber-500/20 mb-3">
+              <Image
+                src="/images/logo-icon.png"
+                alt="VIAR Official Seal"
+                width={72}
+                height={72}
+                className="w-full h-full object-contain"
+              />
             </div>
-            <p className="text-xs uppercase tracking-widest text-amber-300 font-semibold">
-              School of Vedic Jyotish & Applied Cosmology • By Aapka Astro
+            <span className="text-3xl font-black tracking-widest text-white">
+              VIAR<span className="text-amber-400">.IN</span> ACADEMY
+            </span>
+            <p className="text-xs uppercase tracking-widest text-amber-300 font-semibold mt-1">
+              Vihangam Institute of Astrology and Research • By Aapka Astro
             </p>
           </div>
 

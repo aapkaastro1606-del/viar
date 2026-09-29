@@ -2,6 +2,7 @@
 
 import React, { useState, Suspense } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import {
   Sparkles,
@@ -66,13 +67,25 @@ function SignupContent() {
         
         {/* Brand Header */}
         <div className="text-center mb-8">
-          <Link href="/" className="inline-flex items-center space-x-2 mb-4 group">
-            <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:scale-105 transition">
-              <Sparkles className="w-5 h-5" />
+          <Link href="/" className="inline-flex items-center space-x-3 mb-4 group">
+            <div className="w-12 h-12 rounded-2xl bg-white/5 border border-amber-500/30 p-1 flex items-center justify-center group-hover:scale-105 transition shadow-lg shadow-amber-500/10 shrink-0">
+              <Image
+                src="/images/logo-icon.png"
+                alt="VIAR Logo"
+                width={40}
+                height={40}
+                className="w-full h-full object-contain"
+                priority
+              />
             </div>
-            <span className="text-2xl font-black tracking-wider text-white">
-              VIAR<span className="text-amber-400">.IN</span>
-            </span>
+            <div className="text-left">
+              <span className="text-2xl font-black tracking-wider text-white block leading-none">
+                VIAR<span className="text-amber-400">.IN</span>
+              </span>
+              <span className="text-[10px] text-slate-400 uppercase tracking-widest font-semibold block mt-0.5">
+                Vihangam Academy
+              </span>
+            </div>
           </Link>
           <h1 className="text-2xl sm:text-3xl font-black text-white">
             Create Student Account

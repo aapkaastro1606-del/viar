@@ -42,8 +42,9 @@ function emailWrapper(contentHtml: string, previewText: string = ''): string {
   <div style="padding: 24px 12px;">
     <div class="container">
       <div class="header">
+        <img src="https://viar.in/images/logo.png" alt="VIAR Logo" width="56" height="56" style="margin: 0 auto 10px; display: block; border-radius: 12px;" />
         <div class="logo">VIAR<span class="logo-gold">.IN</span></div>
-        <div style="font-size: 12px; color: #94a3b8; margin-top: 4px; text-transform: uppercase; letter-spacing: 1px;">Vedic Institute of Astrological Research</div>
+        <div style="font-size: 11px; color: #94a3b8; margin-top: 4px; text-transform: uppercase; letter-spacing: 1px;">Vihangam Institute of Astrology and Research</div>
       </div>
       <div class="body">
         ${contentHtml}

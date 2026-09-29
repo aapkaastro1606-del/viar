@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import {
-  Sparkles,
   Mail,
   Lock,
   ArrowRight,
@@ -70,8 +70,14 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
 
         {/* Modal Header */}
         <div className="text-center mb-6">
-          <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 mx-auto mb-3">
-            <Sparkles className="w-6 h-6" />
+          <div className="w-14 h-14 rounded-2xl bg-white/5 border border-amber-500/30 p-1 flex items-center justify-center mx-auto mb-3 shadow-lg shadow-amber-500/10">
+            <Image
+              src="/images/logo-icon.png"
+              alt="VIAR Logo"
+              width={48}
+              height={48}
+              className="w-full h-full object-contain"
+            />
           </div>
           <h3 className="text-xl font-black text-white">Student Sign In</h3>
           <p className="text-xs text-slate-400 mt-1">

@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { X, Sparkles, ArrowRight } from 'lucide-react';
+import { X, ArrowRight } from 'lucide-react';
 import { ViarStore } from '@/lib/store';
 import { Course, Cohort } from '@/lib/types';
 
@@ -199,8 +200,14 @@ export default function WelcomeCohortModal({
 
         <div className="px-6 py-5 sm:px-7 sm:py-6 text-center space-y-3">
           {/* 1. Small Logo / Brand Mark */}
-          <div className="inline-flex items-center justify-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-[#7B2D26]/10 text-[#7B2D26] border border-[#7B2D26]/25">
-            <Sparkles className="w-3.5 h-3.5 text-[#E8A33D]" />
+          <div className="inline-flex items-center justify-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] font-bold bg-[#7B2D26]/10 text-[#7B2D26] border border-[#7B2D26]/25">
+            <Image
+              src="/images/logo-icon.png"
+              alt="VIAR Logo"
+              width={16}
+              height={16}
+              className="w-4 h-4 object-contain inline-block"
+            />
             <span className="tracking-widest uppercase">Viar.in Academy</span>
           </div>
 

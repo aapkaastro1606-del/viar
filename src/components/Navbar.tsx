@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { 
-  Sparkles, 
   Globe, 
   ShieldCheck, 
   GraduationCap, 
@@ -63,9 +63,16 @@ export default function Navbar() {
       <header className="sticky top-0 z-50 border-b border-slate-200 dark:border-white/10 bg-white/90 dark:bg-[#07090e]/90 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-amber-500 to-amber-700 p-[1px] shadow-lg shadow-amber-500/20">
-              <div className="w-full h-full bg-white dark:bg-[#07090e] rounded-[11px] flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-amber-500" />
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-amber-500 to-amber-700 p-[1px] shadow-lg shadow-amber-500/20 shrink-0">
+              <div className="w-full h-full bg-white dark:bg-[#07090e] rounded-[11px] flex items-center justify-center p-1">
+                <Image
+                  src="/images/logo-icon.png"
+                  alt="VIAR Logo"
+                  width={36}
+                  height={36}
+                  className="w-full h-full object-contain"
+                  priority
+                />
               </div>
             </div>
             <div>
@@ -108,9 +115,16 @@ export default function Navbar() {
         {/* Brand & Lineage */}
         <div className="flex items-center space-x-6">
           <Link href="/" className="group flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-amber-500 to-amber-700 p-[1px] shadow-lg shadow-amber-500/20">
-              <div className="w-full h-full bg-white dark:bg-[#07090e] rounded-[11px] flex items-center justify-center group-hover:bg-amber-50 dark:group-hover:bg-amber-950/40 transition">
-                <Sparkles className="w-5 h-5 text-amber-500" />
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-amber-500 to-amber-700 p-[1px] shadow-lg shadow-amber-500/20 shrink-0">
+              <div className="w-full h-full bg-white dark:bg-[#07090e] rounded-[11px] flex items-center justify-center p-1 group-hover:scale-105 transition">
+                <Image
+                  src="/images/logo-icon.png"
+                  alt="VIAR - Vihangam Institute of Astrology and Research"
+                  width={36}
+                  height={36}
+                  className="w-full h-full object-contain"
+                  priority
+                />
               </div>
             </div>
             <div>

@@ -74,8 +74,14 @@ export default function HomePage() {
             
             {/* Pill */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/25 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-6 backdrop-blur-md">
-              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-              <span>Vedic Jyotish Academy • By Aapka Astro</span>
+              <Image
+                src="/images/logo-icon.png"
+                alt="VIAR Logo"
+                width={18}
+                height={18}
+                className="w-4 h-4 object-contain inline-block"
+              />
+              <span>Vihangam Institute • By Aapka Astro</span>
             </div>
 
             {/* Headline */}

@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Sparkles, ShieldCheck, Video, Award, Clock, ExternalLink, Phone, Mail } from 'lucide-react';
+import { ShieldCheck, Video, Award, Clock, ExternalLink, Phone, Mail } from 'lucide-react';
 import { SISTER_SERVICES } from '@/config/services';
 
 export default function Footer() {
@@ -113,13 +113,24 @@ export default function Footer() {
         {/* Links Grid */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8 pb-12">
           <div className="md:col-span-2">
-            <div className="flex items-center space-x-2 mb-3">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-amber-700 flex items-center justify-center">
-                <Sparkles className="w-4 h-4 text-black" />
+            <div className="flex items-center space-x-3 mb-3">
+              <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/10 p-1 flex items-center justify-center shrink-0">
+                <Image
+                  src="/images/logo-icon.png"
+                  alt="VIAR - Vihangam Institute of Astrology and Research"
+                  width={36}
+                  height={36}
+                  className="w-full h-full object-contain"
+                />
               </div>
-              <span className="text-xl font-bold tracking-tight text-white">
-                VIAR<span className="text-amber-400">.IN</span>
-              </span>
+              <div>
+                <span className="text-xl font-bold tracking-tight text-white block leading-none">
+                  VIAR<span className="text-amber-400">.IN</span>
+                </span>
+                <span className="text-[10px] text-slate-400 tracking-wider uppercase font-medium">
+                  Vihangam Institute of Astrology & Research
+                </span>
+              </div>
             </div>
             <p className="text-sm text-slate-400 max-w-sm leading-relaxed mb-4">
               The premier online astrology academy for students worldwide seeking authentic, mathematical, and compassionate Vedic Jyotish education.

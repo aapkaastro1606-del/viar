@@ -20,9 +20,15 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://viar.in'),
   title: 'Viar.in | Online Vedic Astrology Education Academy',
   description:
     'Viar.in is a premier online astrology academy by Acharya Niraj Kumar (Aapka Astro). Live cohort classes on Zoom/Meet, recordings, final test, and verifiable certification.',
+  icons: {
+    icon: '/images/favicon.png',
+    shortcut: '/images/favicon.png',
+    apple: '/images/logo-icon.png',
+  },
   keywords: [
     'astrology courses',
     'vedic astrology classes',
@@ -37,7 +43,15 @@ export const metadata: Metadata = {
     description:
       'Learn authentic Vedic astrology in live interactive cohorts with Acharya Niraj Kumar. 18 classes, recordings, and certification.',
     url: 'https://viar.in',
-    siteName: 'Viar.in',
+    siteName: 'Viar.in — Vihangam Institute of Astrology and Research',
+    images: [
+      {
+        url: '/images/logo.png',
+        width: 1024,
+        height: 1024,
+        alt: 'VIAR - Vihangam Institute of Astrology and Research',
+      },
+    ],
     type: 'website',
   },
 };

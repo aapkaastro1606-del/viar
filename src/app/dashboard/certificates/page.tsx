@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Sparkles,
   Award,
@@ -162,12 +163,19 @@ export default function StudentCertificatesPage() {
                   <div className="absolute bottom-3 left-3 w-8 h-8 border-b-2 border-l-2 border-amber-400"></div>
                   <div className="absolute bottom-3 right-3 w-8 h-8 border-b-2 border-r-2 border-amber-400"></div>
 
-                  <div className="inline-flex items-center gap-2 text-amber-400 mb-2">
-                    <Sparkles className="w-5 h-5" />
+                  <div className="flex flex-col items-center justify-center gap-2 mb-2">
+                    <div className="w-16 h-16 rounded-full bg-white/5 border border-amber-500/40 p-1 flex items-center justify-center shadow-lg shadow-amber-500/20">
+                      <Image
+                        src="/images/logo-icon.png"
+                        alt="VIAR Official Seal"
+                        width={56}
+                        height={56}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
                     <span className="text-2xl font-black tracking-widest text-white">
                       VIAR<span className="text-amber-400">.IN</span> ACADEMY
                     </span>
-                    <Sparkles className="w-5 h-5" />
                   </div>
                   <p className="text-[11px] uppercase tracking-widest text-amber-300 font-semibold mb-6">
                     School of Vedic Jyotish & Applied Cosmology • By Aapka Astro

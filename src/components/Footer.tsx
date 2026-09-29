@@ -66,9 +66,9 @@ export default function Footer() {
               <Video className="w-5 h-5 text-amber-400" />
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-white">Live + HD Recordings</h4>
+              <h4 className="text-sm font-semibold text-white">23 Video Modules</h4>
               <p className="text-xs text-slate-400 mt-0.5">
-                Attend live on Zoom/Meet or watch recordings. Both count 100% toward course completion.
+                Comprehensive on-demand curriculum + 2 bonus chart reading masterclasses with lifetime access.
               </p>
             </div>
           </div>
@@ -78,9 +78,9 @@ export default function Footer() {
               <Clock className="w-5 h-5 text-amber-400" />
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-white">Global Timezone Sync</h4>
+              <h4 className="text-sm font-semibold text-white">Learn at Your Own Pace</h4>
               <p className="text-xs text-slate-400 mt-0.5">
-                Every class time converts accurately to your local timezone with calendar integration.
+                100% self-paced from anywhere in the world. No live scheduling conflicts or rigid timetables.
               </p>
             </div>
           </div>
@@ -92,7 +92,7 @@ export default function Footer() {
             <div>
               <h4 className="text-sm font-semibold text-white">Verifiable Certification</h4>
               <p className="text-xs text-slate-400 mt-0.5">
-                Passing the final examination earns an authentic credential with online verification.
+                Pass the final evaluation to receive an official certificate from Vihangam Institute of Astrology and Research.
               </p>
             </div>
           </div>
@@ -339,11 +339,11 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-6 border-t border-white/5 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <p>© {new Date().getFullYear()} Viar.in (Viar Academy). All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Viar.in (Vihangam Institute of Astrology and Research). All rights reserved.</p>
           <div className="flex items-center space-x-6">
             <span>Powered by Aapka Astro Network</span>
             <span>Secure 256-Bit SSL Encrypted</span>
-            <span>Worldwide Zoom / Meet Classes</span>
+            <span>100% Self-Paced Video Learning</span>
           </div>
         </div>
       </div>

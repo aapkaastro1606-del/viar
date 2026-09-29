@@ -238,7 +238,7 @@ export default function AdminPortalPage() {
         aapkaAstroUrl: 'https://aapkaastro.com',
       },
       highlights: [
-        'Weekly live interactive Zoom masterclasses',
+        '23 Structured on-demand video modules',
         'Direct chart critique and oral exams',
       ],
       prerequisites: ['Foundational understanding of 12 rashis and 9 grahas'],

@@ -10,7 +10,7 @@ async function main() {
   console.log('1. VERIFYING ALL 5 TRANSACTIONAL EMAIL FLOWS');
   console.log('===============================================================');
 
-  const mock = new MockEmailService('Viar Academy <admissions@viar.in>', 'ask@aapkaastro.com');
+  const mock = new MockEmailService('Vihangam Institute of Astrology and Research <admissions@viar.in>', 'ask@aapkaastro.com');
 
   // 1. Enrollment Confirmation
   console.log('\n[Email Flow 1/5] Dispatching Enrollment Confirmation...');
@@ -108,7 +108,7 @@ async function main() {
   });
 
   console.log('\n--- VERIFYING RESEND FALLBACK SIMULATION ---');
-  const resendSim = new ResendEmailService('', 'Viar Academy <admissions@viar.in>', 'ask@aapkaastro.com');
+  const resendSim = new ResendEmailService('', 'Vihangam Institute of Astrology and Research <admissions@viar.in>', 'ask@aapkaastro.com');
   const resendTest = await resendSim.sendEmail({
     to: 'aarav.sharma@example.com',
     subject: 'Resend API Integration Test',

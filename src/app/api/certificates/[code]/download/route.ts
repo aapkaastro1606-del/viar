@@ -234,9 +234,9 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
       <div class="corner-decor br"></div>
 
       <div>
-        <div class="header-tag">Vedic Institute of Astrological Research (Viar.in)</div>
+        <div class="header-tag">Vihangam Institute of Astrology and Research (VIAR)</div>
         <h1 class="title">Certificate of Completion</h1>
-        <div class="subtitle">In Affiliation with Aapka Astro & Authentic Guru Shishya Lineage</div>
+        <div class="subtitle">In Academic Lineage with Aapka Astro • Founded by Acharya Niraj Kumar</div>
       </div>
 
       <div>
@@ -245,7 +245,7 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
       </div>
 
       <div class="completion-text">
-        for successfully attending all lectures, completing rigorous chart analyses, and passing the comprehensive certification examination with <strong style="color: #4ade80;">${grade}</strong> in the masterclass:
+        for successfully completing all 23 video modules, rigorous chart reading practicum, and passing the comprehensive certification examination with <strong style="color: #4ade80;">${grade}</strong> in:
         <br>
         <span class="course-title">${courseTitle}</span>
       </div>

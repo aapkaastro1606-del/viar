@@ -81,9 +81,12 @@ export default function Navbar() {
                   VIAR<span className="text-amber-500">.IN</span>
                 </span>
                 <span className="text-[10px] font-semibold uppercase tracking-widest px-2 py-0.5 rounded-full bg-amber-400/10 text-amber-600 dark:text-amber-300 border border-amber-400/20">
-                  Academy
+                  Institute
                 </span>
               </div>
+              <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">
+                Vihangam Institute of Astrology &amp; Research
+              </p>
             </div>
           </Link>
           <div className="flex items-center space-x-3">
@@ -133,11 +136,11 @@ export default function Navbar() {
                   VIAR<span className="text-amber-500">.IN</span>
                 </span>
                 <span className="text-[10px] font-semibold uppercase tracking-widest px-2 py-0.5 rounded-full bg-amber-400/10 text-amber-600 dark:text-amber-300 border border-amber-400/20">
-                  Academy
+                  Institute
                 </span>
               </div>
               <p className="text-[11px] text-slate-400 flex items-center gap-1.5 font-medium">
-                <span>By</span>
+                <span>Vihangam Institute of Astrology &amp; Research • By</span>
                 <a 
                   href="https://aapkaastro.com" 
                   target="_blank" 
@@ -244,7 +247,7 @@ export default function Navbar() {
                     Select Your Timezone
                   </p>
                   <p className="text-[11px] text-slate-400 mt-0.5">
-                    All 18 live class schedules will convert automatically.
+                    All course timestamps and assessment windows will convert automatically.
                   </p>
                 </div>
                 {COMMON_TIMEZONES.map((t) => (

@@ -29,7 +29,7 @@ export class MockEmailService implements EmailService {
 
   constructor(fromAddress?: string, replyTo?: string) {
     // PLACEHOLDER: replace with client-approved sender details
-    this.defaultFrom = fromAddress || 'Viar Academy <admissions@viar.in>';
+    this.defaultFrom = fromAddress || 'Vihangam Institute of Astrology and Research <admissions@viar.in>';
     this.defaultReplyTo = replyTo || 'ask@aapkaastro.com';
   }
 

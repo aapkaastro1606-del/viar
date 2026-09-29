@@ -1,6 +1,6 @@
 /**
  * Transactional Email Service Types & Contracts
- * Vedic Institute of Astrological Research (Viar.in)
+ * Vihangam Institute of Astrology and Research (Viar.in)
  */
 
 export interface EmailPayload {

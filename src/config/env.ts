@@ -167,7 +167,7 @@ export const env: AppEnvConfig = {
     provider: (getEnvVar('EMAIL_PROVIDER', 'resend') as 'resend' | 'mock'),
     apiKey: getEnvVar('RESEND_API_KEY', ''),
     // PLACEHOLDER: replace with client-approved sender details
-    fromAddress: getEnvVar('EMAIL_FROM', 'Viar Academy <admissions@viar.in>'),
+    fromAddress: getEnvVar('EMAIL_FROM', 'Vihangam Institute of Astrology and Research <admissions@viar.in>'),
     replyTo: getEnvVar('EMAIL_REPLY_TO', 'ask@aapkaastro.com'),
   },
 };

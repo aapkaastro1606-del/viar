@@ -21,29 +21,32 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://viar.in'),
-  title: 'Viar.in | Online Vedic Astrology Education Academy',
+  title: 'VIAR | Vihangam Institute of Astrology and Research',
   description:
-    'Viar.in is a premier online astrology academy by Acharya Niraj Kumar (Aapka Astro). Live cohort classes on Zoom/Meet, recordings, final test, and verifiable certification.',
+    'Vihangam Institute of Astrology and Research (VIAR, viar.in) is the premier Vedic astrology institute founded by Acharya Niraj Kumar (Jyotish Acharya, Bharatiya Vidya Bhavan). Comprehensive 23-module self-paced video masterclasses, practical chart workshops, and verifiable certification.',
   icons: {
     icon: '/images/favicon.png',
     shortcut: '/images/favicon.png',
     apple: '/images/logo-icon.png',
   },
   keywords: [
+    'vihangam institute of astrology and research',
+    'viar',
+    'viar.in',
     'astrology courses',
     'vedic astrology classes',
-    'jyotish academy',
+    'jyotish acharya',
     'acharya niraj kumar',
-    'what is astrology course',
+    'self paced astrology course',
     'aapka astro',
     'learn astrology online',
   ],
   openGraph: {
-    title: 'Viar.in — Live Vedic Astrology Academy by Acharya Niraj Kumar',
+    title: 'VIAR — Vihangam Institute of Astrology and Research',
     description:
-      'Learn authentic Vedic astrology in live interactive cohorts with Acharya Niraj Kumar. 18 classes, recordings, and certification.',
+      'Master authentic Vedic astrology through 23 self-paced video modules and real chart analysis workshops with Acharya Niraj Kumar. Lifetime access and verifiable certification.',
     url: 'https://viar.in',
-    siteName: 'Viar.in — Vihangam Institute of Astrology and Research',
+    siteName: 'VIAR — Vihangam Institute of Astrology and Research',
     images: [
       {
         url: '/images/logo.png',
@@ -79,6 +82,32 @@ export default function RootLayout({
                 } catch (e) {}
               })();
             `,
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'EducationalOrganization',
+              name: 'Vihangam Institute of Astrology and Research',
+              alternateName: ['VIAR', 'Viar.in'],
+              url: 'https://viar.in',
+              logo: 'https://viar.in/images/logo.png',
+              description:
+                'Pioneering Vedic astrology institute bridging ancient wisdom with contemporary inquiry, offering comprehensive self-paced video modules and verifiable certification.',
+              founder: {
+                '@type': 'Person',
+                name: 'Acharya Niraj Kumar',
+                jobTitle: 'Founder & Master Astrologer',
+              },
+              sameAs: [
+                'https://aapkaastro.com',
+                'https://www.youtube.com/@aapkaastro7900',
+                'https://www.facebook.com/aapkaastro',
+                'https://www.instagram.com/aapkaastrologer/',
+              ],
+            }),
           }}
         />
       </head>

@@ -23,8 +23,8 @@ export default function InstructorCoursesPage() {
   const [description, setDescription] = useState('');
   const [priceInr, setPriceInr] = useState('4999');
   const [priceUsd, setPriceUsd] = useState('69');
-  const [durationWeeks, setDurationWeeks] = useState('9');
-  const [totalClasses, setTotalClasses] = useState('18');
+  const [durationWeeks, setDurationWeeks] = useState('8');
+  const [totalClasses, setTotalClasses] = useState('23');
   const [quizUnlockCondition, setQuizUnlockCondition] = useState<'ALL_SESSIONS_COMPLETED' | 'COHORT_END_DATE_PASSED'>('ALL_SESSIONS_COMPLETED');
   const [isSuccess, setIsSuccess] = useState('');
 
@@ -48,19 +48,19 @@ export default function InstructorCoursesPage() {
       slug,
       title,
       tagline: tagline || 'Practical Vedic astrology masterclass.',
-      subtitle: `${totalClasses} Live Classes • ${durationWeeks} Weeks • Graded Quiz & Certificate`,
-      description: description || 'Comprehensive cohort-based immersion.',
+      subtitle: `${totalClasses} Video Modules • Self-Paced • Graded Quiz & Certificate`,
+      description: description || 'Comprehensive self-paced video immersion.',
       level: 'Beginner',
-      durationWeeks: parseInt(durationWeeks) || 9,
-      totalClasses: parseInt(totalClasses) || 18,
-      classesPerWeek: 2,
+      durationWeeks: parseInt(durationWeeks) || 8,
+      totalClasses: parseInt(totalClasses) || 23,
+      classesPerWeek: 0,
       priceInr: parseInt(priceInr) || 4999,
       priceUsd: parseInt(priceUsd) || 69,
       originalPriceInr: (parseInt(priceInr) || 4999) * 2,
       originalPriceUsd: (parseInt(priceUsd) || 69) * 2,
       isPublished: true,
       featured: false,
-      badge: 'Active Cohort',
+      badge: 'Masterclass',
       quizUnlockCondition,
       instructor: {
         name: 'Acharya Niraj Kumar',
@@ -73,8 +73,8 @@ export default function InstructorCoursesPage() {
         aapkaAstroUrl: 'https://aapkaastro.com',
       },
       highlights: [
-        'Live interactive Zoom sessions + recording archives',
-        'Timezone-synchronized schedule',
+        '23 On-Demand HD Video Modules + 2 Bonus Workshops',
+        'Lifetime access & self-paced learning portal',
         'Verifiable certificate upon passing final exam',
       ],
       prerequisites: ['Basic interest in Vedic Jyotish'],

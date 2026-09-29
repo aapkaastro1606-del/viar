@@ -64,10 +64,10 @@ export default function StudentCertificatesPage() {
               <span>Verifiable Academic Credentials</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-black text-white">
-              My Viar Academy Certificates
+              My VIAR Official Certificates
             </h1>
             <p className="text-xs sm:text-sm text-slate-300 mt-1">
-              Authentic certifications earned by fulfilling live masterclasses and passing the final graded assessment.
+              Authentic certifications earned by completing self-paced video modules and passing the final graded evaluation.
             </p>
           </div>
 
@@ -86,7 +86,7 @@ export default function StudentCertificatesPage() {
             <Award className="w-12 h-12 text-slate-500 mx-auto" />
             <h3 className="text-xl font-bold text-white">No Certificates Issued Yet</h3>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Complete your 18 cohort classes (or mark them watched) and pass the 20-question final quiz with 70%+ to receive your authentic credential.
+              Complete your 23 self-paced video modules and pass the 20-question final quiz with 70%+ to receive your authentic credential from Vihangam Institute of Astrology and Research.
             </p>
             <Link
               href="/dashboard/courses/cohort-wia-batch-1"

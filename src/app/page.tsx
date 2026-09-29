@@ -6,7 +6,6 @@ import Image from 'next/image';
 import {
   Sparkles,
   CheckCircle2,
-  Calendar,
   Clock,
   Video,
   Award,
@@ -21,14 +20,12 @@ import {
 } from 'lucide-react';
 import { ViarStore } from '@/lib/store';
 import { Course, Cohort } from '@/lib/types';
-import { formatInTimezone, getUserLocalTimezone } from '@/lib/timezones';
 import { PLACEHOLDER_TESTIMONIALS } from '@/lib/data';
 import { SISTER_SERVICES } from '@/config/services';
 
 export default function HomePage() {
   const [course, setCourse] = useState<Course | null>(null);
   const [cohort, setCohort] = useState<Cohort | null>(null);
-  const [userTz, setUserTz] = useState<string>('Asia/Kolkata');
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   useEffect(() => {
@@ -37,31 +34,22 @@ export default function HomePage() {
 
     const cohorts = ViarStore.getCohorts('course-what-is-astrology');
     if (cohorts.length > 0) setCohort(cohorts[0]);
-
-    const tz = ViarStore.getTimezone() || getUserLocalTimezone();
-    setUserTz(tz);
-
-    const handleTzChange = () => {
-      setUserTz(ViarStore.getTimezone());
-    };
-    window.addEventListener('timezone-changed', handleTzChange);
-    return () => window.removeEventListener('timezone-changed', handleTzChange);
   }, []);
 
   return (
     <div className="cosmic-bg min-h-screen">
       
       {/* Top Notification Banner */}
-      {/* PLACEHOLDER: replace with real content */}
+      {/* Top Notification Banner */}
       <div className="bg-gradient-to-r from-amber-600/20 via-amber-500/30 to-amber-600/20 border-b border-amber-500/30 py-2.5 px-4 text-center">
         <p className="text-xs md:text-sm text-amber-200 font-medium flex items-center justify-center gap-2 flex-wrap">
           <span className="flex h-2 w-2 relative">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
           </span>
-          <span className="font-bold text-amber-300">Cohort Enrolling:</span> {cohort?.batchName || 'Batch 1 — Starting October 2026'} (Capacity: {cohort?.maxSeats || 50} students). Only {cohort ? cohort.maxSeats - cohort.enrolledCount : 12} seats remaining!
+          <span className="font-bold text-amber-300">Self-Paced Masterclass Open:</span> The Ultimate Astrology Course (23 Video Modules + 2 Bonus Workshops). Instant Lifetime Access!
           <Link href="/courses/what-is-astrology" className="underline font-bold text-white hover:text-amber-100 ml-1">
-            Claim Your Seat &rarr;
+            Enroll Today &rarr;
           </Link>
         </p>
       </div>
@@ -81,7 +69,7 @@ export default function HomePage() {
                 height={18}
                 className="w-4 h-4 object-contain inline-block"
               />
-              <span>Vihangam Institute • By Aapka Astro</span>
+              <span>Vihangam Institute of Astrology and Research • By Aapka Astro</span>
             </div>
 
             {/* Headline */}
@@ -93,9 +81,8 @@ export default function HomePage() {
 
             {/* Subtitle */}
             <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-10 font-normal">
-              A comprehensive online education platform run by <strong className="text-amber-300">Acharya Niraj Kumar</strong> (founder of <a href="https://aapkaastro.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-white">Aapka Astro</a>). 
-              {/* PLACEHOLDER: Replace with verified consultation/student count once confirmed across both sites */}
-              Blending traditional learning from Baidyanath Dham (Deoghar) with 20+ years of senior executive leadership, trusted by students and clients across India and abroad, and backed by a global community of 26,000+ followers.
+              A comprehensive self-paced video education platform run by <strong className="text-amber-300">Acharya Niraj Kumar</strong> (Jyotish Acharya, Bharatiya Vidya Bhavan New Delhi; founder of <a href="https://aapkaastro.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-white">Aapka Astro</a>). 
+              Blending 20+ years of traditional learning from Baidyanath Dham (Deoghar) with 20+ years of senior executive leadership, trusted by over 5,200 students and clients, and backed by a global community of 26,000+ followers.
             </p>
 
             {/* CTA Group */}
@@ -104,7 +91,7 @@ export default function HomePage() {
                 href="/courses/what-is-astrology"
                 className="gold-button w-full sm:w-auto px-8 py-4 rounded-xl text-base font-bold shadow-xl shadow-amber-500/20 flex items-center justify-center gap-2 group"
               >
-                <span>Enroll in &quot;What is Astrology&quot;</span>
+                <span>Start Learning Today</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition" />
               </Link>
               <Link
@@ -119,21 +106,20 @@ export default function HomePage() {
             {/* Key Trust Metrics */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto pt-4 border-t border-white/10 text-left">
               <div className="p-3 rounded-lg bg-white/[0.02]">
-                <p className="text-2xl font-bold text-white">18 Classes</p>
-                <p className="text-xs text-slate-400">2 live classes/week for 9 weeks</p>
+                <p className="text-2xl font-bold text-white">23 Modules</p>
+                <p className="text-xs text-slate-400">Comprehensive video masterclass</p>
               </div>
               <div className="p-3 rounded-lg bg-white/[0.02]">
-                <p className="text-2xl font-bold text-amber-400">Live or Replay</p>
-                <p className="text-xs text-slate-400">Both count 100% toward course</p>
+                <p className="text-2xl font-bold text-amber-400">Self-Paced</p>
+                <p className="text-xs text-slate-400">Learn on your own schedule</p>
               </div>
               <div className="p-3 rounded-lg bg-white/[0.02]">
-                <p className="text-2xl font-bold text-white">No Gate</p>
-                <p className="text-xs text-slate-400">Pass final exam to get certified</p>
+                <p className="text-2xl font-bold text-white">2 Bonus Cases</p>
+                <p className="text-xs text-slate-400">Career &amp; Marriage chart analysis</p>
               </div>
               <div className="p-3 rounded-lg bg-white/[0.02]">
-                <p className="text-2xl font-bold text-amber-400">Aapka Astro</p>
-                {/* PLACEHOLDER: Replace with verified consultation/student count once confirmed across both sites */}
-                <p className="text-xs text-slate-400">Trusted by students & clients across India and abroad</p>
+                <p className="text-2xl font-bold text-amber-400">VIAR Certified</p>
+                <p className="text-xs text-slate-400">Verifiable academic credential</p>
               </div>
             </div>
 
@@ -167,15 +153,15 @@ export default function HomePage() {
                   <Video className="w-6 h-6" />
                 </div>
                 <h4 className="text-xl font-bold text-white mb-3">
-                  Live Zoom Classes + Instant HD Archives
+                  23 On-Demand Video Modules
                 </h4>
                 <p className="text-sm text-slate-300 leading-relaxed">
-                  Join live interactive classes on Zoom or Google Meet with direct Q&A. Missed a session? Every class is archived in crystal-clear HD with downloadable slide decks and summary notes within hours.
+                  Complete foundational-to-advanced curriculum taught by Acharya Niraj Kumar. Pause, rewind, and re-watch anytime with lifetime access, downloadable chart templates, and study cheatsheets.
                 </p>
               </div>
               <div className="mt-6 pt-6 border-t border-white/10 text-xs font-semibold text-amber-300 flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                <span>Replays count identically to live attendance</span>
+                <span>Lifetime access on all mobile &amp; desktop devices</span>
               </div>
             </div>
 
@@ -183,18 +169,18 @@ export default function HomePage() {
             <div className="cosmic-card p-8 rounded-2xl border border-white/10 flex flex-col justify-between relative group hover:border-amber-500/40 transition">
               <div>
                 <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition">
-                  <Globe className="w-6 h-6" />
+                  <Clock className="w-6 h-6" />
                 </div>
                 <h4 className="text-xl font-bold text-white mb-3">
-                  Automatic Local Timezone Synchronization
+                  100% Self-Paced • Zero Schedule Stress
                 </h4>
                 <p className="text-sm text-slate-300 leading-relaxed">
-                  Students join us from New York, London, Dubai, Mumbai, and Sydney. The platform detects your local browser timezone and presents every class time in your exact clock time, with 1-click Google Calendar sync.
+                  No live Zoom scheduling pressure or timezone conflicts. Progress at whatever pace fits your personal and professional lifestyle, with active academic discussion support.
                 </p>
               </div>
               <div className="mt-6 pt-6 border-t border-white/10 text-xs font-semibold text-amber-300 flex items-center gap-1.5">
-                <Clock className="w-4 h-4 text-amber-400" />
-                <span>Your detected timezone: {userTz}</span>
+                <Globe className="w-4 h-4 text-amber-400" />
+                <span>Learn at your own pace from anywhere in the world</span>
               </div>
             </div>
 
@@ -208,12 +194,12 @@ export default function HomePage() {
                   Exam-Based Verifiable Certification
                 </h4>
                 <p className="text-sm text-slate-300 leading-relaxed">
-                  We don&apos;t lock certificates behind arbitrary attendance thresholds. Complete the 18 classes at your own rhythm and pass the 20-question Final Certification Exam to earn an authentic, verifiable credential.
+                  Demonstrate true chart reading competency by taking the 20-question final exam. Pass with 70%+ to receive your official certificate from Vihangam Institute of Astrology and Research.
                 </p>
               </div>
               <div className="mt-6 pt-6 border-t border-white/10 text-xs font-semibold text-amber-300 flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-amber-400" />
-                <span>Public verification URL with unique hash</span>
+                <span>Public verification URL at viar.in/verify</span>
               </div>
             </div>
 
@@ -233,70 +219,87 @@ export default function HomePage() {
               <div className="flex items-center gap-2">
                 <span className="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/30 flex items-center gap-1.5">
                   <Flame className="w-3.5 h-3.5 text-amber-400" />
-                  Flagship Course Enrolling Now
+                  Self-Paced Masterclass Open Now
                 </span>
                 <span className="px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-slate-300 border border-white/10">
-                  Beginner to Intermediate
+                  Beginner to Advanced Chart Reading
                 </span>
               </div>
 
-              {cohort && (
-                <div className="text-xs text-slate-300 flex items-center gap-2 bg-white/[0.04] px-3.5 py-1.5 rounded-xl border border-white/10">
-                  <Calendar className="w-3.5 h-3.5 text-amber-400" />
-                  <span>Batch starts: <strong className="text-white">{formatInTimezone(cohort.startDate, userTz, 'short')}</strong></span>
-                </div>
-              )}
+              <div className="text-xs text-slate-300 flex items-center gap-2 bg-white/[0.04] px-3.5 py-1.5 rounded-xl border border-white/10">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                <span>Instant Access: <strong className="text-white">Start Watching Immediately</strong></span>
+              </div>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               
               <div className="lg:col-span-7">
-                {/* PLACEHOLDER: replace with real title */}
                 <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-4">
-                  What is Astrology — Foundations of Vedic Astrology
+                  The Ultimate Astrology Course: Foundations to Chart Mastery
                 </h3>
-                {/* PLACEHOLDER: replace with real format details */}
                 <p className="text-lg text-amber-300/90 font-medium mb-6">
-                  18 Live Classes • 2 Per Week • 9 Weeks (~60–90 mins each) • Final Graded Quiz & Certificate
+                  23 On-Demand Video Modules • 2 Bonus Chart Workshops • Complete Self-Paced Access • Graded Exam &amp; Certificate
                 </p>
                 <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
-                  A structured 9-week immersion arranged into three progressive blocks. Move with confidence from foundational astronomical mechanics to reading complete birth charts and deciphering life themes.
+                  A structured masterclass arranged into five comprehensive curriculum pillars and two bonus case studies. Move with confidence from foundational astronomical mechanics to reading complete birth charts and deciphering life themes.
                 </p>
 
-                {/* Structure: roughly 3-week blocks */}
-                {/* PLACEHOLDER: replace with real block structure */}
+                {/* 5-Pillar Syllabus Preview */}
                 <div className="space-y-3 mb-8">
                   <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <span className="w-7 h-7 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">1</span>
                       <div>
-                        <span className="text-sm font-semibold text-white">Weeks 1–3: History & Fundamentals of Astrology</span>
-                        <p className="text-[11px] text-slate-400">Cosmology, Karma model, Zodiac belt, and Panchanga</p>
+                        <span className="text-sm font-semibold text-white">Modules 1–6: Foundations of Astrology &amp; Houses</span>
+                        <p className="text-[11px] text-slate-400">Nature of 9 Grahas, Zodiac Signs, Kundli Houses &amp; Sign Lords</p>
                       </div>
                     </div>
-                    <span className="text-xs text-amber-300 font-medium">Classes 1–6</span>
+                    <span className="text-xs text-amber-300 font-medium">6 Videos</span>
                   </div>
 
                   <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <span className="w-7 h-7 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">2</span>
                       <div>
-                        <span className="text-sm font-semibold text-white">Weeks 4–6: Reading a Birth Chart</span>
-                        <p className="text-[11px] text-slate-400">North & South Indian Kundalis, Lagna, and 12 Rashis</p>
+                        <span className="text-sm font-semibold text-white">Modules 7–12: Planetary Degrees, Drishti &amp; Combustion</span>
+                        <p className="text-[11px] text-slate-400">Planetary aspects, exalted/debilitated states, and retrograde motion</p>
                       </div>
                     </div>
-                    <span className="text-xs text-amber-300 font-medium">Classes 7–12</span>
+                    <span className="text-xs text-amber-300 font-medium">6 Videos</span>
                   </div>
 
                   <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <span className="w-7 h-7 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">3</span>
                       <div>
-                        <span className="text-sm font-semibold text-white">Weeks 7–9: Planets, Houses & Basic Predictions</span>
-                        <p className="text-[11px] text-slate-400">9 Grahas, 12 Bhavas, 5-Step Synthesis & Final Graded Quiz</p>
+                        <span className="text-sm font-semibold text-white">Modules 13–17: Rashis, Nakshatras &amp; The Dasha System</span>
+                        <p className="text-[11px] text-slate-400">27 Nakshatras, Kendra-Trikon dynamics, Lagnesh &amp; Vimshottari timing</p>
                       </div>
                     </div>
-                    <span className="text-xs text-amber-300 font-medium">Classes 13–18</span>
+                    <span className="text-xs text-amber-300 font-medium">5 Videos</span>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <span className="w-7 h-7 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">4</span>
+                      <div>
+                        <span className="text-sm font-semibold text-white">Modules 18–21: Vedic Remedial Sciences &amp; Lagna Kundali</span>
+                        <p className="text-[11px] text-slate-400">Gemstones, Rudraksha by Rashi, Daan/Dakshina &amp; chart reading blueprint</p>
+                      </div>
+                    </div>
+                    <span className="text-xs text-amber-300 font-medium">4 Videos</span>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <span className="w-7 h-7 rounded-full bg-amber-500/30 text-amber-200 text-xs font-bold flex items-center justify-center">★</span>
+                      <div>
+                        <span className="text-sm font-semibold text-amber-300">Modules 22–23: Bonus Real Chart Reading Masterclasses</span>
+                        <p className="text-[11px] text-slate-300">Clinical case studies: Choosing Career and Marriage Timing</p>
+                      </div>
+                    </div>
+                    <span className="text-xs text-amber-300 font-bold">2 Bonus Videos</span>
                   </div>
                 </div>
 
@@ -305,14 +308,14 @@ export default function HomePage() {
                     href="/courses/what-is-astrology"
                     className="gold-button px-7 py-3.5 rounded-xl text-sm font-bold flex items-center gap-2"
                   >
-                    <span>View Complete 18-Class Syllabus</span>
+                    <span>View Complete 23-Module Syllabus</span>
                     <ChevronRight className="w-4 h-4" />
                   </Link>
                   <Link
                     href={`/checkout/${cohort?.id || 'cohort-wia-batch-1'}`}
                     className="px-6 py-3.5 rounded-xl text-sm font-bold text-white bg-white/10 hover:bg-white/15 border border-white/15 transition"
                   >
-                    Quick Enroll Now
+                    Enroll Now • Instant Access
                   </Link>
                 </div>
               </div>
@@ -323,7 +326,6 @@ export default function HomePage() {
                   
                   <div className="flex items-center justify-between pb-6 border-b border-white/10 mb-6">
                     <div>
-                      {/* PLACEHOLDER: Tuition is admin-editable */}
                       <p className="text-xs text-slate-400 uppercase tracking-wider font-semibold">One-Time Tuition</p>
                       <div className="flex items-baseline gap-2 mt-1">
                         <span className="text-3xl sm:text-4xl font-black text-white">₹4,999</span>
@@ -339,31 +341,27 @@ export default function HomePage() {
                   <div className="space-y-4 mb-8">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
-                      <span className="text-sm text-slate-300">18 Live interactive classes (~60–90 mins each)</span>
+                      <span className="text-sm text-slate-300">23 On-demand video modules (~60–90 mins each)</span>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
-                      <span className="text-sm text-slate-300">Final assessment: 20-question graded quiz with certificate</span>
+                      <span className="text-sm text-slate-300">2 Bonus real chart reading workshops (Career &amp; Marriage)</span>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
-                      <span className="text-sm text-slate-300">Capacity capped at 50 students per cohort</span>
+                      <span className="text-sm text-slate-300">100% Self-paced — start learning immediately</span>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
-                      <span className="text-sm text-slate-300">Lifetime access to all video recordings & notes</span>
+                      <span className="text-sm text-slate-300">Permanent lifetime access to all videos &amp; study notes</span>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
-                      <span className="text-sm text-slate-300">Timezone-aware scheduling tailored to your country</span>
+                      <span className="text-sm text-slate-300">20-Question graded certification assessment</span>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
-                      <span className="text-sm text-slate-300">Direct chart review with Acharya Niraj Kumar</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
-                      <span className="text-sm text-slate-300">Verifiable Viar.in Academy Graduate Certificate</span>
+                      <span className="text-sm text-slate-300">Official Verifiable Certificate from VIAR</span>
                     </div>
                   </div>
 
@@ -371,12 +369,12 @@ export default function HomePage() {
                     href={`/checkout/${cohort?.id || 'cohort-wia-batch-1'}`}
                     className="gold-button w-full py-4 rounded-xl text-center font-bold text-base shadow-lg shadow-amber-500/20 block"
                   >
-                    Enroll Now • One-Time Payment
+                    Start Learning Today • Lifetime Access
                   </Link>
 
                   <p className="text-center text-xs text-slate-400 mt-3 flex items-center justify-center gap-1.5">
                     <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                    <span>Instant access to dashboard upon checkout</span>
+                    <span>Instant access to student dashboard upon enrollment</span>
                   </p>
 
                 </div>
@@ -485,20 +483,20 @@ export default function HomePage() {
               <div>
                 <div className="flex items-center justify-between gap-4 mb-4">
                   <span className="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
-                    Flagship Cohort
+                    Flagship Masterclass
                   </span>
-                  <span className="text-xs text-slate-400">18 Classes • 9 Weeks</span>
+                  <span className="text-xs text-slate-400">23 Video Modules • 100% Self-Paced</span>
                 </div>
                 <h4 className="text-2xl font-bold text-white mb-2">
-                  What is Astrology — Foundations of Vedic Astrology
+                  The Ultimate Astrology Course: Foundations to Chart Mastery
                 </h4>
                 <p className="text-sm text-slate-300 mb-6">
-                  Learn the sacred science of Jyotish from first principles to real chart readings across 3 cohesive blocks.
+                  Learn the sacred science of Jyotish from first principles to real chart readings across 23 structured video lessons and 2 bonus case studies.
                 </p>
                 <div className="space-y-2 mb-6 text-xs text-slate-300">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                    <span>Includes 18 live Zoom sessions + full recording archives</span>
+                    <span>Includes 23 HD video lessons + 2 bonus chart workshops</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400" />

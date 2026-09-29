@@ -210,10 +210,10 @@ function StudentDashboardContent() {
               </div>
               <div>
                 <h3 className="text-base sm:text-lg font-bold text-white">
-                  Welcome to Cohort 01, {currentUser?.name}!
+                  Welcome to Vihangam Institute of Astrology and Research, {currentUser?.name}!
                 </h3>
                 <p className="text-xs sm:text-sm text-emerald-200">
-                  Your enrollment is confirmed. Live class links, timezone schedule, and course materials are all ready below.
+                  Your enrollment is confirmed. Your 23 video modules, study materials, and certification portal are all ready below.
                 </p>
               </div>
             </div>
@@ -233,7 +233,7 @@ function StudentDashboardContent() {
               </span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-black text-white mt-1">
-              {course?.title || 'What is Astrology: Foundational Immersion'}
+              {course?.title || 'The Ultimate Astrology Course: Foundations to Chart Mastery'}
             </h1>
             <p className="text-xs text-amber-300 mt-1 flex items-center gap-1.5">
               <Globe className="w-3.5 h-3.5" />
@@ -946,7 +946,7 @@ function StudentDashboardContent() {
                   </h3>
 
                   <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto leading-relaxed mb-6">
-                    has successfully completed the 18 live masterclasses, rigorous chart reading practicum, and achieved a grade of{' '}
+                    has successfully completed the 23 structured video modules, rigorous chart reading practicum, and achieved a grade of{' '}
                     <strong className="text-white">{certificate.grade} ({certificate.scorePercentage}%)</strong> in the final examination of:
                   </p>
 

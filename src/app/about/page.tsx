@@ -27,6 +27,13 @@ const CREDENTIAL_GALLERY = [
     category: 'Formal Jyotish Credential',
   },
   {
+    src: '/images/gallery/Jyotishvedanghub_Astro_Vastu_Certificate.png',
+    alt: 'Certificate of Achievement Astro Vastu Video Course - Jyotishvedanghub',
+    title: 'Astro Vastu Video Course Certificate',
+    institution: 'Jyotishvedanghub (Awarded August 22, 2022)',
+    category: 'Verified Course Credential',
+  },
+  {
     src: '/images/gallery/Vastu_Expert_Certificate.png',
     alt: 'Vastu Expert Certificate',
     title: 'Certified Vastu Expert',
@@ -34,11 +41,25 @@ const CREDENTIAL_GALLERY = [
     category: 'Advanced AstroVastu Credential',
   },
   {
-    src: '/images/gallery/Recognition_Awards.jpg',
-    alt: 'Recognition Awards',
-    title: 'Excellence in Astrology & Vastu',
-    institution: 'National Astrological Forum',
-    category: 'Honor & Recognition',
+    src: '/images/gallery/Shivjyoti_Best_Astrologer_Award.jpg',
+    alt: 'Shivjyoti Astrology Best Astrologer Award presented to Jyotishacharya Niraj Kumar',
+    title: 'Best Astrologer Honor',
+    institution: 'Shivjyoti Astrology (Regd.) with Chief Guest Dr. H S Rawat',
+    category: 'Honor & Award in Astrology R&D',
+  },
+  {
+    src: '/images/gallery/Dignitary_Felicitation_Award.jpg',
+    alt: 'State Dignitary Felicitation by Uttarakhand Chief Minister Pushkar Singh Dhami',
+    title: 'State Dignitary Felicitation',
+    institution: 'Presented by Hon. CM Pushkar Singh Dhami',
+    category: 'State Honors & Recognition',
+  },
+  {
+    src: '/images/gallery/Minister_Honor_Felicitation.jpg',
+    alt: 'Minister Honor & Felicitation of Acharya Niraj Kumar',
+    title: 'Honorary Reception & Felicitation',
+    institution: 'State Dignitary & Ministerial Delegation',
+    category: 'Public Distinction',
   },
   {
     src: '/images/gallery/with_guruji.jpg',
@@ -46,6 +67,13 @@ const CREDENTIAL_GALLERY = [
     title: 'With Late Guru Shri B. B. Tiwari',
     institution: 'Parampara & Traditional Lineage',
     category: 'Spiritual Lineage',
+  },
+  {
+    src: '/images/gallery/Recognition_Awards.jpg',
+    alt: 'Recognition Awards',
+    title: 'Excellence in Astrology & Vastu',
+    institution: 'National Astrological Forum',
+    category: 'Honor & Recognition',
   },
   {
     src: '/images/gallery/Awards_Receiving.jpg',
@@ -70,16 +98,44 @@ export default function AboutPage() {
     <div className="cosmic-bg min-h-screen py-16 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-400/10 border border-amber-400/25 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-4">
+        {/* Introduction to Vihangam Institute of Astrology and Research */}
+        <div className="max-w-4xl mx-auto mb-20">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-400/10 border border-amber-400/25 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-4">
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+              <span>Pioneering Astrological Science & Research</span>
+            </div>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+              Introduction to <span className="gold-gradient-text">Vihangam Institute of Astrology and Research</span>
+            </h1>
+          </div>
+
+          <div className="bg-gradient-to-b from-[#111827] to-[#0d131f] rounded-3xl border border-amber-500/30 p-8 sm:p-12 text-left space-y-6 shadow-2xl">
+            <p className="text-slate-200 text-base sm:text-lg leading-relaxed">
+              Welcome to the Vihangam Institute of Astrology and Research, a pioneering institution dedicated to the exploration and understanding of astrology as a profound science and art. Established with the vision of bridging ancient wisdom with contemporary inquiry, the institute serves as a hub for both learners and practitioners who seek to delve into the intricacies of astrological principles, methodologies, and their practical applications in daily life.
+            </p>
+            <p className="text-slate-300 text-base leading-relaxed">
+              At Vihangam, we believe that astrology is not merely a tool for prediction, but a lens through which we can gain insights into the human experience and our interconnectedness with the cosmos. Our approach combines rigorous academic research with experiential learning, ensuring that students and researchers not only grasp the theoretical foundations of astrology but also engage with its practical implications.
+            </p>
+            <p className="text-slate-300 text-base leading-relaxed">
+              With a team of esteemed scholars and seasoned astrologers, the institute offers a comprehensive curriculum that encompasses various branches of astrology, including natal astrology, predictive techniques, and the study of transits, Nadi astrology, progressions, Kerala prashant. In addition to specialized courses, we also host workshops, seminars, and conferences that encourage dialogue, innovation, and the dissemination of astrological knowledge.
+            </p>
+            <p className="text-slate-300 text-base leading-relaxed">
+              Whether you are a curious novice or an established practitioner seeking to enhance your skills, Vihangam Institute of Astrology and Research provides a nurturing environment for exploration and growth. Join us as we embark on a journey to uncover the celestial patterns that shape our lives and illuminate our paths.
+            </p>
+          </div>
+        </div>
+
+        {/* Master Instructor Biography Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-400/10 border border-amber-400/25 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-3">
             <Sparkles className="w-3.5 h-3.5 text-amber-400" />
             <span>Master Lineage, Science & Corporate Leadership</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6">
-            The Mind Behind <span className="gold-gradient-text">Aapka Astro & Viar.in</span>
-          </h1>
-          <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+            The Mind Behind <span className="gold-gradient-text">Aapka Astro & VIAR</span>
+          </h2>
+          <p className="text-slate-300 text-sm sm:text-base leading-relaxed mt-2">
             Where traditional Vedic lineage meets corporate executive insight and empirical mathematical rigor.
           </p>
         </div>
@@ -102,7 +158,7 @@ export default function AboutPage() {
                 </div>
                 <div className="absolute -bottom-4 right-0 bg-[#0f172a] border border-amber-400/40 px-4 py-2 rounded-xl shadow-xl text-left">
                   <p className="text-xs font-bold text-amber-300">Acharya Niraj Kumar</p>
-                  <p className="text-[10px] text-slate-400">Founder, Aapka Astro & Viar.in</p>
+                  <p className="text-[10px] text-slate-400">Founder, Aapka Astro & Lead Instructor, VIAR</p>
                 </div>
               </div>
 
@@ -169,7 +225,7 @@ export default function AboutPage() {
               </div>
 
               <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-200 text-sm font-medium italic">
-                &ldquo;Aapka Astro and Viar.in are led by Acharya Niraj Kumar, a practitioner who brings together deep traditional learning and rare real-world corporate leadership.&rdquo;
+                &ldquo;Aapka Astro and Vihangam Institute of Astrology and Research (VIAR) are led by Acharya Niraj Kumar, a practitioner who brings together deep traditional learning and rare real-world corporate leadership.&rdquo;
               </div>
 
               <p>
@@ -420,7 +476,7 @@ export default function AboutPage() {
         <div className="mb-20">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-xs font-bold uppercase tracking-widest text-amber-400 mb-2">Our Core Standards</h2>
-            <h3 className="text-3xl font-extrabold text-white">How Viar Academy Differs</h3>
+            <h3 className="text-3xl font-extrabold text-white">How Vihangam Institute Differs</h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -434,9 +490,9 @@ export default function AboutPage() {
 
             <div className="cosmic-card p-8 rounded-2xl border border-white/10">
               <Users className="w-10 h-10 text-amber-400 mb-4" />
-              <h4 className="text-xl font-bold text-white mb-2">Cohort Learning</h4>
+              <h4 className="text-xl font-bold text-white mb-2">Self-Paced Mastery</h4>
               <p className="text-sm text-slate-300 leading-relaxed">
-                Small interactive cohorts capped at 50 students. Live sessions with direct question-and-answer with Acharya Niraj Kumar on Zoom or Google Meet.
+                23 structured video modules accessible 24/7 at your own speed, with comprehensive notes, real chart walkthroughs, and dedicated academic Q&amp;A support.
               </p>
             </div>
 
@@ -497,7 +553,7 @@ export default function AboutPage() {
             href="/courses/what-is-astrology"
             className="gold-button inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-bold shadow-xl shadow-amber-500/20"
           >
-            <span>Explore Upcoming Cohort with Acharya Niraj Kumar</span>
+            <span>Explore Self-Paced Masterclass with Acharya Niraj Kumar</span>
             <ArrowRight className="w-5 h-5" />
           </Link>
         </div>

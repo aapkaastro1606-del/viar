@@ -50,6 +50,12 @@ export interface CourseModule {
   classNumbers: number[];
   weeks?: string;
   classRange?: string;
+  durationMinutes?: number;
+  videoUrl?: string;
+  videoThumbnail?: string;
+  keyTopics?: string[];
+  isBonus?: boolean;
+  resources?: ClassResource[];
 }
 
 export interface Course {
@@ -60,6 +66,9 @@ export interface Course {
   subtitle: string;
   description: string;
   level: 'Beginner' | 'Intermediate' | 'Advanced' | 'All Levels';
+  deliveryMode?: 'SELF_PACED' | 'LIVE_COHORT';
+  hasLifetimeAccess?: boolean;
+  totalModules?: number;
   durationWeeks: number;
   totalClasses: number;
   classesPerWeek: number;
@@ -79,8 +88,9 @@ export interface Course {
     studentsTaught: number;
     avatarUrl: string;
     aapkaAstroUrl: string;
+    credentials?: string[];
   };
-  quizUnlockCondition?: 'ALL_SESSIONS_COMPLETED' | 'COHORT_END_DATE_PASSED';
+  quizUnlockCondition?: 'ALL_SESSIONS_COMPLETED' | 'COHORT_END_DATE_PASSED' | 'SELF_PACED_PROGRESS';
   highlights: string[];
   prerequisites: string[];
   whatYouWillLearn: string[];

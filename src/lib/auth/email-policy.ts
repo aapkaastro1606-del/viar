@@ -235,7 +235,7 @@ export function validateEmailForSignup(
         domain,
         mode: 'BLOCKLIST',
         /* PLACEHOLDER: replace with real content (client-configurable policy error) */
-        reason: `Temporary or disposable email addresses (@${domain}) cannot be used for academy enrollment. Please use a permanent email address (e.g. Gmail, Outlook, iCloud, or your personal/work domain) so you can reliably receive live Zoom links, session recordings, and official certificates.`,
+        reason: `Temporary or disposable email addresses (@${domain}) cannot be used for institute enrollment. Please use a permanent email address (e.g. Gmail, Outlook, iCloud, or your personal/work domain) so you can reliably receive course notifications, video access updates, and official certificates.`,
       };
     }
 

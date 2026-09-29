@@ -31,10 +31,10 @@ export default function PrivacyPolicyPage() {
             Privacy Policy
           </h1>
           <p className="text-slate-300 text-sm leading-relaxed">
-            How Viar Academy collects, uses, and safeguards your student data and learning records.
+            How Vihangam Institute of Astrology and Research collects, uses, and safeguards your student data and learning records.
           </p>
           <div className="mt-4 text-xs text-slate-400">
-            <span>Last Updated: September 2026</span> • <span>Viar Academy (Vedic Institute of Astrological Research)</span>
+            <span>Last Updated: September 2026</span> • <span>Vihangam Institute of Astrology and Research (Vihangam Institute of Astrology and Research)</span>
           </div>
         </div>
 
@@ -56,7 +56,7 @@ export default function PrivacyPolicyPage() {
               Our Commitment to Student Privacy
             </h2>
             <p>
-              At <strong>Viar Academy</strong> (operating at viar.in), we recognize that trust is the foundation of genuine spiritual and academic education. We hold your personal details, academic progress, and study interactions with the utmost confidentiality.
+              At <strong>Vihangam Institute of Astrology and Research</strong> (operating at viar.in), we recognize that trust is the foundation of genuine spiritual and academic education. We hold your personal details, academic progress, and study interactions with the utmost confidentiality.
             </p>
             <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/25 text-emerald-200 text-xs flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -76,7 +76,7 @@ export default function PrivacyPolicyPage() {
               <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 space-y-1.5">
                 <div className="font-semibold text-white">Identity & Contact Information</div>
                 <p className="text-xs text-slate-400">
-                  Full name, email address, WhatsApp/phone number (used strictly for live session reminders and cohort updates), country, and local timezone.
+                  Full name, email address, WhatsApp/phone number (used strictly for course updates and certificate delivery), country, and local timezone.
                 </p>
               </div>
 
@@ -90,7 +90,7 @@ export default function PrivacyPolicyPage() {
               <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 space-y-1.5">
                 <div className="font-semibold text-white">Academic & Learning Records</div>
                 <p className="text-xs text-slate-400">
-                  Live session attendance logs, lecture replay watch timestamps, lesson completion percentages, practice quiz answers, final exam scores, and verifiable certificate issuance identifiers.
+                  Module progress logs, video watch timestamps, lesson completion percentages, practice quiz answers, final exam scores, and verifiable certificate issuance identifiers.
                 </p>
               </div>
 
@@ -111,7 +111,7 @@ export default function PrivacyPolicyPage() {
             </h2>
             <ul className="list-disc pl-5 space-y-2 text-slate-300">
               <li>
-                <strong>Cohort Delivery:</strong> Provisioning your student dashboard, providing access to class links (Zoom / Google Meet), and tracking attendance toward graduation.
+                <strong>Course Delivery:</strong> Provisioning your student dashboard, providing access to video modules and study resources, and tracking progress toward graduation.
               </li>
               <li>
                 <strong>Academic Support:</strong> Evaluating knowledge check quizzes, reviewing homework chart interpretations, and issuing digital completion certificates.
@@ -174,7 +174,7 @@ export default function PrivacyPolicyPage() {
               If you have any questions or concerns regarding our privacy practices, please contact:
             </p>
             <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 text-xs text-slate-300">
-              <div className="font-semibold text-white">Viar Academy Student Data Protection Desk</div>
+              <div className="font-semibold text-white">Vihangam Institute of Astrology and Research Student Data Protection Desk</div>
               <div>Email: <a href="mailto:ask@aapkaastro.com" className="text-amber-400 underline">ask@aapkaastro.com</a></div>
               <div>Operating Jurisdiction: New Delhi / Gurugram, India</div>
             </div>

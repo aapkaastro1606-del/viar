@@ -236,7 +236,7 @@ export default function CourseCohortsPage() {
                   className="gold-button px-4 py-2.5 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-md shadow-amber-500/20"
                 >
                   <Video className="w-3.5 h-3.5" />
-                  <span>Manage 18 Sessions (Zoom & Replays)</span>
+                  <span>Manage 23 Video Modules</span>
                 </Link>
               </div>
             </div>

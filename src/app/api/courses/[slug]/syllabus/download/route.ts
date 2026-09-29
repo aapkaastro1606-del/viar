@@ -211,11 +211,11 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
 
   <div class="header">
     <div>
-      <div class="academy-brand">VIAR.IN ACADEMY</div>
-      <div class="academy-sub">Vedic Institute of Astrological Research • In Affiliation with Aapka Astro</div>
+      <div class="academy-brand">VIHANGAM INSTITUTE OF ASTROLOGY AND RESEARCH</div>
+      <div class="academy-sub">VIAR.IN • In Academic Lineage with Aapka Astro</div>
     </div>
     <div class="course-meta">
-      <div>Accredited Cohort Syllabus</div>
+      <div>Accredited Course Syllabus</div>
       <div>Official Academic Curriculum</div>
     </div>
   </div>
@@ -225,12 +225,12 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
 
   <div class="stats-grid">
     <div class="stat-box">
-      <div class="stat-label">Duration</div>
-      <div class="stat-val">${course.durationWeeks} Weeks</div>
+      <div class="stat-label">Delivery Mode</div>
+      <div class="stat-val">100% Self-Paced</div>
     </div>
     <div class="stat-box">
-      <div class="stat-label">Total Classes</div>
-      <div class="stat-val">${course.totalClasses} Live Classes</div>
+      <div class="stat-label">Total Modules</div>
+      <div class="stat-val">${course.totalClasses} Video Lessons</div>
     </div>
     <div class="stat-box">
       <div class="stat-label">Curriculum Level</div>
@@ -245,7 +245,7 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
   <div class="instructor-card">
     <div class="instructor-name">Master Instructor: Acharya Niraj Kumar</div>
     <div class="instructor-bio">
-      Founder, Aapka Astro • Jyotish Acharya (Bhartiya Vidya Bhawan) • AstroVastu & Gemology Authority • 20+ Years Traditional & Corporate Practice
+      Founder, Aapka Astro • Jyotish Acharya (Bharatiya Vidya Bhavan, New Delhi) • Certified Logical Vastu Expert • Astro Vastu Specialist
     </div>
   </div>
 
@@ -254,13 +254,13 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
     ${course.description}
   </p>
 
-  <div class="section-title">Detailed 3-Block Syllabus</div>
+  <div class="section-title">Detailed Curriculum Modules</div>
   
   ${course.modules && course.modules.length > 0 ? course.modules.map((mod) => `
     <div class="module-card">
       <div class="module-header">
-        <span class="module-title">Block ${mod.moduleNumber}: ${mod.title}</span>
-        <span class="module-timing">${mod.weeks || `Classes ${mod.classNumbers ? mod.classNumbers[0] : 1}–${mod.classNumbers ? mod.classNumbers[mod.classNumbers.length - 1] : 6}`}</span>
+        <span class="module-title">Module ${mod.moduleNumber}: ${mod.title}</span>
+        <span class="module-timing">${mod.durationMinutes ? `${mod.durationMinutes} mins` : 'Self-Paced'}</span>
       </div>
       <div class="module-desc">
         ${mod.description}
@@ -269,11 +269,11 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
   `).join('') : `
     <div class="module-card">
       <div class="module-header">
-        <span class="module-title">Complete 18-Class Curriculum</span>
-        <span class="module-timing">18 Live Classes • 9 Weeks</span>
+        <span class="module-title">Complete 23-Module Curriculum</span>
+        <span class="module-timing">23 Video Lessons • Self-Paced</span>
       </div>
       <div class="module-desc">
-        Syllabus structure and session materials are provided in your student portal upon batch enrollment.
+        Syllabus structure and session materials are provided in your student portal upon enrollment.
       </div>
     </div>
   `}
@@ -285,7 +285,7 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
 
   <div class="section-title">Certification & Examination</div>
   <p style="font-size: 12px; color: #334155; margin-bottom: 24px; line-height: 1.6;">
-    Upon completing the 18 live sessions (or watching full recordings), students unlock the 20-question final graded assessment. Achieving &ge;70% unlocks an authentic, verifiable certificate of completion signed by Acharya Niraj Kumar, permanently hosted and verifiable at <strong>https://viar.in/verify</strong>.
+    Upon completing the 23 video modules, students unlock the 20-question final graded assessment. Achieving &ge;70% unlocks an authentic, verifiable certificate of completion signed by Acharya Niraj Kumar, permanently hosted and verifiable at <strong>https://viar.in/verify</strong>.
   </p>
 
   <div class="footer">

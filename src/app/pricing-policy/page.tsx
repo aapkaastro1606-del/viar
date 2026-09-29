@@ -31,10 +31,10 @@ export default function PricingPolicyPage() {
             Pricing & Tuition Policy
           </h1>
           <p className="text-slate-300 text-sm leading-relaxed">
-            Transparent one-time cohort tuition, complete learning inclusions, and pricing terms for current and upcoming courses.
+            Transparent one-time course tuition, complete learning inclusions, and pricing terms for current and upcoming courses.
           </p>
           <div className="mt-4 text-xs text-slate-400">
-            <span>Last Updated: September 2026</span> • <span>Viar Academy Academic Admissions</span>
+            <span>Last Updated: September 2026</span> • <span>Vihangam Institute of Astrology and Research Academic Admissions</span>
           </div>
         </div>
 
@@ -56,7 +56,7 @@ export default function PricingPolicyPage() {
               Transparent One-Time Tuition Model
             </h2>
             <p>
-              Viar Academy operates on a straightforward, transparent <strong>one-time tuition fee per course/cohort</strong>.
+              Vihangam Institute of Astrology and Research operates on a straightforward, transparent <strong>one-time tuition fee per course/cohort</strong>.
             </p>
             <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/25 text-emerald-200 text-xs space-y-1">
               <div className="font-bold text-white flex items-center gap-2">
@@ -79,11 +79,11 @@ export default function PricingPolicyPage() {
             <ul className="space-y-2 text-xs sm:text-sm text-slate-300">
               <li className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                <span><strong>All 18 Live Interactive Sessions:</strong> Taught in real-time by Acharya Niraj Kumar with live Q&amp;A.</span>
+                <span><strong>All 23 Structured Video Modules + 2 Bonus Workshops:</strong> Taught systematically by Acharya Niraj Kumar (Jyotish Acharya, BVB New Delhi).</span>
               </li>
               <li className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                <span><strong>1080p HD Replay Vault:</strong> Cloud recordings uploaded within 24 hours of each live class, accessible on all devices.</span>
+                <span><strong>1080p HD Video Vault:</strong> Instant, unrestricted lifetime access on any device with progress tracking.</span>
               </li>
               <li className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
@@ -138,7 +138,7 @@ export default function PricingPolicyPage() {
                 <span>Price Adjustment Policy</span>
               </div>
               <p className="text-slate-400">
-                Any tuition figures or estimated pricing displayed on preview pages prior to batch scheduling are indicative only. Viar Academy reserves the right to calibrate tuition rates prior to enrollment launch based on expanded session counts, guest masterclasses, and specialized course materials. Once a student completes enrollment at a given rate, their tuition is permanently locked.
+                Any tuition figures or estimated pricing displayed on preview pages prior to batch scheduling are indicative only. Vihangam Institute of Astrology and Research reserves the right to calibrate tuition rates prior to enrollment launch based on expanded session counts, guest masterclasses, and specialized course materials. Once a student completes enrollment at a given rate, their tuition is permanently locked.
               </p>
             </div>
           </section>
@@ -150,7 +150,7 @@ export default function PricingPolicyPage() {
               Payment Security & Compliance
             </h2>
             <p>
-              All online checkout transactions are encrypted using TLS 1.3 / 256-bit encryption. Payment gateways utilized by Viar Academy adhere strictly to the Payment Card Industry Data Security Standard (PCI-DSS Level 1). No sensitive cardholder information is ever processed or stored on our servers.
+              All online checkout transactions are encrypted using TLS 1.3 / 256-bit encryption. Payment gateways utilized by Vihangam Institute of Astrology and Research adhere strictly to the Payment Card Industry Data Security Standard (PCI-DSS Level 1). No sensitive cardholder information is ever processed or stored on our servers.
             </p>
           </section>
 
@@ -164,7 +164,7 @@ export default function PricingPolicyPage() {
               If you require a formal invoice with GST details for corporate or professional accounting, or if you have questions regarding payment methods, contact our admissions office:
             </p>
             <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 text-xs text-slate-300">
-              <div className="font-semibold text-white">Viar Academy Admissions Billing Desk</div>
+              <div className="font-semibold text-white">Vihangam Institute of Astrology and Research Admissions Billing Desk</div>
               <div>Email: <a href="mailto:ask@aapkaastro.com" className="text-amber-400 underline">ask@aapkaastro.com</a></div>
               <div>WhatsApp Helpline: +91 93112 15564</div>
             </div>

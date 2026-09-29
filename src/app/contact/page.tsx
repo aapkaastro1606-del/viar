@@ -39,10 +39,10 @@ export default function ContactPage() {
             <span>Student Support & Inquiries</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-4">
-            Get in Touch with Viar Academy
+            Get in Touch with VIAR
           </h1>
           <p className="text-slate-300 text-base leading-relaxed">
-            Have questions about upcoming cohort schedules, timezone adjustments, or payment methods? Our academic admissions team is here to assist.
+            Have questions about our 23-module self-paced course, curriculum, enrollment, or payment methods? Our admissions and support team at Vihangam Institute of Astrology and Research is here to assist.
           </p>
         </div>
 

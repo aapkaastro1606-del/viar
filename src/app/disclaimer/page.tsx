@@ -35,7 +35,7 @@ export default function DisclaimerPage() {
             Understanding the educational boundaries, scientific-philosophical context, and professional scope of our curriculum.
           </p>
           <div className="mt-4 text-xs text-slate-400">
-            <span>Last Updated: September 2026</span> • <span>Viar Academy Academic Direction</span>
+            <span>Last Updated: September 2026</span> • <span>Vihangam Institute of Astrology and Research Academic Direction</span>
           </div>
         </div>
 
@@ -43,7 +43,7 @@ export default function DisclaimerPage() {
         <div className="mb-10 p-4 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-200 text-xs flex items-start gap-3">
           <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
           <div>
-            <span className="font-bold">Draft Operational Disclaimer:</span> Outlines the educational nature of Viar Academy courses and clarifies professional boundaries pending formal legal review.
+            <span className="font-bold">Draft Operational Disclaimer:</span> Outlines the educational nature of Vihangam Institute of Astrology and Research courses and clarifies professional boundaries pending formal legal review.
           </div>
         </div>
 
@@ -57,7 +57,7 @@ export default function DisclaimerPage() {
               Strictly Educational & Philosophical Scope
             </h2>
             <p>
-              The <strong>Vedic Institute of Astrological Research (Viar Academy)</strong> provides systematic educational courses, seminars, and training in classical Vedic Astrology (<em>Parashari Jyotish Shastra</em>), astronomy fundamentals, and celestial mathematical principles.
+              The <strong>Vihangam Institute of Astrology and Research (Vihangam Institute of Astrology and Research)</strong> provides systematic educational courses, seminars, and training in classical Vedic Astrology (<em>Parashari Jyotish Shastra</em>), astronomy fundamentals, and celestial mathematical principles.
             </p>
             <p>
               All lectures, homework assignments, case study charts, and curriculum materials are created and presented <strong>strictly for educational, academic, historical, and personal enrichment purposes</strong>.
@@ -99,7 +99,7 @@ export default function DisclaimerPage() {
               Classical Vedic astrology operates as a symbolic, mathematical, and karmic framework that maps potential tendencies, life patterns, and celestial cycles. It is non-deterministic.
             </p>
             <p>
-              Viar Academy and Acharya Niraj Kumar make <strong>no representations, promises, or guarantees</strong> regarding specific future events, personal fortunes, career breakthroughs, or life outcomes. Individual destiny is shaped by conscious effort, free will, ethical conduct, and individual karma.
+              Vihangam Institute of Astrology and Research and Acharya Niraj Kumar make <strong>no representations, promises, or guarantees</strong> regarding specific future events, personal fortunes, career breakthroughs, or life outcomes. Individual destiny is shaped by conscious effort, free will, ethical conduct, and individual karma.
             </p>
           </section>
 
@@ -110,7 +110,7 @@ export default function DisclaimerPage() {
               Student Ethical Conduct & Discernment
             </h2>
             <p>
-              Students who study at Viar Academy agree to approach chart interpretation with intellectual rigor, compassionate discernment, and ethical responsibility. Students are expected to refrain from creating fear, making absolute fatalistic predictions, or presenting themselves as licensed medical or legal practitioners.
+              Students who study at Vihangam Institute of Astrology and Research agree to approach chart interpretation with intellectual rigor, compassionate discernment, and ethical responsibility. Students are expected to refrain from creating fear, making absolute fatalistic predictions, or presenting themselves as licensed medical or legal practitioners.
             </p>
           </section>
 
@@ -121,7 +121,7 @@ export default function DisclaimerPage() {
               Distinction from Personal Consultations (Aapka Astro)
             </h2>
             <p>
-              Enrolling in Viar Academy courses grants access to group educational instruction, structured syllabus modules, and academic Q&amp;A. It <strong>does not include private, confidential personal chart consultations</strong>.
+              Enrolling in Vihangam Institute of Astrology and Research courses grants access to group educational instruction, structured syllabus modules, and academic Q&amp;A. It <strong>does not include private, confidential personal chart consultations</strong>.
             </p>
             <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 text-xs text-slate-300">
               <div className="font-semibold text-white mb-1">Looking for a Private 1-on-1 Consultation?</div>
@@ -150,7 +150,7 @@ export default function DisclaimerPage() {
               For any clarification regarding this disclaimer or our educational philosophy, contact:
             </p>
             <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 text-xs text-slate-300">
-              <div className="font-semibold text-white">Viar Academy Academic Inquiries</div>
+              <div className="font-semibold text-white">Vihangam Institute of Astrology and Research Academic Inquiries</div>
               <div>Email: <a href="mailto:ask@aapkaastro.com" className="text-amber-400 underline">ask@aapkaastro.com</a></div>
               <div>Website: <a href="https://viar.in" className="text-amber-400 underline">https://viar.in</a></div>
             </div>

@@ -34,7 +34,7 @@ export default function RefundPolicyPage() {
             Transparent, student-friendly terms for cohort seat reservations, schedule adjustments, and tuition refund requests.
           </p>
           <div className="mt-4 text-xs text-slate-400">
-            <span>Last Updated: September 2026</span> • <span>Governed by Viar Academy Academic Admissions</span>
+            <span>Last Updated: September 2026</span> • <span>Governed by Vihangam Institute of Astrology and Research Academic Admissions</span>
           </div>
         </div>
 
@@ -42,7 +42,7 @@ export default function RefundPolicyPage() {
         <div className="mb-10 p-4 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-200 text-xs flex items-start gap-3">
           <AlertCircle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
           <div>
-            <span className="font-bold">Draft Operational Policy:</span> This policy outlines the cohort tuition framework for Viar Academy courses. All terms are subject to final client and legal confirmation.
+            <span className="font-bold">Draft Operational Policy:</span> This policy outlines the course tuition framework for Vihangam Institute of Astrology and Research courses. All terms are subject to final client and legal confirmation.
           </div>
         </div>
 
@@ -56,7 +56,7 @@ export default function RefundPolicyPage() {
               Scope & Cohort Context
             </h2>
             <p>
-              Vedic Institute of Astrological Research (<strong>Viar Academy</strong>, operating at viar.in) delivers structured, live cohort-based educational programs in Vedic Jyotish under the academic direction of Acharya Niraj Kumar.
+              Vihangam Institute of Astrology and Research (<strong>Vihangam Institute of Astrology and Research</strong>, operating at viar.in) delivers structured, structured, self-paced video masterclasses in Vedic Jyotish under the academic direction of Acharya Niraj Kumar.
             </p>
             <p>
               Because our courses feature live interactive teaching with limited cohort seats and individual chart review allocations, seat enrollments directly impact cohort sizing and instructor availability. Consequently, tuition refunds are governed by the cohort-specific milestone windows detailed below rather than per-minute consultation rates.
@@ -99,7 +99,7 @@ export default function RefundPolicyPage() {
                 <strong>A 50% prorated refund</strong> of the net tuition paid, OR
               </li>
               <li>
-                <strong>A 100% tuition credit voucher</strong> valid for 12 months for any upcoming Viar Academy cohort or masterclass.
+                <strong>A 100% tuition credit voucher</strong> valid for 12 months for any upcoming Vihangam Institute of Astrology and Research cohort or masterclass.
               </li>
             </ul>
             <p className="text-xs text-slate-400">
@@ -131,7 +131,7 @@ export default function RefundPolicyPage() {
               Academy Rescheduling or Batch Postponement
             </h2>
             <p>
-              If Viar Academy is forced to reschedule a cohort start date by more than thirty (30) calendar days, students will be given the option of either:
+              If Vihangam Institute of Astrology and Research is forced to reschedule a course start or access date by more than thirty (30) calendar days, students will be given the option of either:
             </p>
             <ol className="list-decimal pl-5 space-y-1 text-slate-300">
               <li>An unconditional <strong>100% full refund</strong> returned immediately to the original payment method, or</li>

@@ -16,8 +16,7 @@ import {
   Video,
 } from 'lucide-react';
 import { ViarStore } from '@/lib/store';
-import { Course, Cohort, ScheduledClass } from '@/lib/types';
-import { formatInTimezone, getUserLocalTimezone } from '@/lib/timezones';
+import { Course, Cohort } from '@/lib/types';
 import { PLACEHOLDER_TESTIMONIALS } from '@/lib/data';
 
 interface CourseDetailClientProps {
@@ -27,8 +26,6 @@ interface CourseDetailClientProps {
 export default function CourseDetailClient({ slug }: CourseDetailClientProps) {
   const [course, setCourse] = useState<Course | null>(null);
   const [cohort, setCohort] = useState<Cohort | null>(null);
-  const [classes, setClasses] = useState<ScheduledClass[]>([]);
-  const [userTz, setUserTz] = useState<string>('Asia/Kolkata');
   const [openModule, setOpenModule] = useState<number | null>(1);
   const [currency, setCurrency] = useState<'INR' | 'USD'>('INR');
   const [notifyEmail, setNotifyEmail] = useState('');
@@ -42,29 +39,20 @@ export default function CourseDetailClient({ slug }: CourseDetailClientProps) {
       const cohorts = ViarStore.getCohorts(targetCourse.id);
       if (cohorts.length > 0) {
         setCohort(cohorts[0]);
-        setClasses(ViarStore.getClasses(cohorts[0].id));
       }
     } else {
       setNotFound(true);
     }
-
-    const tz = ViarStore.getTimezone() || getUserLocalTimezone();
-    setUserTz(tz);
 
     // Auto-detect currency based on geo-IP / timezone, overridable by the user
     const savedCurrency = (typeof window !== 'undefined' ? localStorage.getItem('viar_user_currency') : null) as 'INR' | 'USD' | null;
     if (savedCurrency) {
       setCurrency(savedCurrency);
     } else {
-      const isIndiaTimezone = tz.toLowerCase().includes('kolkata') || tz.toLowerCase().includes('calcutta') || tz.toLowerCase().includes('india');
+      const tz = ViarStore.getTimezone();
+      const isIndiaTimezone = tz ? (tz.toLowerCase().includes('kolkata') || tz.toLowerCase().includes('calcutta') || tz.toLowerCase().includes('india')) : true;
       setCurrency(isIndiaTimezone ? 'INR' : 'USD');
     }
-
-    const handleTzChange = () => {
-      setUserTz(ViarStore.getTimezone());
-    };
-    window.addEventListener('storage', handleTzChange);
-    return () => window.removeEventListener('storage', handleTzChange);
   }, [slug]);
 
   const handleCurrencySwitch = (newCurr: 'INR' | 'USD') => {
@@ -99,7 +87,7 @@ export default function CourseDetailClient({ slug }: CourseDetailClientProps) {
       <div className="min-h-screen cosmic-bg flex flex-col items-center justify-center p-4 text-center">
         <h1 className="text-3xl font-black text-white mb-2">Course Not Found</h1>
         <p className="text-slate-400 text-sm max-w-md mb-6">
-          The course you are looking for does not exist or has been moved in the Viar Academy catalog.
+          The course you are looking for does not exist or has been moved in the Vihangam Institute catalog.
         </p>
         <Link href="/courses" className="gold-button px-6 py-3 rounded-xl text-xs font-bold inline-block">
           Explore All Courses
@@ -143,7 +131,7 @@ export default function CourseDetailClient({ slug }: CourseDetailClientProps) {
           <div className="lg:col-span-7 space-y-6">
             <div className="flex flex-wrap items-center gap-3">
               <span className="px-3.5 py-1 rounded-full text-xs font-bold tracking-wide uppercase bg-amber-500/10 text-amber-400 border border-amber-500/30">
-                {course.badge || 'Cohort-Based Masterclass'}
+                {course.badge || 'Self-Paced Masterclass'}
               </span>
               <span className="text-xs text-slate-400">
                 Level: <strong className="text-slate-200">{course.level}</strong>
@@ -169,15 +157,15 @@ export default function CourseDetailClient({ slug }: CourseDetailClientProps) {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-white/10">
               <div className="p-3 rounded-xl bg-white/5 border border-white/5">
                 <span className="block text-[11px] text-slate-400 uppercase tracking-wider">Format</span>
-                <span className="text-sm font-bold text-white">{course.totalClasses} Live Classes</span>
+                <span className="text-sm font-bold text-white">23 Video Modules</span>
               </div>
               <div className="p-3 rounded-xl bg-white/5 border border-white/5">
-                <span className="block text-[11px] text-slate-400 uppercase tracking-wider">Duration</span>
-                <span className="text-sm font-bold text-white">{course.durationWeeks} Weeks (2/wk)</span>
+                <span className="block text-[11px] text-slate-400 uppercase tracking-wider">Pace</span>
+                <span className="text-sm font-bold text-white">100% Self-Paced</span>
               </div>
               <div className="p-3 rounded-xl bg-white/5 border border-white/5">
-                <span className="block text-[11px] text-slate-400 uppercase tracking-wider">Class Length</span>
-                <span className="text-sm font-bold text-white">~60–90 Mins</span>
+                <span className="block text-[11px] text-slate-400 uppercase tracking-wider">Bonus</span>
+                <span className="text-sm font-bold text-white">2 Real Chart Cases</span>
               </div>
               <div className="p-3 rounded-xl bg-white/5 border border-white/5">
                 <span className="block text-[11px] text-slate-400 uppercase tracking-wider">Credential</span>
@@ -254,7 +242,7 @@ export default function CourseDetailClient({ slug }: CourseDetailClientProps) {
               {/* Pricing Display */}
               <div>
                 <span className="text-xs font-semibold text-slate-400 block uppercase tracking-wider mb-1">
-                  One-Time Cohort Tuition
+                  One-Time Tuition Fee • Lifetime Access
                 </span>
                 <div className="flex items-baseline gap-3">
                   <span className="text-4xl font-black text-white">{price}</span>
@@ -264,37 +252,33 @@ export default function CourseDetailClient({ slug }: CourseDetailClientProps) {
                   </span>
                 </div>
                 <p className="text-xs text-amber-400/90 font-medium mt-1">
-                  {savings} • All 18 live classes + lifetime recordings + certificate included
+                  {savings} • All 23 video modules + 2 bonus masterclasses + certificate included
                 </p>
               </div>
 
-              {/* Cohort Batch Details */}
-              {cohort && (
-                <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2.5">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-slate-400">Upcoming Cohort</span>
-                    <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-500/20 text-amber-300">
-                      {cohort.batchName}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="text-slate-400">Class Schedule</span>
-                    <span className="font-semibold text-white">{cohort.scheduleDescription}</span>
-                  </div>
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="text-slate-400">Cohort Starts</span>
-                    <span className="font-semibold text-white">
-                      {formatInTimezone(cohort.startDate, userTz, 'dateOnly')}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between text-xs pt-1 border-t border-white/5">
-                    <span className="text-slate-400">Batch Capacity</span>
-                    <span className="font-semibold text-amber-400">
-                      Capped at {cohort.capacity || cohort.maxSeats} seats ({(cohort.capacity || cohort.maxSeats) - cohort.enrolledCount} seats left)
-                    </span>
-                  </div>
+              {/* Course Delivery Details */}
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-slate-400">Delivery Model</span>
+                  <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/20 text-emerald-300">
+                    100% Self-Paced
+                  </span>
                 </div>
-              )}
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-slate-400">Access Type</span>
+                  <span className="font-semibold text-white">Instant Lifetime Access</span>
+                </div>
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-slate-400">Total Lessons</span>
+                  <span className="font-semibold text-white">23 Modules + 2 Bonus Workshops</span>
+                </div>
+                <div className="flex items-center justify-between text-xs pt-1 border-t border-white/5">
+                  <span className="text-slate-400">Accreditation</span>
+                  <span className="font-semibold text-amber-400">
+                    Vihangam Institute (VIAR)
+                  </span>
+                </div>
+              </div>
 
               {/* CTA Action */}
               {isComingSoon ? (
@@ -304,7 +288,7 @@ export default function CourseDetailClient({ slug }: CourseDetailClientProps) {
                       Curriculum in Preparation
                     </span>
                     <p className="text-xs text-slate-300">
-                      Enrollment for this syllabus opens shortly. Enter your email for priority batch admission.
+                      Enrollment for this syllabus opens shortly. Enter your email for priority admission.
                     </p>
                   </div>
 
@@ -312,7 +296,7 @@ export default function CourseDetailClient({ slug }: CourseDetailClientProps) {
                     <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-center space-y-1">
                       <CheckCircle2 className="w-5 h-5 text-emerald-400 mx-auto" />
                       <p className="text-xs font-bold text-emerald-300">You are on the priority VIP list!</p>
-                      <p className="text-[11px] text-slate-400">We will email you the moment batch admissions open.</p>
+                      <p className="text-[11px] text-slate-400">We will email you the moment admissions open.</p>
                     </div>
                   ) : (
                     <form onSubmit={handleNotifySubmit} className="space-y-2">
@@ -340,7 +324,7 @@ export default function CourseDetailClient({ slug }: CourseDetailClientProps) {
                     href={`/checkout/${cohort.id}?currency=${currency}`}
                     className="gold-button w-full py-3.5 rounded-2xl text-center font-black text-sm block shadow-lg shadow-amber-500/20 tracking-wide uppercase"
                   >
-                    Enroll Now • {price}
+                    Start Learning Today • {price}
                   </Link>
 
                   <p className="text-[11px] text-slate-400 text-center flex items-center justify-center gap-1.5">
@@ -354,11 +338,15 @@ export default function CourseDetailClient({ slug }: CourseDetailClientProps) {
               <div className="pt-4 border-t border-white/10 space-y-2 text-xs text-slate-300">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
-                  <span>18 interactive live video classes with Acharya Niraj Kumar</span>
+                  <span>23 structured video modules with Acharya Niraj Kumar</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
-                  <span>Permanent recording access uploaded within hours</span>
+                  <span>2 bonus real-world chart workshops (Career &amp; Marriage)</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
+                  <span>Permanent on-demand lifetime access on mobile &amp; desktop</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
@@ -409,7 +397,7 @@ export default function CourseDetailClient({ slug }: CourseDetailClientProps) {
                   Sample Lecture Video Coming Soon
                 </h3>
                 <p className="text-slate-300 text-xs leading-relaxed max-w-sm mb-4">
-                  Full preview excerpts from Batch 1 live classes will be published here prior to cohort launch.
+                  Full preview excerpts and sample video lessons are published here in the curriculum.
                 </p>
                 <a
                   href={`/api/courses/${course.slug}/syllabus/download?print=true`}
@@ -425,20 +413,20 @@ export default function CourseDetailClient({ slug }: CourseDetailClientProps) {
           </div>
         </div>
 
-        {/* 3-Week Blocks / Syllabus Section */}
+        {/* 23-Module Syllabus Section */}
         <div className="mb-20">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="text-xs font-bold uppercase tracking-widest text-amber-400 block mb-2">
-              Comprehensive 9-Week Syllabus
+              Comprehensive 23-Module Masterclass
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
-              {course.totalClasses} Live Sessions Structured in 3-Week Mastery Blocks
+              23 On-Demand Video Modules + 2 Bonus Case Studies
             </h2>
             <p className="text-xs sm:text-sm text-slate-400 mt-2 mb-6">
-              Every class is ~60–90 minutes of structured lecture, live birth chart demonstrations, and student Q&A.
+              Complete first-principles education: from planetary mechanics to reading live charts for career, marriage, and remedies.
             </p>
 
-            {/* Downloadable Syllabus Button (Requirement: Beat Astrotalk) */}
+            {/* Downloadable Syllabus Button */}
             <a
               href={`/api/courses/${course.slug}/syllabus/download?print=true`}
               target="_blank"
@@ -446,7 +434,7 @@ export default function CourseDetailClient({ slug }: CourseDetailClientProps) {
               className="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-xs font-bold text-slate-200 inline-flex items-center gap-2 transition shadow-md hover:border-amber-400/40"
             >
               <Download className="w-4 h-4 text-amber-400" />
-              <span>Download Full 18-Class Syllabus (PDF)</span>
+              <span>Download Complete 23-Module Curriculum (PDF)</span>
             </a>
           </div>
 
@@ -454,34 +442,29 @@ export default function CourseDetailClient({ slug }: CourseDetailClientProps) {
             {course.modules.map((module) => {
               const modNum = module.moduleNumber || module.number || 1;
               const isOpen = openModule === modNum;
-              const moduleClasses = classes.filter((c) => {
-                const num = c.classNumber || c.sessionNumber || 1;
-                return (
-                  module.classNumbers?.includes(num) ||
-                  (num >= (modNum - 1) * 6 + 1 && num <= modNum * 6)
-                );
-              });
-              const weeksLabel = module.weeks || `Weeks ${(modNum - 1) * 3 + 1}–${modNum * 3}`;
-              const classRangeLabel = module.classRange || `${(modNum - 1) * 6 + 1}–${modNum * 6}`;
 
               return (
                 <div
                   key={module.id}
-                  className="cosmic-card rounded-2xl border border-white/10 overflow-hidden transition"
+                  className={`cosmic-card rounded-2xl border transition ${
+                    module.isBonus ? 'border-amber-500/40 bg-gradient-to-r from-amber-500/5 to-transparent' : 'border-white/10'
+                  }`}
                 >
                   <button
                     onClick={() => setOpenModule(isOpen ? null : modNum)}
                     className="w-full p-6 text-left flex items-center justify-between gap-4 hover:bg-white/[0.02] transition"
                   >
-                    <div className="space-y-1">
+                    <div className="space-y-1.5">
                       <div className="flex items-center gap-3">
-                        <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300">
-                          {weeksLabel}
+                        <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full ${
+                          module.isBonus ? 'bg-amber-500/30 text-amber-200 border border-amber-400/40' : 'bg-amber-500/20 text-amber-300'
+                        }`}>
+                          {module.isBonus ? 'Bonus Masterclass' : `Module ${modNum}`}
                         </span>
-                        <span className="text-xs text-slate-400">Classes {classRangeLabel}</span>
+                        <span className="text-xs text-slate-400">~{module.durationMinutes || 75} Mins On-Demand Video</span>
                       </div>
                       <h3 className="text-lg font-bold text-white">{module.title}</h3>
-                      <p className="text-xs text-slate-400">{module.description}</p>
+                      <p className="text-xs text-slate-400 leading-relaxed max-w-2xl">{module.description}</p>
                     </div>
 
                     <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0">
@@ -494,36 +477,29 @@ export default function CourseDetailClient({ slug }: CourseDetailClientProps) {
                   </button>
 
                   {isOpen && (
-                    <div className="px-6 pb-6 pt-2 border-t border-white/5 space-y-3">
-                      <div className="grid grid-cols-1 gap-2.5">
-                        {moduleClasses.map((cls) => {
-                          const clsNum = cls.classNumber || cls.sessionNumber || 1;
-                          const classStartTime = cls.scheduledStartTime || cls.scheduledAt || new Date().toISOString();
-
-                          return (
-                            <div
-                              key={cls.id}
-                              className="p-3.5 rounded-xl bg-white/[0.03] border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-2"
-                            >
-                              <div className="flex items-start gap-3">
-                                <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
-                                  {clsNum}
-                                </span>
-                                <div>
-                                  <h4 className="text-xs font-semibold text-white">{cls.title}</h4>
-                                  <p className="text-[11px] text-slate-400">{cls.description}</p>
-                                </div>
+                    <div className="px-6 pb-6 pt-2 border-t border-white/5 space-y-4">
+                      {module.keyTopics && module.keyTopics.length > 0 && (
+                        <div>
+                          <span className="text-[11px] font-semibold text-amber-300 uppercase tracking-wider block mb-2">
+                            Key Concepts &amp; Topics Covered
+                          </span>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            {module.keyTopics.map((topic, i) => (
+                              <div key={i} className="flex items-start gap-2 text-xs text-slate-300 p-2 rounded-lg bg-white/[0.02]">
+                                <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+                                <span>{topic}</span>
                               </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
 
-                              <div className="text-right shrink-0">
-                                <span className="text-[11px] text-slate-400 block">
-                                  {formatInTimezone(classStartTime, userTz, 'short')}
-                                </span>
-                                <span className="text-[10px] text-slate-500">~{cls.durationMinutes} minutes</span>
-                              </div>
-                            </div>
-                          );
-                        })}
+                      <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <div className="flex items-center gap-2.5">
+                          <Video className="w-4 h-4 text-amber-400 shrink-0" />
+                          <span className="text-xs font-semibold text-white">Full Video Masterclass + Downloadable Chart Cheatsheet</span>
+                        </div>
+                        <span className="text-[11px] text-emerald-400 font-semibold">Included in Enrollment</span>
                       </div>
                     </div>
                   )}
@@ -541,10 +517,10 @@ export default function CourseDetailClient({ slug }: CourseDetailClientProps) {
                 Official Credential
               </span>
               <h3 className="text-2xl font-bold text-white">
-                Final Graded Assessment & Verifiable Certificate
+                Final Graded Assessment &amp; Verifiable Certificate
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Upon completing the 18 live classes (or watching their recording archives), students unlock the 20-question final exam. Passing with ≥70% immediately generates a verifiable digital certificate recognized across the Jyotish community.
+                Upon completing the 23 self-paced video modules, students unlock the 20-question comprehensive final assessment. Scoring 70% or higher generates an authentic digital Certificate of Completion from Vihangam Institute of Astrology and Research, verifiable worldwide at viar.in/verify.
               </p>
               <div className="flex items-center gap-4 text-xs text-amber-400 pt-2">
                 <span>• 20 Multiple Choice Questions</span>
@@ -556,8 +532,9 @@ export default function CourseDetailClient({ slug }: CourseDetailClientProps) {
               <div className="w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center mx-auto mb-2">
                 <Sparkles className="w-6 h-6" />
               </div>
-              <span className="text-xs font-bold text-white block">Accredited by Viar.in</span>
-              <span className="text-[10px] text-slate-400 block mt-0.5">Signed by Acharya Niraj Kumar</span>
+              <span className="text-xs font-bold text-white block">Accredited by VIAR</span>
+              <span className="text-[10px] text-slate-400 block mt-0.5">Vihangam Institute of Astrology &amp; Research</span>
+              <span className="text-[10px] text-amber-300 block mt-0.5">Signed by Acharya Niraj Kumar</span>
             </div>
           </div>
         </div>

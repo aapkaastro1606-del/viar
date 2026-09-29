@@ -70,12 +70,12 @@ export default function InstructorOverviewPage() {
 
           <div className="cosmic-card p-5 rounded-2xl border border-white/10">
             <div className="flex items-center justify-between text-slate-400 mb-2">
-              <span className="text-xs font-semibold">Live Classes</span>
+              <span className="text-xs font-semibold">Video Modules</span>
               <Video className="w-4 h-4 text-amber-400" />
             </div>
-            <p className="text-3xl font-black text-white">18</p>
+            <p className="text-3xl font-black text-white">23</p>
             <p className="text-[11px] text-slate-400 mt-1">
-              Zoom & Google Meet linked
+              On-Demand Lessons &amp; Notes
             </p>
           </div>
 
@@ -148,7 +148,7 @@ export default function InstructorOverviewPage() {
                         className="gold-button px-3.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1"
                       >
                         <Video className="w-3.5 h-3.5" />
-                        <span>Manage 18 Class Links</span>
+                        <span>Manage 23 Lesson Modules</span>
                       </Link>
                       <Link
                         href="/instructor/students"

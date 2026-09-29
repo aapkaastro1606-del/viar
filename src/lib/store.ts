@@ -212,8 +212,8 @@ export const ViarStore = {
         studentName: submission.studentName,
         studentEmail: submission.studentEmail,
         courseId: test.courseId,
-        courseTitle: 'What is Astrology — Foundations of Vedic Astrology',
-        cohortBatchName: 'Batch 1 — Starting October 2026',
+        courseTitle: 'The Ultimate Astrology Course: Foundations to Chart Mastery',
+        cohortBatchName: 'Self-Paced Masterclass — Vihangam Institute of Astrology and Research',
         issueDate: new Date().toLocaleDateString('en-US', {
           year: 'numeric',
           month: 'long',
@@ -222,7 +222,7 @@ export const ViarStore = {
         scorePercentage,
         grade,
         instructorName: 'Acharya Niraj Kumar',
-        instructorTitle: 'Founder, Aapka Astro & Master Astrologer',
+        instructorTitle: 'Jyotish Acharya (Bharatiya Vidya Bhavan) | Founder, VIAR & Aapka Astro',
         verificationUrl: `${typeof window !== 'undefined' ? window.location.origin : 'https://viar.in'}/verify/${verificationCode}`,
       };
 
@@ -676,14 +676,14 @@ export const ViarStore = {
       }
     }
 
-    // Default: ALL_SESSIONS_COMPLETED
+    // Default: Check completion or self-paced access
     const progress = this.getCourseProgress(cohortId);
-    if (progress.allSessionsComplete) {
+    if (progress.allSessionsComplete || course?.deliveryMode === 'SELF_PACED') {
       return { isUnlocked: true };
     } else {
       return {
         isUnlocked: false,
-        reason: `Complete all ${progress.totalClasses} classes (attend live or mark recordings watched) to unlock the final certification exam. (${progress.completedCount}/${progress.totalClasses} completed).`,
+        reason: `Complete all ${progress.totalClasses} video modules to unlock the final certification exam. (${progress.completedCount}/${progress.totalClasses} completed).`,
       };
     }
   },

@@ -12,7 +12,7 @@ import { ResendEmailService } from '../src/lib/email/resend.ts';
 import { getEmailService } from '../src/lib/email/index.ts';
 
 test('Transactional Email System', async (t) => {
-  const mockService = new MockEmailService('Viar Academy <admissions@viar.in>', 'ask@aapkaastro.com');
+  const mockService = new MockEmailService('Vihangam Institute of Astrology and Research <admissions@viar.in>', 'ask@aapkaastro.com');
 
   await t.test('1. Enrollment Confirmation Email', async () => {
     mockService.clearHistory();
@@ -42,7 +42,7 @@ test('Transactional Email System', async (t) => {
     const sent = mockService.getSentEmails();
     assert.strictEqual(sent.length, 1);
     assert.strictEqual(sent[0].to, 'aarav@example.com');
-    assert.strictEqual(sent[0].from, 'Viar Academy <admissions@viar.in>');
+    assert.strictEqual(sent[0].from, 'Vihangam Institute of Astrology and Research <admissions@viar.in>');
     assert.strictEqual(sent[0].replyTo, 'ask@aapkaastro.com');
   });
 
@@ -125,8 +125,8 @@ test('Transactional Email System', async (t) => {
     };
 
     const template = renderRecordingAvailable(recordingData);
-    assert.match(template.subject, /Recording Published: Class 5/);
-    assert.match(template.html, /Class 5 Recording is Ready/);
+    assert.match(template.subject, /Recording Published: (Class|Module) 5/);
+    assert.match(template.html, /(Class|Module) 5 Recording is Ready/);
     assert.match(template.html, /~105 minutes/);
     assert.match(template.html, /tab=recordings/);
 
@@ -162,7 +162,7 @@ test('Transactional Email System', async (t) => {
 
   await t.test('6. ResendEmailService Simulation & Fallback Mode', async () => {
     // When no API key is provided, Resend service gracefully simulates delivery without throwing
-    const resendNoKey = new ResendEmailService('', 'Viar Academy <admissions@viar.in>', 'ask@aapkaastro.com');
+    const resendNoKey = new ResendEmailService('', 'Vihangam Institute of Astrology and Research <admissions@viar.in>', 'ask@aapkaastro.com');
     const result = await resendNoKey.sendEmail({
       to: 'student@example.com',
       subject: 'Test Subject',

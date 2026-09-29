@@ -117,13 +117,13 @@ export default function InstructorSessionsPage() {
               <span className="px-3 py-0.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
                 {cohort?.batchName || 'Cohort Batch 01'}
               </span>
-              <span className="text-xs text-slate-400">18 Masterclasses</span>
+              <span className="text-xs text-slate-400">23 Video Lessons</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-white mt-1">
-              Class Session Management (Zoom Links & Recordings)
+              Video Module &amp; Recording Management
             </h2>
             <p className="text-xs text-slate-400 mt-1">
-              Paste Zoom or Google Meet links before class. After showtime, attach the HD recording and summary notes.
+              Attach HD video embeds, notes, and study resources for each module in the 23-module curriculum.
             </p>
           </div>
 
@@ -150,7 +150,7 @@ export default function InstructorSessionsPage() {
               <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-amber-400">
-                    Editing Class {editingClass.classNumber} of 18
+                    Editing Module {editingClass.classNumber} of 23
                   </span>
                   <h3 className="text-xl font-bold text-white mt-0.5">{editingClass.title}</h3>
                 </div>

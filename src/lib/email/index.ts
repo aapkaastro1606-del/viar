@@ -1,6 +1,6 @@
 /**
  * Transactional Email Module Entry Point & Provider Factory
- * Vedic Institute of Astrological Research (Viar.in)
+ * Vihangam Institute of Astrology and Research (Viar.in)
  */
 
 import type { EmailService } from './types.ts';
@@ -17,7 +17,7 @@ export function getEmailService(): EmailService {
   const isTest = process.env.NODE_ENV === 'test';
   const provider = (process.env.EMAIL_PROVIDER || 'resend').toLowerCase();
   // PLACEHOLDER: replace with client-approved sender details
-  const fromAddress = process.env.EMAIL_FROM || 'Viar Academy <admissions@viar.in>';
+  const fromAddress = process.env.EMAIL_FROM || 'Vihangam Institute of Astrology and Research <admissions@viar.in>';
   const replyTo = process.env.EMAIL_REPLY_TO || 'ask@aapkaastro.com';
 
   if (isTest || provider === 'mock' || !apiKey) {

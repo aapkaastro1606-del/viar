@@ -31,10 +31,10 @@ export default function TermsPage() {
             Terms of Service & Student Agreement
           </h1>
           <p className="text-slate-300 text-sm leading-relaxed">
-            Please read these terms carefully before enrolling in any course or using the Viar Academy platform.
+            Please read these terms carefully before enrolling in any course or using the Vihangam Institute of Astrology and Research platform.
           </p>
           <div className="mt-4 text-xs text-slate-400">
-            <span>Last Updated: September 2026</span> • <span>Governed by Viar Academy & Aapka Astro Network</span>
+            <span>Last Updated: September 2026</span> • <span>Governed by Vihangam Institute of Astrology and Research & Aapka Astro Network</span>
           </div>
         </div>
 
@@ -56,7 +56,7 @@ export default function TermsPage() {
               Acceptance of Agreement
             </h2>
             <p>
-              By visiting, accessing, or enrolling in any program on <strong>viar.in</strong> (the &ldquo;Site&rdquo; or &ldquo;Viar Academy&rdquo;), you agree to comply with and be bound by these Terms of Service (&ldquo;Terms&rdquo;), along with our Privacy Policy and Refund Policy.
+              By visiting, accessing, or enrolling in any program on <strong>viar.in</strong> (the &ldquo;Site&rdquo; or &ldquo;Vihangam Institute of Astrology and Research&rdquo;), you agree to comply with and be bound by these Terms of Service (&ldquo;Terms&rdquo;), along with our Privacy Policy and Refund Policy.
             </p>
             <p>
               If you do not agree to all provisions of these Terms, you may not register for courses or access student classroom materials.
@@ -91,7 +91,7 @@ export default function TermsPage() {
             </p>
             <ul className="list-disc pl-5 space-y-2 text-slate-300">
               <li>
-                <strong>Classroom Etiquette:</strong> Live virtual lectures (via Zoom, Google Meet, or proprietary classroom tools) are scholarly, collegiate environments. Students are expected to maintain respect and decorum.
+                <strong>Classroom Etiquette:</strong> Virtual lectures, discussions, and student community portals are scholarly, collegiate environments. Students are expected to maintain respect and decorum.
               </li>
               <li>
                 <strong>Zero Tolerance for Harassment:</strong> Any abusive, discriminatory, harassing, or disruptive behavior toward instructors, staff, or fellow students will lead to immediate expulsion and revocation of platform access without refund.
@@ -109,7 +109,7 @@ export default function TermsPage() {
               Intellectual Property & Content Protection
             </h2>
             <p>
-              All course materials—including recorded live video lectures, slide presentations, proprietary astronomical calculation workbooks, Vedic interpretation frameworks, and case studies developed by Acharya Niraj Kumar—are the exclusive intellectual property of Viar Academy.
+              All course materials—including recorded live video lectures, slide presentations, proprietary astronomical calculation workbooks, Vedic interpretation frameworks, and case studies developed by Acharya Niraj Kumar—are the exclusive intellectual property of Vihangam Institute of Astrology and Research.
             </p>
             <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-200">
               <strong>Strict Restrictions:</strong> Students are granted access strictly for personal, non-commercial study. You may not record, redistribute, upload to public cloud drives (Google Drive, Dropbox, Mega), share on social platforms (YouTube, Telegram, Instagram), or sell any portion of the course curriculum. Unauthorized redistribution constitutes copyright infringement and will be prosecuted under applicable cyber and copyright laws.
@@ -142,7 +142,7 @@ export default function TermsPage() {
               Limitation of Educational Liability
             </h2>
             <p>
-              Viar Academy provides education in historical, philosophical, and astrological traditions. Course content does not constitute medical, psychological, legal, or investment advice. The Academy and its instructors shall not be held liable for personal, financial, or lifestyle decisions made by students or their acquaintances following course participation.
+              Vihangam Institute of Astrology and Research provides education in historical, philosophical, and astrological traditions. Course content does not constitute medical, psychological, legal, or investment advice. The Academy and its instructors shall not be held liable for personal, financial, or lifestyle decisions made by students or their acquaintances following course participation.
             </p>
           </section>
 
@@ -170,7 +170,7 @@ export default function TermsPage() {
               For questions concerning these Terms or academic enrollment agreements, please contact:
             </p>
             <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 text-xs text-slate-300">
-              <div className="font-semibold text-white">Viar Academy Legal & Academic Desk</div>
+              <div className="font-semibold text-white">Vihangam Institute of Astrology and Research Legal & Academic Desk</div>
               <div>Email: <a href="mailto:ask@aapkaastro.com" className="text-amber-400 underline">ask@aapkaastro.com</a></div>
               <div>Affiliated Network: Aapka Astro & DOW Consulting</div>
             </div>

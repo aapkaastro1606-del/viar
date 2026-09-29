@@ -157,14 +157,6 @@ export default function WelcomeCohortModal({
 
   const targetCohort = cohort || ViarStore.getCohorts()[0];
 
-  // Real, genuine remaining seats calculated directly from live Cohort capacity and enrolled count
-  const cohortCapacity = targetCohort?.capacity || targetCohort?.maxSeats || 50;
-  const cohortEnrolled = targetCohort?.enrolledCount ?? 0;
-  const seatsRemaining = Math.max(0, cohortCapacity - cohortEnrolled);
-  const shortBatchLabel = targetCohort?.batchName
-    ? targetCohort.batchName.split('—')[0].trim()
-    : 'Batch 1';
-
   // Dynamic pricing pulled directly from Course data
   const currentPriceFormatted = `₹${course.priceInr.toLocaleString('en-IN')}`;
   const shortCourseTitle = course.title.split('—')[0].trim();
@@ -208,7 +200,7 @@ export default function WelcomeCohortModal({
               height={16}
               className="w-4 h-4 object-contain inline-block"
             />
-            <span className="tracking-widest uppercase">Viar.in Academy</span>
+            <span className="tracking-widest uppercase">Vihangam Institute (VIAR)</span>
           </div>
 
           {/* 2. Headline Naming Course and Price */}
@@ -220,9 +212,9 @@ export default function WelcomeCohortModal({
             Enroll in &lsquo;{shortCourseTitle}&rsquo; — {currentPriceFormatted}
           </h2>
 
-          {/* 3. One Short Line of Subtext (Real Seat Count + Single Benefit Sentence) */}
+          {/* 3. One Short Line of Subtext (Self-Paced Benefits) */}
           <p className="text-xs sm:text-sm text-[#3B2A1E]/85 leading-snug font-sans">
-            Only {seatsRemaining} {seatsRemaining === 1 ? 'seat' : 'seats'} remaining in {shortBatchLabel} for our live 9-week Vedic Jyotish cohort with Acharya Niraj Kumar.
+            Instant lifetime access to 23 video modules, 2 bonus chart masterclasses, and verifiable certification by Acharya Niraj Kumar.
           </p>
 
           {/* 4. One Primary CTA */}
@@ -232,7 +224,7 @@ export default function WelcomeCohortModal({
               onClick={handleClose}
               className="w-full py-3 px-5 rounded-xl font-bold text-sm shadow-md shadow-[#7B2D26]/20 flex items-center justify-center gap-2 bg-gradient-to-r from-[#7B2D26] via-[#8c332b] to-[#7B2D26] text-white hover:brightness-110 active:scale-[0.99] transition"
             >
-              <span>Claim Your Seat</span>
+              <span>Get Instant Lifetime Access</span>
               <ArrowRight className="w-4 h-4 text-[#E8A33D]" />
             </Link>
           </div>

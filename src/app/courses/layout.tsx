@@ -1,22 +1,23 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Course Catalog | Vedic Astrology Academy | Viar.in',
+  title: 'Course Catalog | Vihangam Institute of Astrology and Research (VIAR)',
   description:
-    'Explore authentic Vedic astrology courses by Acharya Niraj Kumar. Interactive live Zoom cohorts, structured 3-week blocks, final examination, and recognized certification.',
+    'Explore authentic Vedic astrology courses by Acharya Niraj Kumar (Jyotish Acharya, BVB New Delhi). Structured 23-module self-paced curriculum, bonus case studies, final examination, and recognized VIAR certification.',
   keywords: [
     'vedic astrology courses',
     'jyotish curriculum',
     'what is astrology course',
     'astrology certification courses',
+    'vihangam institute of astrology and research',
     'aapka astro classes',
   ],
   openGraph: {
-    title: 'Vedic Astrology Course Catalog — Viar.in',
+    title: 'Astrology Course Catalog — Vihangam Institute of Astrology and Research',
     description:
-      'Explore live cohort-based courses in Vedic Astrology. Enroll in our flagship 9-week masterclass.',
+      'Explore self-paced masterclasses in Vedic Astrology. Enroll in our flagship 23-module curriculum.',
     url: 'https://viar.in/courses',
-    siteName: 'Viar.in',
+    siteName: 'VIAR.in',
     type: 'website',
   },
 };

@@ -6,21 +6,18 @@ import Link from 'next/link';
 import {
   Sparkles,
   Clock,
-  Video,
   CheckCircle2,
   Lock,
   ArrowLeft,
-  ExternalLink,
   BookOpen,
   Award,
   Play,
-  Calendar,
   MessageSquare,
   Send
 } from 'lucide-react';
 import { ViarStore } from '@/lib/store';
 import { Course, Cohort, ScheduledClass, ClassDiscussionComment } from '@/lib/types';
-import { formatInTimezone, getUserLocalTimezone, getJoinWindowStatus, generateGoogleCalendarUrl } from '@/lib/timezones';
+import { getUserLocalTimezone } from '@/lib/timezones';
 
 export default function CohortClassByClassPage() {
   const params = useParams();
@@ -100,25 +97,6 @@ export default function CohortClassByClassPage() {
     }
   };
 
-  const handleAttendedLive = (classId: string) => {
-    ViarStore.markClassAttended(classId);
-    const updated = new Set(ViarStore.getWatchedClassIds());
-    setWatchedSet(updated);
-
-    const currentUser = ViarStore.getCurrentUser();
-    if (currentUser) {
-      fetch('/api/progress', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          userId: currentUser.id,
-          classSessionId: classId,
-          watched: true,
-        }),
-      }).catch((err) => console.warn('Progress API sync failed:', err));
-    }
-  };
-
   const progress = ViarStore.getCourseProgress(cohortId);
 
   if (!cohort || !course) {
@@ -177,7 +155,7 @@ export default function CohortClassByClassPage() {
                 {course.title}
               </h1>
               <p className="text-xs sm:text-sm text-slate-300 mt-1">
-                Taught by {course.instructor.name} • 18 Live Classes (~60–90 mins each)
+                Taught by {course.instructor.name} (Jyotish Acharya, BVB New Delhi) • 23 Video Modules (~60–90 mins each)
               </p>
             </div>
 
@@ -204,7 +182,7 @@ export default function CohortClassByClassPage() {
               ) : (
                 <div className="flex items-center gap-2 text-[11px] text-slate-400">
                   <Lock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                  <span>Mark all 18 classes watched or completed to unlock quiz.</span>
+                  <span>Watch or mark all {classes.length || 23} modules completed to unlock exam.</span>
                 </div>
               )}
             </div>
@@ -221,7 +199,7 @@ export default function CohortClassByClassPage() {
                 <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-white/10">
                   <div>
                     <span className="text-xs font-bold uppercase tracking-wider text-amber-400">
-                      Class {activeClass.classNumber} of 18
+                      Module {activeClass.classNumber} of {classes.length || 23}
                     </span>
                     <h2 className="text-xl sm:text-2xl font-bold text-white mt-0.5">
                       {activeClass.title}
@@ -244,11 +222,11 @@ export default function CohortClassByClassPage() {
                   </label>
                 </div>
 
-                {/* Scheduled Time In User Timezone */}
+                {/* Self-Paced Video Details */}
                 <div className="flex items-center gap-4 text-xs text-slate-300 bg-white/[0.03] p-3 rounded-xl border border-white/5">
                   <Clock className="w-4 h-4 text-amber-400 shrink-0" />
                   <span>
-                    Scheduled: <strong className="text-white">{formatInTimezone(activeClass.scheduledStartTime, userTz, 'full')}</strong> ({userTz})
+                    Self-Paced Module • Duration: <strong className="text-white">{activeClass.durationMinutes || 60} mins</strong> • 100% On-Demand Access
                   </span>
                 </div>
 
@@ -282,120 +260,34 @@ export default function CohortClassByClassPage() {
                       </div>
                     </div>
                   </div>
-                ) : (() => {
-                  const joinStatus = getJoinWindowStatus(activeClass.scheduledStartTime, 15, activeClass.durationMinutes);
-                  const isWatched = watchedSet.has(activeClass.id) || activeClass.status === 'COMPLETED';
-
-                  if (joinStatus.canJoin) {
-                    return (
-                      <div className="p-8 rounded-2xl bg-gradient-to-b from-[#101726] to-[#0a0f1a] border border-emerald-500/40 text-center space-y-5">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold animate-pulse">
-                          <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-                          <span>LIVE CLASSROOM IN SESSION</span>
-                        </div>
-
-                        <div>
-                          <h3 className="text-xl font-bold text-white">Join Acharya Niraj Kumar Live</h3>
-                          <p className="text-xs text-slate-300 mt-1 max-w-md mx-auto">
-                            The live broadcast is underway on {activeClass.meetingPlatform || 'Zoom'}. Click below to join the session.
-                          </p>
-                        </div>
-
-                        <div className="flex flex-wrap items-center justify-center gap-3">
-                          <a
-                            href={activeClass.joinUrl || '#'}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="gold-button px-6 py-3.5 rounded-xl text-xs font-bold inline-flex items-center gap-2 shadow-lg shadow-amber-500/20"
-                          >
-                            <Video className="w-4 h-4" />
-                            <span>Launch Live Classroom</span>
-                            <ExternalLink className="w-3.5 h-3.5" />
-                          </a>
-
-                          <button
-                            type="button"
-                            onClick={() => handleAttendedLive(activeClass.id)}
-                            className={`px-4 py-3 rounded-xl text-xs font-semibold transition border flex items-center gap-1.5 ${
-                              isWatched
-                                ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
-                                : 'bg-white/5 hover:bg-white/10 text-white border-white/10'
-                            }`}
-                          >
-                            <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                            <span>{isWatched ? 'Attended Live ✓' : 'I Attended Live'}</span>
-                          </button>
-                        </div>
-
-                        {activeClass.meetingId && (
-                          <div className="text-[11px] text-slate-400 font-mono pt-2">
-                            Meeting ID: <span className="text-amber-300 font-bold">{activeClass.meetingId}</span> • Passcode: <span className="text-amber-300 font-bold">{activeClass.passcode}</span>
-                          </div>
-                        )}
-                      </div>
-                    );
-                  }
-
-                  // Not yet within 15-minute window
-                  const gcalUrl = generateGoogleCalendarUrl(
-                    `Viar.in: Class ${activeClass.classNumber} - ${activeClass.title}`,
-                    activeClass.description,
-                    activeClass.joinUrl || 'https://viar.in',
-                    activeClass.scheduledStartTime,
-                    activeClass.durationMinutes
-                  );
-
-                  return (
-                    <div className="p-8 rounded-2xl bg-gradient-to-b from-[#101726] to-[#0a0f1a] border border-amber-500/20 text-center space-y-4">
-                      <div className="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center mx-auto">
-                        <Clock className="w-7 h-7" />
-                      </div>
-
-                      <div>
-                        <span className="text-[11px] font-bold uppercase tracking-wider text-amber-400">
-                          Upcoming Scheduled Class
-                        </span>
-                        <h3 className="text-2xl font-black text-white mt-1">
-                          Starts in {joinStatus.formattedCountdown}
-                        </h3>
-                        <p className="text-xs text-slate-400 mt-2 max-w-md mx-auto">
-                          Join link unlocks <strong className="text-white">15 minutes before showtime</strong> at{' '}
-                          <strong className="text-amber-300">{formatInTimezone(activeClass.scheduledStartTime, userTz, 'short')}</strong>.
-                        </p>
-                      </div>
-
-                      <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-                        <a
-                          href={gcalUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="px-4 py-2.5 rounded-xl text-xs font-semibold bg-white/5 hover:bg-white/10 text-white border border-white/10 inline-flex items-center gap-2 transition"
-                        >
-                          <Calendar className="w-3.5 h-3.5 text-amber-400" />
-                          <span>Add to Google Calendar</span>
-                          <ExternalLink className="w-3 h-3 text-slate-400" />
-                        </a>
-
-                        <button
-                          type="button"
-                          onClick={() => handleAttendedLive(activeClass.id)}
-                          className={`px-4 py-2.5 rounded-xl text-xs font-semibold border transition flex items-center gap-1.5 ${
-                            isWatched
-                              ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
-                              : 'bg-white/5 hover:bg-white/10 text-slate-300 border-white/10'
-                          }`}
-                        >
-                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                          <span>{isWatched ? 'Marked Attended ✓' : 'I Attended Live'}</span>
-                        </button>
-                      </div>
-
-                      <p className="text-[11px] text-slate-500 italic">
-                        Missed the live broadcast? The HD recording will appear here automatically once uploaded by Acharya Niraj Kumar.
+                ) : (
+                  <div className="p-8 rounded-2xl bg-gradient-to-b from-[#101726] to-[#0a0f1a] border border-amber-500/20 text-center space-y-4">
+                    <div className="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center mx-auto">
+                      <Play className="w-7 h-7 fill-current" />
+                    </div>
+                    <div>
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-amber-400">
+                        Self-Paced Video Module
+                      </span>
+                      <h3 className="text-xl font-bold text-white mt-1">
+                        {activeClass.title}
+                      </h3>
+                      <p className="text-xs text-slate-400 mt-2 max-w-md mx-auto">
+                        This video lesson is available for instant streaming. Mark as watched once completed to count toward your certificate eligibility.
                       </p>
                     </div>
-                  );
-                })()}
+                    <div className="pt-2">
+                      <button
+                        type="button"
+                        onClick={() => handleToggleWatched(activeClass.id)}
+                        className="gold-button px-6 py-2.5 rounded-xl text-xs font-bold inline-flex items-center gap-2"
+                      >
+                        <CheckCircle2 className="w-4 h-4" />
+                        <span>{watchedSet.has(activeClass.id) ? 'Completed ✓' : 'Mark Module as Watched'}</span>
+                      </button>
+                    </div>
+                  </div>
+                )}
 
                 {/* Description & Study Notes */}
                 <div className="space-y-4 pt-4 border-t border-white/10">
@@ -521,7 +413,7 @@ export default function CohortClassByClassPage() {
                           className="gold-button px-4 py-1.5 rounded-lg text-xs font-bold inline-flex items-center gap-1.5 disabled:opacity-40 disabled:cursor-not-allowed"
                         >
                           <Send className="w-3 h-3" />
-                          <span>Post to Cohort</span>
+                          <span>Post Question</span>
                         </button>
                       </div>
                     </div>
@@ -530,20 +422,20 @@ export default function CohortClassByClassPage() {
               </>
             ) : (
               <div className="text-center py-16 text-slate-400 text-xs">
-                Select a class from the syllabus playlist on the right.
+                Select a module from the curriculum playlist on the right.
               </div>
             )}
           </div>
 
-          {/* Right: 18-Class Playlist */}
+          {/* Right: Module Playlist */}
           <div className="lg:col-span-5 cosmic-card p-6 rounded-3xl border border-white/10 space-y-4">
             <div className="flex items-center justify-between pb-3 border-b border-white/10">
               <h3 className="text-sm font-bold text-white flex items-center gap-2">
                 <BookOpen className="w-4 h-4 text-amber-400" />
-                <span>18-Class Syllabus Schedule</span>
+                <span>23-Module Video Curriculum</span>
               </h3>
               <span className="text-[11px] text-amber-300 font-semibold">
-                {watchedSet.size} / {classes.length} done
+                {watchedSet.size} / {classes.length} completed
               </span>
             </div>
 
@@ -582,30 +474,23 @@ export default function CohortClassByClassPage() {
                       <div className="min-w-0">
                         <div className="flex items-center gap-1.5">
                           <span className="text-[11px] font-bold text-amber-400">
-                            Class {cls.classNumber}:
+                            Module {cls.classNumber}:
                           </span>
                           <h4 className="text-xs font-semibold text-white truncate">
                             {cls.title}
                           </h4>
                         </div>
                         <p className="text-[10px] text-slate-400 mt-0.5">
-                          {formatInTimezone(cls.scheduledStartTime, userTz, 'short')}
+                          {cls.durationMinutes || 60} mins • On-demand video
                         </p>
                       </div>
                     </div>
 
                     <div className="shrink-0 text-right">
-                      {cls.recording ? (
-                        <span className="text-[10px] font-medium text-emerald-400 px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 flex items-center gap-1">
-                          <Play className="w-2.5 h-2.5 fill-current" />
-                          Replay
-                        </span>
-                      ) : (
-                        <span className="text-[10px] font-medium text-amber-300 px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/20 flex items-center gap-1">
-                          <Video className="w-2.5 h-2.5" />
-                          Live
-                        </span>
-                      )}
+                      <span className="text-[10px] font-medium text-emerald-400 px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 flex items-center gap-1">
+                        <Play className="w-2.5 h-2.5 fill-current" />
+                        Video
+                      </span>
                     </div>
                   </div>
                 );

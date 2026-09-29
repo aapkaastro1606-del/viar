@@ -62,7 +62,7 @@ export default function CoursesPage() {
             Astrology Course Catalog
           </h1>
           <p className="text-slate-300 text-base leading-relaxed">
-            All courses at Viar.in are delivered as cohort-based live classes on Zoom/Meet with HD video recordings, timezone-aware schedules, and verifiable certification.
+            All courses at Vihangam Institute of Astrology and Research (VIAR) are delivered as structured, self-paced video modules with comprehensive notes, real chart walkthroughs, and verifiable certification.
           </p>
 
           {/* Level Filter Tabs */}
@@ -115,7 +115,9 @@ export default function CoursesPage() {
                     </span>
                     <span className="text-xs text-slate-400 flex items-center gap-1.5 font-medium">
                       <Clock className="w-3.5 h-3.5 text-amber-400" />
-                      {course.durationWeeks} Weeks • {course.totalClasses} Classes
+                      {course.deliveryMode === 'SELF_PACED'
+                        ? `${course.totalClasses} Video Modules • Self-Paced`
+                        : `${course.durationWeeks} Weeks • ${course.totalClasses} Classes`}
                     </span>
                   </div>
 

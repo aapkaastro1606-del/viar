@@ -1,15 +1,15 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About Acharya Niraj Kumar | Founder, Aapka Astro & Viar.in',
+  title: 'About the Institute & Acharya Niraj Kumar | Vihangam Institute of Astrology and Research (VIAR)',
   description:
-    'Learn about Acharya Niraj Kumar, Jyotish Acharya (Bhartiya Vidya Bhawan), AstroVastu expert, and former VP & Business Head with over 20 years of Vedic practice, trusted by 26,000+ followers.',
+    'Learn about Vihangam Institute of Astrology and Research (VIAR) and founder Acharya Niraj Kumar (Jyotish Acharya, Bhartiya Vidya Bhavan) — bridging ancient Vedic wisdom with contemporary inquiry, self-paced masterclasses, and corporate leadership insight.',
   openGraph: {
-    title: 'About Acharya Niraj Kumar — Master Astrologer & AstroVastu Expert',
+    title: 'About Vihangam Institute of Astrology and Research (VIAR)',
     description:
-      'Learn about Acharya Niraj Kumar, founder of Aapka Astro and lead instructor at Viar.in.',
+      'Learn about Vihangam Institute of Astrology and Research (VIAR) and lead instructor Acharya Niraj Kumar.',
     url: 'https://viar.in/about',
-    siteName: 'Viar.in',
+    siteName: 'Vihangam Institute of Astrology and Research (VIAR)',
     type: 'profile',
   },
 };

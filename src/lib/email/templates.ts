@@ -1,6 +1,6 @@
 /**
  * Transactional Email Templates
- * Branded responsive HTML & plain-text email generators for Viar Academy
+ * Branded responsive HTML & plain-text email generators for Vihangam Institute of Astrology and Research (VIAR)
  */
 
 import type {
@@ -18,7 +18,7 @@ function emailWrapper(contentHtml: string, previewText: string = ''): string {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Viar Academy</title>
+  <title>Vihangam Institute of Astrology and Research</title>
   <style>
     body { margin: 0; padding: 0; background-color: #05070a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #e2e8f0; }
     .container { max-width: 600px; margin: 0 auto; background-color: #0b0f17; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; overflow: hidden; }
@@ -50,7 +50,7 @@ function emailWrapper(contentHtml: string, previewText: string = ''): string {
         ${contentHtml}
       </div>
       <div class="footer">
-        <p style="margin: 0 0 8px 0;"><strong>Viar Academy</strong> • In Academic Lineage with <a href="https://aapkaastro.com" target="_blank">AapkaAstro.com</a></p>
+        <p style="margin: 0 0 8px 0;"><strong>Vihangam Institute of Astrology and Research (VIAR)</strong> • In Academic Lineage with <a href="https://aapkaastro.com" target="_blank">AapkaAstro.com</a></p>
         <p style="margin: 0 0 8px 0;">Founded &amp; Taught by Acharya Niraj Kumar</p>
         <p style="margin: 0;">Helpline: +91 93112 15564 | Email: <a href="mailto:ask@aapkaastro.com">ask@aapkaastro.com</a></p>
         <p style="margin: 8px 0 0 0; font-size: 11px; color: #475569;">© ${new Date().getFullYear()} Viar.in. All rights reserved.</p>
@@ -66,27 +66,31 @@ function emailWrapper(contentHtml: string, previewText: string = ''): string {
  * 1. Enrollment Confirmation Email
  */
 export function renderEnrollmentConfirmation(data: EnrollmentEmailData): { subject: string; html: string; text: string } {
-  const subject = `Enrollment Confirmed: ${data.courseTitle} — Viar Academy`;
+  const subject = `Enrollment Confirmed: ${data.courseTitle} — Vihangam Institute (VIAR)`;
   const dashboardUrl = data.dashboardUrl || 'https://viar.in/dashboard';
 
   const html = emailWrapper(`
-    <h1 class="h1">Welcome to Viar Academy, ${data.studentName}!</h1>
-    <p>Your enrollment in <strong>${data.courseTitle}</strong> is successfully confirmed. We are thrilled to welcome you to our upcoming cohort led by Acharya Niraj Kumar.</p>
+    <h1 class="h1">Welcome to Vihangam Institute, ${data.studentName}!</h1>
+    <p>Your enrollment in <strong>${data.courseTitle}</strong> is successfully confirmed. We are thrilled to welcome you to our self-paced masterclass led by Acharya Niraj Kumar (Jyotish Acharya, BVB New Delhi).</p>
     
     <div class="card">
-      <div style="font-weight: 700; color: #f59e0b; margin-bottom: 12px; font-size: 14px;">COHORT ENROLLMENT DETAILS</div>
+      <div style="font-weight: 700; color: #f59e0b; margin-bottom: 12px; font-size: 14px;">COURSE ENROLLMENT DETAILS</div>
       <table style="width: 100%; border-collapse: collapse;">
         <tr>
           <td style="padding: 6px 0; color: #94a3b8; font-size: 13px;">Course:</td>
           <td style="padding: 6px 0; color: #ffffff; font-weight: 600; font-size: 14px; text-align: right;">${data.courseTitle}</td>
         </tr>
         <tr>
-          <td style="padding: 6px 0; color: #94a3b8; font-size: 13px;">Batch / Cohort:</td>
-          <td style="padding: 6px 0; color: #ffffff; font-weight: 600; font-size: 14px; text-align: right;">${data.cohortName}</td>
+          <td style="padding: 6px 0; color: #94a3b8; font-size: 13px;">Format:</td>
+          <td style="padding: 6px 0; color: #ffffff; font-weight: 600; font-size: 14px; text-align: right;">23 Video Modules (Self-Paced)</td>
         </tr>
         <tr>
-          <td style="padding: 6px 0; color: #94a3b8; font-size: 13px;">Cohort Start Date:</td>
+          <td style="padding: 6px 0; color: #94a3b8; font-size: 13px;">Start Date:</td>
           <td style="padding: 6px 0; color: #ffffff; font-weight: 600; font-size: 14px; text-align: right;">${data.startDate}</td>
+        </tr>
+        <tr>
+          <td style="padding: 6px 0; color: #94a3b8; font-size: 13px;">Access:</td>
+          <td style="padding: 6px 0; color: #ffffff; font-weight: 600; font-size: 14px; text-align: right;">Instant Lifetime Access</td>
         </tr>
         <tr>
           <td style="padding: 6px 0; color: #94a3b8; font-size: 13px;">Tuition Paid:</td>
@@ -99,33 +103,29 @@ export function renderEnrollmentConfirmation(data: EnrollmentEmailData): { subje
       </table>
     </div>
 
-    <p>Your student dashboard is now live. From your dashboard, you can view the upcoming 18-class schedule, sync live session times to your local timezone, and prepare for Class 1.</p>
+    <p>Your student dashboard is now live. From your dashboard, you can stream all 23 structured video modules, view lecture notes, track your progress, and prepare for the final certification exam.</p>
 
     <div style="text-align: center;">
       <a href="${dashboardUrl}" class="btn">Enter Student Dashboard &rarr;</a>
     </div>
-
-    <p style="font-size: 13px; color: #94a3b8; margin-top: 24px;">
-      <strong>Note on Class Reminders:</strong> You will receive calendar reminders with your live Zoom / Google Meet classroom links 24 hours and 1 hour before each scheduled session.
-    </p>
   `, `Enrollment confirmed for ${data.courseTitle}. View your student dashboard.`);
 
   const text = `
-Welcome to Viar Academy, ${data.studentName}!
+Welcome to Vihangam Institute of Astrology and Research, ${data.studentName}!
 
 Your enrollment in ${data.courseTitle} is successfully confirmed.
 
-COHORT DETAILS:
+ENROLLMENT DETAILS:
 • Course: ${data.courseTitle}
-• Batch: ${data.cohortName}
-• Start Date: ${data.startDate}
+• Format: 23 Video Modules (Self-Paced)
+• Access: Instant Lifetime Access
 • Tuition Paid: ${data.currency} ${data.amountPaid}
 • Dashboard URL: ${dashboardUrl}
 
-You can access your classroom, schedule, and study materials at ${dashboardUrl}.
+You can access your classroom, video lessons, and study materials at ${dashboardUrl}.
 
 Warm regards,
-Viar Academy Admissions Desk
+VIAR Admissions Desk
 ask@aapkaastro.com
   `.trim();
 
@@ -136,7 +136,7 @@ ask@aapkaastro.com
  * 2. Payment Receipt Email
  */
 export function renderPaymentReceipt(data: PaymentReceiptEmailData): { subject: string; html: string; text: string } {
-  const subject = `Payment Receipt #${data.receiptNumber} — Viar Academy`;
+  const subject = `Payment Receipt #${data.receiptNumber} — Vihangam Institute (VIAR)`;
   const dashboardUrl = data.dashboardUrl || 'https://viar.in/dashboard/payments';
 
   const html = emailWrapper(`
@@ -189,7 +189,7 @@ export function renderPaymentReceipt(data: PaymentReceiptEmailData): { subject: 
   `, `Payment Receipt #${data.receiptNumber} for ${data.courseTitle}. Amount: ${data.currency} ${data.amount}.`);
 
   const text = `
-Payment Receipt #${data.receiptNumber} — Viar Academy
+Payment Receipt #${data.receiptNumber} — Vihangam Institute (VIAR)
 
 Dear ${data.studentName},
 
@@ -205,7 +205,7 @@ Thank you for your payment. Here are your transaction details:
 
 Purchase History: ${dashboardUrl}
 
-Viar Academy Admissions Desk
+VIAR Admissions Desk
 ask@aapkaastro.com
   `.trim();
 
@@ -240,8 +240,8 @@ export function renderClassReminder(data: ClassReminderEmailData): { subject: st
       <div style="font-weight: 700; color: #f59e0b; margin-bottom: 12px; font-size: 14px;">SESSION SCHEDULE &amp; ACCESS</div>
       <table style="width: 100%; border-collapse: collapse;">
         <tr>
-          <td style="padding: 6px 0; color: #94a3b8; font-size: 13px;">Class Number:</td>
-          <td style="padding: 6px 0; color: #ffffff; font-weight: 600; font-size: 14px; text-align: right;">Class ${data.sessionNumber} of 18</td>
+          <td style="padding: 6px 0; color: #94a3b8; font-size: 13px;">Module Number:</td>
+          <td style="padding: 6px 0; color: #ffffff; font-weight: 600; font-size: 14px; text-align: right;">Module ${data.sessionNumber} of 23</td>
         </tr>
         <tr>
           <td style="padding: 6px 0; color: #94a3b8; font-size: 13px;">Topic / Title:</td>
@@ -255,29 +255,26 @@ export function renderClassReminder(data: ClassReminderEmailData): { subject: st
     </div>
 
     <div style="text-align: center;">
-      <a href="${data.joinLink}" class="btn">Click Here to Join Live Class &rarr;</a>
+      <a href="${data.joinLink}" class="btn">Click Here to Open Module &rarr;</a>
     </div>
 
     <div style="background-color: rgba(245, 158, 11, 0.05); border: 1px dashed rgba(245, 158, 11, 0.3); border-radius: 10px; padding: 14px; margin-top: 20px; font-size: 13px; color: #cbd5e1;">
-      <strong>Can't make it live?</strong> Zero penalty! The 1080p HD recording and complete lecture notes will be uploaded to your student portal within 24 hours of session conclusion.
+      <strong>100% Self-Paced Video Module:</strong> Complete the video and lesson notes at your own convenience. Your progress is automatically recorded.
     </div>
-  `, `Class ${data.sessionNumber} (${data.sessionTitle}) starts ${timeQualifier} at ${timeFormatted}.`);
+  `, `Module ${data.sessionNumber} (${data.sessionTitle}) is scheduled for ${timeFormatted}.`);
 
   const text = `
-Class ${data.sessionNumber} Reminder — Viar Academy
+Module ${data.sessionNumber} Reminder — Vihangam Institute (VIAR)
 
 Dear ${data.studentName},
 
-Your live class starts ${timeQualifier}:
+Your learning module is ready:
 • Course: ${data.courseTitle}
-• Class ${data.sessionNumber}: ${data.sessionTitle}
-• Scheduled Time: ${timeFormatted} (${tz})
-• Join URL: ${data.joinLink}
-
-If you cannot attend live, the HD recording will be posted to your dashboard within 24 hours.
+• Module ${data.sessionNumber}: ${data.sessionTitle}
+• Access Link: ${data.joinLink}
 
 Warm regards,
-Acharya Niraj Kumar & Viar Academy
+Acharya Niraj Kumar & Vihangam Institute (VIAR)
   `.trim();
 
   return { subject, html, text };
@@ -287,11 +284,11 @@ Acharya Niraj Kumar & Viar Academy
  * 4. Recording Available Notification Email
  */
 export function renderRecordingAvailable(data: RecordingAvailableEmailData): { subject: string; html: string; text: string } {
-  const subject = `Recording Published: Class ${data.sessionNumber} (${data.sessionTitle}) — Viar Academy`;
+  const subject = `Recording Published: Module ${data.sessionNumber} (${data.sessionTitle}) — Vihangam Institute (VIAR)`;
 
   const html = emailWrapper(`
-    <h1 class="h1">Class ${data.sessionNumber} Recording is Ready!</h1>
-    <p>Dear ${data.studentName}, the full 1080p high-definition recording and study notes for <strong>Class ${data.sessionNumber}: ${data.sessionTitle}</strong> are now available in your student portal.</p>
+    <h1 class="h1">Module ${data.sessionNumber} Recording is Ready!</h1>
+    <p>Dear ${data.studentName}, the full 1080p high-definition video lesson and study notes for <strong>Module ${data.sessionNumber}: ${data.sessionTitle}</strong> are now available in your student portal.</p>
     
     <div class="card">
       <table style="width: 100%; border-collapse: collapse;">
@@ -300,8 +297,8 @@ export function renderRecordingAvailable(data: RecordingAvailableEmailData): { s
           <td style="padding: 6px 0; color: #ffffff; font-weight: 600; font-size: 14px; text-align: right;">${data.courseTitle}</td>
         </tr>
         <tr>
-          <td style="padding: 6px 0; color: #94a3b8; font-size: 13px;">Class:</td>
-          <td style="padding: 6px 0; color: #ffffff; font-weight: 600; font-size: 14px; text-align: right;">Class ${data.sessionNumber}</td>
+          <td style="padding: 6px 0; color: #94a3b8; font-size: 13px;">Module:</td>
+          <td style="padding: 6px 0; color: #ffffff; font-weight: 600; font-size: 14px; text-align: right;">Module ${data.sessionNumber}</td>
         </tr>
         <tr>
           <td style="padding: 6px 0; color: #94a3b8; font-size: 13px;">Topic:</td>
@@ -315,25 +312,25 @@ export function renderRecordingAvailable(data: RecordingAvailableEmailData): { s
       </table>
     </div>
 
-    <p>Whether you missed the live broadcast or wish to review key chart calculation examples, you can stream the replay at your own pace. Watching replays counts 100% toward course completion.</p>
+    <p>Stream the video lesson at your own pace. Completing video modules and study notes counts 100% toward course completion and certification exam eligibility.</p>
 
     <div style="text-align: center;">
-      <a href="${data.dashboardWatchUrl}" class="btn">Watch Class Recording &rarr;</a>
+      <a href="${data.dashboardWatchUrl}" class="btn">Watch Video Module &rarr;</a>
     </div>
-  `, `Recording for Class ${data.sessionNumber} (${data.sessionTitle}) is now available in your student portal.`);
+  `, `Video lesson for Module ${data.sessionNumber} (${data.sessionTitle}) is now available in your student portal.`);
 
   const text = `
-Class ${data.sessionNumber} Recording Published — Viar Academy
+Module ${data.sessionNumber} Video Published — Vihangam Institute (VIAR)
 
 Dear ${data.studentName},
 
-The recording and lecture slides for Class ${data.sessionNumber} (${data.sessionTitle}) in ${data.courseTitle} are now available.
+The video lesson and lecture notes for Module ${data.sessionNumber} (${data.sessionTitle}) in ${data.courseTitle} are now available.
 
-Watch the recording in your student portal:
+Watch the module in your student portal:
 ${data.dashboardWatchUrl}
 
 Warm regards,
-Viar Academy Operations Desk
+VIAR Operations Desk
   `.trim();
 
   return { subject, html, text };
@@ -343,7 +340,7 @@ Viar Academy Operations Desk
  * 5. Certificate Issued Notification Email
  */
 export function renderCertificateIssued(data: CertificateIssuedEmailData): { subject: string; html: string; text: string } {
-  const subject = `Congratulations! Your Certificate of Completion Has Been Issued — Viar Academy`;
+  const subject = `Congratulations! Your Certificate of Completion Has Been Issued — Vihangam Institute (VIAR)`;
 
   const html = emailWrapper(`
     <h1 class="h1">Congratulations, ${data.studentName}!</h1>
@@ -381,7 +378,7 @@ export function renderCertificateIssued(data: CertificateIssuedEmailData): { sub
     <div style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 14px; margin-top: 20px; font-size: 12px; color: #94a3b8; text-align: center;">
       Public Verification Link: <a href="${data.verifyUrl}" style="color: #f59e0b; word-break: break-all;">${data.verifyUrl}</a>
     </div>
-  `, `Congratulations! Your official Certificate of Completion (${data.certificateCode}) has been issued by Viar Academy.`);
+  `, `Congratulations! Your official Certificate of Completion (${data.certificateCode}) has been issued by Vihangam Institute of Astrology and Research (VIAR).`);
 
   const text = `
 Congratulations, ${data.studentName}!
@@ -394,7 +391,7 @@ CERTIFICATE DETAILS:
 • View / Download: ${data.certificateUrl}
 • Public Verification URL: ${data.verifyUrl}
 
-Acharya Niraj Kumar & Viar Academy
+Acharya Niraj Kumar & Vihangam Institute (VIAR)
 ask@aapkaastro.com
   `.trim();
 

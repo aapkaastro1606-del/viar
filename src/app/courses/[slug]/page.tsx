@@ -17,8 +17,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const title = `${course.title} | Live Vedic Astrology Course | Viar.in`;
-  const description = `${course.tagline} Live interactive cohort on Zoom/Meet with Acharya Niraj Kumar. ${course.totalClasses} classes, lifetime recordings, final exam, and verifiable certificate.`;
+  const title = `${course.title} | Vihangam Institute of Astrology and Research`;
+  const description = `${course.tagline} 23 self-paced video modules + 2 bonus workshops with Acharya Niraj Kumar (Jyotish Acharya, BVB New Delhi). On-demand access, final exam, and verifiable VIAR certificate.`;
 
   return {
     title,
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title,
       description,
       url: `https://viar.in/courses/${course.slug}`,
-      siteName: 'Viar.in',
+      siteName: 'Vihangam Institute of Astrology and Research (VIAR)',
       type: 'website',
       images: [
         {
@@ -73,9 +73,11 @@ export default function CourseDetailPage({ params }: Props) {
     name: course.title,
     description: course.description,
     provider: {
-      '@type': 'Organization',
-      name: 'Viar.in',
+      '@type': 'EducationalOrganization',
+      name: 'Vihangam Institute of Astrology and Research',
+      alternateName: 'VIAR',
       url: 'https://viar.in',
+      logo: 'https://viar.in/images/logo.png',
       sameAs: 'https://aapkaastro.com',
     },
     instructor: {

@@ -137,7 +137,7 @@ export default function PublicVerifyCertificatePage() {
           </h1>
 
           <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto leading-relaxed mb-6">
-            for successfully fulfilling the 18 live masterclasses, chart reading practicum, and demonstrating comprehensive mastery with a grade of{' '}
+            for successfully fulfilling the 23 structured video modules, chart reading practicum, and demonstrating comprehensive mastery with a grade of{' '}
             <strong className="text-white">{cert.grade} ({cert.scorePercentage}%)</strong> on the final examination of:
           </p>
 

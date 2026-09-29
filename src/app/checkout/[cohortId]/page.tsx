@@ -14,7 +14,6 @@ import {
 } from 'lucide-react';
 import { ViarStore } from '@/lib/store';
 import { Course, Cohort } from '@/lib/types';
-import { formatInTimezone, getUserLocalTimezone } from '@/lib/timezones';
 import { isStripeEnabled, isRazorpayEnabled, getPaymentProvider } from '@/lib/payments';
 
 function CheckoutContent() {
@@ -32,7 +31,6 @@ function CheckoutContent() {
   const [course, setCourse] = useState<Course | null>(null);
   const [currency, setCurrency] = useState<'INR' | 'USD'>(initialCurrency);
   const [paymentGateway, setPaymentGateway] = useState<'RAZORPAY' | 'STRIPE'>('RAZORPAY');
-  const [userTz, setUserTz] = useState<string>('Asia/Kolkata');
 
   // Form states
   const [fullName, setFullName] = useState('');
@@ -48,8 +46,6 @@ function CheckoutContent() {
       const targetCourse = ViarStore.getCourseById(targetCohort.courseId);
       if (targetCourse) setCourse(targetCourse);
     }
-    const tz = ViarStore.getTimezone() || getUserLocalTimezone();
-    setUserTz(tz);
 
     // Pre-fill user details if already authenticated
     const currentUser = ViarStore.getCurrentUser();
@@ -133,7 +129,7 @@ function CheckoutContent() {
             Complete Your Enrollment
           </h1>
           <p className="text-xs sm:text-sm text-slate-400 mt-2">
-            One-time tuition for lifetime access to the 18 live classes, HD recordings, materials, and final certification.
+            One-time tuition for instant lifetime access to all 23 structured video modules, 2 bonus real chart workshops, materials, and final certification.
           </p>
         </div>
 
@@ -216,7 +212,7 @@ function CheckoutContent() {
               {/* Student Details */}
               <div>
                 <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
-                  2. Student Information (For Certificate & Class Access)
+                  2. Student Information (For Certificate & Portal Access)
                 </label>
                 <div className="space-y-3">
                   <div>
@@ -231,7 +227,7 @@ function CheckoutContent() {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs text-slate-400 mb-1">Email Address (Live class Zoom links sent here)</label>
+                    <label className="block text-xs text-slate-400 mb-1">Email Address (Course portal access & certificate sent here)</label>
                     <input
                       type="email"
                       required
@@ -242,7 +238,7 @@ function CheckoutContent() {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs text-slate-400 mb-1">Phone / WhatsApp (For batch SMS & reminders)</label>
+                    <label className="block text-xs text-slate-400 mb-1">Phone / WhatsApp (For enrollment verification & updates)</label>
                     <input
                       type="tel"
                       value={phone}
@@ -284,7 +280,7 @@ function CheckoutContent() {
                 </div>
               </div>
 
-              {/* 100% Risk-Free Guarantee Trust Box (Beat Astrotalk) */}
+              {/* 100% Risk-Free Guarantee Trust Box */}
               <div className="p-4 rounded-xl bg-gradient-to-r from-emerald-950/40 via-amber-950/20 to-emerald-950/40 border border-emerald-500/40 space-y-2">
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
@@ -292,13 +288,12 @@ function CheckoutContent() {
                     100% Risk-Free Satisfaction Guarantee
                   </span>
                 </div>
-                {/* PLACEHOLDER: Policy wording to be confirmed with client */}
                 <p className="text-xs text-slate-300 leading-relaxed">
-                  Attend the first 2 classes completely risk-free. If you feel the depth and mathematical rigor of Vedic astrology under Acharya Niraj Kumar isn&apos;t the right fit for your journey, request a <strong className="text-emerald-300">full refund anytime before the 3rd live class</strong>. No questions asked.
+                  Explore the first 3 modules completely risk-free. If you feel the depth and mathematical rigor of Vedic astrology under Acharya Niraj Kumar isn&apos;t the right fit for your journey, request a <strong className="text-emerald-300">full refund within 7 days of enrollment</strong>. No questions asked.
                 </p>
                 <div className="flex items-center gap-3 text-[11px] text-slate-400 pt-1">
                   <span className="flex items-center gap-1 text-emerald-400">
-                    ✓ Full Refund Prior to Class 3
+                    ✓ 7-Day Money-Back Guarantee
                   </span>
                   <span>•</span>
                   <span>Direct UPI / Card Reversal</span>
@@ -358,15 +353,15 @@ function CheckoutContent() {
               <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 text-xs text-slate-300 space-y-1.5 mb-4">
                 <div className="flex items-center gap-1.5 text-white font-medium">
                   <Calendar className="w-3.5 h-3.5 text-amber-400" />
-                  <span>Starts: {formatInTimezone(cohort.startDate, userTz, 'short')}</span>
+                  <span>Access: Instant Lifetime Access</span>
                 </div>
                 <div className="flex items-center gap-1.5 text-slate-400">
                   <Clock className="w-3.5 h-3.5 text-amber-400" />
-                  <span>18 Live Masterclasses (Saturdays & Sundays)</span>
+                  <span>23 HD Video Modules + 2 Bonus Workshops</span>
                 </div>
                 <div className="flex items-center gap-1.5 text-slate-400">
                   <Globe className="w-3.5 h-3.5 text-amber-400" />
-                  <span>Synced to: {userTz}</span>
+                  <span>100% Self-Paced • Learn on Any Device</span>
                 </div>
               </div>
 
@@ -379,7 +374,7 @@ function CheckoutContent() {
                   </span>
                 </div>
                 <div className="flex justify-between text-emerald-400 font-semibold">
-                  <span>Cohort 01 Launch Discount</span>
+                  <span>Masterclass Launch Discount</span>
                   <span>
                     - {currency === 'INR' ? `₹${(originalAmount - amount).toLocaleString()}` : `$${originalAmount - amount}`}
                   </span>
@@ -398,11 +393,10 @@ function CheckoutContent() {
             <div className="p-4 rounded-2xl bg-amber-500/5 border border-amber-500/20 text-xs text-slate-300 space-y-2">
               <p className="font-bold text-amber-300 flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                <span>The Viar.in 3-Class Refund Guarantee</span>
+                <span>The VIAR 7-Day Refund Guarantee</span>
               </p>
-              {/* PLACEHOLDER: Policy wording to be confirmed with client */}
               <p className="leading-relaxed text-slate-400">
-                100% full refund if requested before your 3rd live class. Plus, attending live and watching recordings are treated equally for certificate eligibility.
+                100% full refund within 7 days of enrollment. Progress through video modules at your own pace and earn your verified VIAR certificate upon completing the final assessment.
               </p>
             </div>
 

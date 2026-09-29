@@ -405,7 +405,7 @@ export default function HomePage() {
                   />
                 </div>
                 <div className="absolute -bottom-4 -right-2 bg-[#0f172a] border border-amber-400/40 px-3.5 py-1.5 rounded-xl shadow-xl">
-                  <p className="text-[11px] font-bold text-amber-300">Founder, Aapka Astro</p>
+                  <p className="text-[11px] font-bold text-amber-300">Founder, Aapka Astro & VIAR</p>
                 </div>
               </div>
             </div>
@@ -424,7 +424,7 @@ export default function HomePage() {
                   Acharya Niraj Kumar brings together deep traditional Vedic learning and rare real-world corporate insight. Raised in the spiritually rich ecosystem of Baidyanath Dham, Deoghar, and trained under Late Guru Shri B. B. Tiwari, his practice spans over two decades, trusted by students and clients across India and abroad.
                 </p>
                 <p>
-                  Having served clients worldwide through <a href="https://aapkaastro.com" target="_blank" rel="noopener noreferrer" className="text-amber-400 underline font-semibold">Aapka Astro (aapkaastro.com)</a> and holding past executive roles as Vice President and Business Head at Reliance Retail and Metro Cash & Carry, Acharya created <strong>Viar.in</strong> to systematically train serious learners in authentic Jyotish without superstition.
+                  Having served clients worldwide through <a href="https://aapkaastro.com" target="_blank" rel="noopener noreferrer" className="text-amber-400 underline font-semibold">Aapka Astro (aapkaastro.com)</a> and holding past executive roles as Vice President and Business Head at Reliance Retail and Metro Cash & Carry, Acharya founded <strong>Vihangam Institute of Astrology and Research (VIAR)</strong> to systematically train serious learners in authentic Jyotish without superstition.
                 </p>
               </div>
 
@@ -442,7 +442,13 @@ export default function HomePage() {
                   href="/courses/what-is-astrology"
                   className="px-5 py-2.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/30 text-xs font-semibold text-amber-300 transition"
                 >
-                  Join Acharya&apos;s Upcoming Cohort
+                  Explore Self-Paced Masterclass
+                </Link>
+                <Link
+                  href="/about"
+                  className="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-slate-300 hover:text-white transition"
+                >
+                  Read Full Institute Story &rarr;
                 </Link>
               </div>
 
@@ -890,13 +896,13 @@ export default function HomePage() {
             Begin Your Sacred Journey in Jyotish
           </h2>
           <p className="text-slate-300 max-w-xl mx-auto text-base mb-8">
-            Seats in the upcoming cohort of &quot;What is Astrology&quot; are strictly capped at 50 students to ensure personal interaction with Acharya Niraj Kumar.
+            Instant lifetime access to 23 video masterclasses + 2 bonus workshops, comprehensive study materials, and verifiable certification by Vihangam Institute of Astrology and Research.
           </p>
           <Link
             href="/courses/what-is-astrology"
             className="gold-button inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-bold shadow-2xl shadow-amber-500/30"
           >
-            <span>Enroll in Cohort Today</span>
+            <span>Enroll in Course Today</span>
             <ArrowRight className="w-5 h-5" />
           </Link>
         </div>

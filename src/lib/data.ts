@@ -82,8 +82,8 @@ export const ULTIMATE_ASTROLOGY_MODULES: CourseModule[] = [
   {
     id: 'mod-1',
     moduleNumber: 1,
-    title: 'Module 1 : What is astrology?',
-    description: "In this session, you will discover astrology. Astrology is the study of the positions of the planets and stars at the time of a person's birth that have an influence on their personality and destiny. Astrology is also connected with astronomy. It is related to speed movement. In this session, you will learn how planets act in human life. Astrologers believe that the planets have different influences on our lives. For example, Jupiter is associated with luck and opportunity, while Saturn is associated with discipline and responsibility.",
+    title: 'What is Astrology? (nature of 9 planets, twelve houses and attributes, twelve Rashis and their lords)',
+    description: 'In this session, you will discover astrology. Astrology is the study of the positions of the planets and stars at the time of a person\'s birth that have an influence on their personality and destiny. Astrology is also connected with astronomy. It is related to speed movement. In this session, you will learn how planets act in human life. Astrologers believe that the planets have different influences on our lives. For example, Jupiter is associated with luck and opportunity, while Saturn is associated with discipline and responsibility. Covers the nature of 9 planets, twelve houses and their attributes, and twelve Rashis and their lords.',
     durationMinutes: 75,
     keyTopics: ['Nature of 9 planets', 'Twelve Houses and their attributes', 'Twelve Rashis and their Lords'],
     classCount: 1,
@@ -92,7 +92,7 @@ export const ULTIMATE_ASTROLOGY_MODULES: CourseModule[] = [
   {
     id: 'mod-2',
     moduleNumber: 2,
-    title: 'Module 2 : How 9 Companions Work in Astrology?',
+    title: 'How 9 Companions Work in Astrology?',
     description: 'In this session, you will discover how 9 companions work in astrology. Each of these 9 planets in astrology has certain traits that they infuse into the person. The intensity of giving out these traits changes with respect to their placement in the kundli or their conjunction with other planets. Entire astrology is based primarily on nine planets, twelve signs, twenty-seven Nakshatras, and twelve houses.',
     durationMinutes: 65,
     keyTopics: ['The 9 Grahas and their cosmic roles', 'Placement traits and planetary conjunctions', 'Interplay of Grahas, Rashis, Nakshatras & Bhavas'],
@@ -102,7 +102,7 @@ export const ULTIMATE_ASTROLOGY_MODULES: CourseModule[] = [
   {
     id: 'mod-3',
     moduleNumber: 3,
-    title: 'Module 3 : Zodiac Signs and Their Importance',
+    title: 'Zodiac Signs and Their Importance',
     description: 'In this session, you will learn twelve zodiac signs that play a major role in our lives. Each zodiac sign is governed by their planet and in this way, the planet brings its characteristics to the sign.',
     durationMinutes: 70,
     keyTopics: ['The 12 Rashis (Aries to Pisces)', 'Elemental classifications (Fire, Earth, Air, Water)', 'Modalities and governing planetary rulers'],
@@ -112,7 +112,7 @@ export const ULTIMATE_ASTROLOGY_MODULES: CourseModule[] = [
   {
     id: 'mod-4',
     moduleNumber: 4,
-    title: 'Module 4 : Kundli and Their Houses',
+    title: 'Kundli and Their Houses',
     description: 'In this session, you will discover astrology has much more to contribute when it comes to learning how to read a kundli. Each of these houses is ruled by a zodiac sign. Also, planets in astrology move from one house to another throughout a person\'s life thus altering the aspect of that house from time to time.',
     durationMinutes: 80,
     keyTopics: ['Anatomy of the Vedic Kundali chart', 'House rulerships and moving transits', 'How house aspects alter over a lifetime'],
@@ -122,7 +122,7 @@ export const ULTIMATE_ASTROLOGY_MODULES: CourseModule[] = [
   {
     id: 'mod-5',
     moduleNumber: 5,
-    title: 'Module 5 : 12 Houses and Their Meaning in Human Life',
+    title: '12 Houses and Their Meaning in Human Life',
     description: 'In this session, you will learn about houses in a birth chart that reveal key aspects of a person\'s life. The first - represents who you are, the second - possessions; the third - is communication, and many more houses you will learn in this session. Astrologers use planets in these houses to offer insights into a person\'s journey and self-discovery.',
     durationMinutes: 85,
     keyTopics: ['The 12 Bhavas mapped to human existence', 'Dharma, Artha, Kama, Moksha houses', 'Self, wealth, siblings, home, children, health, marriage, longevity, destiny, career, gains, liberation'],
@@ -132,7 +132,7 @@ export const ULTIMATE_ASTROLOGY_MODULES: CourseModule[] = [
   {
     id: 'mod-6',
     moduleNumber: 6,
-    title: 'Module 6 : Zodiac Sign and Their Lord',
+    title: 'Zodiac Sign and Their Lord',
     description: 'In this session, you will discover each zodiac sign has its own lords. These ruling planets play a significant role in determining the characteristics, traits, and influences of a particular zodiac sign. They can provide insights into a person\'s personality, behavior, and the areas of life they may excel in.',
     durationMinutes: 60,
     keyTopics: ['Lordships of the 12 Rashis', 'Planetary personality signatures', 'How sign lords channel strength across life domains'],
@@ -142,7 +142,7 @@ export const ULTIMATE_ASTROLOGY_MODULES: CourseModule[] = [
   {
     id: 'mod-7',
     moduleNumber: 7,
-    title: 'Module 7 : What is The Degree of Planets in Astrology?',
+    title: 'What is The Degree of Planets in Astrology?',
     description: 'In this session you will discover The degree of a planet is deemed crucial in Vedic astrology. It tells one the effect of a planet and the intensity of the aspect. Another important reason why degrees matter is because they indicate when or how a planet will impact your life.',
     durationMinutes: 65,
     keyTopics: ['Planetary degrees (0° to 30° per sign)', 'Avasthas (infant, youthful, mature, old, dead states)', 'Orb of influence and precision timing'],
@@ -152,7 +152,7 @@ export const ULTIMATE_ASTROLOGY_MODULES: CourseModule[] = [
   {
     id: 'mod-8',
     moduleNumber: 8,
-    title: 'Module 8 : Friendship & Enmity of Planets',
+    title: 'Friendship & Enmity of Planets',
     description: 'In this session, you will discover The planets have different relationships with each other. They are either friendly, have enmity, or have equal status / Neutral relationships with other planets. Planets of the same element are considered friendly, enhancing each other\'s positive qualities, while those of opposing elements may create challenges and conflicts when they come into contact with a birth chart.',
     durationMinutes: 70,
     keyTopics: ['Mitra (Friend), Shatru (Enemy), Sama (Neutral) relationships', 'Natural friendship vs Temporal friendship (Tatkalik)', 'Elemental compatibility and chart tension'],
@@ -162,7 +162,7 @@ export const ULTIMATE_ASTROLOGY_MODULES: CourseModule[] = [
   {
     id: 'mod-9',
     moduleNumber: 9,
-    title: 'Module 9 : What is Drishti and Their Impact?',
+    title: 'What is Drishti and Their Impact?',
     description: 'In this session, you will discover drishti in astrology. Planets essentially perform the duties of a watchman. Their primary responsibility is to see, observe, and watch from wherever they are positioned in your birth chart. This ability to see or watch is called Drishti or the Gaze.',
     durationMinutes: 75,
     keyTopics: ['Concept of Drishti (Planetary Aspect / Gaze)', 'Universal 7th house drishti', 'Special aspects of Mars (4th, 8th), Jupiter (5th, 9th), and Saturn (3rd, 10th)'],
@@ -172,7 +172,7 @@ export const ULTIMATE_ASTROLOGY_MODULES: CourseModule[] = [
   {
     id: 'mod-10',
     moduleNumber: 10,
-    title: 'Module 10 : Debilitated & Exalted Planet',
+    title: 'Debilitated & Exalted Planet',
     description: 'In this session you will learn "Debilitation" and "exaltation" are used to describe the strength or weakness of a planet in a specific zodiac sign. A debilitated planet is considered to be in a weakened state, struggling to express its qualities effectively, while an exalted world is in its most powerful and harmonious state, bestowing its positive attributes upon the individual.',
     durationMinutes: 80,
     keyTopics: ['Uccha (Exaltation) and Neecha (Debilitation) points', 'Neecha Bhanga Raja Yoga (cancellation of debilitation)', 'Interpreting functional strength vs dignity'],
@@ -182,7 +182,7 @@ export const ULTIMATE_ASTROLOGY_MODULES: CourseModule[] = [
   {
     id: 'mod-11',
     moduleNumber: 11,
-    title: 'Module 11 : Interpreting Combustion in Astrology',
+    title: 'Interpreting Combustion in Astrology',
     description: 'In this session you will discover When a planet comes closer to the Sun, more than a safer distance to be maintained, such a planet may become weaker as the Sun may burn out some of its strength. Such a planet that loses some of its strength by virtue of being too close to the Sun is called a combust planet.',
     durationMinutes: 65,
     keyTopics: ['Combustion (Asta) mechanics and degree thresholds', 'Inner combustion vs outer planetary effects', 'How combust planets manifest in psychological and physical realms'],
@@ -192,7 +192,7 @@ export const ULTIMATE_ASTROLOGY_MODULES: CourseModule[] = [
   {
     id: 'mod-12',
     moduleNumber: 12,
-    title: 'Module 12 : What are Retrograde Planets?',
+    title: 'What are Retrograde Planets?',
     description: 'Retrograde (Vakri) planets in astrology are celestial bodies that appear to move backward in the sky from the perspective of Earth. Although they don\'t change direction. While this motion is purely an optical illusion, it holds great significance in astrological interpretations.',
     durationMinutes: 70,
     keyTopics: ['Vakri Grahas (Retrograde motion as optical perspective)', 'Chesta Bala (motional strength) of retrograde planets', 'Karmic unfulfilled desires and reversal effects'],
@@ -202,7 +202,7 @@ export const ULTIMATE_ASTROLOGY_MODULES: CourseModule[] = [
   {
     id: 'mod-13',
     moduleNumber: 13,
-    title: 'Module 13 : What is Rashi? How Many Types of Rashi ?',
+    title: 'What is Rashi? How Many Types of Rashi?',
     description: 'In this session, you will learn sun, moon, or name sign: which resembles your true personality type? The Sun sign is the true indicator of their personality, while believers of Vedic astrology regard the Moon sign as their true zodiac sign. the Sun sign resembles our sense of life purpose, or what is commonly called life goals. The present birth (Lagna or Ascendant) is what will decide the circumstances that one would encounter in this birth, while the Moon will tell us about our experiences. It is like a GPS system that helps us navigate situations in present birth and make sense of different life experiences.',
     durationMinutes: 75,
     keyTopics: ['Sun Sign vs Moon Sign (Chandra Rashi) vs Lagna (Ascendant)', 'Lagna as circumstance, Moon as experience, Sun as soul purpose', 'The cosmic GPS model of Vedic astrology'],
@@ -212,7 +212,7 @@ export const ULTIMATE_ASTROLOGY_MODULES: CourseModule[] = [
   {
     id: 'mod-14',
     moduleNumber: 14,
-    title: 'Module 14 : What is Nakshatra?',
+    title: 'What is Nakshatra?',
     description: 'In Vedic astrology a Nakshatra is a lunar mansion or a division of the ecliptic in the night sky, they influence everything from horoscope readings to auspicious timing for various rituals and activities. There are 27 Nakshatras, each spanning 13 degrees and 20 minutes of the zodiac. These Nakshatras play a crucial role in determining the position of the Moon at the time of a person\'s birth and are used to provide more detailed insights into an individual\'s personality, characteristics, and life events.',
     durationMinutes: 85,
     keyTopics: ['The 27 Nakshatras (Lunar Mansions of 13°20\' each)', 'Padas (quarter divisions of 3°20\')', 'Nakshatra deities, symbols, and Janma Nakshatra calculations'],
@@ -222,7 +222,7 @@ export const ULTIMATE_ASTROLOGY_MODULES: CourseModule[] = [
   {
     id: 'mod-15',
     moduleNumber: 15,
-    title: 'Module 15 : What is Trikon Kendra & Kundali Chart?',
+    title: 'What is Trikon Kendra & Kundali Chart?',
     description: 'In this session, you will discover that "Trikon" (first, fifth, and ninth houses) and "Kendra" (first, fourth, seventh, and tenth houses) are key house groupings in a Kundali chart, a personalized birth chart. Trikon houses relate to positive aspects like creativity and spirituality, while Kendra houses pertain to worldly matters such as career and relationships.',
     durationMinutes: 75,
     keyTopics: ['Kendra Houses (1, 4, 7, 10 — Pillars of Action)', 'Trikona Houses (1, 5, 9 — Houses of Grace & Dharma)', 'Kendra-Trikona Raj Yogas and auspicious combinations'],
@@ -232,7 +232,7 @@ export const ULTIMATE_ASTROLOGY_MODULES: CourseModule[] = [
   {
     id: 'mod-16',
     moduleNumber: 16,
-    title: 'Module 16 : What is Lagnesh?',
+    title: 'What is Lagnesh?',
     description: 'In this session you will learn The Lagnesh is a crucial planet in astrology, symbolizing the self and life path. It significantly shapes one\'s identity and characteristics. Astrologers analyze the position, strength, and aspects of the birth chart to understand a person\'s temperament, appearance, and disposition.',
     durationMinutes: 70,
     keyTopics: ['The Lagnesh (Ascendant Lord) as key driver of life', 'Placement of Lagnesh in 12 houses', 'Vitality, life alignment, and physical health'],
@@ -242,7 +242,7 @@ export const ULTIMATE_ASTROLOGY_MODULES: CourseModule[] = [
   {
     id: 'mod-17',
     moduleNumber: 17,
-    title: 'Module 17 : What is Dasha & Types of Dasha?',
+    title: 'What is Dasha & Types of Dasha?',
     description: 'In this session, you will discover The Dasha system. In this system, dasha divides a person\'s life into periods, each ruled by a specific planet. These periods start based on the position of the Moon at birth and have unique planetary influences that impact various aspects like career, relationships, and personal growth.',
     durationMinutes: 90,
     keyTopics: ['The Vimshottari Dasha system (120-year cycle)', 'Mahadasha, Antardasha, and Pratyantardasha timing', 'Predicting turning points and life events'],
@@ -252,7 +252,7 @@ export const ULTIMATE_ASTROLOGY_MODULES: CourseModule[] = [
   {
     id: 'mod-18',
     moduleNumber: 18,
-    title: 'Module 18 : What is Gemstone and How They Affect us?',
+    title: 'What is Gemstone and How They Affect Us?',
     description: 'Gemstones are natural minerals with unique beauty and perceived metaphysical properties. They are used in jewelry and as talismans, believed to influence our physical, emotional, and spiritual well-being. Each gemstone is associated with specific qualities like healing, protection, and decision-making power.',
     durationMinutes: 75,
     keyTopics: ['Navratna (9 planetary gemstones) and mineral physics', 'Light refraction and biofield electromagnetic resonance', 'Rules for safe prescription and counter-indications'],
@@ -262,7 +262,7 @@ export const ULTIMATE_ASTROLOGY_MODULES: CourseModule[] = [
   {
     id: 'mod-19',
     moduleNumber: 19,
-    title: 'Module 19 : Rudraksha and Selecting Rudraksha According to Your Zodiac Sign',
+    title: 'Rudraksha and Selecting Rudraksha According to Your Zodiac Sign',
     description: 'In this session, you will discover the world of Rudraksha beads and discover how to select the most suitable one based on your Zodiac Sign, or Rashi. Rudraksha beads hold immense spiritual and astrological significance, and understanding their connection with your Zodiac Sign can enhance their benefits in your life.',
     durationMinutes: 70,
     keyTopics: ['Mukhi classifications (1 to 14 Mukhi beads)', 'Selecting Rudraksha according to Rashi and Lagna', 'Electromagnetic properties and spiritual cleansing rituals'],
@@ -272,7 +272,7 @@ export const ULTIMATE_ASTROLOGY_MODULES: CourseModule[] = [
   {
     id: 'mod-20',
     moduleNumber: 20,
-    title: 'Module 20 : Significance of Daan and Dakshina',
+    title: 'Significance of Daan and Dakshina',
     description: 'In this session you will learn Daan and Dakshina are deeply meaningful in diverse cultures and spiritual practices. Daan signifies selfless giving, often as donations or charity, representing generosity and compassion. It\'s a means to generate positive karma and uphold the principles of dharma.',
     durationMinutes: 60,
     keyTopics: ['Karmic mechanics of Daan (charity) and Dakshina (honorarium)', 'Remedies for afflicted planets through targeted donations', 'Dharmic ethics in astrological remedies'],
@@ -282,7 +282,7 @@ export const ULTIMATE_ASTROLOGY_MODULES: CourseModule[] = [
   {
     id: 'mod-21',
     moduleNumber: 21,
-    title: 'Module 21 : What is Lagna Kundali ?',
+    title: 'What is Lagna Kundali?',
     description: 'In this session, you will discover "Lagna Kundali," also known as the "Natal Chart" or "Birth Chart" in Vedic astrology. The first house or house division in your birth chart is known as the Lagna, or birth chart. the Lagna, or rising sign, is said to have a considerable impact on your physical self and the kind of life you are destined to have. Therefore, it is a crucial component of your horoscope.',
     durationMinutes: 80,
     keyTopics: ['Complete step-by-step reading of the Lagna Kundali', 'Synthesizing signs, planets, houses, and dashas', 'The complete birth chart interpretation blueprint'],
@@ -292,7 +292,7 @@ export const ULTIMATE_ASTROLOGY_MODULES: CourseModule[] = [
   {
     id: 'mod-22',
     moduleNumber: 22,
-    title: 'Module 22 : Bonus Video – Reading a real chart for choosing career',
+    title: 'Bonus Video — Reading a Real Chart for Choosing Career',
     description: 'In this practical bonus masterclass, Acharya Niraj Kumar conducts an end-to-end clinical chart consultation examining the 10th house (Karma Bhava), 2nd house (wealth), 6th house (service), Amatyakaraka, and current Dasha to decode optimal career paths, business vs job prospects, and profession timing.',
     durationMinutes: 85,
     keyTopics: ['Real chart case study: Career & Profession analysis', 'Analyzing 10th House, Amatyakaraka, and Dashas', 'Predicting career breakthroughs, promotions, and changes'],
@@ -303,10 +303,10 @@ export const ULTIMATE_ASTROLOGY_MODULES: CourseModule[] = [
   {
     id: 'mod-23',
     moduleNumber: 23,
-    title: 'Module 23 : Bonus Video – Reading a real chart for Marraige',
-    description: 'In this masterclass bonus workshop, watch a complete breakdown of relationship and marriage dynamics: the 7th house (Kalatra Bhava), Venus/Jupiter indicators, Darakaraka, Navamsha (D9) chart cross-examination, and marriage timing with real-world case analysis.',
+    title: 'Bonus Video — Reading a Real Chart for Marriage',
+    description: 'In this masterclass bonus workshop, watch a complete breakdown of relationship and marriage dynamics: the 7th house (Kalatra Bhava), Venus/Jupiter indicators, Darakaraka, Navamsha (D9) chart cross-examination, and marriage timing with real-world case analysis. Concludes with the official Certificate of Completion.',
     durationMinutes: 90,
-    keyTopics: ['Real chart case study: Marriage & Relationship timing', 'Analyzing 7th house, Venus/Jupiter, and Navamsha (D9) chart', 'Manglik considerations, compatibility, and harmony remedies'],
+    keyTopics: ['Real chart case study: Marriage & Relationship timing', 'Analyzing 7th house, Venus/Jupiter, and Navamsha (D9) chart', 'Manglik considerations, compatibility, and harmony remedies', 'End: Certificate of Completion'],
     classCount: 1,
     classNumbers: [23],
     isBonus: true,

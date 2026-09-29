@@ -231,7 +231,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/dashboard/courses/cohort-wia-batch-1" className="hover:text-amber-400 transition">
-                  18 Classes & Replays
+                  23 Video Modules &amp; Masterclasses
                 </Link>
               </li>
               <li>

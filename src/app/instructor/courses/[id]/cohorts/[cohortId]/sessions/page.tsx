@@ -270,7 +270,7 @@ export default function InstructorSessionsPage() {
           </div>
         )}
 
-        {/* 18 Classes Grid */}
+        {/* 23 Modules Grid */}
         <div className="space-y-3">
           {classes.map((cls) => (
             <div

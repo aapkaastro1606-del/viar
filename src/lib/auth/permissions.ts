@@ -66,7 +66,7 @@ export const ADMIN_SECTIONS_META: Record<AdminSection, AdminSectionMeta> = {
     key: 'courses',
     title: 'Course Catalog & Syllabi',
     shortTitle: 'Courses',
-    description: 'Create and update courses, 18-class syllabi, bundles, and pricing.',
+    description: 'Create and update courses, 23-module syllabi, bundles, and pricing.',
   },
   cohorts: {
     key: 'cohorts',

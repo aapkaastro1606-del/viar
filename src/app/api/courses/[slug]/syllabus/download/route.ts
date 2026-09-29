@@ -229,8 +229,8 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
       <div class="stat-val">100% Self-Paced</div>
     </div>
     <div class="stat-box">
-      <div class="stat-label">Total Modules</div>
-      <div class="stat-val">${course.totalClasses} Video Lessons</div>
+      <div class="stat-label">Total Curriculum</div>
+      <div class="stat-val">${course.totalModules || 23} Modules (Self-Paced)</div>
     </div>
     <div class="stat-box">
       <div class="stat-label">Curriculum Level</div>
@@ -254,12 +254,12 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
     ${course.description}
   </p>
 
-  <div class="section-title">Detailed Curriculum Modules</div>
+  <div class="section-title">Detailed Curriculum Modules (23 Modules: 21 Core + 2 Bonus)</div>
   
   ${course.modules && course.modules.length > 0 ? course.modules.map((mod) => `
     <div class="module-card">
       <div class="module-header">
-        <span class="module-title">Module ${mod.moduleNumber}: ${mod.title}</span>
+        <span class="module-title">${mod.isBonus ? `Bonus Video — Module ${mod.moduleNumber}: ${mod.title.replace(/^Bonus Video\s*—\s*/i, '')}` : `Module ${mod.moduleNumber}: ${mod.title}`}</span>
         <span class="module-timing">${mod.durationMinutes ? `${mod.durationMinutes} mins` : 'Self-Paced'}</span>
       </div>
       <div class="module-desc">
@@ -289,7 +289,7 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
   </p>
 
   <div class="footer">
-    <div>Viar.in Academy • ask@aapkaastro.com • WhatsApp: +91 93112 15564</div>
+    <div>Vihangam Institute of Astrology and Research (VIAR) • ask@aapkaastro.com • WhatsApp: +91 93112 15564</div>
     <div>Official Syllabus Document • https://viar.in/courses/${course.slug}</div>
   </div>
 

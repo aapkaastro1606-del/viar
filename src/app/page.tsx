@@ -735,14 +735,14 @@ export default function HomePage() {
               Sample Lecture Video Coming Soon
             </h3>
             <p className="text-slate-300 text-xs sm:text-sm leading-relaxed max-w-lg mx-auto mb-6">
-              Official video excerpts demonstrating live chart analysis and syllabus methodology are currently being curated from the upcoming flagship cohort sessions.
+              Official video excerpts demonstrating chart analysis and syllabus methodology are currently being curated from the 23-module self-paced masterclass.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
                 href="/courses/what-is-astrology"
                 className="gold-button px-6 py-2.5 rounded-xl text-xs font-bold inline-flex items-center gap-2"
               >
-                <span>View Full 18-Class Curriculum</span>
+                <span>View Full 23-Module Curriculum</span>
               </Link>
               <a
                 href="/api/courses/what-is-astrology/syllabus/download?print=true"

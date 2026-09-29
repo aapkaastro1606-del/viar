@@ -249,7 +249,7 @@ function StudentDashboardContent() {
               className="gold-button px-3.5 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-md shadow-amber-500/20"
             >
               <BookOpen className="w-3.5 h-3.5" />
-              <span>All 18 Classes & Replays</span>
+              <span>All 23 Video Modules &amp; Masterclasses</span>
             </Link>
             <Link
               href="/dashboard/certificates"
@@ -364,7 +364,7 @@ function StudentDashboardContent() {
             }`}
           >
             <Calendar className="w-4 h-4" />
-            <span>Class Schedule (18 Classes)</span>
+            <span>Curriculum Modules (23 Modules)</span>
           </button>
 
           <button
@@ -376,7 +376,7 @@ function StudentDashboardContent() {
             }`}
           >
             <Play className="w-4 h-4" />
-            <span>HD Recordings & Notes ({recordedClasses.length})</span>
+            <span>HD Video Modules &amp; Notes ({recordedClasses.length})</span>
           </button>
 
           <button
@@ -414,10 +414,10 @@ function StudentDashboardContent() {
           <div className="space-y-4">
             <div className="flex items-center justify-between mb-4">
               <p className="text-xs text-slate-400">
-                Displaying all 18 classes in <strong className="text-white">{userTz}</strong>.
+                Displaying all 23 self-paced video modules in <strong className="text-white">{userTz}</strong>.
               </p>
               <span className="text-xs text-amber-300">
-                {completedClasses.length} of 18 classes completed
+                {completedClasses.length} of 23 modules completed
               </span>
             </div>
 

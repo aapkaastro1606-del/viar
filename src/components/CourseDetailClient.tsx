@@ -478,6 +478,15 @@ export default function CourseDetailClient({ slug }: CourseDetailClientProps) {
 
                   {isOpen && (
                     <div className="px-6 pb-6 pt-2 border-t border-white/5 space-y-4">
+                      <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 space-y-1.5">
+                        <span className="text-[11px] font-bold text-amber-300 uppercase tracking-wider block">
+                          Module Summary &amp; Explanatory Guide
+                        </span>
+                        <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                          {module.description}
+                        </p>
+                      </div>
+
                       {module.keyTopics && module.keyTopics.length > 0 && (
                         <div>
                           <span className="text-[11px] font-semibold text-amber-300 uppercase tracking-wider block mb-2">

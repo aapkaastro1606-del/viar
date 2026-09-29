@@ -83,8 +83,8 @@ export default function CertificateSearchPage() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left pt-8 border-t border-white/10">
           <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
             <CheckCircle2 className="w-4 h-4 text-amber-400 mb-2" />
-            <h4 className="text-xs font-bold text-white mb-1">18 Masterclasses</h4>
-            <p className="text-[11px] text-slate-400">Complete curriculum in signs, grahas, bhavas, and synthesis.</p>
+            <h4 className="text-xs font-bold text-white mb-1">23 Video Modules</h4>
+            <p className="text-[11px] text-slate-400">Complete curriculum in signs, grahas, bhavas, dashas, and synthesis.</p>
           </div>
           <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
             <CheckCircle2 className="w-4 h-4 text-amber-400 mb-2" />

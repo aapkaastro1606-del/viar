@@ -126,7 +126,7 @@ export default function TermsPage() {
               Verifiable completion credentials (e.g., VIAR-2026-WIA-XXXX) are granted solely to students who meet the academic criteria:
             </p>
             <ul className="list-disc pl-5 space-y-1.5 text-slate-300">
-              <li>Attendance or verified replay viewing of all eighteen (18) cohort sessions;</li>
+              <li>Verified viewing or completion of all twenty-three (23) course video modules;</li>
               <li>Completion of all periodic knowledge checks;</li>
               <li>Passing the comprehensive final exam with a score of 70% or higher.</li>
             </ul>

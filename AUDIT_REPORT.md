@@ -1417,3 +1417,31 @@ Per confirmed client decision, all brand references to the companion consultatio
 16. src/lib/timezones.ts (Google Calendar export template)
 17. src/app/globals.css & 	ailwind.config.ts (Design system palette comments)
 18. ARCHITECTURE_NOTES.md (Per-site permission isolation description)
+---
+
+## 29. Honest Status Note: Video Assets & Course Upload/Embed Infrastructure (September 2026)
+
+### 29.1 What Is 100% Built, Operational, and Verified
+1. **Full Rebrand to "Vihangam Institute of Astrology and Research" (VIAR)**:
+   - Official brand identity, high-resolution logo (/images/logo.png, /images/logo-icon.png), and official favicon active across all headers, footers, meta tags, and OpenGraph cards.
+   - Verbatim About/Institute narrative live on /about.
+   - Verified credential gallery from Jyotishvedanghub and ministerial honors live on /about.
+2. **23 Real Modules with Verified Syllabus**:
+   - Replaced the invented 18-class cohort structure with the client's actual 23 modules (21 core modules + 2 bonus clinical chart workshops).
+   - Full titles, descriptive summaries, and key syllabus topics integrated into src/lib/data.ts.
+3. **Self-Paced Learning Engine & Quiz Gating**:
+   - Students can enroll, stream/view modules in any order, and mark individual modules as watched/completed.
+   - The final certification examination is strictly locked until all 23 modules are marked complete (canTakeQuiz: allSessionsComplete).
+   - Passing the 20-question evaluation (&ge;70%) automatically generates an official verifiable Certificate of Completion with permanent QR/URL verification at /verify/[code].
+4. **Pricing Invariance Maintained**:
+   - Tuition rates strictly preserved at **₹4,999 INR /  USD** (one-time fee with lifetime access).
+5. **Sister Site Cross-Promotion Standardized**:
+   - Brand name consistently updated to **"Aapaka Astro"** across all references.
+
+### 29.2 Honest Status Disclosure on Video Media Files
+- **Status of Video Files**: The client's actual raw MP4 video lecture files for the 23 syllabus modules have not yet been recorded / delivered by the client.
+- **Architectural Policy (No Fabricated Content)**: In accordance with our engineering and integrity guidelines, we have **strictly refrained from fabricating fake video placeholders, using unrelated YouTube videos, or embedding unverified third-party lectures** pretending to be Acharya Niraj Kumar's authentic teachings.
+- **Fulfillment Readiness**:
+  - The video streaming interface (src/app/dashboard/courses/[cohortId]/page.tsx) is 100% engineered and equipped with an embedded responsive player supporting secure YouTube/Vimeo embeds, S3/Cloudflare stream URLs, lecture notes markdown, and per-module Q&A discussions.
+  - While video recordings await client upload, the interface displays an honest, branded state ("Self-Paced Video Module") with full curriculum descriptions and a manual completion toggle ("Mark Module as Watched").
+  - Once the client provides the hosted video URLs, inserting them into ecording.videoUrl will instantly render the active video stream for each module with zero code refactoring required.

@@ -281,7 +281,7 @@ function StudentDashboardContent() {
                   <span className="text-xs font-bold uppercase tracking-wider text-amber-300">
                     {nextClass.status === 'LIVE' ? 'Class In Session / Starting Now' : 'Upcoming Live Session'}
                   </span>
-                  <span className="text-xs text-slate-400">• Class {nextClass.classNumber} of 18</span>
+                  <span className="text-xs text-slate-400">• Class {nextClass.classNumber} of 23</span>
                 </div>
 
                 <h2 className="text-xl sm:text-2xl font-black text-white mb-2">

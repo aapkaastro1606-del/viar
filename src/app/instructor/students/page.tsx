@@ -127,7 +127,7 @@ export default function InstructorStudentsRosterPage() {
                         <td className="py-4 px-6">
                           <div className="space-y-1">
                             <div className="flex justify-between text-[11px] font-medium">
-                              <span className="text-white">18 / 18</span>
+                              <span className="text-white">23 / 23</span>
                               <span className="text-emerald-400">100%</span>
                             </div>
                             <div className="w-24 h-1.5 bg-slate-800 rounded-full overflow-hidden">

@@ -65,8 +65,8 @@ describe('Quiz Evaluation & Certificate Issuance Logic', () => {
       return completedSessions >= totalSessions;
     }
 
-    assert.strictEqual(isQuizUnlocked(17, 18), false, 'Must be locked when 17 of 18 completed');
-    assert.strictEqual(isQuizUnlocked(18, 18), true, 'Must unlock when all 18 completed');
-    assert.strictEqual(isQuizUnlocked(0, 18), false, 'Must be locked at 0 completed');
+    assert.strictEqual(isQuizUnlocked(22, 23), false, 'Must be locked when 22 of 23 completed');
+    assert.strictEqual(isQuizUnlocked(23, 23), true, 'Must unlock when all 23 completed');
+    assert.strictEqual(isQuizUnlocked(0, 23), false, 'Must be locked at 0 completed');
   });
 });

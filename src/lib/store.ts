@@ -628,7 +628,7 @@ export const ViarStore = {
     canTakeQuiz: boolean;
   } {
     const classes = this.getClasses(cohortId);
-    if (classes.length === 0) return { totalClasses: 18, completedCount: 0, completedClasses: 0, percentage: 0, allSessionsComplete: false, canTakeQuiz: false };
+    if (classes.length === 0) return { totalClasses: 23, completedCount: 0, completedClasses: 0, percentage: 0, allSessionsComplete: false, canTakeQuiz: false };
 
     const watchedIds = new Set(this.getWatchedClassIds());
     let completedCount = 0;
@@ -676,9 +676,9 @@ export const ViarStore = {
       }
     }
 
-    // Default: Check completion or self-paced access
+    // Default: Check completion of all curriculum modules
     const progress = this.getCourseProgress(cohortId);
-    if (progress.allSessionsComplete || course?.deliveryMode === 'SELF_PACED') {
+    if (progress.allSessionsComplete) {
       return { isUnlocked: true };
     } else {
       return {

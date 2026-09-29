@@ -397,7 +397,7 @@ export default function AdminPortalPage() {
                 <Video className="w-4 h-4 text-indigo-400" />
               </div>
               <p className="text-2xl sm:text-3xl font-black text-white">
-                {stats.completedClasses} <span className="text-sm text-slate-400 font-normal">/ 18</span>
+                {stats.completedClasses} <span className="text-sm text-slate-400 font-normal">/ 23</span>
               </p>
               <p className="text-[11px] text-slate-400 mt-1">{stats.upcomingClasses} Upcoming Live Sessions</p>
             </div>

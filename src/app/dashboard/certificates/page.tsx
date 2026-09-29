@@ -191,7 +191,7 @@ export default function StudentCertificatesPage() {
                   </h3>
 
                   <p className="text-xs text-slate-300 max-w-lg mx-auto leading-relaxed mb-6">
-                    for demonstrating complete mastery of 18 cohort classes, classical Kundali synthesis, and achieving a passing grade of{' '}
+                    for demonstrating complete mastery of all 23 video curriculum modules, classical Kundali synthesis, and achieving a passing grade of{' '}
                     <strong className="text-white">{cert.grade} ({cert.scorePercentage}%)</strong> in the examination of:
                   </p>
 

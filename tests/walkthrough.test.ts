@@ -173,7 +173,7 @@ describe('Full Core-Flow End-to-End Walkthrough', () => {
       studentEmail,
       courseId: 'course-what-is-astrology',
       cohortId,
-      amount: 4999,
+      amount: 5100,
       currency: 'INR',
       paymentMethod: 'Razorpay UPI (Test Verification)',
     });
@@ -206,8 +206,8 @@ describe('Full Core-Flow End-to-End Walkthrough', () => {
     const flagshipCourse = {
       id: 'course-what-is-astrology',
       title: 'What is Astrology — Foundations of Vedic Astrology',
-      priceInr: 4999,
-      originalPriceInr: 9999,
+      priceInr: 5100,
+      originalPriceInr: 11000,
     };
 
     const flagshipCohort = {
@@ -225,7 +225,7 @@ describe('Full Core-Flow End-to-End Walkthrough', () => {
     // Dynamic headline and price verification
     const priceFormatted = `₹${flagshipCourse.priceInr.toLocaleString('en-IN')}`;
     const headline = `Enroll in '${flagshipCourse.title.split('—')[0].trim()}' — Launch Price ${priceFormatted}`;
-    assert.strictEqual(headline, "Enroll in 'What is Astrology' — Launch Price ₹4,999");
+    assert.strictEqual(headline, "Enroll in 'What is Astrology' — Launch Price ₹5,100");
 
     // Suppression Rule 1: Logged-out visitor (eligible to see modal)
     function shouldShowModal(params: {

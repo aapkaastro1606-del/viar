@@ -21,7 +21,7 @@ export default function InstructorCoursesPage() {
   const [title, setTitle] = useState('');
   const [tagline, setTagline] = useState('');
   const [description, setDescription] = useState('');
-  const [priceInr, setPriceInr] = useState('4999');
+  const [priceInr, setPriceInr] = useState('5100');
   const [priceUsd, setPriceUsd] = useState('69');
   const [durationWeeks, setDurationWeeks] = useState('8');
   const [totalClasses, setTotalClasses] = useState('23');
@@ -54,9 +54,9 @@ export default function InstructorCoursesPage() {
       durationWeeks: parseInt(durationWeeks) || 8,
       totalClasses: parseInt(totalClasses) || 23,
       classesPerWeek: 0,
-      priceInr: parseInt(priceInr) || 4999,
+      priceInr: parseInt(priceInr) || 5100,
       priceUsd: parseInt(priceUsd) || 69,
-      originalPriceInr: (parseInt(priceInr) || 4999) * 2,
+      originalPriceInr: (parseInt(priceInr) || 5100) * 2,
       originalPriceUsd: (parseInt(priceUsd) || 69) * 2,
       isPublished: true,
       featured: false,

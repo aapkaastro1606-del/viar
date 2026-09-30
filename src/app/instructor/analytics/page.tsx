@@ -51,7 +51,7 @@ export default function InstructorAnalyticsPage() {
           <div className="cosmic-card p-6 rounded-2xl border border-emerald-500/30">
             <span className="text-xs font-semibold text-slate-400 block mb-1">INR Revenue (Razorpay)</span>
             <span className="text-3xl font-black text-white">
-              ₹{(stats.totalRevenueInr || 4999).toLocaleString()}
+              ₹{(stats.totalRevenueInr || 5100).toLocaleString()}
             </span>
             <p className="text-[11px] text-emerald-400 mt-2">
               {inrEnrollments.length} Domestic UPI / Cards

@@ -328,13 +328,13 @@ export default function HomePage() {
                     <div>
                       <p className="text-xs text-slate-400 uppercase tracking-wider font-semibold">One-Time Tuition</p>
                       <div className="flex items-baseline gap-2 mt-1">
-                        <span className="text-3xl sm:text-4xl font-black text-white">₹4,999</span>
-                        <span className="text-sm text-slate-500 line-through">₹9,999</span>
+                        <span className="text-3xl sm:text-4xl font-black text-white">₹5,100</span>
+                        <span className="text-sm text-slate-500 line-through">₹11,000</span>
                         <span className="text-xs font-bold text-amber-400">/ $69 USD</span>
                       </div>
                     </div>
                     <span className="px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-bold">
-                      50% OFF Launch
+                      54% OFF Launch
                     </span>
                   </div>
 
@@ -513,7 +513,7 @@ export default function HomePage() {
               <div className="pt-6 border-t border-white/10 flex items-center justify-between">
                 <div>
                   <span className="text-xs text-slate-400 block">Tuition</span>
-                  <span className="text-lg font-bold text-white">₹4,999 <span className="text-xs text-amber-400">/ $69 USD</span></span>
+                  <span className="text-lg font-bold text-white">₹5,100 <span className="text-xs text-amber-400">/ $69 USD</span></span>
                 </div>
                 <Link
                   href="/courses/what-is-astrology"

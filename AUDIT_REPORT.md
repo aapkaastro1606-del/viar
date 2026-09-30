@@ -1445,3 +1445,63 @@ Per confirmed client decision, all brand references to the companion consultatio
   - The video streaming interface (src/app/dashboard/courses/[cohortId]/page.tsx) is 100% engineered and equipped with an embedded responsive player supporting secure YouTube/Vimeo embeds, S3/Cloudflare stream URLs, lecture notes markdown, and per-module Q&A discussions.
   - While video recordings await client upload, the interface displays an honest, branded state ("Self-Paced Video Module") with full curriculum descriptions and a manual completion toggle ("Mark Module as Watched").
   - Once the client provides the hosted video URLs, inserting them into ecording.videoUrl will instantly render the active video stream for each module with zero code refactoring required.
+---
+
+## 30. Flagship Course Pricing Calibration & Checkout Synchronization Audit (September 2026)
+
+### 30.1 Overview & Confirmed Specifications
+As requested by the client, the tuition pricing for the flagship 23-module self-paced course (**"What is Astrology — Foundations of Vedic Astrology"** / what-is-astrology-basics-of-astrology) has been updated:
+- **New Active Tuition Price**: **₹5,100 INR** (Discounted launch tuition,  USD international)
+- **Original / Struck-Through Price**: **₹11,000 INR** (Original tuition,  USD international)
+- **Effective Discount**: **54% OFF** launch promotion
+
+### 30.2 Audit of End-to-End Pricing Synchronization
+A fundamental architectural requirement was ensuring zero discrepancy between the marketing display and actual payment processing charges. The audit verified:
+
+1. **Course Catalog Card (src/app/page.tsx)**:
+   - Hero pricing card displays ₹5,100 alongside struck-through ₹11,000 with the 54% OFF Launch badge.
+   - Catalog card displays ₹5,100 /  USD with one-time payment clarity.
+
+2. **Course Detail & Sales Page (src/components/CourseDetailClient.tsx & src/app/courses/[slug]/page.tsx)**:
+   - Dynamic discount calculation: Math.round(((course.originalPriceInr - course.priceInr) / course.originalPriceInr) * 100) automatically calculates 54% Off Launch.
+   - Struck-through ₹11,000 and highlighted ₹5,100 are rendered directly from src/lib/data.ts.
+
+3. **Checkout Order Amount Synchronization (src/app/checkout/[cohortId]/page.tsx)**:
+   - Checkout dynamically initializes mount: (course?.priceInr || 5100) directly from the course data model.
+   - Payment order generation passes provider.createOrder({ amount: price, ... }) which sends ₹5,100 directly to Razorpay (and  USD to Stripe). Zero hardcoded or mismatched pricing exists between UI display and charge execution.
+
+4. **Schema.org Structured Data (src/app/courses/[slug]/page.tsx)**:
+   - Course JSON-LD schema renders:
+     `json
+     {
+       "@type": "Offer",
+       "price": 5100,
+       "priceCurrency": "INR",
+       "availability": "https://schema.org/InStock",
+       "category": "Tuition",
+       "url": "https://viar.in/courses/what-is-astrology-basics-of-astrology"
+     }
+     `
+   - Automatically synchronizes with search engine rich snippets.
+
+5. **Syllabus PDF Dynamic Generation (src/app/api/courses/[slug]/syllabus/download/route.ts)**:
+   - The downloadable/printable PDF syllabus dynamically references course.priceInr.toLocaleString('en-IN') rendering ₹5,100 /  USD.
+
+6. **Webhooks, Fallbacks & Data Schema Integrity**:
+   - prisma/schema.prisma: Default priceInr updated to 5100 and originalPriceInr to 11000.
+   - src/app/api/payments/webhook/razorpay/route.ts: Webhook fallback captured amount updated to 5100.
+   - src/app/api/courses/route.ts: Default course creation tuition fallback updated to 5100.
+   - src/app/instructor/courses/page.tsx: Instructor course creation defaults updated to 5100.
+   - src/app/instructor/page.tsx & src/app/instructor/analytics/page.tsx: Analytics fallback revenue updated to 5100.
+
+### 30.3 Verification Suite Results
+- **Unit & Integration Tests**: 88/88 tests passing (
+pm test).
+  - 	ests/walkthrough.test.ts: Flagship enrollment amount and modal assertions verified at ₹5,100.
+  - 	ests/email.test.ts: Enrollment confirmation and payment receipt emails verified with ₹5,100 template rendering.
+  - 	ests/webhooks.test.ts: Razorpay 510000 paise payload and tamper-verification tests passing.
+  - 	ests/production-hardening.test.ts: Error and payment failure logger tests passing.
+- **Linting**: 0 warnings, 0 errors (
+pm run lint).
+- **Production Build**: Verified clean Next.js production build (
+pm run build).

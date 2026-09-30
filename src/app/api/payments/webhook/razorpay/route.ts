@@ -52,7 +52,7 @@ export async function POST(req: NextRequest) {
     if (event === 'payment.captured' || event === 'order.paid') {
       const paymentId = paymentEntity?.id || `pay_${Date.now()}`;
       const orderId = orderEntity?.id || paymentEntity?.order_id;
-      const amount = paymentEntity ? Math.round(paymentEntity.amount / 100) : 4999;
+      const amount = paymentEntity ? Math.round(paymentEntity.amount / 100) : 5100;
       const email = paymentEntity?.email || 'student@example.com';
       const notes = paymentEntity?.notes || orderEntity?.notes || {};
       const cohortId = notes.cohortId || 'cohort-wia-batch-1';

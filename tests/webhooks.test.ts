@@ -19,7 +19,7 @@ describe('Payment Webhook Verification Logic', () => {
           payment: {
             entity: {
               id: 'pay_ABC123456789',
-              amount: 499900,
+              amount: 510000,
               currency: 'INR',
               email: 'student@example.com',
             },
@@ -37,7 +37,7 @@ describe('Payment Webhook Verification Logic', () => {
     });
 
     it('should reject a tampered payload with mismatched signature', () => {
-      const originalPayload = JSON.stringify({ event: 'payment.captured', amount: 499900 });
+      const originalPayload = JSON.stringify({ event: 'payment.captured', amount: 510000 });
       const tamperedPayload = JSON.stringify({ event: 'payment.captured', amount: 100 });
 
       const originalSignature = crypto

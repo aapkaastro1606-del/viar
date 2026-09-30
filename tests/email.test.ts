@@ -23,7 +23,7 @@ test('Transactional Email System', async (t) => {
       courseTitle: 'What is Astrology — Foundations of Vedic Astrology',
       cohortName: 'Batch 1 (October 2026)',
       startDate: 'October 15, 2026',
-      amountPaid: 4999,
+      amountPaid: 5100,
       currency: '₹',
       dashboardUrl: 'https://viar.in/dashboard',
     };
@@ -31,7 +31,7 @@ test('Transactional Email System', async (t) => {
     const template = renderEnrollmentConfirmation(enrollmentData);
     assert.match(template.subject, /Enrollment Confirmed: What is Astrology/);
     assert.match(template.html, /Aarav Sharma/);
-    assert.match(template.html, /₹ 4,999/);
+    assert.match(template.html, /₹ 5,100/);
     assert.match(template.html, /October 15, 2026/);
     assert.match(template.html, /https:\/\/viar\.in\/dashboard/);
 
@@ -57,7 +57,7 @@ test('Transactional Email System', async (t) => {
       studentEmail: 'priya@example.com',
       courseTitle: 'What is Astrology — Foundations of Vedic Astrology',
       cohortName: 'Batch 1',
-      amount: 4999,
+      amount: 5100,
       currency: '₹',
       paymentMethod: 'Razorpay (UPI / NetBanking)',
       status: 'PAID' as const,
@@ -69,7 +69,7 @@ test('Transactional Email System', async (t) => {
     assert.match(template.html, /REC-RZP-984210/);
     assert.match(template.html, /order_test_9842/);
     assert.match(template.html, /PAID IN FULL/);
-    assert.match(template.html, /₹ 4,999/);
+    assert.match(template.html, /₹ 5,100/);
 
     const result = await mockService.sendPaymentReceipt(receiptData);
     assert.strictEqual(result.success, true);

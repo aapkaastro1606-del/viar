@@ -60,7 +60,7 @@ describe('Production Hardening Test Suite', () => {
         logger.paymentError('Card authorization failed', {
           orderId: 'order_12345',
           studentEmail: 'student@example.com',
-          amount: 4999,
+          amount: 5100,
           provider: 'razorpay',
         }, new Error('Insufficient funds'));
       });

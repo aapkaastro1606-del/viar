@@ -112,14 +112,14 @@ model Course {
   status           CourseStatus   @default(PUBLISHED)
 
   // Tuition & Pricing details
-  priceInr         Int            @default(4999) @map("price_inr")
+  priceInr         Int            @default(5100) @map("price_inr")
   priceUsd         Int            @default(69) @map("price_usd")
-  originalPriceInr Int            @default(9999) @map("original_price_inr")
-  originalPriceUsd Int            @default(139) @map("original_price_usd")
+  originalPriceInr Int            @default(11000) @map("original_price_inr")
+  originalPriceUsd Int            @default(129) @map("original_price_usd")
 
   // Curricular helpers
   durationWeeks    Int            @default(9) @map("duration_weeks")
-  totalClasses     Int            @default(18) @map("total_classes")
+  totalClasses     Int            @default(23) @map("total_classes")
   classesPerWeek   Int            @default(2) @map("classes_per_week")
 
   // Instructor metadata

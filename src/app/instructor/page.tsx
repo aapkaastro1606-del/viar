@@ -85,7 +85,7 @@ export default function InstructorOverviewPage() {
               <DollarSign className="w-4 h-4 text-emerald-400" />
             </div>
             <p className="text-2xl sm:text-3xl font-black text-white">
-              ₹{(stats.totalRevenueInr || 4999).toLocaleString()}
+              ₹{(stats.totalRevenueInr || 5100).toLocaleString()}
             </p>
             <p className="text-[11px] text-amber-300 mt-1">
               + ${(stats.totalRevenueUsd || 138)} USD Global

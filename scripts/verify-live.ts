@@ -20,7 +20,7 @@ async function main() {
     courseTitle: 'What is Astrology — Foundations of Vedic Astrology',
     cohortName: 'Batch 1 (October 2026)',
     startDate: 'October 15, 2026',
-    amountPaid: 4999,
+    amountPaid: 5100,
     currency: '₹',
     dashboardUrl: 'https://viar.in/dashboard',
   });
@@ -36,7 +36,7 @@ async function main() {
     studentEmail: 'aarav.sharma@example.com',
     courseTitle: 'What is Astrology — Foundations of Vedic Astrology',
     cohortName: 'Batch 1 (October 2026)',
-    amount: 4999,
+    amount: 5100,
     currency: '₹',
     paymentMethod: 'Razorpay UPI (aarav@okaxis)',
     status: 'PAID',

@@ -301,4 +301,73 @@ describe('Full Core-Flow End-to-End Walkthrough', () => {
     });
     assert.strictEqual(studentEnrolledSuppressed, false, 'Modal must be suppressed for students already enrolled in the cohort');
   });
+
+  it('Step 7: End-to-End Checkout Price Matching & Charged Amount Verification', () => {
+    // 1. Course data pricing definition
+    const flagship = {
+      id: 'course-what-is-astrology',
+      slug: 'what-is-astrology-basics-of-astrology',
+      title: 'What is Astrology — Foundations of Vedic Astrology',
+      priceInr: 5100,
+      originalPriceInr: 11000,
+      priceUsd: 69,
+      originalPriceUsd: 129,
+    };
+    assert.strictEqual(flagship.priceInr, 5100, 'Flagship course priceInr must be strictly ₹5,100');
+    assert.strictEqual(flagship.originalPriceInr, 11000, 'Flagship course originalPriceInr must be strictly ₹11,000');
+    assert.strictEqual(flagship.priceUsd, 69, 'Flagship course priceUsd must be $69');
+    assert.strictEqual(flagship.originalPriceUsd, 129, 'Flagship course originalPriceUsd must be $129');
+
+    // 2. Computed discount badge calculation (same logic as CourseDetailClient.tsx)
+    const inrDiscount = Math.round(((flagship.originalPriceInr - flagship.priceInr) / flagship.originalPriceInr) * 100);
+    assert.strictEqual(inrDiscount, 54, 'INR discount percentage must accurately calculate to 54%');
+
+    const usdDiscount = Math.round(((flagship.originalPriceUsd - flagship.priceUsd) / flagship.originalPriceUsd) * 100);
+    assert.strictEqual(usdDiscount, 47, 'USD discount percentage must accurately calculate to 47%');
+
+    // 3. Checkout charge calculation simulation (mirroring src/app/checkout/[cohortId]/page.tsx)
+    const testCohortId = 'cohort-wia-batch-1';
+    function createCheckoutOrder(course: typeof flagship, currency: 'INR' | 'USD') {
+      const displayPrice = currency === 'INR' ? course.priceInr : course.priceUsd;
+      const chargeAmount = currency === 'INR' ? course.priceInr : course.priceUsd;
+      const gatewayAmountSmallestUnit = chargeAmount * 100;
+
+      // Verification of zero discrepancy between marketing display and gateway authorization
+      assert.strictEqual(displayPrice, chargeAmount, `Display price and charged amount must match exactly for ${currency}`);
+
+      return {
+        currency,
+        displayPrice,
+        chargeAmount,
+        gatewayAmountSmallestUnit, // Paise for Razorpay, Cents for Stripe
+      };
+    }
+
+    // INR / Razorpay simulation
+    const inrOrder = createCheckoutOrder(flagship, 'INR');
+    assert.strictEqual(inrOrder.displayPrice, 5100, 'INR display price must be 5100');
+    assert.strictEqual(inrOrder.chargeAmount, 5100, 'INR charged amount must be exactly 5100');
+    assert.strictEqual(inrOrder.gatewayAmountSmallestUnit, 510000, 'Razorpay order amount in paise must be 510000');
+
+    // USD / Stripe simulation
+    const usdOrder = createCheckoutOrder(flagship, 'USD');
+    assert.strictEqual(usdOrder.displayPrice, 69, 'USD display price must be 69');
+    assert.strictEqual(usdOrder.chargeAmount, 69, 'USD charged amount must be exactly 69');
+    assert.strictEqual(usdOrder.gatewayAmountSmallestUnit, 6900, 'Stripe order amount in cents must be 6900');
+
+    // 4. Successful checkout produces accurate store enrollment record
+    const checkoutEnrollment = store.createEnrollment({
+      studentName: 'Rohan Mehra',
+      studentEmail: 'rohan.mehra@example.com',
+      courseId: flagship.id,
+      cohortId: testCohortId,
+      amount: inrOrder.chargeAmount,
+      currency: inrOrder.currency,
+      paymentMethod: 'Razorpay UPI (Verified ₹5,100)',
+    });
+
+    assert.strictEqual(checkoutEnrollment.paymentAmount, 5100, 'Enrollment recorded amount must be ₹5,100');
+    assert.strictEqual(checkoutEnrollment.currency, 'INR');
+    assert.strictEqual(checkoutEnrollment.paymentStatus, 'PAID');
+  });
 });

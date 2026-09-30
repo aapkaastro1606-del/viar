@@ -1537,3 +1537,51 @@ In the latest update, the client explicitly provided the domestic Indian pricing
 - **Checkout Synchronization**: International checkout on src/app/checkout/[cohortId]/page.tsx dynamically passes course.priceUsd ( USD) directly to Stripe.
 - **Currency-Aware Discount**: src/components/CourseDetailClient.tsx dynamically computes discountPercent per selected currency (54% for INR, 47% for USD).
 - **Search Metadata**: Schema.org JSON-LD publishes both INR (₹5,100) and USD ($69) offers.
+---
+
+## 32. First-Visit Course Promotional Popup Implementation & Behavioral Audit (September 2026)
+
+### 32.1 Architecture & Behavioral Pattern
+In accordance with the established pattern from Aapaka Astro, the promotional modal (src/components/WelcomeCohortModal.tsx) serves as an attention-grabbing, first-visit showcase for the flagship course:
+- **Frequency Capping**: Displays once per visitor per session via sessionStorage (iar_welcome_modal_shown_session) and supports persistent dismissal via localStorage (iar_welcome_modal_dismissed_v1).
+- **Strict User Suppression**:
+  - Automatically suppressed for logged-in users (ViarStore.getCurrentUser() check).
+  - Automatically suppressed when active authentication session cookies (__session or __client_uat) are present.
+- **Route Filtering**: Strictly suppressed on all operational, internal, and auth paths:
+  - /dashboard/*
+  - /admin/*
+  - /instructor/*
+  - /checkout/*
+  - /login, /signup, /sign-in, /sign-up, /sso-callback
+- **Dismissibility**: Multiple accessible escape paths:
+  - Accessible top-right Close button (X)
+  - Outside click on backdrop
+  - Escape keyboard shortcut (Esc)
+  - Subdued secondary button: *"Maybe later, continue browsing"*
+- **Banner Coexistence**: Complements the persistent top announcement bar (Self-Paced Masterclass Open: The Ultimate Astrology Course (23 Video Modules + 2 Bonus Workshops)...) on the homepage without duplicate triggers or visual conflict.
+
+### 32.2 Visual Showcase & Product Presentation
+The popup is engineered as a high-conversion product showcase rather than a flat text notice:
+1. **Real Brand Assets**:
+   - High-resolution instructor portrait of **Acharya Niraj Kumar** (/images/Acharya_Niraj_Kumar.jpg) framed in a radiant golden circular gradient with a "Jyotish Acharya" badge.
+   - Official **Vihangam Sun Logo** (/images/logo-icon.png) with crisp institute branding in gold typography.
+2. **Visual Product Showcase Card**:
+   - Styled module-count badge: 23 Video Modules with + 2 Bonus Real Chart Workshops.
+   - Subtle celestial watermark: Concentric astronomical orbit rings and star points rendered in scalable SVG.
+   - Pacing badge: 100% Self-Paced • Instant Lifetime Access.
+3. **Confirmed Offer & Pricing Display**:
+   - Headline: *"The Ultimate Astrology Course — Basics of Vedic Astrology"*.
+   - Launch Pricing: **₹5,100** displayed in radiant gold alongside struck-through **₹11,000** with the green **54% OFF Launch** badge.
+   - Clarifying text: One-time tuition, lifetime vault access, zero hidden recurring fees.
+4. **Structured Curriculum Highlights**:
+   - Itemized checklist highlighting the 23 core modules, 2 bonus chart workshops (Career & Marriage), and verifiable certificate.
+5. **Real HTML/CSS Typography**:
+   - All text, badges, and counters are rendered semantically in real DOM elements (zero baked flat images), ensuring perfect legibility, accessibility, search indexing, and simple future updates.
+
+### 32.3 Verification & Quality Assurance
+- **Unit & Integration Suite**: 89/89 tests passing (
+pm test).
+- **ESLint**: 0 warnings, 0 errors (
+pm run lint).
+- **Next.js Production Build**: Clean static generation across all 44 routes (
+pm run build).

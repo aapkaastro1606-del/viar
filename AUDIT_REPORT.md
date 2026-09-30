@@ -1505,3 +1505,35 @@ pm test).
 pm run lint).
 - **Production Build**: Verified clean Next.js production build (
 pm run build).
+
+---
+
+## 31. International Pricing & Stripe/USD Calibration Status (September 2026)
+
+### 31.1 Current International Pricing Structure
+In the latest update, the client explicitly provided the domestic Indian pricing for the flagship course:
+- **Domestic INR Tuition**: **₹5,100 INR** (discounted from **₹11,000 INR**, 54% discount).
+- **International USD Tuition**: Preserved at ** USD** (discounted from ** USD** list price, 47% discount,  USD savings).
+
+### 31.2 Explicit Client Confirmation Flag (Action Required)
+> [!IMPORTANT]
+> **FLAG FOR CLIENT CONFIRMATION**: The USD / Stripe international tuition figure has **not** been explicitly provided by the client in this change request. Rather than assuming an arbitrary USD price or exchange rate calculation, the existing international pricing structure ( USD discounted from  USD) has been preserved. The exact international tuition must be explicitly confirmed with the client.
+
+### 31.3 Proposed USD Pricing Options for Client Decision
+1. **Option 1: Retain Current International Price ( USD /  USD List)**
+   - Active Tuition: ** USD**
+   - List Price: ** USD** (47% discount)
+   - Status: Currently live in codebase and Stripe checkout.
+2. **Option 2: Proportional Discount Match (54% Discount)**
+   - Active Tuition: ** USD**
+   - List Price: ** USD** (matches the domestic 54% discount:  down to  = 53.7% ~ 54%)
+3. **Option 3: Direct Currency Conversion from ₹5,100 INR**
+   - At prevailing INR/USD rates (~₹83.5/USD), ₹5,100 equates to ~.08 USD.
+   - Candidate Price: ** USD** or ** USD** (with original price at ** USD** or ** USD**).
+4. **Option 4: Standalone International Market Pricing**
+   - The client may select a dedicated round figure tailored for the diaspora and global astrology students (e.g., ** USD**, ** USD**, or ** USD**).
+
+### 31.4 System & Checkout Verification
+- **Checkout Synchronization**: International checkout on src/app/checkout/[cohortId]/page.tsx dynamically passes course.priceUsd ( USD) directly to Stripe.
+- **Currency-Aware Discount**: src/components/CourseDetailClient.tsx dynamically computes discountPercent per selected currency (54% for INR, 47% for USD).
+- **Search Metadata**: Schema.org JSON-LD publishes both INR (₹5,100) and USD ($69) offers.

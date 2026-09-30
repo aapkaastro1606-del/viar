@@ -110,9 +110,13 @@ export default function CourseDetailClient({ slug }: CourseDetailClientProps) {
   const savings = currency === 'INR' 
     ? `Save ₹${(course.originalPriceInr - course.priceInr).toLocaleString('en-IN')}` 
     : `Save $${course.originalPriceUsd - course.priceUsd} USD`;
-  const discountPercent = course.originalPriceInr > course.priceInr
-    ? Math.round(((course.originalPriceInr - course.priceInr) / course.originalPriceInr) * 100)
-    : 0;
+  const discountPercent = currency === 'INR'
+    ? (course.originalPriceInr > course.priceInr
+        ? Math.round(((course.originalPriceInr - course.priceInr) / course.originalPriceInr) * 100)
+        : 0)
+    : (course.originalPriceUsd > course.priceUsd
+        ? Math.round(((course.originalPriceUsd - course.priceUsd) / course.originalPriceUsd) * 100)
+        : 0);
 
   return (
     <div className="cosmic-bg min-h-screen py-12">

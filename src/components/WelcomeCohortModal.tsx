@@ -53,54 +53,60 @@ export default function WelcomeCohortModal({
   }, [dismissKey, sessionKey]);
 
   useEffect(() => {
-    // 1. Route Suppression: Never show on dashboard, admin, instructor, checkout, or auth routes
-    if (
-      !pathname ||
-      pathname.startsWith('/dashboard') ||
-      pathname.startsWith('/admin') ||
-      pathname.startsWith('/instructor') ||
-      pathname.startsWith('/checkout') ||
-      pathname.startsWith('/login') ||
-      pathname.startsWith('/signup') ||
-      pathname.startsWith('/sign-in') ||
-      pathname.startsWith('/sign-up') ||
-      pathname.startsWith('/sso-callback')
-    ) {
-      setIsOpen(false);
-      return;
-    }
+    // Check if forceOpen query param is present for visual verification & regression checks
+    const searchParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
+    const forceOpen = searchParams?.get('promo') === '1';
 
-    // 2. Persistent Dismissal Check (localStorage)
-    try {
-      if (localStorage.getItem(dismissKey) === 'true') {
+    if (!forceOpen) {
+      // 1. Route Suppression: Never show on dashboard, admin, instructor, checkout, or auth routes
+      if (
+        !pathname ||
+        pathname.startsWith('/dashboard') ||
+        pathname.startsWith('/admin') ||
+        pathname.startsWith('/instructor') ||
+        pathname.startsWith('/checkout') ||
+        pathname.startsWith('/login') ||
+        pathname.startsWith('/signup') ||
+        pathname.startsWith('/sign-in') ||
+        pathname.startsWith('/sign-up') ||
+        pathname.startsWith('/sso-callback')
+      ) {
+        setIsOpen(false);
         return;
       }
-    } catch {
-      // Ignore storage errors
-    }
 
-    // 3. Once per visitor per session check (sessionStorage)
-    try {
-      if (sessionStorage.getItem(sessionKey) === 'true') {
+      // 2. Persistent Dismissal Check (localStorage)
+      try {
+        if (localStorage.getItem(dismissKey) === 'true') {
+          return;
+        }
+      } catch {
+        // Ignore storage errors
+      }
+
+      // 3. Once per visitor per session check (sessionStorage)
+      try {
+        if (sessionStorage.getItem(sessionKey) === 'true') {
+          return;
+        }
+      } catch {
+        // Ignore storage errors
+      }
+
+      // 4. User Logged-In Suppression Check:
+      // Strictly suppressed for logged-in users (matching Aapaka Astro's welcome popup pattern)
+      const currentUser = ViarStore.getCurrentUser();
+      if (currentUser) {
         return;
       }
-    } catch {
-      // Ignore storage errors
-    }
 
-    // 4. User Logged-In Suppression Check:
-    // Strictly suppressed for logged-in users (matching Aapaka Astro's welcome popup pattern)
-    const currentUser = ViarStore.getCurrentUser();
-    if (currentUser) {
-      return;
-    }
-
-    // Check for active authentication session cookie (Clerk)
-    if (
-      typeof document !== 'undefined' &&
-      (document.cookie.includes('__session') || document.cookie.includes('__client_uat'))
-    ) {
-      return;
+      // Check for active authentication session cookie (Clerk)
+      if (
+        typeof document !== 'undefined' &&
+        (document.cookie.includes('__session') || document.cookie.includes('__client_uat'))
+      ) {
+        return;
+      }
     }
 
     // 5. Load flagship course and cohort data
@@ -133,14 +139,17 @@ export default function WelcomeCohortModal({
         // Fallback to ViarStore initialized state
       });
 
+    const effectiveDelay = forceOpen ? 0 : delayMs;
     const timer = setTimeout(() => {
       try {
-        sessionStorage.setItem(sessionKey, 'true');
+        if (!forceOpen) {
+          sessionStorage.setItem(sessionKey, 'true');
+        }
       } catch {
         // Ignore
       }
       setIsOpen(true);
-    }, delayMs);
+    }, effectiveDelay);
 
     return () => clearTimeout(timer);
   }, [pathname, sessionKey, dismissKey, delayMs]);
@@ -171,7 +180,7 @@ export default function WelcomeCohortModal({
       aria-modal="true"
       aria-labelledby="welcome-modal-title"
       data-testid="viar-welcome-cohort-modal"
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/70 backdrop-blur-sm animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-[#3B2A1E]/75 backdrop-blur-sm animate-in fade-in duration-200"
     >
       {/* Click-outside backdrop */}
       <div
@@ -183,10 +192,82 @@ export default function WelcomeCohortModal({
       {/* Warm Ivory / Maroon / Gold Modal Card in Established Site Theme */}
       <div
         data-testid="viar-welcome-modal-card"
-        className="relative w-full max-w-lg rounded-3xl bg-[#FBF3E7] text-[#3B2A1E] border-2 border-[#E8A33D]/60 shadow-2xl shadow-[#7B2D26]/25 overflow-hidden z-10 animate-in zoom-in-95 duration-200 font-sans max-h-[92vh] overflow-y-auto"
+        className="relative w-full max-w-lg min-w-0 mx-auto rounded-2xl sm:rounded-3xl bg-[#FBF3E7] text-[#3B2A1E] border-2 border-[#E8A33D]/60 shadow-2xl shadow-[#7B2D26]/25 overflow-hidden z-10 animate-in zoom-in-95 duration-200 font-body max-h-[92vh] overflow-y-auto"
       >
         {/* Top Decorative Header Accent Bar in Brand Maroon & Gold */}
         <div className="h-1.5 w-full bg-gradient-to-r from-[#7B2D26] via-[#E8A33D] to-[#7B2D26]" />
+
+        {/* Subtle Warm Celestial / Zodiac Wheel Backdrop Motif in Brand Gold & Maroon */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
+          {/* Soft warm radial glow */}
+          <div className="absolute -top-16 -right-16 w-72 h-72 rounded-full bg-gradient-to-br from-[#E8A33D]/15 via-[#7B2D26]/5 to-transparent blur-2xl" />
+          <div className="absolute -bottom-16 -left-16 w-72 h-72 rounded-full bg-gradient-to-tr from-[#E8A33D]/10 via-[#7B2D26]/5 to-transparent blur-2xl" />
+
+          {/* Authentic Astrological Zodiac Wheel / Kundli Chakra in Warm Gold & Maroon */}
+          <svg
+            viewBox="0 0 500 500"
+            className="absolute -right-20 -bottom-20 w-80 h-80 sm:w-96 sm:h-96 opacity-20 sm:opacity-25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            {/* Concentric Astrological Coordinate Rings */}
+            <circle cx="250" cy="250" r="230" stroke="#E8A33D" strokeWidth="1.5" strokeDasharray="4 4" />
+            <circle cx="250" cy="250" r="210" stroke="#7B2D26" strokeWidth="1.5" opacity="0.6" />
+            <circle cx="250" cy="250" r="160" stroke="#E8A33D" strokeWidth="1" />
+            <circle cx="250" cy="250" r="110" stroke="#7B2D26" strokeWidth="1" opacity="0.5" />
+            <circle cx="250" cy="250" r="60" stroke="#E8A33D" strokeWidth="1.5" />
+            <circle cx="250" cy="250" r="15" fill="#E8A33D" opacity="0.3" />
+
+            {/* 12 Astrological House Radials (Bhavas / Rashis at 30-degree intervals) */}
+            {Array.from({ length: 12 }).map((_, i) => {
+              const angle = (i * 30 * Math.PI) / 180;
+              const x1 = 250 + 60 * Math.cos(angle);
+              const y1 = 250 + 60 * Math.sin(angle);
+              const x2 = 250 + 210 * Math.cos(angle);
+              const y2 = 250 + 210 * Math.sin(angle);
+              return (
+                <line
+                  key={i}
+                  x1={x1}
+                  y1={y1}
+                  x2={x2}
+                  y2={y2}
+                  stroke={i % 3 === 0 ? '#7B2D26' : '#E8A33D'}
+                  strokeWidth={i % 3 === 0 ? '1.5' : '0.75'}
+                  opacity={i % 3 === 0 ? '0.7' : '0.4'}
+                />
+              );
+            })}
+
+            {/* 24 Degree / Nakshatra Ticks */}
+            {Array.from({ length: 24 }).map((_, i) => {
+              const angle = (i * 15 * Math.PI) / 180;
+              const x1 = 250 + 205 * Math.cos(angle);
+              const y1 = 250 + 205 * Math.sin(angle);
+              const x2 = 250 + 210 * Math.cos(angle);
+              const y2 = 250 + 210 * Math.sin(angle);
+              return (
+                <line
+                  key={`tick-${i}`}
+                  x1={x1}
+                  y1={y1}
+                  x2={x2}
+                  y2={y2}
+                  stroke="#E8A33D"
+                  strokeWidth="1"
+                  opacity="0.6"
+                />
+              );
+            })}
+
+            {/* 8-Pointed Star / Ashtakavarga Accent at the Hub */}
+            <polygon
+              points="250,225 257,243 275,250 257,257 250,275 243,257 225,250 243,243"
+              fill="#7B2D26"
+              opacity="0.3"
+            />
+          </svg>
+        </div>
 
         {/* Close Button */}
         <button
@@ -199,7 +280,7 @@ export default function WelcomeCohortModal({
         </button>
 
         {/* Modal Main Content Container with Generous Spacing */}
-        <div className="p-5 sm:p-7 text-center">
+        <div className="relative z-10 p-4 sm:p-7 text-center">
           
           {/* 1. Header: Vihangam Real Sun Logo & Academic Brand Mark */}
           <div className="flex flex-col items-center justify-center gap-1.5 mb-3.5">
@@ -212,85 +293,89 @@ export default function WelcomeCohortModal({
                 className="w-5 h-5 object-contain"
                 priority
               />
-              <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.16em] uppercase">
+              <span className="font-heading text-[10px] sm:text-[11px] font-bold tracking-[0.16em] uppercase">
                 Vihangam Institute (VIAR)
               </span>
             </div>
-            <div className="text-[10px] text-[#3B2A1E]/70 font-medium">
+            <div className="font-body text-[10px] text-[#3B2A1E]/70 font-medium">
               In Academic Lineage with Aapaka Astro
             </div>
           </div>
 
-          {/* 2. Launch Announcement Pill */}
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#E8A33D]/25 text-[#7B2D26] border border-[#E8A33D]/60 mb-2.5">
-            <Sparkles className="w-3.5 h-3.5 text-[#C1662F]" />
-            <span className="tracking-wide uppercase text-[10px] sm:text-[11px]">
-              Launch Enrollment Open
-            </span>
+          {/* 2. Launch Announcement Pill in its own block container with guaranteed bottom clearance */}
+          <div className="flex justify-center mb-3">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#E8A33D]/25 text-[#7B2D26] border border-[#E8A33D]/60 shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 text-[#C1662F] shrink-0" />
+              <span className="tracking-wide uppercase text-[10px] sm:text-[11px] font-extrabold font-body">
+                Launch Enrollment Open
+              </span>
+            </div>
           </div>
 
-          {/* 3. Headline & Subtitle with Clean Clearance & Line Height */}
-          <div className="mb-4">
+          {/* 3. Headline & Subtitle with Dedicated Margin, Generous Line-Height and Zero Overlap */}
+          <div className="mb-4 px-1">
             <h2
               id="welcome-modal-title"
               data-testid="viar-welcome-modal-title"
-              className="text-2xl sm:text-3xl font-black text-[#7B2D26] font-serif tracking-tight leading-tight mb-1.5"
+              className="text-lg sm:text-2xl font-black text-[#7B2D26] font-heading tracking-normal leading-snug sm:leading-normal mb-1.5 pt-0.5"
             >
               The Ultimate Astrology Course
             </h2>
-            <p className="text-xs sm:text-sm font-bold text-[#C1662F]">
+            <p className="text-xs sm:text-sm font-semibold text-[#C1662F] font-body leading-normal">
               Basics of Vedic Astrology • 23 Video Modules + 2 Bonus Workshops
             </p>
           </div>
 
           {/* 4. Instructor Attribution & Credential Badge (Clean Solo Credential) */}
-          <div className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-xl bg-[#FFFDF9] border border-[#E8A33D]/40 text-[#3B2A1E] text-xs font-medium mb-4 shadow-sm">
-            <GraduationCap className="w-4 h-4 text-[#7B2D26] shrink-0" />
-            <span>
-              Taught by <strong>Acharya Niraj Kumar</strong> (Jyotish Acharya, BVB New Delhi)
-            </span>
+          <div className="flex justify-center mb-3.5">
+            <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-1.5 rounded-xl bg-[#FFFDF9] border border-[#E8A33D]/40 text-[#3B2A1E] text-[11px] sm:text-xs font-medium shadow-sm max-w-full">
+              <GraduationCap className="w-4 h-4 text-[#7B2D26] shrink-0" />
+              <span className="leading-tight sm:leading-normal font-body">
+                Taught by <strong>Acharya Niraj Kumar</strong> (Jyotish Acharya, BVB New Delhi)
+              </span>
+            </div>
           </div>
 
           {/* 5. Course Structure Badge Grid */}
-          <div className="grid grid-cols-2 gap-2.5 mb-4 text-center">
+          <div className="grid grid-cols-2 gap-2.5 mb-3.5 text-center">
             <div className="bg-[#FFFDF9] border border-[#E8A33D]/30 rounded-xl p-2.5 shadow-sm">
-              <div className="font-extrabold text-[#7B2D26] text-xs sm:text-sm">
+              <div className="font-heading font-bold text-[#7B2D26] text-xs sm:text-sm">
                 23 Video Modules
               </div>
-              <div className="text-[10px] text-[#3B2A1E]/75 font-medium mt-0.5">
+              <div className="font-body text-[10px] text-[#3B2A1E]/75 font-medium mt-0.5">
                 + 2 Bonus Real Chart Labs
               </div>
             </div>
             <div className="bg-[#FFFDF9] border border-[#E8A33D]/30 rounded-xl p-2.5 shadow-sm">
-              <div className="font-extrabold text-[#7B2D26] text-xs sm:text-sm">
+              <div className="font-heading font-bold text-[#7B2D26] text-xs sm:text-sm">
                 100% Self-Paced
               </div>
-              <div className="text-[10px] text-[#3B2A1E]/75 font-medium mt-0.5">
+              <div className="font-body text-[10px] text-[#3B2A1E]/75 font-medium mt-0.5">
                 Instant Lifetime Access
               </div>
             </div>
           </div>
 
           {/* 6. Confirmed Offer Price Box */}
-          <div className="p-4 rounded-2xl bg-[#F5EADB] border border-[#E8A33D]/50 mb-4 text-center">
+          <div className="p-3.5 sm:p-4 rounded-2xl bg-[#F5EADB] border border-[#E8A33D]/50 mb-3.5 text-center">
             <div className="flex items-baseline justify-center gap-2.5 flex-wrap">
-              <span className="text-3xl sm:text-4xl font-black text-[#7B2D26] font-serif tracking-tight">
+              <span className="text-3xl sm:text-4xl font-black text-[#7B2D26] font-heading tracking-tight">
                 {priceFormatted}
               </span>
-              <span className="text-base sm:text-lg font-semibold text-[#3B2A1E]/50 line-through">
+              <span className="text-base sm:text-lg font-semibold text-[#3B2A1E]/50 line-through font-body">
                 {originalPriceFormatted}
               </span>
-              <span className="px-2 py-0.5 rounded-md text-[11px] font-extrabold bg-[#6B8E5A]/20 text-[#355326] border border-[#6B8E5A]/40">
+              <span className="px-2 py-0.5 rounded-md text-[11px] font-extrabold bg-[#6B8E5A]/20 text-[#355326] border border-[#6B8E5A]/40 font-body">
                 54% OFF Launch
               </span>
             </div>
-            <p className="text-[11px] text-[#3B2A1E]/80 mt-1 font-medium">
+            <p className="text-[11px] text-[#3B2A1E]/80 mt-1 font-medium font-body">
               Strictly one-time tuition • Zero recurring fees • Verifiable Certificate included
             </p>
           </div>
 
           {/* 7. Curriculum Highlights Checklist */}
-          <ul className="space-y-1.5 text-xs text-[#3B2A1E]/90 text-left mb-5 max-w-sm mx-auto">
+          <ul className="space-y-1.5 text-xs text-[#3B2A1E]/90 text-left mb-4 max-w-sm mx-auto font-body">
             <li className="flex items-start gap-2">
               <CheckCircle2 className="w-3.5 h-3.5 text-[#7B2D26] shrink-0 mt-0.5" />
               <span>
@@ -316,7 +401,7 @@ export default function WelcomeCohortModal({
             <Link
               href={`/checkout/${targetCohort?.id || 'cohort-wia-batch-1'}`}
               onClick={handleClose}
-              className="w-full py-3.5 px-6 rounded-xl font-bold text-sm sm:text-base shadow-lg shadow-[#7B2D26]/20 flex items-center justify-center gap-2 bg-gradient-to-r from-[#7B2D26] via-[#8c332b] to-[#7B2D26] text-white hover:brightness-110 active:scale-[0.99] transition cursor-pointer tracking-wide"
+              className="w-full py-3.5 px-6 rounded-xl font-heading font-bold text-sm sm:text-base shadow-lg shadow-[#7B2D26]/20 flex items-center justify-center gap-2 bg-gradient-to-r from-[#7B2D26] via-[#8c332b] to-[#7B2D26] text-white hover:brightness-110 active:scale-[0.99] transition cursor-pointer tracking-wide border border-[#E8A33D]/40"
             >
               <span>Enroll Now — Instant Access</span>
               <ArrowRight className="w-4 h-4 text-[#E8A33D]" />
@@ -326,7 +411,7 @@ export default function WelcomeCohortModal({
               <button
                 type="button"
                 onClick={handleDismissForever}
-                className="text-xs text-[#3B2A1E]/70 hover:text-[#7B2D26] underline underline-offset-4 font-medium transition cursor-pointer"
+                className="text-xs text-[#3B2A1E]/70 hover:text-[#7B2D26] underline underline-offset-4 font-medium transition cursor-pointer font-body"
               >
                 Maybe later, continue browsing
               </button>
@@ -334,7 +419,7 @@ export default function WelcomeCohortModal({
           </div>
 
           {/* 9. Subdued Sister Platform Cross-Link */}
-          <div className="mt-4 pt-3 border-t border-[#7B2D26]/10 text-center">
+          <div className="mt-3.5 pt-3 border-t border-[#7B2D26]/10 text-center font-body">
             <p
               data-testid="viar-welcome-modal-astro-link"
               className="text-[11px] text-[#3B2A1E]/75"

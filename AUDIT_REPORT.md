@@ -1,4 +1,4 @@
-﻿# Viar.in Codebase Audit Report
+# Viar.in Codebase Audit Report
 
 **Date:** September 22, 2026  
 **Project:** Viar.in â€” Online Vedic Astrology Education Academy  
@@ -1563,31 +1563,35 @@ In accordance with the established pattern from Aapaka Astro, the promotional mo
   - Subdued secondary button: *"Maybe later, continue browsing"*
 - **Banner Coexistence**: Complements the persistent top announcement bar on the homepage without duplicate triggers or visual conflict.
 
-### 32.2 Visual Design System, Brand Palette & Layout Alignment
+#### 32.2 Visual Design System, Brand Palette & Layout Alignment
 1. **Resolved Headline Cut-Off & Overlap**:
    - Fixed the layout overlap where the headline previously collided with the "Launch Enrollment Open" pill.
-   - Restructured the container with generous vertical breathing room, explicit block margins, and responsive line-heights (leading-tight).
+   - Restructured the container with generous vertical breathing room, explicit block margins (`mb-3`), and responsive line-heights (`leading-snug sm:leading-normal`).
 2. **Site-Consistent Warm Ivory, Maroon & Gold Theme**:
-   - Completely removed the unrequested dark navy "cosmic" theme.
-   - Restored the established warm ivory/cream background (#FBF3E7), deep maroon (#7B2D26), marigold gold (#E8A33D), and deep brown text (#3B2A1E), matching all other pages across Viar.in and Aapaka Astro.
-   - Card border styled in marigold gold (order-2 border-[#E8A33D]/60 shadow-2xl shadow-[#7B2D26]/25).
-   - Top accent bar in brand maroon & gold gradient.
-3. **Prestige Logo & Clean Credential Presentation**:
-   - Removed the cropped two-person award photo headshot (Acharya_Niraj_Kumar.jpg) which appeared cluttered and awkward in a small circle.
-   - Prominently showcases the official **Vihangam Sun Logo** (/images/logo-icon.png) with clean academic typography.
+   - Completely replaced the unrequested dark navy "cosmic" theme.
+   - Restored the established warm ivory/cream background (`#FBF3E7`), deep maroon (`#7B2D26`), marigold gold (`#E8A33D`), and deep brown typography (`#3B2A1E`), matching all other pages across Viar.in and Aapaka Astro.
+   - Replaced cold dark navy modal backdrop overlay (`bg-slate-950/70`) with warm deep brown/maroon scrim (`bg-[#3B2A1E]/75 backdrop-blur-sm`).
+   - Card border styled in marigold gold (`border-2 border-[#E8A33D]/60 shadow-2xl shadow-[#7B2D26]/25`).
+   - Top accent bar rendered in brand maroon & gold gradient.
+3. **Zodiac-Wheel / Celestial Decorative Motif**:
+   - Integrated an authentic Astrological Zodiac Wheel / Kundli Chakra SVG backdrop rendered in the warm palette (`stroke-[#E8A33D]` and `stroke-[#7B2D26]`), following the Aapka Astro welcome popup pattern.
+   - Features 12 astrological house radials (Bhavas/Rashis), 24 Nakshatra degree ticks, concentric celestial rings, and an 8-pointed star hub watermark at gentle opacity behind content.
+4. **Site Typography Tokens**:
+   - Headings styled using `font-heading` (`Cinzel` / `Yatra One`) for "The Ultimate Astrology Course", section badges, and launch pricing.
+   - Body copy styled using `font-body` (`Mukta` / `Poppins`) for all descriptions, bullet points, and instructional notes.
+5. **Prestige Logo & Clean Credential Presentation**:
+   - Removed the cropped two-person award photo headshot (`Acharya_Niraj_Kumar.jpg`) which appeared cluttered and awkward in a small circle.
+   - Prominently showcases the official **Vihangam Sun Logo** (`/images/logo-icon.png`) with clean academic typography.
    - Dedicated academic credential pill: *"Taught by Acharya Niraj Kumar (Jyotish Acharya, BVB New Delhi)"*.
    - Structured 2-box highlight grid: *"23 Video Modules (+ 2 Bonus Real Chart Labs)"* and *"100% Self-Paced (Instant Lifetime Access)"*.
-4. **Confirmed Offer & Pricing Display**:
+6. **Confirmed Offer & Pricing Display**:
    - Headline: *"The Ultimate Astrology Course — Basics of Vedic Astrology"*.
    - Launch Pricing: **₹5,100** displayed in bold maroon alongside struck-through **₹11,000** with the **54% OFF Launch** badge.
    - Clarifying text: *"Strictly one-time tuition • Zero recurring fees • Verifiable Certificate included"*.
-5. **Real HTML/CSS Typography**:
+7. **Real HTML/CSS Typography**:
    - All text, badges, and pricing are rendered semantically in real DOM elements (zero baked flat images), ensuring perfect legibility, accessibility, search indexing, and simple future updates.
 
 ### 32.3 Verification & Quality Assurance
-- **Unit & Integration Suite**: 89/89 tests passing (
-pm test).
-- **ESLint**: 0 warnings, 0 errors (
-pm run lint).
-- **Next.js Production Build**: Clean static generation across all 44 routes (
-pm run build).
+- **Unit & Integration Suite**: 89/89 tests passing (`npm test`).
+- **ESLint**: 0 warnings, 0 errors (`npm run lint`).
+- **Next.js Production Build**: Clean static generation across all 44 routes (`npm run build`).

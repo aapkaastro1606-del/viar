@@ -8,8 +8,8 @@ import {
   X,
   ArrowRight,
   Sparkles,
-  Clock,
   CheckCircle2,
+  GraduationCap,
 } from 'lucide-react';
 import { ViarStore } from '@/lib/store';
 import { Course, Cohort } from '@/lib/types';
@@ -89,7 +89,7 @@ export default function WelcomeCohortModal({
     }
 
     // 4. User Logged-In Suppression Check:
-    // Strictly suppressed for logged-in users (same behavioral pattern as Aapaka Astro)
+    // Strictly suppressed for logged-in users (matching Aapaka Astro's welcome popup pattern)
     const currentUser = ViarStore.getCurrentUser();
     if (currentUser) {
       return;
@@ -171,7 +171,7 @@ export default function WelcomeCohortModal({
       aria-modal="true"
       aria-labelledby="welcome-modal-title"
       data-testid="viar-welcome-cohort-modal"
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/70 backdrop-blur-sm animate-in fade-in duration-200"
     >
       {/* Click-outside backdrop */}
       <div
@@ -180,211 +180,178 @@ export default function WelcomeCohortModal({
         aria-hidden="true"
       />
 
-      {/* Visually Strong Product Showcase Modal Card */}
+      {/* Warm Ivory / Maroon / Gold Modal Card in Established Site Theme */}
       <div
         data-testid="viar-welcome-modal-card"
-        className="relative w-full max-w-2xl rounded-3xl bg-gradient-to-b from-[#111726] via-[#0D121F] to-[#070A10] text-white border border-amber-500/40 shadow-[0_0_60px_-15px_rgba(232,163,61,0.3)] overflow-hidden z-10 animate-in zoom-in-95 duration-200 font-sans max-h-[92vh] overflow-y-auto"
+        className="relative w-full max-w-lg rounded-3xl bg-[#FBF3E7] text-[#3B2A1E] border-2 border-[#E8A33D]/60 shadow-2xl shadow-[#7B2D26]/25 overflow-hidden z-10 animate-in zoom-in-95 duration-200 font-sans max-h-[92vh] overflow-y-auto"
       >
-        {/* Celestial Decorative Watermark (SVG Orbit & Constellation Motif) */}
-        <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-48 bg-amber-500/15 blur-3xl pointer-events-none rounded-full" />
-        <svg
-          className="absolute -right-16 -top-16 w-72 h-72 opacity-10 pointer-events-none text-amber-300"
-          viewBox="0 0 200 200"
-          fill="none"
-          aria-hidden="true"
+        {/* Top Decorative Header Accent Bar in Brand Maroon & Gold */}
+        <div className="h-1.5 w-full bg-gradient-to-r from-[#7B2D26] via-[#E8A33D] to-[#7B2D26]" />
+
+        {/* Close Button */}
+        <button
+          type="button"
+          onClick={handleClose}
+          aria-label="Close promotion dialog"
+          className="absolute top-3.5 right-3.5 z-20 p-1.5 rounded-full text-[#7B2D26]/70 hover:text-[#7B2D26] bg-[#7B2D26]/10 hover:bg-[#7B2D26]/20 transition cursor-pointer"
         >
-          <circle cx="100" cy="100" r="90" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
-          <circle cx="100" cy="100" r="65" stroke="currentColor" strokeWidth="1" />
-          <circle cx="100" cy="100" r="40" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" />
-          <circle cx="100" cy="100" r="15" stroke="currentColor" strokeWidth="1" />
-        </svg>
+          <X className="w-4 h-4" />
+        </button>
 
-        {/* Top Header Bar */}
-        <div className="flex items-center justify-between px-5 sm:px-7 pt-4 pb-2 border-b border-white/5 relative z-10">
-          <div className="flex items-center gap-2.5">
-            <Image
-              src="/images/logo-icon.png"
-              alt="Vihangam Sun Logo"
-              width={26}
-              height={26}
-              className="w-6 h-6 object-contain"
-            />
-            <div>
-              <div className="text-[10px] font-bold tracking-[0.18em] text-amber-400 uppercase">
-                Vihangam Institute of Astrology and Research
-              </div>
-              <div className="text-[9px] text-slate-400">
-                VIAR.IN • In Academic Lineage with Aapaka Astro
-              </div>
+        {/* Modal Main Content Container with Generous Spacing */}
+        <div className="p-5 sm:p-7 text-center">
+          
+          {/* 1. Header: Vihangam Real Sun Logo & Academic Brand Mark */}
+          <div className="flex flex-col items-center justify-center gap-1.5 mb-3.5">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#7B2D26]/10 border border-[#7B2D26]/20 text-[#7B2D26]">
+              <Image
+                src="/images/logo-icon.png"
+                alt="VIAR Sun Logo"
+                width={20}
+                height={20}
+                className="w-5 h-5 object-contain"
+                priority
+              />
+              <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.16em] uppercase">
+                Vihangam Institute (VIAR)
+              </span>
+            </div>
+            <div className="text-[10px] text-[#3B2A1E]/70 font-medium">
+              In Academic Lineage with Aapaka Astro
             </div>
           </div>
 
-          {/* Accessible Close Button */}
-          <button
-            type="button"
-            onClick={handleClose}
-            aria-label="Close promotion dialog"
-            className="p-1.5 rounded-full text-slate-400 hover:text-white bg-white/5 hover:bg-white/10 transition cursor-pointer"
-          >
-            <X className="w-4 h-4" />
-          </button>
-        </div>
-
-        {/* Modal Body: 2-Column Product Showcase Layout */}
-        <div className="p-5 sm:p-7 grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-6 items-center relative z-10">
-          {/* Left Column: Visual Product Showcase Card */}
-          <div className="md:col-span-5 flex flex-col items-center">
-            <div className="w-full rounded-2xl bg-gradient-to-br from-amber-950/40 via-slate-900/90 to-black border border-amber-500/35 p-4 text-center shadow-xl relative overflow-hidden">
-              {/* Subtle Sunburst Radial */}
-              <div className="absolute -inset-1 bg-gradient-to-tr from-amber-500/10 to-transparent blur-sm pointer-events-none" />
-
-              {/* Instructor Portrait with Radiant Golden Ring */}
-              <div className="relative mb-3 inline-block">
-                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 bg-gradient-to-tr from-amber-500 via-amber-300 to-orange-600 shadow-lg shadow-amber-500/25">
-                  <Image
-                    src="/images/Acharya_Niraj_Kumar.jpg"
-                    alt="Acharya Niraj Kumar"
-                    width={112}
-                    height={112}
-                    className="w-full h-full rounded-full object-cover object-top"
-                    priority
-                  />
-                </div>
-                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-[#7B2D26] border border-amber-400/70 text-amber-200 text-[10px] font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap shadow-md">
-                  Jyotish Acharya
-                </div>
-              </div>
-
-              {/* Instructor Details */}
-              <div className="text-white font-bold text-xs sm:text-sm mt-1">
-                Acharya Niraj Kumar
-              </div>
-              <div className="text-[10px] text-amber-300 font-medium">
-                Bharatiya Vidya Bhavan, New Delhi
-              </div>
-
-              {/* Styled Module-Count Showcase Badges */}
-              <div className="w-full mt-3.5 pt-3 border-t border-white/10 space-y-2">
-                <div className="bg-gradient-to-r from-amber-500/20 via-amber-400/15 to-amber-500/20 border border-amber-500/40 rounded-xl py-2 px-2.5">
-                  <div className="text-xs font-black text-amber-300 tracking-wide uppercase">
-                    23 Video Modules
-                  </div>
-                  <div className="text-[10px] text-amber-200/90 font-semibold mt-0.5">
-                    + 2 Bonus Real Chart Workshops
-                  </div>
-                </div>
-
-                <div className="flex items-center justify-center gap-1.5 text-[10px] text-slate-300 font-medium">
-                  <Clock className="w-3 h-3 text-amber-400 shrink-0" />
-                  <span>100% Self-Paced • Instant Lifetime Access</span>
-                </div>
-              </div>
-            </div>
+          {/* 2. Launch Announcement Pill */}
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#E8A33D]/25 text-[#7B2D26] border border-[#E8A33D]/60 mb-2.5">
+            <Sparkles className="w-3.5 h-3.5 text-[#C1662F]" />
+            <span className="tracking-wide uppercase text-[10px] sm:text-[11px]">
+              Launch Enrollment Open
+            </span>
           </div>
 
-          {/* Right Column: Offer, Copy & Enrollment CTA */}
-          <div className="md:col-span-7 space-y-3.5">
-            {/* Offer Pill */}
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-amber-500/15 text-amber-300 border border-amber-500/35">
-              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-              <span className="tracking-wide uppercase">Launch Enrollment Open</span>
-            </div>
-
-            {/* Course Title Headline */}
-            <div>
-              <h2
-                id="welcome-modal-title"
-                data-testid="viar-welcome-modal-title"
-                className="text-xl sm:text-2xl font-black text-white font-serif tracking-tight leading-snug"
-              >
-                The Ultimate Astrology Course
-              </h2>
-              <p className="text-xs sm:text-sm font-semibold text-amber-400/90 mt-0.5">
-                Basics of Vedic Astrology (23 Modules + 2 Bonus)
-              </p>
-            </div>
-
-            {/* Price Box with Struck-Through Figure */}
-            <div className="p-3.5 rounded-2xl bg-gradient-to-r from-amber-500/15 via-amber-500/5 to-transparent border border-amber-500/30">
-              <div className="flex items-baseline gap-2.5 flex-wrap">
-                <span className="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-300 to-yellow-400 tracking-tight">
-                  {priceFormatted}
-                </span>
-                <span className="text-base sm:text-lg font-semibold text-slate-400 line-through">
-                  {originalPriceFormatted}
-                </span>
-                <span className="px-2 py-0.5 rounded-md text-[11px] font-extrabold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                  54% OFF Launch
-                </span>
-              </div>
-              <p className="text-[11px] text-slate-300 mt-1">
-                Strictly one-time tuition • Zero recurring fees • Lifetime vault access
-              </p>
-            </div>
-
-            {/* Real Structure Checklist */}
-            <ul className="space-y-1.5 text-xs text-slate-300">
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
-                <span>
-                  <strong>23 HD Video Modules:</strong> Grahas, Rashis, Bhavas, Drishti, Combustion &amp; Dashas
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
-                <span>
-                  <strong>2 Bonus Masterclasses:</strong> Real Chart Analysis for Career &amp; Marriage
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
-                <span>
-                  <strong>Graded Exam &amp; Certificate:</strong> Verifiable digital credential upon completion
-                </span>
-              </li>
-            </ul>
-
-            {/* Primary CTA and Dismiss Option */}
-            <div className="pt-2 space-y-2">
-              <Link
-                href={`/checkout/${targetCohort?.id || 'cohort-wia-batch-1'}`}
-                onClick={handleClose}
-                className="w-full py-3 px-6 rounded-xl font-extrabold text-sm sm:text-base shadow-xl shadow-amber-500/25 flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 text-slate-950 hover:brightness-110 active:scale-[0.99] transition tracking-wide cursor-pointer"
-              >
-                <span>Enroll Now — Instant Access</span>
-                <ArrowRight className="w-4 h-4 text-slate-950" />
-              </Link>
-
-              <div className="text-center">
-                <button
-                  type="button"
-                  onClick={handleDismissForever}
-                  className="text-xs text-slate-400 hover:text-slate-200 underline underline-offset-4 transition cursor-pointer"
-                >
-                  Maybe later, continue browsing
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Subdued Sister Platform Cross-Link */}
-        <div className="px-6 py-2.5 bg-black/40 border-t border-white/5 text-center relative z-10">
-          <p
-            data-testid="viar-welcome-modal-astro-link"
-            className="text-[11px] text-slate-400"
-          >
-            Looking for a personal 1:1 astrological consultation?{' '}
-            <a
-              href="https://aapkaastro.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={handleClose}
-              className="font-semibold text-amber-400 hover:text-amber-300 underline decoration-amber-500/60 underline-offset-2 transition"
+          {/* 3. Headline & Subtitle with Clean Clearance & Line Height */}
+          <div className="mb-4">
+            <h2
+              id="welcome-modal-title"
+              data-testid="viar-welcome-modal-title"
+              className="text-2xl sm:text-3xl font-black text-[#7B2D26] font-serif tracking-tight leading-tight mb-1.5"
             >
-              Visit Aapaka Astro &rarr;
-            </a>
-          </p>
+              The Ultimate Astrology Course
+            </h2>
+            <p className="text-xs sm:text-sm font-bold text-[#C1662F]">
+              Basics of Vedic Astrology • 23 Video Modules + 2 Bonus Workshops
+            </p>
+          </div>
+
+          {/* 4. Instructor Attribution & Credential Badge (Clean Solo Credential) */}
+          <div className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-xl bg-[#FFFDF9] border border-[#E8A33D]/40 text-[#3B2A1E] text-xs font-medium mb-4 shadow-sm">
+            <GraduationCap className="w-4 h-4 text-[#7B2D26] shrink-0" />
+            <span>
+              Taught by <strong>Acharya Niraj Kumar</strong> (Jyotish Acharya, BVB New Delhi)
+            </span>
+          </div>
+
+          {/* 5. Course Structure Badge Grid */}
+          <div className="grid grid-cols-2 gap-2.5 mb-4 text-center">
+            <div className="bg-[#FFFDF9] border border-[#E8A33D]/30 rounded-xl p-2.5 shadow-sm">
+              <div className="font-extrabold text-[#7B2D26] text-xs sm:text-sm">
+                23 Video Modules
+              </div>
+              <div className="text-[10px] text-[#3B2A1E]/75 font-medium mt-0.5">
+                + 2 Bonus Real Chart Labs
+              </div>
+            </div>
+            <div className="bg-[#FFFDF9] border border-[#E8A33D]/30 rounded-xl p-2.5 shadow-sm">
+              <div className="font-extrabold text-[#7B2D26] text-xs sm:text-sm">
+                100% Self-Paced
+              </div>
+              <div className="text-[10px] text-[#3B2A1E]/75 font-medium mt-0.5">
+                Instant Lifetime Access
+              </div>
+            </div>
+          </div>
+
+          {/* 6. Confirmed Offer Price Box */}
+          <div className="p-4 rounded-2xl bg-[#F5EADB] border border-[#E8A33D]/50 mb-4 text-center">
+            <div className="flex items-baseline justify-center gap-2.5 flex-wrap">
+              <span className="text-3xl sm:text-4xl font-black text-[#7B2D26] font-serif tracking-tight">
+                {priceFormatted}
+              </span>
+              <span className="text-base sm:text-lg font-semibold text-[#3B2A1E]/50 line-through">
+                {originalPriceFormatted}
+              </span>
+              <span className="px-2 py-0.5 rounded-md text-[11px] font-extrabold bg-[#6B8E5A]/20 text-[#355326] border border-[#6B8E5A]/40">
+                54% OFF Launch
+              </span>
+            </div>
+            <p className="text-[11px] text-[#3B2A1E]/80 mt-1 font-medium">
+              Strictly one-time tuition • Zero recurring fees • Verifiable Certificate included
+            </p>
+          </div>
+
+          {/* 7. Curriculum Highlights Checklist */}
+          <ul className="space-y-1.5 text-xs text-[#3B2A1E]/90 text-left mb-5 max-w-sm mx-auto">
+            <li className="flex items-start gap-2">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#7B2D26] shrink-0 mt-0.5" />
+              <span>
+                <strong>23 On-Demand Modules:</strong> 9 Planets, 12 Houses, Rashis, Dashas &amp; Drishti
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#7B2D26] shrink-0 mt-0.5" />
+              <span>
+                <strong>2 Bonus Clinical Masterclasses:</strong> Real Chart Analysis for Career &amp; Marriage
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#7B2D26] shrink-0 mt-0.5" />
+              <span>
+                <strong>Verifiable Certificate:</strong> Issued upon passing the 20-question final exam
+              </span>
+            </li>
+          </ul>
+
+          {/* 8. Call to Action & Dismiss Link */}
+          <div className="space-y-2.5">
+            <Link
+              href={`/checkout/${targetCohort?.id || 'cohort-wia-batch-1'}`}
+              onClick={handleClose}
+              className="w-full py-3.5 px-6 rounded-xl font-bold text-sm sm:text-base shadow-lg shadow-[#7B2D26]/20 flex items-center justify-center gap-2 bg-gradient-to-r from-[#7B2D26] via-[#8c332b] to-[#7B2D26] text-white hover:brightness-110 active:scale-[0.99] transition cursor-pointer tracking-wide"
+            >
+              <span>Enroll Now — Instant Access</span>
+              <ArrowRight className="w-4 h-4 text-[#E8A33D]" />
+            </Link>
+
+            <div>
+              <button
+                type="button"
+                onClick={handleDismissForever}
+                className="text-xs text-[#3B2A1E]/70 hover:text-[#7B2D26] underline underline-offset-4 font-medium transition cursor-pointer"
+              >
+                Maybe later, continue browsing
+              </button>
+            </div>
+          </div>
+
+          {/* 9. Subdued Sister Platform Cross-Link */}
+          <div className="mt-4 pt-3 border-t border-[#7B2D26]/10 text-center">
+            <p
+              data-testid="viar-welcome-modal-astro-link"
+              className="text-[11px] text-[#3B2A1E]/75"
+            >
+              Looking for a personal 1:1 astrological consultation?{' '}
+              <a
+                href="https://aapkaastro.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleClose}
+                className="font-semibold text-[#7B2D26] hover:text-[#521d18] underline decoration-[#E8A33D] underline-offset-2 transition"
+              >
+                Visit Aapaka Astro &rarr;
+              </a>
+            </p>
+          </div>
+
         </div>
       </div>
     </div>

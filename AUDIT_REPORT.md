@@ -1,7 +1,7 @@
-# Viar.in Codebase Audit Report
+﻿# Viar.in Codebase Audit Report
 
 **Date:** September 22, 2026  
-**Project:** Viar.in — Online Vedic Astrology Education Academy  
+**Project:** Viar.in â€” Online Vedic Astrology Education Academy  
 **Target Repository:** `https://github.com/Tanushyadav9/viar.git`  
 **Reference Specification:** Requirements Sections 0 through 8  
 
@@ -26,14 +26,14 @@ The application is in a high state of completeness:
 
 | Requirement | Specified | Current Implementation Status | Assessment |
 | :--- | :--- | :--- | :--- |
-| **Framework** | Next.js 14+ (App Router), TypeScript | Next.js 14.2.15, TypeScript 5.6.3 | ✅ Fully implemented |
-| **Styling** | Tailwind CSS | Tailwind CSS with custom theme tokens (`maroon-900`, `gold-400`, `gold-500`, cosmic cards) + Light/Dark mode support | ✅ Fully implemented |
-| **Database & ORM** | PostgreSQL + Prisma | `prisma/schema.prisma` defines all 11 models (User, Course, Cohort, ClassSession, Enrollment, SessionProgress, Quiz, QuizAttempt, Certificate, Payment, Testimonial). Runtime currently uses `ViarStore` for client-side evaluation without mandatory DB server. | 🟡 Partially implemented (Schema complete; runtime uses client-side store) |
-| **Cache / Scheduling** | Redis | `src/lib/redis.ts` and `src/lib/rate-limit.ts` provide in-memory sliding window rate limiting with Upstash Redis client extension points. | 🟡 Stubbed with fallback |
-| **Auth** | Clerk Email/Password + Google OAuth ONLY (Multi-Domain Satellite SSO) | Fully unified on Email/Password and Google OAuth across all students. Phone OTP dropped completely (superseded to eliminate SMS fees and India DLT registration). User identity anchored to unique ID. | ✅ Fully implemented |
-| **Payments** | Razorpay (India live) + Stripe (toggled/abstracted) | `src/lib/payments/` provides unified `PaymentProvider` interface, `razorpayProvider`, `stripeProvider`, and server-side webhook signature verifications. | 🟡 Implemented with test/mock keys |
-| **Video Hosting** | Cloudflare Stream / Mux abstraction | `src/lib/video/index.ts` provides `VideoHostingService` interface, Cloudflare & Mux implementations, direct upload URL generation, and `ingestFromZoomRecording()` extension point. | 🟡 Implemented with YouTube/direct video fallback |
-| **Secrets Management** | Typed config module + `.env.example` | `src/config/env.ts` provides typed environment configuration; `.env.example` documents all required keys. | ✅ Fully implemented |
+| **Framework** | Next.js 14+ (App Router), TypeScript | Next.js 14.2.15, TypeScript 5.6.3 | âœ… Fully implemented |
+| **Styling** | Tailwind CSS | Tailwind CSS with custom theme tokens (`maroon-900`, `gold-400`, `gold-500`, cosmic cards) + Light/Dark mode support | âœ… Fully implemented |
+| **Database & ORM** | PostgreSQL + Prisma | `prisma/schema.prisma` defines all 11 models (User, Course, Cohort, ClassSession, Enrollment, SessionProgress, Quiz, QuizAttempt, Certificate, Payment, Testimonial). Runtime currently uses `ViarStore` for client-side evaluation without mandatory DB server. | ðŸŸ¡ Partially implemented (Schema complete; runtime uses client-side store) |
+| **Cache / Scheduling** | Redis | `src/lib/redis.ts` and `src/lib/rate-limit.ts` provide in-memory sliding window rate limiting with Upstash Redis client extension points. | ðŸŸ¡ Stubbed with fallback |
+| **Auth** | Clerk Email/Password + Google OAuth ONLY (Multi-Domain Satellite SSO) | Fully unified on Email/Password and Google OAuth across all students. Phone OTP dropped completely (superseded to eliminate SMS fees and India DLT registration). User identity anchored to unique ID. | âœ… Fully implemented |
+| **Payments** | Razorpay (India live) + Stripe (toggled/abstracted) | `src/lib/payments/` provides unified `PaymentProvider` interface, `razorpayProvider`, `stripeProvider`, and server-side webhook signature verifications. | ðŸŸ¡ Implemented with test/mock keys |
+| **Video Hosting** | Cloudflare Stream / Mux abstraction | `src/lib/video/index.ts` provides `VideoHostingService` interface, Cloudflare & Mux implementations, direct upload URL generation, and `ingestFromZoomRecording()` extension point. | ðŸŸ¡ Implemented with YouTube/direct video fallback |
+| **Secrets Management** | Typed config module + `.env.example` | `src/config/env.ts` provides typed environment configuration; `.env.example` documents all required keys. | âœ… Fully implemented |
 
 ---
 
@@ -41,13 +41,13 @@ The application is in a high state of completeness:
 
 | Content Item | Specified / Real Data | Current Codebase Status | Assessment |
 | :--- | :--- | :--- | :--- |
-| **Instructor Name** | Acharya Niraj Kumar | Integrated across all pages, components, metadata, and certificates | ✅ Fully implemented |
-| **Instructor Bio** | 20+ years experience, Baidyanath Dham roots, Late Guru Shri B. B. Tiwari lineage, trusted across India & abroad | Integrated on Home, About, Course Details, and Admin/Instructor views | ✅ Fully implemented |
-| **Corporate Background** | Former VP & Business Head at Reliance Retail, Metro Cash & Carry, NIF Food; XLRI certification | Highlighted on `/about` and within executive trust badges | ✅ Fully implemented |
-| **Flagship Course** | "What is Astrology — Foundations of Vedic Astrology" | 18 live classes, 3-week blocks, ₹4,999 / $69 pricing, full syllabus, and 20-question graded quiz | ✅ Fully implemented |
-| **Coming Soon Catalog** | Vastu Shastra, Gemstone Science, Numerology Basics | Displayed on `/courses` with "Coming Soon" badges and working "Notify Me" email capture modals | ✅ Fully implemented |
-| **Testimonials** | Authentic client feedback (Priya Sharma) + diverse cohort student feedback | Rendered on Home and Course Detail pages | ✅ Fully implemented |
-| **Visual Assets & Logos** | Portrait, Aapka Astro logo, certificate gallery, honest sample lecture placeholder | Stored locally in `public/images/` and rendered across navbar, footer, about, and home | ✅ Fully implemented |
+| **Instructor Name** | Acharya Niraj Kumar | Integrated across all pages, components, metadata, and certificates | âœ… Fully implemented |
+| **Instructor Bio** | 20+ years experience, Baidyanath Dham roots, Late Guru Shri B. B. Tiwari lineage, trusted across India & abroad | Integrated on Home, About, Course Details, and Admin/Instructor views | âœ… Fully implemented |
+| **Corporate Background** | Former VP & Business Head at Reliance Retail, Metro Cash & Carry, NIF Food; XLRI certification | Highlighted on `/about` and within executive trust badges | âœ… Fully implemented |
+| **Flagship Course** | "What is Astrology â€” Foundations of Vedic Astrology" | 18 live classes, 3-week blocks, â‚¹4,999 / $69 pricing, full syllabus, and 20-question graded quiz | âœ… Fully implemented |
+| **Coming Soon Catalog** | Vastu Shastra, Gemstone Science, Numerology Basics | Displayed on `/courses` with "Coming Soon" badges and working "Notify Me" email capture modals | âœ… Fully implemented |
+| **Testimonials** | Authentic client feedback (Priya Sharma) + diverse cohort student feedback | Rendered on Home and Course Detail pages | âœ… Fully implemented |
+| **Visual Assets & Logos** | Portrait, Aapka Astro logo, certificate gallery, honest sample lecture placeholder | Stored locally in `public/images/` and rendered across navbar, footer, about, and home | âœ… Fully implemented |
 
 ---
 
@@ -55,49 +55,49 @@ The application is in a high state of completeness:
 
 | Route / Page | Expected Functionality | Status in Codebase | Assessment |
 | :--- | :--- | :--- | :--- |
-| **`/` (Home)** | Hero, flagship course spotlight, how it works, testimonials, "Our Other Services" section, honest sample lecture placeholder | Fully built, responsive, light/dark mode compatible | ✅ Fully implemented |
-| **`/courses`** | Full course catalog, flagship enrollable, future courses with "Notify Me" modal | Fully built against generic Course/Cohort model | ✅ Fully implemented |
-| **`/courses/[slug]`** | Full syllabus, cohort dates, instructor bio, currency selector (INR/USD), FAQ, testimonials | Fully built with Schema.org Course JSON-LD | ✅ Fully implemented |
-| **`/about`** | Comprehensive instructor biography, credentials breakdown, interactive certificates gallery modal | Fully built with high-res photos and certificates | ✅ Fully implemented |
-| **`/contact`** | Contact form, academic desk, direct WhatsApp support (+91 93112 15564), email links | Fully built with input validation and feedback | ✅ Fully implemented |
-| **`/login` & `/signup`** | Email/Password & Google OAuth via Clerk multi-domain SSO | Fully built with zero phone OTP dependencies, unified single sign-on across Viar.in, AapkaAstro.com, and DOW Consulting | ✅ Fully implemented |
-| **`/dashboard`** | Overview of enrolled courses, next upcoming session countdown in local timezone, progress bar | Fully built with live countdown timer and local timezone display | ✅ Fully implemented |
-| **`/dashboard/courses/[cohortId]`** | Class-by-class list of all 18 sessions, 15-min join window for live classes, video player for recordings, "I attended" / "Watched" checklist | Fully built, timezone-aware, GCal download links | ✅ Fully implemented |
-| **`/dashboard/courses/[cohortId]/quiz`**| 20-question final quiz, timer, scoring, instant certificate unlock upon scoring ≥70% | Fully built with automated grading | ✅ Fully implemented |
-| **`/dashboard/certificates`** | Certificate viewing, credential codes, download action, and verification link | Fully built with print layout | ✅ Fully implemented |
-| **`/dashboard/payments`** | Order receipt history, payment method, currency, transaction ID | Fully built | ✅ Fully implemented |
-| **`/instructor` & subroutes** | Cohort management, session scheduling, join link editing, recording uploads, student roster, revenue analytics, quiz builder | Fully built with full CRUD capabilities in instructor portal | ✅ Fully implemented |
-| **`/verify` & `/verify/[code]`** | Cryptographic certificate lookup and public verification | Fully built with public lookup and direct URL resolution | ✅ Fully implemented |
-| **`/checkout/[cohortId]`** | Enrollment checkout, currency detection/override, Razorpay UPI/cards, Stripe international card mock | Fully built with instant enrollment callback | ✅ Fully implemented |
+| **`/` (Home)** | Hero, flagship course spotlight, how it works, testimonials, "Our Other Services" section, honest sample lecture placeholder | Fully built, responsive, light/dark mode compatible | âœ… Fully implemented |
+| **`/courses`** | Full course catalog, flagship enrollable, future courses with "Notify Me" modal | Fully built against generic Course/Cohort model | âœ… Fully implemented |
+| **`/courses/[slug]`** | Full syllabus, cohort dates, instructor bio, currency selector (INR/USD), FAQ, testimonials | Fully built with Schema.org Course JSON-LD | âœ… Fully implemented |
+| **`/about`** | Comprehensive instructor biography, credentials breakdown, interactive certificates gallery modal | Fully built with high-res photos and certificates | âœ… Fully implemented |
+| **`/contact`** | Contact form, academic desk, direct WhatsApp support (+91 93112 15564), email links | Fully built with input validation and feedback | âœ… Fully implemented |
+| **`/login` & `/signup`** | Email/Password & Google OAuth via Clerk multi-domain SSO | Fully built with zero phone OTP dependencies, unified single sign-on across Viar.in, AapkaAstro.com, and DOW Consulting | âœ… Fully implemented |
+| **`/dashboard`** | Overview of enrolled courses, next upcoming session countdown in local timezone, progress bar | Fully built with live countdown timer and local timezone display | âœ… Fully implemented |
+| **`/dashboard/courses/[cohortId]`** | Class-by-class list of all 18 sessions, 15-min join window for live classes, video player for recordings, "I attended" / "Watched" checklist | Fully built, timezone-aware, GCal download links | âœ… Fully implemented |
+| **`/dashboard/courses/[cohortId]/quiz`**| 20-question final quiz, timer, scoring, instant certificate unlock upon scoring â‰¥70% | Fully built with automated grading | âœ… Fully implemented |
+| **`/dashboard/certificates`** | Certificate viewing, credential codes, download action, and verification link | Fully built with print layout | âœ… Fully implemented |
+| **`/dashboard/payments`** | Order receipt history, payment method, currency, transaction ID | Fully built | âœ… Fully implemented |
+| **`/instructor` & subroutes** | Cohort management, session scheduling, join link editing, recording uploads, student roster, revenue analytics, quiz builder | Fully built with full CRUD capabilities in instructor portal | âœ… Fully implemented |
+| **`/verify` & `/verify/[code]`** | Cryptographic certificate lookup and public verification | Fully built with public lookup and direct URL resolution | âœ… Fully implemented |
+| **`/checkout/[cohortId]`** | Enrollment checkout, currency detection/override, Razorpay UPI/cards, Stripe international card mock | Fully built with instant enrollment callback | âœ… Fully implemented |
 
 ---
 
 ### 2.4 Core Architectural & Functional Checks (Section 1 & 6)
 
-#### 1. Critical Check — Multi-Course Catalog Architecture
-* **Status:** ✅ **Fully implemented & Verified.**
+#### 1. Critical Check â€” Multi-Course Catalog Architecture
+* **Status:** âœ… **Fully implemented & Verified.**
 * **Audit Finding:** The platform is explicitly architected as a scalable, multi-course learning academy rather than a hardcoded single-course landing page.
   * The public catalog route (`/courses`) dynamically iterates across any registered course in the database/store.
   * The course detail route (`/courses/[slug]`) dynamically resolves courses by unique slug with automatic OpenGraph and JSON-LD schema generation.
   * The data models (`Course`, `Cohort`, `ClassSession`, `Quiz`, `Certificate`, `CourseBundle`) decouple instructors, cohorts, syllabi, and schedules cleanly.
   * The Instructor Console (`/instructor/courses`) enables the creation and publication of new courses (e.g., Vastu Shastra, Gemstones, Numerology) without touching code.
 
-#### 2. Critical Check — "No Attendance Gate" Implementation
-* **Status:** ✅ **Fully implemented & Verified.**
+#### 2. Critical Check â€” "No Attendance Gate" Implementation
+* **Status:** âœ… **Fully implemented & Verified.**
 * **Audit Finding:** Live attendance and watching recorded sessions are treated strictly equally for course progression and certificate eligibility.
   * Students can mark sessions complete via either the "I Attended Live" action or the "Mark as Watched" video checklist button (`handleToggleWatched`).
   * Both update the student's `SessionProgress` records identically.
   * Access to the final certification assessment (`/dashboard/courses/[cohortId]/quiz`) requires completing the session checklist, ensuring working professionals and international students across divergent timezones face zero attendance penalties.
 
-#### 3. Critical Check — No Custom Live-Streaming Infrastructure (Link-Based Only)
-* **Status:** ✅ **Confirmed & Verified.**
+#### 3. Critical Check â€” No Custom Live-Streaming Infrastructure (Link-Based Only)
+* **Status:** âœ… **Confirmed & Verified.**
 * **Audit Finding:** Zero custom live-streaming WebRTC infrastructure (e.g., Agora, Zego, Twilio Video, custom media servers) was built into the repository.
   * Live classes are strictly link-based (Zoom / Google Meet), fully conforming to the product spec.
   * The student classroom UI unlocks external join links inside a secure 15-minute countdown window prior to scheduled class start time.
   * Recordings use standard embeddable video players and Cloudflare Stream/Mux abstraction points rather than live peer-to-peer pipelines.
 
-#### 4. Critical Check — Design System & Aapka Astro Visual Identity
-* **Status:** ✅ **Fully implemented & Verified.**
+#### 4. Critical Check â€” Design System & Aapka Astro Visual Identity
+* **Status:** âœ… **Fully implemented & Verified.**
 * **Audit Finding:** The design system strictly matches Aapka Astro's brand guidelines:
   * **Color Palette:**
     - Deep Maroon: `#7B2D26`
@@ -115,23 +115,23 @@ The application is in a high state of completeness:
     - Full Dark / Light mode toggle integrated seamlessly via `ThemeProvider.tsx`.
 
 #### 5. Timezone Handling & Global Readiness
-* **Status:** ✅ **Fully implemented.**
+* **Status:** âœ… **Fully implemented.**
 * All timestamps stored in UTC (`ISO 8601`) and converted dynamically to the user's detected local timezone via `Intl.DateTimeFormat` or custom override.
 * Explicit timezone identifiers (e.g., `IST`, `EDT`, `GMT`) displayed next to every countdown and scheduled class time.
 
 #### 6. Cross-Site Synergy
-* **Status:** ✅ **Fully implemented.**
+* **Status:** âœ… **Fully implemented.**
 * Configured in `src/config/services.ts` linking Viar.in to sister properties `https://aapkaastro.com` and `https://dowconsulting.in`.
 
 ---
 
 ### 2.5 Non-Functional Requirements (Section 7)
 
-* **SEO:** Server-rendered pages, metadata tags, OpenGraph, `sitemap.xml`, `robots.txt`, and Schema.org `Course` JSON-LD. (✅ **Passed**)
-* **Security:** Input validation utilities (`src/lib/validation.ts`), rate-limiting middleware (`src/lib/rate-limit.ts`), server-side webhook signature verification, and route protection middleware (`src/middleware.ts`). (✅ **Passed**)
-* **Performance:** Static generation of 24 routes, lazy loading of video embeds, optimized images with Next.js `<Image>`. (✅ **Passed**)
-* **Global Readiness:** Dual currency (INR/USD) and dynamic timezone calculations for international students worldwide. (✅ **Passed**)
-* **Automated Tests:** 18 automated tests in `tests/` passing with 0 failures. (✅ **Passed**)
+* **SEO:** Server-rendered pages, metadata tags, OpenGraph, `sitemap.xml`, `robots.txt`, and Schema.org `Course` JSON-LD. (âœ… **Passed**)
+* **Security:** Input validation utilities (`src/lib/validation.ts`), rate-limiting middleware (`src/lib/rate-limit.ts`), server-side webhook signature verification, and route protection middleware (`src/middleware.ts`). (âœ… **Passed**)
+* **Performance:** Static generation of 24 routes, lazy loading of video embeds, optimized images with Next.js `<Image>`. (âœ… **Passed**)
+* **Global Readiness:** Dual currency (INR/USD) and dynamic timezone calculations for international students worldwide. (âœ… **Passed**)
+* **Automated Tests:** 18 automated tests in `tests/` passing with 0 failures. (âœ… **Passed**)
 
 ---
 
@@ -186,25 +186,25 @@ The application is in a high state of completeness:
 
 ## 5. Remediation Status (Gaps Closed)
 
-### Priority 1 (Section 2 — Core Infrastructure & Data Persistence):
-1. ✅ **API Database Endpoints Built & Verified:**
+### Priority 1 (Section 2 â€” Core Infrastructure & Data Persistence):
+1. âœ… **API Database Endpoints Built & Verified:**
    - `GET /api/courses` & `POST /api/courses`: Prisma-powered course retrieval and creation with seamless fallback to `INITIAL_COURSES`.
    - `GET /api/cohorts` & `POST /api/cohorts`: Cohort filtering by course and instructor creation with Prisma and `INITIAL_COHORTS` fallback.
    - `GET /api/sessions` & `PATCH /api/sessions`: Class session retrieval and dynamic updating of Zoom/Meet `joinLink`, `recordingUrl`, and status.
    - `GET /api/progress` & `POST /api/progress`: Attendance checklist tracking ("I attended" / "Watched recording") with Prisma upsert and client sync.
    - `POST /api/leads`: Waitlist email capture for coming-soon courses linked to `NotifyMeLead` model and UI modals.
 
-2. ✅ **Clerk Multi-Domain SSO Blueprint & AuthProvider:**
+2. âœ… **Clerk Multi-Domain SSO Blueprint & AuthProvider:**
    - Architecture blueprint for primary domain (`aapkaastro.com`) and satellite domain (`viar.in`) documented in `src/lib/auth/index.ts`.
    - Functional authentication provider handling phone + OTP (India) and Email/Google (International) with session cookie persistence.
 
-### Priority 2 (Section 3 — Course Delivery & Student Experience Polish):
-1. ✅ **Certificate Public Verification & Official PDF Download:**
+### Priority 2 (Section 3 â€” Course Delivery & Student Experience Polish):
+1. âœ… **Certificate Public Verification & Official PDF Download:**
    - `GET /api/certificates/[code]`: Public registry endpoint verifying cryptographic certificate IDs (`VIAR-2026-WIA-XXXX`).
    - `GET /api/certificates/[code]/download`: Standalone high-fidelity printable landscape certificate endpoint with print CSS and automatic print trigger.
    - Integrated "Official Certificate PDF" download buttons into both student certificate dashboard and public verification page.
 
-2. ✅ **1-Hour Automated Class Notification Reminder:**
+2. âœ… **1-Hour Automated Class Notification Reminder:**
    - `src/lib/notifications.ts`: Notification dispatcher supporting Email (HTML template) and WhatsApp/SMS alerts in the student's detected local timezone.
    - `POST /api/notifications`: Direct endpoint to queue and dispatch 1-hour session reminders.
    - `GET /api/notifications`: Cron scanner simulating lookahead for live classes starting in 60 minutes.
@@ -280,7 +280,7 @@ To bring `Viar.in` live into production, the following credentials, content item
 
 ### 8.2 Real Content Items to Finalize
 
-1. **Class 1–18 Zoom / Google Meet Recurring Meeting Links:**
+1. **Class 1â€“18 Zoom / Google Meet Recurring Meeting Links:**
    - Recurring Zoom or Google Meet room link, Meeting ID, and Passcode for Cohort 01 ("Vedic Initiation Batch 1").
    - *Current status:* Initialized with placeholder join links that unlock 15 minutes before showtime.
 2. **First Cohort Exact Start Date & Class Schedule:**
@@ -350,9 +350,9 @@ Before declaring the website live in production, confirm and document:
 
 | Issue / Area | Status | Resolution Implemented in Codebase |
 | :--- | :--- | :--- |
-| **Fix 1: Auth Security & Phone OTP Removal** | ✅ **CLOSED** | Completely removed Indian student Phone + OTP input pathways, state machines, and development passcodes (`123456`) from `/login` and `/signup`. Unified all user authentication strictly on **Clerk Email/Password and Google OAuth**. Anchored user identity to unique IDs (`usr_...`). Configured multi-domain satellite SSO connecting `viar.in` with `aapkaastro.com` and `dowconsulting.in` with zero recurring SMS or TRAI/DLT overhead. |
-| **Fix 2: Configurable Email Sign-Up Policy** | ✅ **CLOSED** | Built `src/lib/auth/email-policy.ts` with two configurable modes defaulting to **Block-list mode (`BLOCKLIST`)**. Blocks 100+ known disposable/throwaway email services (e.g. Mailinator, TempMail, Yopmail) while allowing all legitimate permanent email addresses (Gmail, Yahoo, Outlook, iCloud, university, and corporate domains). Friendly, informative error messages explain why disposable addresses cannot be used. Configurable via `EMAIL_SIGNUP_POLICY_MODE` in `.env.example` and aligned with native Clerk dashboard domain restrictions. |
-| **Fix 3: Neon Production Database Architecture** | ✅ **CLOSED** | Configured `prisma/schema.prisma` with dual connection endpoints: pooled (`DATABASE_URL` via PgBouncer for Vercel serverless execution) and direct (`DIRECT_URL` for transactional migrations). Generated initial production SQL migration [`prisma/migrations/0_init/migration.sql`](file:///c:/Users/TANUSH%20YADAV/Desktop/viar/prisma/migrations/0_init/migration.sql) for `npx prisma migrate deploy`. Documented Neon free tier benefits (instant auto-resume vs Supabase 7-day pause, 3 GiB quota) and usage-based scaling path in `.env.example`. |
+| **Fix 1: Auth Security & Phone OTP Removal** | âœ… **CLOSED** | Completely removed Indian student Phone + OTP input pathways, state machines, and development passcodes (`123456`) from `/login` and `/signup`. Unified all user authentication strictly on **Clerk Email/Password and Google OAuth**. Anchored user identity to unique IDs (`usr_...`). Configured multi-domain satellite SSO connecting `viar.in` with `aapkaastro.com` and `dowconsulting.in` with zero recurring SMS or TRAI/DLT overhead. |
+| **Fix 2: Configurable Email Sign-Up Policy** | âœ… **CLOSED** | Built `src/lib/auth/email-policy.ts` with two configurable modes defaulting to **Block-list mode (`BLOCKLIST`)**. Blocks 100+ known disposable/throwaway email services (e.g. Mailinator, TempMail, Yopmail) while allowing all legitimate permanent email addresses (Gmail, Yahoo, Outlook, iCloud, university, and corporate domains). Friendly, informative error messages explain why disposable addresses cannot be used. Configurable via `EMAIL_SIGNUP_POLICY_MODE` in `.env.example` and aligned with native Clerk dashboard domain restrictions. |
+| **Fix 3: Neon Production Database Architecture** | âœ… **CLOSED** | Configured `prisma/schema.prisma` with dual connection endpoints: pooled (`DATABASE_URL` via PgBouncer for Vercel serverless execution) and direct (`DIRECT_URL` for transactional migrations). Generated initial production SQL migration [`prisma/migrations/0_init/migration.sql`](file:///c:/Users/TANUSH%20YADAV/Desktop/viar/prisma/migrations/0_init/migration.sql) for `npx prisma migrate deploy`. Documented Neon free tier benefits (instant auto-resume vs Supabase 7-day pause, 3 GiB quota) and usage-based scaling path in `.env.example`. |
 
 ---
 
@@ -452,7 +452,7 @@ model StaffPermission {
   accessLevel     StaffAccessLevel @default(MANAGE) @map("access_level") // VIEW or MANAGE
   grantedByUserId String           @map("granted_by_user_id") // must always be an Owner
   grantedAt       DateTime         @default(now()) @map("granted_at")
-  revokedAt       DateTime?        @map("revoked_at") // nullable — soft-revoke rather than delete, for an audit trail
+  revokedAt       DateTime?        @map("revoked_at") // nullable â€” soft-revoke rather than delete, for an audit trail
   createdAt       DateTime         @default(now()) @map("created_at")
   updatedAt       DateTime         @updatedAt @map("updated_at")
 
@@ -673,7 +673,7 @@ The following tables document every modified location in the codebase, contrasti
 | **`src/app/page.tsx`**<br>(Hero Subtitle, Line 91) | `35,000+ client consultations lineage` | `trusted by students and clients across India and abroad` | `/* PLACEHOLDER: Replace with verified consultation/student count once confirmed across both sites */` |
 | **`src/app/page.tsx`**<br>(Key Trust Metric, Line 128) | `35,000+ Consultations`<br>`Lineage across Aapka Astro` | `Aapka Astro`<br>`Trusted by students & clients across India and abroad` | `/* PLACEHOLDER: Replace with verified consultation/student count once confirmed across both sites */` |
 | **`src/app/page.tsx`**<br>(Instructor Bio, Line 419) | `his practice spans over two decades and more than 15,000 personal chart interpretations.` | `his practice spans over two decades, trusted by students and clients across India and abroad.` | `/* PLACEHOLDER: Replace with verified consultation/interpretation count once confirmed across both sites */` |
-| **`src/app/page.tsx`**<br>(Sister Services, Line 815) | `{SISTER_SERVICES.aapkaAstro.domain} • 15,000+ Consultations • +91 93112 15564` | `{SISTER_SERVICES.aapkaAstro.domain} • Trusted Across India & Abroad • +91 93112 15564` | `/* PLACEHOLDER: Replace with verified consultation count once confirmed across both sites */` |
+| **`src/app/page.tsx`**<br>(Sister Services, Line 815) | `{SISTER_SERVICES.aapkaAstro.domain} â€¢ 15,000+ Consultations â€¢ +91 93112 15564` | `{SISTER_SERVICES.aapkaAstro.domain} â€¢ Trusted Across India & Abroad â€¢ +91 93112 15564` | `/* PLACEHOLDER: Replace with verified consultation count once confirmed across both sites */` |
 | **`src/app/verify/page.tsx`**<br>(Lineage Card, Line 97) | `Authenticated by master astrologer with 35,000+ readings.` | `Authenticated by master astrologer trusted by students and clients across India and abroad.` | `/* PLACEHOLDER: Replace with verified reading/consultation count once confirmed across both sites */` |
 | **`src/app/about/page.tsx`**<br>(Bio Paragraph, Line 145) | `Over the last two decades, he has studied, practiced, and refined his approach across more than 15,000 personal chart analyses and numerous Vastu consultations.` | `Over the last two decades, he has studied, practiced, and refined his approach, trusted by students and clients across India and abroad through comprehensive chart interpretations and numerous Vastu consultations.` | `/* PLACEHOLDER: Replace with verified chart analysis count once confirmed across both sites */` |
 | **`src/app/about/page.tsx`**<br>(Stat Card, Line 158) | `15,000+`<br>`Charts Interpreted` | `Trusted`<br>`Across India & Abroad` | `/* PLACEHOLDER: Replace with verified chart count once confirmed across both sites */` |
@@ -688,10 +688,10 @@ The following tables document every modified location in the codebase, contrasti
 
 | Location | Old (Unverified / Risky) Content | New (Corrected / Honest) Content | Developer Note / Placeholder |
 | :--- | :--- | :--- | :--- |
-| **`src/app/page.tsx`**<br>(Homepage Preview, Lines 705–742) | `<iframe src="https://www.youtube-nocookie.com/embed/hibDdoH5kbQ?si=1fp_acyv9bs01pLm" title="Aapka Astro & Viar.in Masterclass Preview" ...></iframe>`<br>`<a href="https://www.youtube.com/watch?v=hibDdoH5kbQ">Aapka Astro on YouTube</a>` | **Embed Removed.** Replaced with honest, branded placeholder card:<br>• Icon: Video<br>• Title: *"Sample Lecture Video Coming Soon"*<br>• Copy: *"Official video excerpts demonstrating live chart analysis and syllabus methodology are currently being curated from the upcoming flagship cohort sessions."*<br>• CTAs: Link to *"View Full 18-Class Curriculum"* and download button for *"Download Syllabus (PDF)"*. | `/* PLACEHOLDER: Unverified video embed hibDdoH5kbQ removed. Client to provide verified official sample video URL. */` |
-| **`src/components/CourseDetailClient.tsx`**<br>(Course Sales Page, Lines 402–414) | `<iframe src="https://www.youtube-nocookie.com/embed/hibDdoH5kbQ?rel=0" title="Acharya Niraj Kumar Astrology Teaching Preview" ...></iframe>` | **Embed Removed.** Replaced with honest, branded preview card:<br>• Icon: Video<br>• Title: *"Sample Lecture Video Coming Soon"*<br>• Copy: *"Full preview excerpts from Batch 1 live classes will be published here prior to cohort launch."*<br>• CTA: Button for *"Download Complete Syllabus (PDF)"*. | `/* PLACEHOLDER: Unverified video embed hibDdoH5kbQ removed. Client to provide verified official sample video URL. */` |
+| **`src/app/page.tsx`**<br>(Homepage Preview, Lines 705â€“742) | `<iframe src="https://www.youtube-nocookie.com/embed/hibDdoH5kbQ?si=1fp_acyv9bs01pLm" title="Aapka Astro & Viar.in Masterclass Preview" ...></iframe>`<br>`<a href="https://www.youtube.com/watch?v=hibDdoH5kbQ">Aapka Astro on YouTube</a>` | **Embed Removed.** Replaced with honest, branded placeholder card:<br>â€¢ Icon: Video<br>â€¢ Title: *"Sample Lecture Video Coming Soon"*<br>â€¢ Copy: *"Official video excerpts demonstrating live chart analysis and syllabus methodology are currently being curated from the upcoming flagship cohort sessions."*<br>â€¢ CTAs: Link to *"View Full 18-Class Curriculum"* and download button for *"Download Syllabus (PDF)"*. | `/* PLACEHOLDER: Unverified video embed hibDdoH5kbQ removed. Client to provide verified official sample video URL. */` |
+| **`src/components/CourseDetailClient.tsx`**<br>(Course Sales Page, Lines 402â€“414) | `<iframe src="https://www.youtube-nocookie.com/embed/hibDdoH5kbQ?rel=0" title="Acharya Niraj Kumar Astrology Teaching Preview" ...></iframe>` | **Embed Removed.** Replaced with honest, branded preview card:<br>â€¢ Icon: Video<br>â€¢ Title: *"Sample Lecture Video Coming Soon"*<br>â€¢ Copy: *"Full preview excerpts from Batch 1 live classes will be published here prior to cohort launch."*<br>â€¢ CTA: Button for *"Download Complete Syllabus (PDF)"*. | `/* PLACEHOLDER: Unverified video embed hibDdoH5kbQ removed. Client to provide verified official sample video URL. */` |
 | **`src/lib/data.ts`**<br>(Social Links, Line 12) | `youtube: 'https://www.youtube.com/watch?v=hibDdoH5kbQ',` | **Key Removed.** Removed dead video link from `PLACEHOLDER_SOCIAL_LINKS`. | `/* PLACEHOLDER: Client to provide verified official YouTube channel link once confirmed */` |
-| **`src/components/Footer.tsx`**<br>(Footer Links, Lines 285–294) | `<li><a href="https://www.youtube.com/watch?v=hibDdoH5kbQ"><span>YouTube: Aapka Astro</span></a></li>` | **Link Removed.** Removed dead link to unverified video ID from footer navigation. | `/* PLACEHOLDER: YouTube channel link to be re-added once verified channel URL is confirmed by client */` |
+| **`src/components/Footer.tsx`**<br>(Footer Links, Lines 285â€“294) | `<li><a href="https://www.youtube.com/watch?v=hibDdoH5kbQ"><span>YouTube: Aapka Astro</span></a></li>` | **Link Removed.** Removed dead link to unverified video ID from footer navigation. | `/* PLACEHOLDER: YouTube channel link to be re-added once verified channel URL is confirmed by client */` |
 | **`AUDIT_REPORT.md`**<br>(Section 7 & Table 2.2/2.3) | `High-definition responsive YouTube video player (hibDdoH5kbQ) embedded directly into the flagship course sales page.` | Documented unverified origin, verified removal, and replacement with honest placeholder state. | Aligned with Section 12 forensic report |
 
 ---
@@ -1007,11 +1007,11 @@ Five dedicated legal and trust pages were implemented with clean, accessible cos
 
 1. **Refund & Cancellation Policy (`/refund-policy`)**:
    - Course/cohort-specific terms rather than per-minute consultation rates.
-   - **Pre-Cohort Window**: 100% refund (>72 hours prior to Class 1) minus 2–3% payment processing fee; 85% refund or 100% credit transfer within 72 hours of Class 1.
-   - **Early Review Window (Classes 1–2)**: 50% prorated refund or 100% credit transfer voucher valid for 12 months, requested before Class 3.
+   - **Pre-Cohort Window**: 100% refund (>72 hours prior to Class 1) minus 2â€“3% payment processing fee; 85% refund or 100% credit transfer within 72 hours of Class 1.
+   - **Early Review Window (Classes 1â€“2)**: 50% prorated refund or 100% credit transfer voucher valid for 12 months, requested before Class 3.
    - **Post-Class 2 Policy**: Zero monetary refunds once Class 3 commences due to unlocked proprietary slides, calculation workbooks, and replay archives (emergency deferrals available upon petition).
    - Academy-initiated rescheduling (>30 days) guarantees 100% full refund or priority seat reservation.
-   - Clear refund instructions via `ask@aapkaastro.com` and WhatsApp (+91 93112 15564) with 5–7 business day gateway turnaround.
+   - Clear refund instructions via `ask@aapkaastro.com` and WhatsApp (+91 93112 15564) with 5â€“7 business day gateway turnaround.
 
 2. **Terms of Service & Student Agreement (`/terms`)**:
    - Minimum eligibility (18+ or parental consent).
@@ -1036,7 +1036,7 @@ Five dedicated legal and trust pages were implemented with clean, accessible cos
 5. **Pricing Policy & Tuition Transparency (`/pricing-policy`)**:
    - Transparent one-time tuition model with zero hidden recurring subscriptions or auto-debits.
    - Comprehensive inclusions itemized: 18 live sessions, 1080p replay vault, study workbooks, quizzes, final exam, and verifiable certificate.
-   - Multi-currency transparency: INR (₹) via UPI/Netbanking for India; USD ($) via Stripe/cards for international students, with itemized GST.
+   - Multi-currency transparency: INR (â‚¹) via UPI/Netbanking for India; USD ($) via Stripe/cards for international students, with itemized GST.
    - Policy for "Coming Soon" courses: provisional pricing subject to curriculum calibration prior to batch registration launch.
 
 ### 19.3 Footer Integration & Navigation
@@ -1145,7 +1145,7 @@ The footer's "Courses" section previously listed "Vimshottari Dasha & Transits" 
 | **Legal & Trust Pages** | `/terms` (User agreement, cohort eligibility, jurisdiction in New Delhi) | **DONE** | Page reachable, verified, linked in footer | **None**. Pending final legal counsel sign-off. |
 | **Legal & Trust Pages** | `/privacy-policy` (Student data collection, zero-sale commitment, payment security) | **DONE** | Page reachable, 308 redirect from `/privacy`, verified | **None**. |
 | **Legal & Trust Pages** | `/disclaimer` (Educational Jyotish scope, non-substitute for financial/medical advice) | **DONE** | Page reachable, verified, linked in footer | **None**. |
-| **Legal & Trust Pages** | `/pricing-policy` (Transparent one-time tuition ₹4,999 / $69 USD, zero hidden fees) | **DONE** | Page reachable, 308 redirect from `/pricing`, verified | **None**. |
+| **Legal & Trust Pages** | `/pricing-policy` (Transparent one-time tuition â‚¹4,999 / $69 USD, zero hidden fees) | **DONE** | Page reachable, 308 redirect from `/pricing`, verified | **None**. |
 | **Transactional Emails** | Provider Abstraction (`EmailService` interface, Resend REST client, Mock provider) | **DONE** | `src/lib/email/`, passes `tests/email.test.ts` | **None**. Ready for production `RESEND_API_KEY`. |
 | **Transactional Emails** | Flow 1: Enrollment Confirmation Email | **DONE** | Verified in `scripts/verify-live.ts`, hooked into Razorpay & Stripe webhooks | **None**. |
 | **Transactional Emails** | Flow 2: Payment Receipt Email | **DONE** | Official invoice with order ID, date, amount, hooked into webhooks | **None**. |
@@ -1306,7 +1306,7 @@ As required by the security and data segregation architecture, **Viar.in runs on
 ## 25. Welcome Promotional Cohort Modal Implementation & Verification
 
 ### 25.1 Business Model & Offer Alignment
-- Built specifically for Viar's one-time course enrollment model (What is Astrology � Foundations of Vedic Astrology).
+- Built specifically for Viar's one-time course enrollment model (What is Astrology — Foundations of Vedic Astrology).
 - Strictly excludes per-minute chat, wallet recharge, or free trial framing.
 - Differentiators highlighted:
   - 18 live classes over 9 weeks (Zoom / interactive Q&A).
@@ -1349,21 +1349,23 @@ pm run build).
 
 ---
 
-## 26. Single-Viewport Popup Restraint Redesign — Before/After & Viewport Height Measurements (September 2026)
+## 26. Single-Viewport Popup Restraint Redesign â€” Before/After & Viewport Height Measurements (September 2026)
 
 ### 26.1 Before vs. After Compression (src/components/WelcomeCohortModal.tsx)
 - **Before**: Stacked dual header pills, a multi-sentence academy overview, a boxed course & instructor card with original/discounted price badges, a 4-item feature grid (18 Live Classes, Recordings Count Identically, Starts Oct 3, Verifiable Certificate), a boxed 100% Risk-Free callout, primary CTA, syllabus link + dismiss row, and Aapka Astro cross-link (~680px+ tall with max-h-[90vh] overflow-y-auto).
 - **After**: Compressed to a clean, single-viewport 6-element hierarchy with zero internal scrolling required while retaining the warm brand identity (#7B2D26, #E8A33D, #FBF3E7, #3B2A1E) and all session/route/enrollment suppression rules:
   1. Small brand mark (<Sparkles /> + VIAR.IN ACADEMY)
-  2. Headline naming course & live price: "Enroll in ‘What is Astrology’ — ₹4,999"
+  2. Headline naming course & live price: "Enroll in â€˜What is Astrologyâ€™ â€” â‚¹4,999"
   3. One-sentence subtext with live remaining seat count: "Only 12 seats remaining in Batch 1 for our live 9-week Vedic Jyotish cohort with Acharya Niraj Kumar."
   4. One primary CTA button: "Claim Your Seat"
   5. One small dismiss link: "No thanks, continue browsing"
-  6. Final subdued cross-link: "Want a personal consultation instead? Visit Aapka Astro →"
+  6. Final subdued cross-link: "Want a personal consultation instead? Visit Aapka Astro â†’"
 
 ### 26.2 Measured Rendered Heights (Headless Chrome CDP)
-- **Desktop (1280×800 viewport)**: **448px × 310px** (scrollHeight: 306px, clientHeight: 306px, equiresInternalScroll: false, itsSingleViewport: true — occupies **38.8%** of viewport height).
-- **Mobile (375×667 viewport)**: **335px × 334px** (scrollHeight: 330px, clientHeight: 330px, equiresInternalScroll: false, itsSingleViewport: true — occupies **50.1%** of viewport height).
+- **Desktop (1280Ã—800 viewport)**: **448px Ã— 310px** (scrollHeight: 306px, clientHeight: 306px, 
+equiresInternalScroll: false, itsSingleViewport: true â€” occupies **38.8%** of viewport height).
+- **Mobile (375Ã—667 viewport)**: **335px Ã— 334px** (scrollHeight: 330px, clientHeight: 330px, 
+equiresInternalScroll: false, itsSingleViewport: true â€” occupies **50.1%** of viewport height).
 
 
 ---
@@ -1375,7 +1377,7 @@ pm run build).
 - **Payment Model Invariance (STRICTLY UNCHANGED)**:
   - **Payment Structure**: The course pricing remains strictly a **one-time upfront payment** with lifetime access to all 23 video modules, downloadable materials, future updates, and examination certification. There are **zero recurring fees, zero subscription tiers, and zero cohort rescheduling penalties**.
   - **Tuition Rates**:
-    - **Domestic (India)**: **₹4,999 INR** (one-time payment, discounted from ₹9,999 INR).
+    - **Domestic (India)**: **â‚¹4,999 INR** (one-time payment, discounted from â‚¹9,999 INR).
     - **International (Global)**: **$69 USD** (one-time payment, discounted from $129 USD).
   - **Payment Gateways**:
     - **Razorpay**: Direct INR transactions via UPI, Credit/Debit cards, and Netbanking.
@@ -1434,7 +1436,7 @@ Per confirmed client decision, all brand references to the companion consultatio
    - The final certification examination is strictly locked until all 23 modules are marked complete (canTakeQuiz: allSessionsComplete).
    - Passing the 20-question evaluation (&ge;70%) automatically generates an official verifiable Certificate of Completion with permanent QR/URL verification at /verify/[code].
 4. **Pricing Invariance Maintained**:
-   - Tuition rates strictly preserved at **₹4,999 INR /  USD** (one-time fee with lifetime access).
+   - Tuition rates strictly preserved at **â‚¹4,999 INR /  USD** (one-time fee with lifetime access).
 5. **Sister Site Cross-Promotion Standardized**:
    - Brand name consistently updated to **"Aapaka Astro"** across all references.
 
@@ -1444,31 +1446,32 @@ Per confirmed client decision, all brand references to the companion consultatio
 - **Fulfillment Readiness**:
   - The video streaming interface (src/app/dashboard/courses/[cohortId]/page.tsx) is 100% engineered and equipped with an embedded responsive player supporting secure YouTube/Vimeo embeds, S3/Cloudflare stream URLs, lecture notes markdown, and per-module Q&A discussions.
   - While video recordings await client upload, the interface displays an honest, branded state ("Self-Paced Video Module") with full curriculum descriptions and a manual completion toggle ("Mark Module as Watched").
-  - Once the client provides the hosted video URLs, inserting them into ecording.videoUrl will instantly render the active video stream for each module with zero code refactoring required.
+  - Once the client provides the hosted video URLs, inserting them into 
+ecording.videoUrl will instantly render the active video stream for each module with zero code refactoring required.
 ---
 
 ## 30. Flagship Course Pricing Calibration & Checkout Synchronization Audit (September 2026)
 
 ### 30.1 Overview & Confirmed Specifications
-As requested by the client, the tuition pricing for the flagship 23-module self-paced course (**"What is Astrology — Foundations of Vedic Astrology"** / what-is-astrology-basics-of-astrology) has been updated:
-- **New Active Tuition Price**: **₹5,100 INR** (Discounted launch tuition,  USD international)
-- **Original / Struck-Through Price**: **₹11,000 INR** (Original tuition,  USD international)
+As requested by the client, the tuition pricing for the flagship 23-module self-paced course (**"What is Astrology â€” Foundations of Vedic Astrology"** / what-is-astrology-basics-of-astrology) has been updated:
+- **New Active Tuition Price**: **â‚¹5,100 INR** (Discounted launch tuition,  USD international)
+- **Original / Struck-Through Price**: **â‚¹11,000 INR** (Original tuition,  USD international)
 - **Effective Discount**: **54% OFF** launch promotion
 
 ### 30.2 Audit of End-to-End Pricing Synchronization
 A fundamental architectural requirement was ensuring zero discrepancy between the marketing display and actual payment processing charges. The audit verified:
 
 1. **Course Catalog Card (src/app/page.tsx)**:
-   - Hero pricing card displays ₹5,100 alongside struck-through ₹11,000 with the 54% OFF Launch badge.
-   - Catalog card displays ₹5,100 /  USD with one-time payment clarity.
+   - Hero pricing card displays â‚¹5,100 alongside struck-through â‚¹11,000 with the 54% OFF Launch badge.
+   - Catalog card displays â‚¹5,100 /  USD with one-time payment clarity.
 
 2. **Course Detail & Sales Page (src/components/CourseDetailClient.tsx & src/app/courses/[slug]/page.tsx)**:
    - Dynamic discount calculation: Math.round(((course.originalPriceInr - course.priceInr) / course.originalPriceInr) * 100) automatically calculates 54% Off Launch.
-   - Struck-through ₹11,000 and highlighted ₹5,100 are rendered directly from src/lib/data.ts.
+   - Struck-through â‚¹11,000 and highlighted â‚¹5,100 are rendered directly from src/lib/data.ts.
 
 3. **Checkout Order Amount Synchronization (src/app/checkout/[cohortId]/page.tsx)**:
    - Checkout dynamically initializes mount: (course?.priceInr || 5100) directly from the course data model.
-   - Payment order generation passes provider.createOrder({ amount: price, ... }) which sends ₹5,100 directly to Razorpay (and  USD to Stripe). Zero hardcoded or mismatched pricing exists between UI display and charge execution.
+   - Payment order generation passes provider.createOrder({ amount: price, ... }) which sends â‚¹5,100 directly to Razorpay (and  USD to Stripe). Zero hardcoded or mismatched pricing exists between UI display and charge execution.
 
 4. **Schema.org Structured Data (src/app/courses/[slug]/page.tsx)**:
    - Course JSON-LD schema renders:
@@ -1485,7 +1488,7 @@ A fundamental architectural requirement was ensuring zero discrepancy between th
    - Automatically synchronizes with search engine rich snippets.
 
 5. **Syllabus PDF Dynamic Generation (src/app/api/courses/[slug]/syllabus/download/route.ts)**:
-   - The downloadable/printable PDF syllabus dynamically references course.priceInr.toLocaleString('en-IN') rendering ₹5,100 /  USD.
+   - The downloadable/printable PDF syllabus dynamically references course.priceInr.toLocaleString('en-IN') rendering â‚¹5,100 /  USD.
 
 6. **Webhooks, Fallbacks & Data Schema Integrity**:
    - prisma/schema.prisma: Default priceInr updated to 5100 and originalPriceInr to 11000.
@@ -1497,8 +1500,8 @@ A fundamental architectural requirement was ensuring zero discrepancy between th
 ### 30.3 Verification Suite Results
 - **Unit & Integration Tests**: 88/88 tests passing (
 pm test).
-  - 	ests/walkthrough.test.ts: Flagship enrollment amount and modal assertions verified at ₹5,100.
-  - 	ests/email.test.ts: Enrollment confirmation and payment receipt emails verified with ₹5,100 template rendering.
+  - 	ests/walkthrough.test.ts: Flagship enrollment amount and modal assertions verified at â‚¹5,100.
+  - 	ests/email.test.ts: Enrollment confirmation and payment receipt emails verified with â‚¹5,100 template rendering.
   - 	ests/webhooks.test.ts: Razorpay 510000 paise payload and tamper-verification tests passing.
   - 	ests/production-hardening.test.ts: Error and payment failure logger tests passing.
 - **Linting**: 0 warnings, 0 errors (
@@ -1512,7 +1515,7 @@ pm run build).
 
 ### 31.1 Current International Pricing Structure
 In the latest update, the client explicitly provided the domestic Indian pricing for the flagship course:
-- **Domestic INR Tuition**: **₹5,100 INR** (discounted from **₹11,000 INR**, 54% discount).
+- **Domestic INR Tuition**: **â‚¹5,100 INR** (discounted from **â‚¹11,000 INR**, 54% discount).
 - **International USD Tuition**: Preserved at ** USD** (discounted from ** USD** list price, 47% discount,  USD savings).
 
 ### 31.2 Explicit Client Confirmation Flag (Action Required)
@@ -1527,8 +1530,8 @@ In the latest update, the client explicitly provided the domestic Indian pricing
 2. **Option 2: Proportional Discount Match (54% Discount)**
    - Active Tuition: ** USD**
    - List Price: ** USD** (matches the domestic 54% discount:  down to  = 53.7% ~ 54%)
-3. **Option 3: Direct Currency Conversion from ₹5,100 INR**
-   - At prevailing INR/USD rates (~₹83.5/USD), ₹5,100 equates to ~.08 USD.
+3. **Option 3: Direct Currency Conversion from â‚¹5,100 INR**
+   - At prevailing INR/USD rates (~â‚¹83.5/USD), â‚¹5,100 equates to ~.08 USD.
    - Candidate Price: ** USD** or ** USD** (with original price at ** USD** or ** USD**).
 4. **Option 4: Standalone International Market Pricing**
    - The client may select a dedicated round figure tailored for the diaspora and global astrology students (e.g., ** USD**, ** USD**, or ** USD**).
@@ -1536,10 +1539,10 @@ In the latest update, the client explicitly provided the domestic Indian pricing
 ### 31.4 System & Checkout Verification
 - **Checkout Synchronization**: International checkout on src/app/checkout/[cohortId]/page.tsx dynamically passes course.priceUsd ( USD) directly to Stripe.
 - **Currency-Aware Discount**: src/components/CourseDetailClient.tsx dynamically computes discountPercent per selected currency (54% for INR, 47% for USD).
-- **Search Metadata**: Schema.org JSON-LD publishes both INR (₹5,100) and USD ($69) offers.
+- **Search Metadata**: Schema.org JSON-LD publishes both INR (â‚¹5,100) and USD ($69) offers.
 ---
 
-## 32. First-Visit Course Promotional Popup Implementation & Behavioral Audit (September 2026)
+## 32. First-Visit Course Promotional Popup Implementation & Refinement (October 2026)
 
 ### 32.1 Architecture & Behavioral Pattern
 In accordance with the established pattern from Aapaka Astro, the promotional modal (src/components/WelcomeCohortModal.tsx) serves as an attention-grabbing, first-visit showcase for the flagship course:
@@ -1558,25 +1561,28 @@ In accordance with the established pattern from Aapaka Astro, the promotional mo
   - Outside click on backdrop
   - Escape keyboard shortcut (Esc)
   - Subdued secondary button: *"Maybe later, continue browsing"*
-- **Banner Coexistence**: Complements the persistent top announcement bar (Self-Paced Masterclass Open: The Ultimate Astrology Course (23 Video Modules + 2 Bonus Workshops)...) on the homepage without duplicate triggers or visual conflict.
+- **Banner Coexistence**: Complements the persistent top announcement bar on the homepage without duplicate triggers or visual conflict.
 
-### 32.2 Visual Showcase & Product Presentation
-The popup is engineered as a high-conversion product showcase rather than a flat text notice:
-1. **Real Brand Assets**:
-   - High-resolution instructor portrait of **Acharya Niraj Kumar** (/images/Acharya_Niraj_Kumar.jpg) framed in a radiant golden circular gradient with a "Jyotish Acharya" badge.
-   - Official **Vihangam Sun Logo** (/images/logo-icon.png) with crisp institute branding in gold typography.
-2. **Visual Product Showcase Card**:
-   - Styled module-count badge: 23 Video Modules with + 2 Bonus Real Chart Workshops.
-   - Subtle celestial watermark: Concentric astronomical orbit rings and star points rendered in scalable SVG.
-   - Pacing badge: 100% Self-Paced • Instant Lifetime Access.
-3. **Confirmed Offer & Pricing Display**:
+### 32.2 Visual Design System, Brand Palette & Layout Alignment
+1. **Resolved Headline Cut-Off & Overlap**:
+   - Fixed the layout overlap where the headline previously collided with the "Launch Enrollment Open" pill.
+   - Restructured the container with generous vertical breathing room, explicit block margins, and responsive line-heights (leading-tight).
+2. **Site-Consistent Warm Ivory, Maroon & Gold Theme**:
+   - Completely removed the unrequested dark navy "cosmic" theme.
+   - Restored the established warm ivory/cream background (#FBF3E7), deep maroon (#7B2D26), marigold gold (#E8A33D), and deep brown text (#3B2A1E), matching all other pages across Viar.in and Aapaka Astro.
+   - Card border styled in marigold gold (order-2 border-[#E8A33D]/60 shadow-2xl shadow-[#7B2D26]/25).
+   - Top accent bar in brand maroon & gold gradient.
+3. **Prestige Logo & Clean Credential Presentation**:
+   - Removed the cropped two-person award photo headshot (Acharya_Niraj_Kumar.jpg) which appeared cluttered and awkward in a small circle.
+   - Prominently showcases the official **Vihangam Sun Logo** (/images/logo-icon.png) with clean academic typography.
+   - Dedicated academic credential pill: *"Taught by Acharya Niraj Kumar (Jyotish Acharya, BVB New Delhi)"*.
+   - Structured 2-box highlight grid: *"23 Video Modules (+ 2 Bonus Real Chart Labs)"* and *"100% Self-Paced (Instant Lifetime Access)"*.
+4. **Confirmed Offer & Pricing Display**:
    - Headline: *"The Ultimate Astrology Course — Basics of Vedic Astrology"*.
-   - Launch Pricing: **₹5,100** displayed in radiant gold alongside struck-through **₹11,000** with the green **54% OFF Launch** badge.
-   - Clarifying text: One-time tuition, lifetime vault access, zero hidden recurring fees.
-4. **Structured Curriculum Highlights**:
-   - Itemized checklist highlighting the 23 core modules, 2 bonus chart workshops (Career & Marriage), and verifiable certificate.
+   - Launch Pricing: **₹5,100** displayed in bold maroon alongside struck-through **₹11,000** with the **54% OFF Launch** badge.
+   - Clarifying text: *"Strictly one-time tuition • Zero recurring fees • Verifiable Certificate included"*.
 5. **Real HTML/CSS Typography**:
-   - All text, badges, and counters are rendered semantically in real DOM elements (zero baked flat images), ensuring perfect legibility, accessibility, search indexing, and simple future updates.
+   - All text, badges, and pricing are rendered semantically in real DOM elements (zero baked flat images), ensuring perfect legibility, accessibility, search indexing, and simple future updates.
 
 ### 32.3 Verification & Quality Assurance
 - **Unit & Integration Suite**: 89/89 tests passing (

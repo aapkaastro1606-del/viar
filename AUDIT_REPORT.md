@@ -1579,10 +1579,11 @@ In accordance with the established pattern from Aapaka Astro, the promotional mo
 4. **Site Typography Tokens**:
    - Headings styled using `font-heading` (`Cinzel` / `Yatra One`) for "The Ultimate Astrology Course", section badges, and launch pricing.
    - Body copy styled using `font-body` (`Mukta` / `Poppins`) for all descriptions, bullet points, and instructional notes.
-5. **Prestige Logo & Clean Credential Presentation**:
-   - Removed the cropped two-person award photo headshot (`Acharya_Niraj_Kumar.jpg`) which appeared cluttered and awkward in a small circle.
-   - Prominently showcases the official **Vihangam Sun Logo** (`/images/logo-icon.png`) with clean academic typography.
-   - Dedicated academic credential pill: *"Taught by Acharya Niraj Kumar (Jyotish Acharya, BVB New Delhi)"*.
+5. **Genuine Instructor Solo Portrait & Circular Halo Frame**:
+   - Replaced the cropped two-person award photo headshot (`Acharya_Niraj_Kumar.jpg`) with a genuine solo portrait of Acharya Niraj Kumar (`/images/Acharya_Niraj_Kumar_Headshot.jpg`), showing him solo with tilak and rudraksha against the golden celestial sunrise.
+   - Styled with an intentional, dignified circular frame/halo (`w-16 h-16 sm:w-20 sm:h-20 rounded-full p-[2.5px] bg-gradient-to-tr from-[#7B2D26] via-[#E8A33D] to-[#7B2D26] shadow-md shadow-[#7B2D26]/20`) with an inner crisp border and an academic graduation cap seal.
+   - Centered on 1:1 square crop (`object-cover object-center`), completely eliminating awkward multi-person cropping or distortion.
+   - Accompanying credential pill: *"Taught by Acharya Niraj Kumar (Jyotish Acharya, BVB New Delhi)"*.
    - Structured 2-box highlight grid: *"23 Video Modules (+ 2 Bonus Real Chart Labs)"* and *"100% Self-Paced (Instant Lifetime Access)"*.
 6. **Confirmed Offer & Pricing Display**:
    - Headline: *"The Ultimate Astrology Course — Basics of Vedic Astrology"*.

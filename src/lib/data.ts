@@ -341,7 +341,7 @@ export const INITIAL_COURSES: Course[] = [
       bio: 'Acharya Niraj Kumar brings together authentic traditional Vedic learning rooted in Baidyanath Dham (Deoghar) and prestigious academic credentials as a certified Jyotish Acharya from the legendary Bharatiya Vidya Bhavan - Institute of Astrology, Kasturba Gandhi Marg, New Delhi (under renowned advisor K.N. Rao), alongside certified qualifications as a Logical Vastu Expert and Astro Vastu specialist. Blending 20+ years of senior executive leadership (former Vice President at Reliance Retail, Metro Cash & Carry, and NIF Food) with 20+ years of astrological practice, he is trusted by over 5,200 students and consultation clients across India and globally, backed by an active community of 26,000+ followers.',
       experienceYears: 20,
       studentsTaught: 5200,
-      avatarUrl: '/images/Acharya_Niraj_Kumar.jpg',
+      avatarUrl: '/images/Acharya_Niraj_Kumar_Headshot.jpg',
       aapkaAstroUrl: 'https://aapkaastro.com',
       credentials: [
         'Jyotish Acharya — Bharatiya Vidya Bhavan (under Advisor K.N. Rao)',
@@ -423,7 +423,7 @@ export const INITIAL_COURSES: Course[] = [
       bio: 'Acharya Niraj Kumar brings together deep traditional Vedic learning rooted in Baidyanath Dham (Deoghar) and corporate leadership experience. Over 20 years of practice, trusted by students and clients across India and abroad for chart analyses and extensive Vastu audits.',
       experienceYears: 20,
       studentsTaught: 5200,
-      avatarUrl: '/images/Acharya_Niraj_Kumar.jpg',
+      avatarUrl: '/images/Acharya_Niraj_Kumar_Headshot.jpg',
       aapkaAstroUrl: 'https://aapkaastro.com',
     },
     highlights: [
@@ -466,7 +466,7 @@ export const INITIAL_COURSES: Course[] = [
       bio: 'Acharya Niraj Kumar brings together deep traditional Vedic learning rooted in Baidyanath Dham (Deoghar) and corporate leadership experience. Over 20 years of practice, trusted by students and clients across India and abroad for chart analyses and extensive Vastu audits.',
       experienceYears: 20,
       studentsTaught: 5200,
-      avatarUrl: '/images/Acharya_Niraj_Kumar.jpg',
+      avatarUrl: '/images/Acharya_Niraj_Kumar_Headshot.jpg',
       aapkaAstroUrl: 'https://aapkaastro.com',
     },
     highlights: [
@@ -508,7 +508,7 @@ export const INITIAL_COURSES: Course[] = [
       bio: 'Acharya Niraj Kumar brings together deep traditional Vedic learning rooted in Baidyanath Dham (Deoghar) and corporate leadership experience. Over 20 years of practice, trusted by students and clients across India and abroad for chart analyses and extensive Vastu audits.',
       experienceYears: 20,
       studentsTaught: 5200,
-      avatarUrl: '/images/Acharya_Niraj_Kumar.jpg',
+      avatarUrl: '/images/Acharya_Niraj_Kumar_Headshot.jpg',
       aapkaAstroUrl: 'https://aapkaastro.com',
     },
     highlights: [
@@ -899,7 +899,7 @@ export const DEMO_USERS: User[] = [
     role: 'OWNER',
     isOwner: true,
     timezone: 'Asia/Kolkata',
-    avatarUrl: '/images/Acharya_Niraj_Kumar.jpg',
+    avatarUrl: '/images/Acharya_Niraj_Kumar_Headshot.jpg',
     enrolledCohortIds: ['cohort-wia-batch-1'],
   },
   {

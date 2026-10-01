@@ -69,7 +69,7 @@ export default function InstructorCoursesPage() {
         bio: 'Acharya Niraj Kumar brings together deep traditional Vedic learning rooted in Baidyanath Dham (Deoghar) and corporate leadership experience. Over 20 years of practice, trusted by students and clients across India and abroad.',
         experienceYears: 20,
         studentsTaught: 5200,
-        avatarUrl: '/images/Acharya_Niraj_Kumar.jpg',
+        avatarUrl: '/images/Acharya_Niraj_Kumar_Headshot.jpg',
         aapkaAstroUrl: 'https://aapkaastro.com',
       },
       highlights: [

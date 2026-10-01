@@ -234,7 +234,7 @@ export default function AdminPortalPage() {
         bio: 'Leading authentic Vedic Astrology mentor with 15+ years of institutional lineage.',
         experienceYears: 15,
         studentsTaught: 5000,
-        avatarUrl: '/images/Acharya_Niraj_Kumar.jpg',
+        avatarUrl: '/images/Acharya_Niraj_Kumar_Headshot.jpg',
         aapkaAstroUrl: 'https://aapkaastro.com',
       },
       highlights: [

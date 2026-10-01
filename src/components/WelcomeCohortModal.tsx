@@ -326,12 +326,33 @@ export default function WelcomeCohortModal({
             </p>
           </div>
 
-          {/* 4. Instructor Attribution & Credential Badge (Clean Solo Credential) */}
-          <div className="flex justify-center mb-3.5">
-            <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-1.5 rounded-xl bg-[#FFFDF9] border border-[#E8A33D]/40 text-[#3B2A1E] text-[11px] sm:text-xs font-medium shadow-sm max-w-full">
-              <GraduationCap className="w-4 h-4 text-[#7B2D26] shrink-0" />
+          {/* 4. Instructor Solo Portrait with Circular Halo Frame & Academic Credential */}
+          <div className="flex flex-col items-center justify-center mb-3.5">
+            {/* Solo Portrait in Intentional Circular Frame / Halo */}
+            <div className="relative mb-2">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-[2.5px] bg-gradient-to-tr from-[#7B2D26] via-[#E8A33D] to-[#7B2D26] shadow-md shadow-[#7B2D26]/20">
+                <div className="w-full h-full rounded-full overflow-hidden border-2 border-[#FFFDF9] bg-[#F5EADB]">
+                  <Image
+                    src="/images/Acharya_Niraj_Kumar_Headshot.jpg"
+                    alt="Acharya Niraj Kumar"
+                    width={80}
+                    height={80}
+                    className="w-full h-full object-cover object-center"
+                    priority
+                  />
+                </div>
+              </div>
+              <div
+                className="absolute -bottom-0.5 -right-0.5 p-1 rounded-full bg-[#7B2D26] text-[#E8A33D] border border-[#FFFDF9] shadow-sm"
+                title="Jyotish Acharya, Bharatiya Vidya Bhavan"
+              >
+                <GraduationCap className="w-3.5 h-3.5" />
+              </div>
+            </div>
+
+            <div className="inline-flex items-center justify-center gap-1.5 px-3 py-1 rounded-xl bg-[#FFFDF9] border border-[#E8A33D]/40 text-[#3B2A1E] text-[11px] sm:text-xs font-medium shadow-sm max-w-full">
               <span className="leading-tight sm:leading-normal font-body">
-                Taught by <strong>Acharya Niraj Kumar</strong> (Jyotish Acharya, BVB New Delhi)
+                Taught by <strong className="text-[#7B2D26]">Acharya Niraj Kumar</strong> (Jyotish Acharya, BVB New Delhi)
               </span>
             </div>
           </div>

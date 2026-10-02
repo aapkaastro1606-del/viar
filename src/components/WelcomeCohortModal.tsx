@@ -94,7 +94,7 @@ export default function WelcomeCohortModal({
       }
 
       // 4. User Logged-In Suppression Check:
-      // Strictly suppressed for logged-in users (matching Aapaka Astro's welcome popup pattern)
+      // Strictly suppressed for logged-in users (matching Aapka Astro's welcome popup pattern)
       const currentUser = ViarStore.getCurrentUser();
       if (currentUser) {
         return;
@@ -298,7 +298,7 @@ export default function WelcomeCohortModal({
               </span>
             </div>
             <div className="font-body text-[10px] text-[#3B2A1E]/70 font-medium">
-              In Academic Lineage with Aapaka Astro
+              In Academic Lineage with Aapka Astro
             </div>
           </div>
 
@@ -453,7 +453,7 @@ export default function WelcomeCohortModal({
                 onClick={handleClose}
                 className="font-semibold text-[#7B2D26] hover:text-[#521d18] underline decoration-[#E8A33D] underline-offset-2 transition"
               >
-                Visit Aapaka Astro &rarr;
+                Visit Aapka Astro &rarr;
               </a>
             </p>
           </div>

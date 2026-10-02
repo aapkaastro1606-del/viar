@@ -16,7 +16,8 @@ import {
   BookOpen,
   ExternalLink,
   Flame,
-  Star
+  Star,
+  Building2
 } from 'lucide-react';
 import { ViarStore } from '@/lib/store';
 import { Course, Cohort } from '@/lib/types';
@@ -69,7 +70,7 @@ export default function HomePage() {
                 height={18}
                 className="w-4 h-4 object-contain inline-block"
               />
-              <span>Vihangam Institute of Astrology and Research • By Aapaka Astro</span>
+              <span>Vihangam Institute of Astrology and Research • By Aapka Astro</span>
             </div>
 
             {/* Headline */}
@@ -81,7 +82,7 @@ export default function HomePage() {
 
             {/* Subtitle */}
             <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-10 font-normal">
-              A comprehensive self-paced video education platform run by <strong className="text-amber-300">Acharya Niraj Kumar</strong> (Jyotish Acharya, Bharatiya Vidya Bhavan New Delhi; founder of <a href="https://aapkaastro.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-white">Aapaka Astro</a>). 
+              A comprehensive self-paced video education platform run by <strong className="text-amber-300">Acharya Niraj Kumar</strong> (Jyotish Acharya, Bharatiya Vidya Bhavan New Delhi; founder of <a href="https://aapkaastro.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-white">Aapka Astro</a>). 
               Blending 20+ years of traditional learning from Baidyanath Dham (Deoghar) with 20+ years of senior executive leadership, trusted by over 5,200 students and clients, and backed by a global community of 26,000+ followers.
             </p>
 
@@ -405,7 +406,7 @@ export default function HomePage() {
                   />
                 </div>
                 <div className="absolute -bottom-4 -right-2 bg-[#0f172a] border border-amber-400/40 px-3.5 py-1.5 rounded-xl shadow-xl">
-                  <p className="text-[11px] font-bold text-amber-300">Founder, Aapaka Astro & VIAR</p>
+                  <p className="text-[11px] font-bold text-amber-300">Founder, Aapka Astro & VIAR</p>
                 </div>
               </div>
             </div>
@@ -416,7 +417,7 @@ export default function HomePage() {
                 Acharya Niraj Kumar
               </h3>
               <p className="text-sm font-semibold text-amber-300 mb-6">
-                Founder, Aapaka Astro • Jyotish Acharya (Bhartiya Vidya Bhawan) • AstroVastu Expert • 26,000+ Followers
+                Founder, Aapka Astro • Jyotish Acharya (Bhartiya Vidya Bhawan) • AstroVastu Expert • 26,000+ Followers
               </p>
               <div className="space-y-4 text-slate-300 text-sm leading-relaxed">
                 <p>
@@ -424,7 +425,7 @@ export default function HomePage() {
                   Acharya Niraj Kumar brings together deep traditional Vedic learning and rare real-world corporate insight. Raised in the spiritually rich ecosystem of Baidyanath Dham, Deoghar, and trained under Late Guru Shri B. B. Tiwari, his practice spans over two decades, trusted by students and clients across India and abroad.
                 </p>
                 <p>
-                  Having served clients worldwide through <a href="https://aapkaastro.com" target="_blank" rel="noopener noreferrer" className="text-amber-400 underline font-semibold">Aapaka Astro (aapkaastro.com)</a> and holding past executive roles as Vice President and Business Head at Reliance Retail and Metro Cash & Carry, Acharya founded <strong>Vihangam Institute of Astrology and Research (VIAR)</strong> to systematically train serious learners in authentic Jyotish without superstition.
+                  Having served clients worldwide through <a href="https://aapkaastro.com" target="_blank" rel="noopener noreferrer" className="text-amber-400 underline font-semibold">Aapka Astro (aapkaastro.com)</a> and holding past executive roles as Vice President and Business Head at Reliance Retail and Metro Cash & Carry, Acharya founded <strong>Vihangam Institute of Astrology and Research (VIAR)</strong> to systematically train serious learners in authentic Jyotish without superstition.
                 </p>
               </div>
 
@@ -810,14 +811,14 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             
-            {/* Sister Site 1: Aapaka Astro */}
+            {/* Sister Site 1: Aapka Astro */}
             <div className="cosmic-card p-8 rounded-2xl border border-amber-500/30 hover:border-amber-400/50 transition flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-3">
                     <Image
                       src="/images/aapkaastro-logo.png"
-                      alt="Aapaka Astro Logo"
+                      alt="Aapka Astro Logo"
                       width={120}
                       height={32}
                       className="h-8 w-auto object-contain brightness-110"
@@ -854,30 +855,28 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Sister Site 2: DOW Consulting */}
+            {/* Corporate & Enterprise Advisory */}
             <div className="cosmic-card p-8 rounded-2xl border border-sky-500/30 hover:border-sky-400/50 transition flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="px-3 py-1 rounded-full text-xs font-bold bg-sky-500/20 text-sky-300 border border-sky-500/30">
                     {SISTER_SERVICES.dowConsulting.badge}
                   </span>
-                  <ExternalLink className="w-4 h-4 text-sky-400" />
+                  <Building2 className="w-4 h-4 text-sky-400" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">{SISTER_SERVICES.dowConsulting.name}</h3>
-                <p className="text-xs font-semibold text-sky-300 mb-4">{SISTER_SERVICES.dowConsulting.domain} • Enterprise Advisory</p>
+                <p className="text-xs font-semibold text-sky-300 mb-4">{SISTER_SERVICES.dowConsulting.domain} • Executive Consultation</p>
                 <p className="text-sm text-slate-300 leading-relaxed mb-6">
                   {SISTER_SERVICES.dowConsulting.description}
                 </p>
               </div>
               <div className="pt-6 border-t border-white/10">
-                <a
+                <Link
                   href={SISTER_SERVICES.dowConsulting.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="px-5 py-3 rounded-xl text-xs font-bold text-center block bg-sky-600/20 hover:bg-sky-600/30 text-sky-200 border border-sky-500/40 transition"
                 >
                   {SISTER_SERVICES.dowConsulting.ctaText} &rarr;
-                </a>
+                </Link>
               </div>
             </div>
 

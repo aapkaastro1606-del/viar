@@ -137,7 +137,7 @@ export default function InstructorAnalyticsPage() {
             </div>
 
             <div className="p-3.5 rounded-xl bg-purple-500/10 border border-purple-500/20 text-xs text-purple-300">
-              <strong>Ecosystem SSO Ready:</strong> Client satellite accounts are unified under the same Clerk instance across Viar.in, AapkaAstro.com, and DOWConsulting.in.
+              <strong>Ecosystem SSO Ready:</strong> Client satellite accounts are unified under the same Clerk instance across Viar.in and AapkaAstro.com.
             </div>
           </div>
 

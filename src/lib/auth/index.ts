@@ -11,14 +11,13 @@ import { assignRoleForUser } from './permissions';
  * Final Confirmed Auth Decision:
  * - Clerk Email/Password + Google OAuth ONLY.
  * - Phone OTP has been dropped everywhere (zero SMS carrier costs, no DLT registration).
- * - Multi-domain / Satellite SSO configuration connects Viar.in, AapkaAstro.com,
- *   and DOW Consulting into a single unified user pool.
+ * - Multi-domain / Satellite SSO configuration connects Viar.in and AapkaAstro.com
+ *   into a single unified user pool.
  * 
  * Architecture Blueprint:
  * 1. In Clerk Dashboard (https://dashboard.clerk.com):
  *    - PRIMARY DOMAIN: `aapkaastro.com`
- *    - SATELLITE DOMAIN 1: `viar.in`
- *    - SATELLITE DOMAIN 2: `dowconsulting.in`
+ *    - SATELLITE DOMAIN: `viar.in`
  * 
  * 2. Environment Variables (.env / Vercel):
  *    // TODO: SWITCH BACK TO LIVE CLERK KEYS ONCE viar.in DNS IS VERIFIED

@@ -1386,13 +1386,13 @@ equiresInternalScroll: false, itsSingleViewport: true â€” occupies **50.1%
 
 ---
 
-## 28. Sister Site Brand Name Standardization: "Aapaka Astro" (September 2026)
+## 28. Sister Site Brand Name Standardization: "Aapka Astro" (September 2026)
 
 ### 28.1 Architectural Scope & Brand Alignment
-Per confirmed client decision, all brand references to the companion consultation practice are standardized to **"Aapaka Astro"** across the site, matching the correction implemented in that repository.
+Per confirmed client decision, all brand references to the companion consultation practice are standardized to **"Aapka Astro"** across the site, matching the official brand across all properties.
 
 ### 28.2 Functional Preservation Matrix
-- **Brand Display Name**: Updated from Aapka Astro to Aapaka Astro across all user-facing interfaces, credentials, navigation headers, footers, instructor bios, testimonials, certificates, legal agreements, and cross-promotion cards.
+- **Brand Display Name**: Standardized universally to **Aapka Astro** across all user-facing interfaces, credentials, navigation headers, footers, instructor bios, testimonials, certificates, legal agreements, and cross-promotion cards.
 - **Preserved Technical Infrastructure**:
   - **Domains & URLs**: Strictly preserved as apkaastro.com (e.g., https://aapkaastro.com).
   - **Email Addresses**: Strictly preserved as sk@aapkaastro.com.
@@ -1438,7 +1438,7 @@ Per confirmed client decision, all brand references to the companion consultatio
 4. **Pricing Invariance Maintained**:
    - Tuition rates strictly preserved at **â‚¹4,999 INR /  USD** (one-time fee with lifetime access).
 5. **Sister Site Cross-Promotion Standardized**:
-   - Brand name consistently updated to **"Aapaka Astro"** across all references.
+   - Brand name consistently updated to **"Aapka Astro"** across all references.
 
 ### 29.2 Honest Status Disclosure on Video Media Files
 - **Status of Video Files**: The client's actual raw MP4 video lecture files for the 23 syllabus modules have not yet been recorded / delivered by the client.
@@ -1545,7 +1545,7 @@ In the latest update, the client explicitly provided the domestic Indian pricing
 ## 32. First-Visit Course Promotional Popup Implementation & Refinement (October 2026)
 
 ### 32.1 Architecture & Behavioral Pattern
-In accordance with the established pattern from Aapaka Astro, the promotional modal (src/components/WelcomeCohortModal.tsx) serves as an attention-grabbing, first-visit showcase for the flagship course:
+In accordance with the established pattern from Aapka Astro, the promotional modal (src/components/WelcomeCohortModal.tsx) serves as an attention-grabbing, first-visit showcase for the flagship course:
 - **Frequency Capping**: Displays once per visitor per session via sessionStorage (iar_welcome_modal_shown_session) and supports persistent dismissal via localStorage (iar_welcome_modal_dismissed_v1).
 - **Strict User Suppression**:
   - Automatically suppressed for logged-in users (ViarStore.getCurrentUser() check).
@@ -1569,7 +1569,7 @@ In accordance with the established pattern from Aapaka Astro, the promotional mo
    - Restructured the container with generous vertical breathing room, explicit block margins (`mb-3`), and responsive line-heights (`leading-snug sm:leading-normal`).
 2. **Site-Consistent Warm Ivory, Maroon & Gold Theme**:
    - Completely replaced the unrequested dark navy "cosmic" theme.
-   - Restored the established warm ivory/cream background (`#FBF3E7`), deep maroon (`#7B2D26`), marigold gold (`#E8A33D`), and deep brown typography (`#3B2A1E`), matching all other pages across Viar.in and Aapaka Astro.
+   - Restored the established warm ivory/cream background (`#FBF3E7`), deep maroon (`#7B2D26`), marigold gold (`#E8A33D`), and deep brown typography (`#3B2A1E`), matching all other pages across Viar.in and Aapka Astro.
    - Replaced cold dark navy modal backdrop overlay (`bg-slate-950/70`) with warm deep brown/maroon scrim (`bg-[#3B2A1E]/75 backdrop-blur-sm`).
    - Card border styled in marigold gold (`border-2 border-[#E8A33D]/60 shadow-2xl shadow-[#7B2D26]/25`).
    - Top accent bar rendered in brand maroon & gold gradient.
@@ -1596,3 +1596,32 @@ In accordance with the established pattern from Aapaka Astro, the promotional mo
 - **Unit & Integration Suite**: 89/89 tests passing (`npm test`).
 - **ESLint**: 0 warnings, 0 errors (`npm run lint`).
 - **Next.js Production Build**: Clean static generation across all 44 routes (`npm run build`).
+
+---
+
+## 33. Comprehensive Defect Remediation: Brand Name, Self-Paced Testimonials & Dead Links (October 2026)
+
+### 33.1 Defects Identified & Resolved
+1. **Universal Spelling Standardization to "Aapka Astro"**:
+   - Eliminated all occurrences of the "Aapaka" misspelling across the entire codebase (`src/`, `config/`, `components/`, `data/`, `app/`, `tests/`, and documentation).
+   - Brand name consistently restored to **Aapka Astro** across navigation bars, headers, footers, instructor credentials, course cards, FAQ responses, download templates, certificate previews, and legal policies.
+   - All underlying technical entities (domain `aapkaastro.com`, email `ask@aapkaastro.com`, social media handles, and git remotes) strictly preserved.
+
+2. **Testimonial Alignment with 100% Self-Paced Architecture**:
+   - Identified legacy cohort-based testimonials mentioning live Zoom scheduling (e.g. "attended live at 7:30 AM PST", "converted every live class to British time") that directly contradicted the page's "100% Self-Paced • Zero Schedule Stress" model.
+   - Rewrote international and domestic testimonials in `src/lib/data.ts`:
+     - **Sarah Jenkins (UK)**: Praises the 23 on-demand HD video modules, evening self-paced flexibility with zero timezone pressure, downloadable notes, and practical chart breakdowns.
+     - **David K. Miller (California, USA)**: Highlights how the on-demand format accommodates executive schedules with zero early morning live call stress, allowing in-depth review of calculations and chart case studies at his own pace.
+     - **Priya Sharma (New Delhi)**: Endorsement of Acharya Niraj Kumar's authentic guidance with standardized Aapka Astro brand name.
+     - **Pooja Deshmukh (Pune)**: Commends planetary psychology modules, practical chart labs, and verifiable certification.
+
+3. **Elimination of Dead Links to `dowconsulting.in` & Logical Inquiry Routing**:
+   - `dowconsulting.in` was planned as a third domain for corporate advisory but was never registered or built. Hardcoded external links previously led to a dead domain.
+   - Centralized configuration in `src/config/services.ts` updated:
+     - Replaced `url: 'https://dowconsulting.in'` with internal routing `url: '/contact'`.
+     - Replaced `domain: 'dowconsulting.in'` with `domain: 'By Executive Consultation'`.
+     - Updated CTA text to `'Inquire for Corporate Advisory'`.
+   - Updated all callouts in `src/app/page.tsx`, `src/app/about/page.tsx`, `src/app/contact/page.tsx`, and `src/components/Footer.tsx`:
+     - Converted dead external links to internal Next.js `<Link href="/contact">` for corporate advisory inquiries.
+     - Added direct executive contact channels: email `ask@aapkaastro.com` and WhatsApp `+91 93112 15564`.
+   - Removed references to `dowconsulting.in` in Single Sign-On notices across login, signup, and authentication modals, reflecting the true two-site ecosystem (`Viar.in` & `Aapka Astro`).

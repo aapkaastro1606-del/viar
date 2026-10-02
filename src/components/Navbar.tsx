@@ -147,7 +147,7 @@ export default function Navbar() {
                   rel="noopener noreferrer" 
                   className="text-amber-300/90 hover:text-amber-200 underline decoration-amber-400/30 flex items-center gap-0.5 transition"
                 >
-                  Aapaka Astro <ExternalLink className="w-2.5 h-2.5 inline" />
+                  Aapka Astro <ExternalLink className="w-2.5 h-2.5 inline" />
                 </a>
               </p>
             </div>

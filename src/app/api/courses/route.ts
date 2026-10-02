@@ -121,7 +121,7 @@ export async function POST(req: NextRequest) {
       badge: 'New Course',
       instructor: instructor || {
         name: 'Acharya Niraj Kumar',
-        title: 'Founder, Aapaka Astro & Master Astrologer',
+        title: 'Founder, Aapka Astro & Master Astrologer',
         bio: 'Acharya Niraj Kumar brings together deep traditional Vedic learning rooted in Baidyanath Dham (Deoghar) and corporate leadership experience.',
         experienceYears: 20,
         studentsTaught: 5200,

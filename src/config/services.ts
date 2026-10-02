@@ -1,6 +1,6 @@
 /**
  * Sister Ecosystem Services Configuration
- * Centralized configuration for cross-promotion across Viar.in, Aapaka Astro, and DOW Consulting.
+ * Centralized configuration for cross-promotion across Viar.in, Aapka Astro, and Corporate Advisory.
  * Update URLs and descriptions here to reflect across the entire platform.
  */
 
@@ -20,7 +20,7 @@ export interface SisterService {
 
 export const SISTER_SERVICES: Record<'aapkaAstro' | 'dowConsulting', SisterService> = {
   aapkaAstro: {
-    name: 'Aapaka Astro',
+    name: 'Aapka Astro',
     domain: 'aapkaastro.com',
     url: 'https://aapkaastro.com',
     tagline: '1-on-1 Personal Astrology & Vastu Consultations',
@@ -34,13 +34,16 @@ export const SISTER_SERVICES: Record<'aapkaAstro' | 'dowConsulting', SisterServi
     whatsappUrl: 'https://wa.me/919311215564',
   },
   dowConsulting: {
-    name: 'DOW Consulting',
-    domain: 'dowconsulting.in',
-    url: 'https://dowconsulting.in',
+    name: 'Corporate Advisory',
+    domain: 'By Executive Consultation',
+    url: '/contact',
     tagline: 'Corporate & Enterprise Astrology Advisory',
     description:
       'Strategic Vedic timing (Muhurta), executive leadership alignment, corporate launch planning, and commercial real estate Vastu advisory.',
-    ctaText: 'Explore Corporate Advisory',
+    ctaText: 'Inquire for Corporate Advisory',
     badge: 'Enterprise Advisory',
+    phone: '+91 93112 15564',
+    email: 'ask@aapkaastro.com',
+    whatsappUrl: 'https://wa.me/919311215564?text=Hello%20Acharya%20ji,%20I%20am%20interested%20in%20Corporate%20Advisory%20consultation.',
   },
 };

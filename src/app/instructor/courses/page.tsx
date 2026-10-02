@@ -64,7 +64,7 @@ export default function InstructorCoursesPage() {
       quizUnlockCondition,
       instructor: {
         name: 'Acharya Niraj Kumar',
-        title: 'Founder, Aapaka Astro & Master Astrologer',
+        title: 'Founder, Aapka Astro & Master Astrologer',
         /* PLACEHOLDER: Replace with verified chart analysis count once confirmed across both sites */
         bio: 'Acharya Niraj Kumar brings together deep traditional Vedic learning rooted in Baidyanath Dham (Deoghar) and corporate leadership experience. Over 20 years of practice, trusted by students and clients across India and abroad.',
         experienceYears: 20,

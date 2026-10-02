@@ -10,7 +10,6 @@ export const metadata: Metadata = {
     'what is astrology course',
     'astrology certification courses',
     'vihangam institute of astrology and research',
-    'aapaka astro classes',
     'aapka astro classes',
   ],
   openGraph: {

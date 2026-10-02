@@ -199,7 +199,7 @@ export default function CourseDetailClient({ slug }: CourseDetailClientProps) {
                   </span>
                 </div>
                 <p className="text-xs text-amber-400/90 font-medium">
-                  Founder, Aapaka Astro • {course.instructor.experienceYears}+ Years Vedic Experience
+                  Founder, Aapka Astro • {course.instructor.experienceYears}+ Years Vedic Experience
                 </p>
                 {/* PLACEHOLDER: replace with real content */}
                 <p className="text-xs text-slate-400 leading-relaxed pt-1">

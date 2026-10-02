@@ -27,7 +27,7 @@ export const PLACEHOLDER_TESTIMONIALS: Testimonial[] = [
     role: 'Entrepreneur',
     rating: 5,
     highlight: 'Accurate readings & life-shifting Vastu guidance',
-    content: 'I was going through a very tough phase in my career and personal life. The Kundli reading and Vastu suggestions from Acharya Niraj Kumar at Aapaka Astro were incredibly accurate. Within a few months of following his remedies, I saw a massive positive shift. Highly recommended!',
+    content: 'I was going through a very tough phase in my career and personal life. The Kundli reading and Vastu suggestions from Acharya Niraj Kumar at Aapka Astro were incredibly accurate. Within a few months of following his remedies, I saw a massive positive shift. Highly recommended!',
   },
   {
     id: 'test-1',
@@ -44,9 +44,9 @@ export const PLACEHOLDER_TESTIMONIALS: Testimonial[] = [
     location: 'London, United Kingdom',
     role: 'Mindfulness Coach',
     rating: 5,
-    highlight: 'Flawless timezone sync & HD recordings',
+    highlight: '100% self-paced flexibility with zero timezone stress',
     isInternational: true,
-    content: 'Living in the UK, I was worried about class timing differences. The platform automatically converted every live class to British time on my dashboard, and when I had client sessions, the HD recordings and notes were ready within hours.',
+    content: 'Living in the UK with a packed client schedule, finding a course without rigid Zoom timings was critical. The 23 high-definition on-demand video modules allowed me to learn late evenings at my own pace. Having downloadable lesson notes and practical chart breakdowns made the entire learning experience seamless.',
   },
   {
     id: 'test-3',
@@ -55,7 +55,7 @@ export const PLACEHOLDER_TESTIMONIALS: Testimonial[] = [
     role: 'Psychologist',
     rating: 5,
     highlight: 'Transformed my understanding of human archetypes',
-    content: 'The 3-week block on reading planetary psychology and bhavas gave me profound insight into client behavior patterns. The exam and verified certificate signed by Acharya Niraj Kumar are genuine credentials.',
+    content: 'The modules on planetary psychology, houses, and bhavas gave me profound insight into client behavior patterns. Being able to rewatch the video lessons and test my knowledge with practical chart labs before the final certification exam was invaluable.',
   },
   {
     id: 'test-4',
@@ -63,9 +63,9 @@ export const PLACEHOLDER_TESTIMONIALS: Testimonial[] = [
     location: 'California, USA',
     role: 'Executive Consultant',
     rating: 5,
-    highlight: 'Attended live at 7:30 AM PST seamlessly',
+    highlight: 'On-demand video modules fit my executive schedule',
     isInternational: true,
-    content: 'Being on US Pacific Time, having calendar exports and automatic time conversion in my student portal made attending live classes completely friction-free. Acharya Niraj Kumar answers questions with immense warmth and depth.',
+    content: 'Being based in California with demanding executive commitments, the self-paced video format meant zero scheduling pressure or early morning live calls. I could pause, review complex astrological calculations, and study real-world chart case studies whenever time permitted. Acharya Niraj Kumar teaches with immense depth, clarity, and scientific precision.',
   },
   {
     id: 'test-5',
@@ -337,7 +337,7 @@ export const INITIAL_COURSES: Course[] = [
     badge: 'Self-Paced Masterclass',
     instructor: {
       name: 'Acharya Niraj Kumar',
-      title: 'Jyotish Acharya (Bharatiya Vidya Bhavan) | Founder, Aapaka Astro & VIAR',
+      title: 'Jyotish Acharya (Bharatiya Vidya Bhavan) | Founder, Aapka Astro & VIAR',
       bio: 'Acharya Niraj Kumar brings together authentic traditional Vedic learning rooted in Baidyanath Dham (Deoghar) and prestigious academic credentials as a certified Jyotish Acharya from the legendary Bharatiya Vidya Bhavan - Institute of Astrology, Kasturba Gandhi Marg, New Delhi (under renowned advisor K.N. Rao), alongside certified qualifications as a Logical Vastu Expert and Astro Vastu specialist. Blending 20+ years of senior executive leadership (former Vice President at Reliance Retail, Metro Cash & Carry, and NIF Food) with 20+ years of astrological practice, he is trusted by over 5,200 students and consultation clients across India and globally, backed by an active community of 26,000+ followers.',
       experienceYears: 20,
       studentsTaught: 5200,
@@ -347,7 +347,7 @@ export const INITIAL_COURSES: Course[] = [
         'Jyotish Acharya — Bharatiya Vidya Bhavan (under Advisor K.N. Rao)',
         'Logical Vastu Expert — ISO 9001:2015 Certified',
         'Certified Astro Vastu Specialist (Jyotishvedanghub)',
-        'Founder of Aapaka Astro (26k+ Community & 5,200+ Consultations)',
+        'Founder of Aapka Astro (26k+ Community & 5,200+ Consultations)',
       ],
     },
     highlights: [
@@ -383,11 +383,11 @@ export const INITIAL_COURSES: Course[] = [
       },
       {
         question: 'Who is the instructor?',
-        answer: 'The course is created and taught exclusively by Acharya Niraj Kumar, a certified Jyotish Acharya from the prestigious Bharatiya Vidya Bhavan - Institute of Astrology, New Delhi (under guru K.N. Rao), Logical Vastu Expert, and founder of Aapaka Astro (26k+ followers, 5,200+ clients).',
+        answer: 'The course is created and taught exclusively by Acharya Niraj Kumar, a certified Jyotish Acharya from the prestigious Bharatiya Vidya Bhavan - Institute of Astrology, New Delhi (under guru K.N. Rao), Logical Vastu Expert, and founder of Aapka Astro (26k+ followers, 5,200+ clients).',
       },
       {
-        question: 'What is the relationship between VIAR and Aapaka Astro?',
-        answer: 'Vihangam Institute of Astrology and Research (VIAR, viar.in) is the educational academy founded by Acharya Niraj Kumar to train students in authentic Vedic sciences. Aapaka Astro (aapkaastro.com) is his personal consultation practice.',
+        question: 'What is the relationship between VIAR and Aapka Astro?',
+        answer: 'Vihangam Institute of Astrology and Research (VIAR, viar.in) is the educational academy founded by Acharya Niraj Kumar to train students in authentic Vedic sciences. Aapka Astro (aapkaastro.com) is his personal consultation practice.',
       },
       {
         question: 'Is the tuition a one-time payment?',
@@ -418,7 +418,7 @@ export const INITIAL_COURSES: Course[] = [
     badge: 'Coming Soon',
     instructor: {
       name: 'Acharya Niraj Kumar',
-      title: 'Founder, Aapaka Astro & Master Astrologer | AstroVastu Expert',
+      title: 'Founder, Aapka Astro & Master Astrologer | AstroVastu Expert',
       /* PLACEHOLDER: Replace with verified chart analysis count once confirmed across both sites */
       bio: 'Acharya Niraj Kumar brings together deep traditional Vedic learning rooted in Baidyanath Dham (Deoghar) and corporate leadership experience. Over 20 years of practice, trusted by students and clients across India and abroad for chart analyses and extensive Vastu audits.',
       experienceYears: 20,
@@ -461,7 +461,7 @@ export const INITIAL_COURSES: Course[] = [
     badge: 'Coming Soon',
     instructor: {
       name: 'Acharya Niraj Kumar',
-      title: 'Founder, Aapaka Astro & Master Astrologer | AstroVastu Expert',
+      title: 'Founder, Aapka Astro & Master Astrologer | AstroVastu Expert',
       /* PLACEHOLDER: Replace with verified chart analysis count once confirmed across both sites */
       bio: 'Acharya Niraj Kumar brings together deep traditional Vedic learning rooted in Baidyanath Dham (Deoghar) and corporate leadership experience. Over 20 years of practice, trusted by students and clients across India and abroad for chart analyses and extensive Vastu audits.',
       experienceYears: 20,
@@ -503,7 +503,7 @@ export const INITIAL_COURSES: Course[] = [
     badge: 'Coming Soon',
     instructor: {
       name: 'Acharya Niraj Kumar',
-      title: 'Founder, Aapaka Astro & Master Astrologer | AstroVastu Expert',
+      title: 'Founder, Aapka Astro & Master Astrologer | AstroVastu Expert',
       /* PLACEHOLDER: Replace with verified chart analysis count once confirmed across both sites */
       bio: 'Acharya Niraj Kumar brings together deep traditional Vedic learning rooted in Baidyanath Dham (Deoghar) and corporate leadership experience. Over 20 years of practice, trusted by students and clients across India and abroad for chart analyses and extensive Vastu audits.',
       experienceYears: 20,
@@ -930,7 +930,7 @@ export const DEMO_CERTIFICATES: Certificate[] = [
     scorePercentage: 90,
     grade: 'Distinction',
     instructorName: 'Acharya Niraj Kumar',
-    instructorTitle: 'Jyotish Acharya (Bharatiya Vidya Bhavan) | Founder, VIAR & Aapaka Astro',
+    instructorTitle: 'Jyotish Acharya (Bharatiya Vidya Bhavan) | Founder, VIAR & Aapka Astro',
     verificationUrl: 'https://viar.in/verify/VIAR-2026-WIA-9842',
   },
 ];

@@ -38,7 +38,6 @@ export const metadata: Metadata = {
     'jyotish acharya',
     'acharya niraj kumar',
     'self paced astrology course',
-    'aapaka astro',
     'aapka astro',
     'learn astrology online',
   ],

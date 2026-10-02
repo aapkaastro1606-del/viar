@@ -38,7 +38,7 @@ export default function Footer() {
               >
                 <Image
                   src="/images/aapkaastro-logo.png"
-                  alt="Aapaka Astro"
+                  alt="Aapka Astro"
                   width={60}
                   height={18}
                   className="h-4 w-auto object-contain brightness-110"
@@ -46,15 +46,12 @@ export default function Footer() {
                 <span>{SISTER_SERVICES.aapkaAstro.name}</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
-              <a
-                href={SISTER_SERVICES.dowConsulting.url}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/contact"
                 className="px-4 py-2.5 rounded-xl text-xs font-bold bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 border border-purple-500/30 inline-flex items-center gap-1.5 transition"
               >
-                <span>{SISTER_SERVICES.dowConsulting.name} ({SISTER_SERVICES.dowConsulting.domain})</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
+                <span>Corporate Advisory Inquiries</span>
+              </Link>
             </div>
           </div>
         </div>
@@ -102,7 +99,7 @@ export default function Footer() {
               <ShieldCheck className="w-5 h-5 text-amber-400" />
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-white">Aapaka Astro Pedigree</h4>
+              <h4 className="text-sm font-semibold text-white">Aapka Astro Pedigree</h4>
               <p className="text-xs text-slate-400 mt-0.5">
                 Taught directly by Acharya Niraj Kumar, founder of aapkaastro.com.
               </p>
@@ -208,15 +205,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a
-                  href="https://dowconsulting.in"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/contact"
                   className="hover:text-sky-300 transition text-slate-400 flex items-center gap-1"
                 >
-                  <span>DOW Consulting</span>
-                  <ExternalLink className="w-2.5 h-2.5" />
-                </a>
+                  <span>Corporate Advisory Inquiries</span>
+                </Link>
               </li>
             </ul>
           </div>
@@ -341,7 +335,7 @@ export default function Footer() {
         <div className="pt-6 border-t border-white/5 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 gap-4">
           <p>© {new Date().getFullYear()} Viar.in (Vihangam Institute of Astrology and Research). All rights reserved.</p>
           <div className="flex items-center space-x-6">
-            <span>Powered by Aapaka Astro Network</span>
+            <span>Powered by Aapka Astro Network</span>
             <span>Secure 256-Bit SSL Encrypted</span>
             <span>100% Self-Paced Video Learning</span>
           </div>

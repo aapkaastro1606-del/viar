@@ -230,7 +230,7 @@ export default function AdminPortalPage() {
       featured: false,
       instructor: {
         name: 'Acharya Niraj Kumar',
-        title: 'Founder, Aapaka Astro & Master Astrologer',
+        title: 'Founder, Aapka Astro & Master Astrologer',
         bio: 'Leading authentic Vedic Astrology mentor with 15+ years of institutional lineage.',
         experienceYears: 15,
         studentsTaught: 5000,
@@ -949,7 +949,7 @@ export default function AdminPortalPage() {
                 Clerk charges an expensive monthly subscription plus add-on fees for custom organization roles. We built this permission system inside your existing free Neon PostgreSQL database (<code className="text-amber-300">StaffPermission</code> table) and verified it in application code.
               </p>
               <div className="pt-2 border-t border-amber-500/20 flex flex-wrap gap-4 text-[11px] text-slate-400">
-                <span>• <strong>Isolated Scope:</strong> Permissions here apply strictly to Viar.in. Staff have zero access to Aapaka Astro or DOW Consulting.</span>
+                <span>• <strong>Isolated Scope:</strong> Permissions here apply strictly to Viar.in. Staff have zero access to Aapka Astro or sister systems.</span>
                 <span>• <strong>Owner Anchor:</strong> Anchored to <code className="text-amber-200">{primaryOwnerEmail}</code>. Cannot be overridden by employees.</span>
                 <span>• <strong>Audit Trail:</strong> Soft-revocations preserve full historical timestamps without permanent row deletion.</span>
               </div>

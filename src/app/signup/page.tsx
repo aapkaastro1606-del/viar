@@ -97,7 +97,7 @@ function SignupContent() {
           {/* Multi-Domain Satellite SSO Notice */}
           <div className="mt-4 p-2.5 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center gap-2 text-[11px] text-slate-300">
             <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-            <span>Single Sign-On across Viar.in, AapkaAstro & DOW Consulting</span>
+            <span>Single Sign-On across Viar.in & Aapka Astro</span>
           </div>
         </div>
 

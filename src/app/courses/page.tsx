@@ -196,7 +196,7 @@ export default function CoursesPage() {
             rel="noopener noreferrer"
             className="px-4 py-2 rounded-xl text-xs font-semibold text-slate-200 bg-white/5 hover:bg-white/10 border border-white/10 transition shrink-0"
           >
-            Visit Aapaka Astro Consultations &rarr;
+            Visit Aapka Astro Consultations &rarr;
           </a>
         </div>
 

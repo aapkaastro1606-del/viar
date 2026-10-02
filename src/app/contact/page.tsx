@@ -97,7 +97,7 @@ export default function ContactPage() {
                 <div className="flex items-center gap-2">
                   <Image
                     src="/images/aapkaastro-logo.png"
-                    alt="Aapaka Astro"
+                    alt="Aapka Astro"
                     width={90}
                     height={24}
                     className="h-6 w-auto object-contain brightness-110"
@@ -134,18 +134,13 @@ export default function ContactPage() {
             {/* Corporate Advisory Note */}
             <div className="cosmic-card p-6 rounded-2xl border border-sky-500/20 bg-[#0d1424] space-y-2">
               <span className="text-[11px] font-bold uppercase tracking-wider text-sky-300">{SISTER_SERVICES.dowConsulting.badge}</span>
+              <h4 className="text-sm font-bold text-white">{SISTER_SERVICES.dowConsulting.name}</h4>
               <p className="text-xs text-slate-300 leading-relaxed">
                 {SISTER_SERVICES.dowConsulting.description}
               </p>
-              <a
-                href={SISTER_SERVICES.dowConsulting.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs text-sky-300 hover:text-white underline font-semibold inline-flex items-center gap-1"
-              >
-                <span>{SISTER_SERVICES.dowConsulting.domain}</span>
-                <ExternalLink className="w-3 h-3" />
-              </a>
+              <p className="text-xs text-slate-400 pt-1">
+                For executive corporate inquiries, strategic launch Muhurta, or commercial Vastu audits, contact directly via <a href="mailto:ask@aapkaastro.com" className="text-sky-300 underline font-semibold">ask@aapkaastro.com</a> or WhatsApp <a href="https://wa.me/919311215564" target="_blank" rel="noopener noreferrer" className="text-emerald-300 underline font-semibold">+91 93112 15564</a>.
+              </p>
             </div>
 
           </div>

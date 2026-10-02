@@ -933,7 +933,7 @@ function StudentDashboardContent() {
                       VIAR<span className="text-amber-400">.IN</span> ACADEMY
                     </span>
                     <p className="text-xs uppercase tracking-widest text-amber-300 font-semibold mt-1">
-                      Vihangam Institute of Astrology and Research • By Aapaka Astro
+                      Vihangam Institute of Astrology and Research • By Aapka Astro
                     </p>
                   </div>
 

@@ -85,7 +85,7 @@ export interface Course {
     title: string;
     bio: string;
     experienceYears: number;
-    studentsTaught: number;
+    studentsTaught?: number;
     avatarUrl: string;
     aapkaAstroUrl: string;
     credentials?: string[];

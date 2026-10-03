@@ -83,7 +83,7 @@ export default function HomePage() {
             {/* Subtitle */}
             <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-10 font-normal">
               A comprehensive self-paced video education platform run by <strong className="text-amber-300">Acharya Niraj Kumar</strong> (Jyotish Acharya, Bharatiya Vidya Bhavan New Delhi; founder of <a href="https://aapkaastro.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-white">Aapka Astro</a>). 
-              Blending 20+ years of traditional learning from Baidyanath Dham (Deoghar) with 20+ years of senior executive leadership, trusted by over 5,200 students and clients, and backed by a global community of 26,000+ followers.
+              Blending 20+ years of traditional learning from Baidyanath Dham (Deoghar) with 20+ years of senior executive leadership, trusted by students and clients across India and abroad, and backed by a community of 26,000+ followers.
             </p>
 
             {/* CTA Group */}
@@ -425,7 +425,7 @@ export default function HomePage() {
                   Acharya Niraj Kumar brings together deep traditional Vedic learning and rare real-world corporate insight. Raised in the spiritually rich ecosystem of Baidyanath Dham, Deoghar, and trained under Late Guru Shri B. B. Tiwari, his practice spans over two decades, trusted by students and clients across India and abroad.
                 </p>
                 <p>
-                  Having served clients worldwide through <a href="https://aapkaastro.com" target="_blank" rel="noopener noreferrer" className="text-amber-400 underline font-semibold">Aapka Astro (aapkaastro.com)</a> and holding past executive roles as Vice President and Business Head at Reliance Retail and Metro Cash & Carry, Acharya founded <strong>Vihangam Institute of Astrology and Research (VIAR)</strong> to systematically train serious learners in authentic Jyotish without superstition.
+                  Having served clients worldwide through <a href="https://aapkaastro.com" target="_blank" rel="noopener noreferrer" className="text-amber-400 underline font-semibold">Aapka Astro (aapkaastro.com)</a> and holding past executive roles as Vice President and Business Head at Reliance Retail, Metro Cash & Carry, and NIF Food, Acharya founded <strong>Vihangam Institute of Astrology and Research (VIAR)</strong> to systematically train serious learners in authentic Jyotish without superstition.
                 </p>
               </div>
 
@@ -865,7 +865,7 @@ export default function HomePage() {
                   <Building2 className="w-4 h-4 text-sky-400" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">{SISTER_SERVICES.dowConsulting.name}</h3>
-                <p className="text-xs font-semibold text-sky-300 mb-4">{SISTER_SERVICES.dowConsulting.domain} • Executive Consultation</p>
+                <p className="text-xs font-semibold text-sky-300 mb-4">{SISTER_SERVICES.dowConsulting.tagline} • By Private Inquiry</p>
                 <p className="text-sm text-slate-300 leading-relaxed mb-6">
                   {SISTER_SERVICES.dowConsulting.description}
                 </p>

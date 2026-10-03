@@ -35,9 +35,9 @@ export const SISTER_SERVICES: Record<'aapkaAstro' | 'dowConsulting', SisterServi
   },
   dowConsulting: {
     name: 'Corporate Advisory',
-    domain: 'By Executive Consultation',
+    domain: 'Private Executive Advisory',
     url: '/contact',
-    tagline: 'Corporate & Enterprise Astrology Advisory',
+    tagline: 'Strategic Business Timing & Commercial Vastu',
     description:
       'Strategic Vedic timing (Muhurta), executive leadership alignment, corporate launch planning, and commercial real estate Vastu advisory.',
     ctaText: 'Inquire for Corporate Advisory',

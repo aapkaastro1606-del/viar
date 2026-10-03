@@ -338,16 +338,15 @@ export const INITIAL_COURSES: Course[] = [
     instructor: {
       name: 'Acharya Niraj Kumar',
       title: 'Jyotish Acharya (Bharatiya Vidya Bhavan) | Founder, Aapka Astro & VIAR',
-      bio: 'Acharya Niraj Kumar brings together authentic traditional Vedic learning rooted in Baidyanath Dham (Deoghar) and prestigious academic credentials as a certified Jyotish Acharya from the legendary Bharatiya Vidya Bhavan - Institute of Astrology, Kasturba Gandhi Marg, New Delhi (under renowned advisor K.N. Rao), alongside certified qualifications as a Logical Vastu Expert and Astro Vastu specialist. Blending 20+ years of senior executive leadership (former Vice President at Reliance Retail, Metro Cash & Carry, and NIF Food) with 20+ years of astrological practice, he is trusted by over 5,200 students and consultation clients across India and globally, backed by an active community of 26,000+ followers.',
+      bio: 'Acharya Niraj Kumar brings together authentic traditional Vedic learning rooted in Baidyanath Dham (Deoghar) and prestigious academic credentials as a certified Jyotish Acharya from the legendary Bharatiya Vidya Bhavan - Institute of Astrology, Kasturba Gandhi Marg, New Delhi (under renowned advisor K.N. Rao), alongside certified qualifications as a Logical Vastu Expert and Astro Vastu specialist. Blending 20+ years of senior executive leadership (former Vice President at Reliance Retail, Metro Cash & Carry, and NIF Food) with 20+ years of astrological practice, he is trusted by students and consultation clients across India and globally, backed by an active community of 26,000+ followers.',
       experienceYears: 20,
-      studentsTaught: 5200,
       avatarUrl: '/images/Acharya_Niraj_Kumar_Headshot.jpg',
       aapkaAstroUrl: 'https://aapkaastro.com',
       credentials: [
         'Jyotish Acharya — Bharatiya Vidya Bhavan (under Advisor K.N. Rao)',
         'Logical Vastu Expert — ISO 9001:2015 Certified',
         'Certified Astro Vastu Specialist (Jyotishvedanghub)',
-        'Founder of Aapka Astro (26k+ Community & 5,200+ Consultations)',
+        'Founder of Aapka Astro (26k+ Community Across India & Abroad)',
       ],
     },
     highlights: [
@@ -383,7 +382,7 @@ export const INITIAL_COURSES: Course[] = [
       },
       {
         question: 'Who is the instructor?',
-        answer: 'The course is created and taught exclusively by Acharya Niraj Kumar, a certified Jyotish Acharya from the prestigious Bharatiya Vidya Bhavan - Institute of Astrology, New Delhi (under guru K.N. Rao), Logical Vastu Expert, and founder of Aapka Astro (26k+ followers, 5,200+ clients).',
+        answer: 'The course is created and taught exclusively by Acharya Niraj Kumar, a certified Jyotish Acharya from the prestigious Bharatiya Vidya Bhavan - Institute of Astrology, New Delhi (under guru K.N. Rao), Logical Vastu Expert, and founder of Aapka Astro (26k+ followers across India and abroad).',
       },
       {
         question: 'What is the relationship between VIAR and Aapka Astro?',
@@ -422,7 +421,6 @@ export const INITIAL_COURSES: Course[] = [
       /* PLACEHOLDER: Replace with verified chart analysis count once confirmed across both sites */
       bio: 'Acharya Niraj Kumar brings together deep traditional Vedic learning rooted in Baidyanath Dham (Deoghar) and corporate leadership experience. Over 20 years of practice, trusted by students and clients across India and abroad for chart analyses and extensive Vastu audits.',
       experienceYears: 20,
-      studentsTaught: 5200,
       avatarUrl: '/images/Acharya_Niraj_Kumar_Headshot.jpg',
       aapkaAstroUrl: 'https://aapkaastro.com',
     },
@@ -465,7 +463,6 @@ export const INITIAL_COURSES: Course[] = [
       /* PLACEHOLDER: Replace with verified chart analysis count once confirmed across both sites */
       bio: 'Acharya Niraj Kumar brings together deep traditional Vedic learning rooted in Baidyanath Dham (Deoghar) and corporate leadership experience. Over 20 years of practice, trusted by students and clients across India and abroad for chart analyses and extensive Vastu audits.',
       experienceYears: 20,
-      studentsTaught: 5200,
       avatarUrl: '/images/Acharya_Niraj_Kumar_Headshot.jpg',
       aapkaAstroUrl: 'https://aapkaastro.com',
     },
@@ -507,7 +504,6 @@ export const INITIAL_COURSES: Course[] = [
       /* PLACEHOLDER: Replace with verified chart analysis count once confirmed across both sites */
       bio: 'Acharya Niraj Kumar brings together deep traditional Vedic learning rooted in Baidyanath Dham (Deoghar) and corporate leadership experience. Over 20 years of practice, trusted by students and clients across India and abroad for chart analyses and extensive Vastu audits.',
       experienceYears: 20,
-      studentsTaught: 5200,
       avatarUrl: '/images/Acharya_Niraj_Kumar_Headshot.jpg',
       aapkaAstroUrl: 'https://aapkaastro.com',
     },

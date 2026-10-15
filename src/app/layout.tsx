@@ -6,6 +6,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import WelcomeCohortModal from '@/components/WelcomeCohortModal';
+import { Analytics } from '@vercel/analytics/next';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -139,6 +140,7 @@ export default function RootLayout({
             <WelcomeCohortModal />
           </ThemeProvider>
         )}
+        <Analytics />
       </body>
     </html>
   );
